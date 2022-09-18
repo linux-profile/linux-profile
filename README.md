@@ -8,18 +8,44 @@
 Linux Profile is a linux profile management tool.
 
 
-### Characteristics and objectives for the project:
-- Saving your current plasma customization
-    - Theme
-    - Window decoration
-    - Colors
-    - Icons
-    - Wallpapers
-    - Layout disposition
-    - Widgets
-- Saving configurations
-    - Alias
-    - Scripts
-    - Packages
-- Save and restore your latte-dock customization per save
-- Explort and import customizations. For transfer to another computer or backup them.
+## Getting Started
+
+`linux_profile` installation involves:
+
+1 - Installing dependencies
+
+2 - Downloading linux_profile core
+
+3 - Installing linux_profile
+
+<hr>
+
+# 1 - Installing dependencies
+
+| Package Manager    | Command                   |
+| :----------------: | :-----------------------: |
+| Aptitude	         | `apt install curl git`    |
+| DNF	             | `dnf install curl git`    |
+| Pacman	         | `pacman -S curl git`      |
+| Zypper	         | `zypper install curl git` |
+
+# 2 - Downloading linux_profile core
+| Method             | Command                                                                                      |
+| :----------------: | :------------------------------------------------------------------------------------------: |
+| Git   	         | `https://github.com/MyLinuxProfile/linux-profile-basic.git ~/.linux_profile --branch master` |
+
+# 3 - Installing linux_profile
+
+<details>
+  <summary>Bash & Git</summary>
+
+  Add the following to ~/.profile:
+
+    export PATH=$PATH":$HOME/.linux_basic"
+
+</details>
+<br>
+
+**RESOURCES**
+- GitHub: https://github.com/MyLinuxProfile/linux-profile-basic
+- Docs:   https://linuxprofile.com
