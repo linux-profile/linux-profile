@@ -5,7 +5,6 @@ import json
 from os import mkdir
 from os.path import exists
 from setuptools import Command
-# from tinydb import TinyDB
 
 from core.utils.file import get_system, get_distro, write_file
 from core.settings.config import (
@@ -28,8 +27,6 @@ class BaseConfig():
         self.file_config = file_config
         self.folder_config = folder_config
         self.folder_profile = folder_profile
-        # self.db = TinyDB('./.config/db.json')
-
         self.setup()
 
     def setup(self):
@@ -74,9 +71,6 @@ class BaseConfig():
             path_file=self.file_config,
             type_file='.json'
         )
-
-        # TinyDB
-        # self.db.insert(config)
 
 
 class BaseCommand(Command):
