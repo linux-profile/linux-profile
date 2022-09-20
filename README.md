@@ -32,7 +32,7 @@ Linux Profile is a linux profile management tool.
 ## 2 - Downloading linux_profile core
 | Method             | Command                                                                                      |
 | :----------------: | :------------------------------------------------------------------------------------------: |
-| Git   	         | `https://github.com/MyLinuxProfile/linux-profile-basic.git ~/.linux_profile --branch master` |
+| Git   	         | `git clone https://github.com/MyLinuxProfile/linux-profile-basic.git ~/.linux_profile --branch master` |
 
 ## 3 - Installing linux_profile
 
