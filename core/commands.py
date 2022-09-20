@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
 
 from core.base.command import BaseCommand
-from core.error import ErrorLoadSettings
+from core.error import (
+    ErrorLoadSettings,
+    ErrorParameterIsMissing,
+    ErrorInvalidValue
+)
 
 from core.handlers.init import Init
 from core.handlers.add import Add
@@ -23,10 +27,10 @@ class CommandAdd(BaseCommand):
 
     def finalize_options(self):
         if self.module is None:
-            raise Exception("Parameter --module is missing")
+            raise ErrorParameterIsMissing("module")
 
         if self.module not in self.modules:
-            raise Exception("Parameter --module invalid value")
+            raise ErrorInvalidValue("module")
 
     def run(self) -> None:
         """Start
