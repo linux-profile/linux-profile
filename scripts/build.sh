@@ -3,7 +3,7 @@
 chmod +x linux_profile.py
 
 cp linux_profile.py linux_profile
-mkdir -p ~/linux_basic
+mkdir -p ~/linuxp
 
-cp -r core/ ~/linux_basic/ 
-cp linux_profile ~/linux_basic/linux_profile
+cp -r core/ ~/linuxp/ 
+cp linux_profile ~/linuxp/linux_profile
