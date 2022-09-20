@@ -10,7 +10,8 @@ from core.utils.file import get_system, get_distro, write_file
 from core.settings.config import (
     FILE_CONFIG,
     FOLDER_CONFIG,
-    FOLDER_PROFILE
+    FOLDER_PROFILE,
+    FOLDER_MODULE
 )
 
 
@@ -20,13 +21,15 @@ class BaseConfig():
             self,
             file_config: str = FILE_CONFIG,
             folder_config: str = FOLDER_CONFIG,
-            folder_profile: str = FOLDER_PROFILE):
+            folder_profile: str = FOLDER_PROFILE,
+            folder_modele: str = FOLDER_MODULE):
         """
         Structure that defines the main variables.
         """
         self.file_config = file_config
         self.folder_config = folder_config
         self.folder_profile = folder_profile
+        self.folder_modele = folder_modele
         self.setup()
 
     def setup(self):
@@ -49,6 +52,9 @@ class BaseConfig():
 
         if not exists(self.folder_profile):
             mkdir(self.folder_profile)
+
+        if not exists(self.folder_modele):
+            mkdir(self.folder_modele)
 
     def add_config(self):
         """
