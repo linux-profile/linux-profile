@@ -29,7 +29,6 @@ class Config(BaseConfig):
         self.folder_module = folder_module
 
 def test_set_folder():
-    
     test_config = Config()
     test_config.set_folder()
 
@@ -38,3 +37,21 @@ def test_set_folder():
     assert path.isdir(FOLDER_MODULE) == True
 
     rmtree(FOLDER_CONFIG)
+
+
+def test_add_config():
+    test_config = Config()
+    test_config.set_folder()
+    test_config.add_config()
+
+    assert path.isfile("{}.json".format(FILE_CONFIG)) == True
+
+def test_load_config():
+    test_config = Config()
+    test_config.set_folder()
+    test_config.add_config()
+
+    test_config.load_config()
+
+    assert test_config.distro
+    assert test_config.system
