@@ -6,7 +6,7 @@ from os import mkdir
 from os.path import exists
 from setuptools import Command
 
-from core.utils.file import get_system, get_distro, write_file
+from core.utils.file import get_system, get_distro, write_file, read_file
 from core.settings.config import (
     FILE_CONFIG,
     FOLDER_CONFIG,
@@ -30,6 +30,10 @@ class BaseConfig():
         self.folder_config = folder_config
         self.folder_profile = folder_profile
         self.folder_modele = folder_modele
+
+        self.system = {}
+        self.distro = {}
+
         self.setup()
 
     def setup(self):
@@ -39,6 +43,7 @@ class BaseConfig():
         """
         self.set_folder()
         self.add_config()
+        self.load_config()
 
     def set_folder(self) -> None:
         """
@@ -77,6 +82,23 @@ class BaseConfig():
             path_file=self.file_config,
             type_file='.json'
         )
+
+    def load_config(self) -> None:
+        """
+        Load Config
+
+        Loads basic configuration information for use
+        in the application and internal operations.
+        """
+
+        config = read_file(
+            path_file=self.file_config,
+            type_file='.json'
+        )
+        config = json.loads(config)
+
+        self.system = config["system"]
+        self.distro = config["distro"]
 
 
 class BaseCommand(Command):
