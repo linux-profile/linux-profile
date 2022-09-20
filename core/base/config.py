@@ -24,7 +24,7 @@ class BaseConfig():
             file_profile: str = FILE_PROFILE,
             folder_config: str = FOLDER_CONFIG,
             folder_profile: str = FOLDER_PROFILE,
-            folder_modele: str = FOLDER_MODULE):
+            folder_module: str = FOLDER_MODULE):
         """
         Structure that defines the main variables.
         """
@@ -33,7 +33,7 @@ class BaseConfig():
         self.file_profile = file_profile
         self.folder_config = folder_config
         self.folder_profile = folder_profile
-        self.folder_modele = folder_modele
+        self.folder_module = folder_module
 
         self.profile = {}
         self.system = {}
@@ -67,8 +67,8 @@ class BaseConfig():
         if not exists(self.folder_profile):
             mkdir(self.folder_profile)
 
-        if not exists(self.folder_modele):
-            mkdir(self.folder_modele)
+        if not exists(self.folder_module):
+            mkdir(self.folder_module)
 
     def add_config(self):
         """
