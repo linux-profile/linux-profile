@@ -2,9 +2,9 @@
 
 from core.base.command import BaseCommand
 from core.error import (
-    ErrorLoadSettings,
-    ErrorParameterIsMissing,
-    ErrorInvalidValue
+    print_error_settings,
+    print_parameter_is_missing,
+    print_error_invalid_value
 )
 
 from core.handlers.init import Init
@@ -20,17 +20,17 @@ class CommandInit(BaseCommand):
         try:
             Init(module=self.module)
         except Exception as error:
-            raise ErrorLoadSettings() from error
+            print_error_settings()
 
 
 class CommandAdd(BaseCommand):
 
     def finalize_options(self):
         if self.module is None:
-            raise ErrorParameterIsMissing("module")
+            print_parameter_is_missing("module")
 
         if self.module not in self.modules:
-            raise ErrorInvalidValue("module")
+            print_error_invalid_value("module")
 
     def run(self) -> None:
         """Start
@@ -38,17 +38,17 @@ class CommandAdd(BaseCommand):
         try:
             Add(module=self.module)
         except Exception as error:
-            raise ErrorLoadSettings() from error
+            print_error_invalid_value()
 
 
 class CommandSync(BaseCommand):
 
     def finalize_options(self):
         if self.module is None:
-            raise Exception("Parameter --module is missing")
+            print_parameter_is_missing("module")
 
         if self.module not in self.modules:
-            raise Exception("Parameter --module invalid value")
+            print_error_invalid_value("module")
 
     def run(self) -> None:
         """Start
@@ -56,4 +56,4 @@ class CommandSync(BaseCommand):
         try:
             Sync(module=self.module)
         except Exception as error:
-            raise ErrorLoadSettings() from error
+            print_error_invalid_value()
