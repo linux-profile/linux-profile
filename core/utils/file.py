@@ -1,5 +1,6 @@
 from os import system
-from core.settings.config import FILE_DISTRO, FILE_SYSTEM
+
+from core.settings import FILE_DISTRO, FILE_SYSTEM
 
 
 def get_content(path_file: str, separator: str):

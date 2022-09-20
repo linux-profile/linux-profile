@@ -4,11 +4,11 @@ import json
 
 from os import mkdir
 from os.path import exists
-from setuptools import Command
 
 from core.utils.file import get_system, get_distro, write_file, read_file
-from core.settings.config import (
+from core.settings import (
     FILE_CONFIG,
+    FILE_PROFILE,
     FOLDER_CONFIG,
     FOLDER_PROFILE,
     FOLDER_MODULE
@@ -19,18 +19,23 @@ class BaseConfig():
 
     def __init__(
             self,
+            module: str = None,
             file_config: str = FILE_CONFIG,
+            file_profile: str = FILE_PROFILE,
             folder_config: str = FOLDER_CONFIG,
             folder_profile: str = FOLDER_PROFILE,
             folder_modele: str = FOLDER_MODULE):
         """
         Structure that defines the main variables.
         """
+        self.module = module
         self.file_config = file_config
+        self.file_profile = file_profile
         self.folder_config = folder_config
         self.folder_profile = folder_profile
         self.folder_modele = folder_modele
 
+        self.profile = {}
         self.system = {}
         self.distro = {}
 
@@ -42,8 +47,12 @@ class BaseConfig():
         time the class is instantiated.
         """
         self.set_folder()
+
         self.add_config()
         self.load_config()
+
+        self.add_profile()
+        self.load_profile()
 
     def set_folder(self) -> None:
         """
@@ -71,17 +80,17 @@ class BaseConfig():
         Saved in the linux_config.ini configuration file more
         specifically Hardware and Distribution information.
         """
+        if not exists(self.file_config):
+            config = {
+                "system": get_system(),
+                "distro": get_distro()
+            }
 
-        config = {
-            "system": get_system(),
-            "distro": get_distro()
-        }
-
-        write_file(
-            content=json.dumps(config, indent=4),
-            path_file=self.file_config,
-            type_file='.json'
-        )
+            write_file(
+                content=json.dumps(config, indent=4),
+                path_file=self.file_config,
+                type_file='.json'
+            )
 
     def load_config(self) -> None:
         """
@@ -100,23 +109,31 @@ class BaseConfig():
         self.system = config["system"]
         self.distro = config["distro"]
 
+    def add_profile(self) -> None:
+        """
+        Add Profile
 
-class BaseCommand(Command):
-    """ Run my command.
-    """
-    description = 'LinuxProfile'
+        Save default profile settings in linux_profile.json.
+        """
+        if not exists(self.file_profile):
+            profile = {}
 
-    user_options = [
-            ('email=', 'i', 'input email'),
-            ('token=', 'i', 'input token')
-        ]
+            write_file(
+                content=json.dumps(profile, indent=4),
+                path_file=self.file_profile,
+                type_file='.json'
+            )
 
-    def initialize_options(self):
-        self.email = None
-        self.token = None
+    def load_profile(self) -> None:
+        """
+        Load Profile
 
-    def finalize_options(self):
-        pass
+        Load basic information from profiles for use in the
+        application and internal operations.
+        """
 
-    def run(self):
-        pass
+        profile = read_file(
+            path_file=self.file_profile,
+            type_file='.json'
+        )
+        self.profile = json.loads(profile)
