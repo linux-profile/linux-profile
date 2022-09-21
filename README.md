@@ -42,6 +42,10 @@ Linux Profile is a linux profile management tool.
   Add the following to ~/.profile:
 
     export PATH=$PATH":$HOME/linuxp"
+    
+  Add the following to ~/.bashrc:
+
+    export PATH=$PATH":$HOME/linuxp"
 
 </details>
 <br>
