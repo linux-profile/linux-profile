@@ -38,10 +38,6 @@ Linux Profile is a linux profile management tool.
 
 <details>
   <summary>Bash & Git</summary>
-
-  Add the following to ~/.profile:
-
-    export PATH=$PATH":$HOME/linuxp"
     
   Add the following to ~/.bashrc:
 
