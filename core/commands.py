@@ -1,12 +1,10 @@
 #!/usr/bin/env python3
 
 from core.base.command import BaseCommand
-from core.error import (
+from core.base.error import (
     print_error_settings,
     print_parameter_is_missing,
-    print_error_invalid_value,
-    ErrorParameterIsMissing,
-    ErrorInvalidValue
+    print_error_invalid_value
 )
 
 from core.handlers.init import Init
@@ -25,7 +23,7 @@ class CommandInit(BaseCommand):
         try:
             Init(module=self.module)
         except Exception as error:
-            print_error_settings()
+            print_error_settings(error)
 
 
 class CommandAdd(BaseCommand):
@@ -39,7 +37,7 @@ class CommandAdd(BaseCommand):
                 value=self.value
             )
         except Exception as error:
-            print_error_settings()
+            print_error_settings(error)
 
 
 class CommandInstall(BaseCommand):
@@ -61,4 +59,4 @@ class CommandInstall(BaseCommand):
                 value=self.value
             )
         except Exception as error:
-            print_error_settings()
+            print_error_settings(error)
