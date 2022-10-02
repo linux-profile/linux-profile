@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from setuptools import Command
-from core.error import ErrorParameterIsMissing, ErrorInvalidValue
+from core.error import print_parameter_is_missing, print_error_invalid_value
 
 
 class BaseCommand(Command):
@@ -27,10 +27,10 @@ class BaseCommand(Command):
 
     def finalize_options(self):
         if self.module is None:
-            raise ErrorParameterIsMissing("module")
+            print_parameter_is_missing("module")
 
         if self.module not in self.modules:
-            raise ErrorInvalidValue("module")
+            print_error_invalid_value("module")
 
     def run(self):
         pass
