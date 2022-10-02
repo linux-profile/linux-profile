@@ -39,8 +39,12 @@ def get_content(path_file: str, separator: str):
     return my_info
 
 
-def write_file(content: str, path_file: str, type_file: str = '') -> str:
-    with open(path_file + type_file, "w") as outfile:
+def write_file(
+        content: str,
+        path_file: str,
+        type_file: str = '',
+        mode: str ='w') -> str:
+    with open(path_file + type_file, mode) as outfile:
         outfile.write(content)
 
 
