@@ -20,7 +20,7 @@ Linux Profile is a linux profile management tool.
 
 <hr>
 
-## 1 - Installing dependencies
+#### 1 - Installing dependencies
 
 | Package Manager    | Command                   |
 | :----------------: | :-----------------------: |
@@ -29,12 +29,12 @@ Linux Profile is a linux profile management tool.
 | Pacman	         | `pacman -S curl git`      |
 | Zypper	         | `zypper install curl git` |
 
-## 2 - Downloading linux_profile core
+#### 2 - Downloading linux_profile core
 | Method             | Command                                                                                      |
 | :----------------: | :------------------------------------------------------------------------------------------: |
 | Git   	         | `git clone https://github.com/MyLinuxProfile/linux-profile-basic.git ~/linuxp --branch master` |
 
-## 3 - Installing linux_profile
+#### 3 - Installing linux_profile
 
 <details>
   <summary>Bash & Git</summary>
@@ -44,7 +44,15 @@ Linux Profile is a linux profile management tool.
     export PATH=$PATH":$HOME/linuxp"
 
 </details>
-<br>
+
+## Commands
+
+| #      | Command                        | Argument      | Param                 |
+|--------|:-------------------------------|:--------------|:----------------------|
+| 01     | ``linux_profile init``         |               |                       |
+| 02     | ``linux_profile add``          | ``--module``  | ``package`` ``alias`` |
+| 03     | ``linux_profile sync``         | ``--module``  |                       |
+
 
 **RESOURCES**
 - GitHub: https://github.com/MyLinuxProfile/linux-profile-basic
