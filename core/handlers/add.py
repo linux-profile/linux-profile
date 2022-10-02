@@ -19,7 +19,7 @@ class Add(BaseConfig):
         call_add = getattr(self, "add_"+self.module)
         call_add()
 
-    def add_packages(self):
+    def add_package(self):
         category = input("Package Category [default]: ")
         manager = input("Package Manager [apt, snap, dnf, pacman, zypper]: ")
         name = input("Package Name: ")

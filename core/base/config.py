@@ -120,7 +120,7 @@ class BaseConfig():
 
         if not exists(self.file_profile):
             profile = {
-                'packages': {
+                'package': {
                     'default': []
                 }, 
                 'alias': {

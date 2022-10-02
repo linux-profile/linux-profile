@@ -15,7 +15,7 @@ class BaseCommand(Command):
 
     modules = [
         'alias',
-        'packages'
+        'package'
     ]
 
     def initialize_options(self):
