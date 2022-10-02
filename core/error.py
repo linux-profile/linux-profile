@@ -30,6 +30,13 @@ def print_error_settings():
         )
     )
 
+def print_estrange_error():
+    print(
+        color(
+            text="WARNING: Some weird error happened, but that's ok.",
+            types=['bold', 'yellow']
+        )
+    )
 
 def print_parameter_is_missing(parameter):
     print(
