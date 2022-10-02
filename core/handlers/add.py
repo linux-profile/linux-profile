@@ -3,10 +3,15 @@ import uuid
 import json
 
 from core.base.log import run_profile
-from core.base.error import print_option_is_missing, print_error_estrange
+from core.base.error import print_error_estrange
 from core.base.config import BaseConfig
 from core.utils.file import write_file
 from core.utils.text import color, cleaning_option
+from core.base.validator import (
+    ValidatorAddPackage,
+    ValidatorAddAlias,
+    ValidatorAddTerminal
+)
 
 
 class Add(BaseConfig):
@@ -30,77 +35,75 @@ class Add(BaseConfig):
         pkg_url = None
         pkg_file = None
 
-        category = input("Package Category [default]: ")
-        manager = input("Package Manager [apt-get, snap, deb]: ")
-        name = input("Package Name: ")
+        fields = ValidatorAddPackage(**{
+                "category": input("Package Category [default]: "),
+                "manager": input("Package Manager [apt-get, snap, deb]: "),
+                "name": input("Package Name: ")
+            }
+        )
 
-        if manager == 'deb':
+        if not fields.is_valid:
+            return
+
+        if fields.manager == 'deb':
             pkg_url = input("Package URL: ")
             pkg_file = input("Package File: ")
 
-        category = category.lower() if category else 'default'
-
-        if not manager:
-            print_option_is_missing(parameter='Package Manager')
-            return
-
-        if not name:
-            print_option_is_missing(parameter='Package name')
-            return
-
-        old_dict = self.dict_search_key(self.module, key='name', value=name)
+        old_dict = self.dict_search_key(self.module, key='name', value=fields.name)
 
         new_dict = {
-            "id": old_dict["id"] if old_dict else uuid.uuid4().hex.upper(),
-            "type": cleaning_option(manager).lower(),
-            "name": cleaning_option(name),
+            "id": old_dict["id"] if old_dict else fields.id,
+            "type": fields.manager,
+            "name": fields.name,
             "url": cleaning_option(pkg_url) if pkg_url else pkg_url,
             "file": cleaning_option(pkg_file) if pkg_file else pkg_file
         }
 
-        self.dict_save(category=category, new_dict=new_dict)
+        self.dict_save(category=fields.category, new_dict=new_dict)
 
     def add_alias(self):
         old_dict = None
         new_dict = None
 
-        category = input("Alias Category [default]: ")
-        command = input("Alias Command: ")
-        content = input("Alias Content: ")
+        fields = ValidatorAddAlias(**{
+                "category": input("Alias Category [default]: "),
+                "command": input("Alias Command: "),
+                "content": input("Alias Content: ")
+            }
+        )
 
-        category = category.lower() if category else 'default'
-
-        if not content:
-            print_option_is_missing(parameter='Alias Content')
+        if not fields.is_valid:
             return
 
-        if not command:
-            print_option_is_missing(parameter='Alias Command')
-            return
-
-        old_dict = self.dict_search_key(self.module, key='command', value=command)
+        old_dict = self.dict_search_key(self.module, key='command', value=fields.command)
 
         new_dict = {
-            "id": old_dict["id"] if old_dict else uuid.uuid4().hex.upper(),
-            "content": content,
-            "command": cleaning_option(command).lower(),
+            "id": old_dict["id"] if old_dict else fields.id,
+            "content": fields.content,
+            "command": fields.command,
         }
 
-        self.dict_save(category=category, new_dict=new_dict)
+        self.dict_save(category=fields.category, new_dict=new_dict)
 
     def add_terminal(self):
         old_dict = None
         new_dict = None
 
-        category = input("Terminal Category [default]: ")
-        name = input("Terminal Name: ")
+        fields = ValidatorAddTerminal(**{
+                "category": input("Terminal Category [default]: "),
+                "name": input("Terminal Name: ")
+            }
+        )
 
-        old_dict = self.dict_search_key(self.module, key='name', value=name)
+        if not fields.is_valid:
+            return
+
+        old_dict = self.dict_search_key(self.module, key='name', value=fields.name)
         category = category.lower() if category else 'default'
 
         new_dict = {
-            "id": old_dict["id"] if old_dict else uuid.uuid4().hex.upper(),
-            "name": name,
+            "id": old_dict["id"] if old_dict else fields.id,
+            "name": fields.name,
             "colorscheme": {},
             "profile": {
                 "Appearance": {

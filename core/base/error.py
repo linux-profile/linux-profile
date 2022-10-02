@@ -71,6 +71,17 @@ def print_option_is_missing(parameter):
         )
     )
 
+def print_option_invalid_value(parameter):
+    message = f"Option [{parameter}] invalid value"
+    LOG_APP.warning(message)
+
+    print(
+        color(
+            text=message.format("WARNING: "+parameter),
+            types=['bold', 'yellow']
+        )
+    )
+
 def print_error_invalid_value(parameter):
     message = f"Parameter --{parameter} invalid value"
     LOG_APP.warning(message)
