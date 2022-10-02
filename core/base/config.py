@@ -11,7 +11,8 @@ from core.settings import (
     FILE_PROFILE,
     FOLDER_CONFIG,
     FOLDER_PROFILE,
-    FOLDER_MODULE
+    FOLDER_MODULE,
+    FOLDER_LOG
 )
 
 
@@ -26,7 +27,8 @@ class BaseConfig():
             file_profile: str = FILE_PROFILE,
             folder_config: str = FOLDER_CONFIG,
             folder_profile: str = FOLDER_PROFILE,
-            folder_module: str = FOLDER_MODULE):
+            folder_module: str = FOLDER_MODULE,
+            folder_log: str = FOLDER_LOG):
         """
         Structure that defines the main variables.
         """
@@ -38,6 +40,7 @@ class BaseConfig():
         self.folder_config = folder_config
         self.folder_profile = folder_profile
         self.folder_module = folder_module
+        self.folder_log = folder_log
 
         self.profile = {}
         self.system = {}
@@ -65,14 +68,15 @@ class BaseConfig():
         Checks and creates the structure of configuration
         folders that are used by the package.
         """
-        if not exists(self.folder_config):
-            mkdir(self.folder_config)
-
-        if not exists(self.folder_profile):
-            mkdir(self.folder_profile)
-
-        if not exists(self.folder_module):
-            mkdir(self.folder_module)
+        folders = [
+            self.folder_config,
+            self.folder_profile,
+            self.folder_module,
+            self.folder_log
+        ]
+        for folder in folders:
+            if not exists(folder):
+                mkdir(folder)
 
     def add_config(self):
         """
