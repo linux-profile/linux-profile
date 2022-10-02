@@ -24,10 +24,16 @@ class Add(BaseConfig):
     def add_package(self):
         old_dict = None
         new_dict = None
+        pkg_url = None
+        pkg_file = None
 
         category = input("Package Category [default]: ")
-        manager = input("Package Manager [apt-get, snap]: ")
+        manager = input("Package Manager [apt-get, snap, deb]: ")
         name = input("Package Name: ")
+
+        if manager == 'deb':
+            pkg_url = input("Package URL: ")
+            pkg_file = input("Package File: ")
 
         category = category.lower() if category else 'default'
 
@@ -45,8 +51,8 @@ class Add(BaseConfig):
             "id": old_dict["id"] if old_dict else uuid.uuid4().hex.upper(),
             "type": cleaning_option(manager).lower(),
             "name": cleaning_option(name),
-            "url": None,
-            "file": None
+            "url": cleaning_option(pkg_url) if pkg_url else pkg_url,
+            "file": cleaning_option(pkg_file) if pkg_file else pkg_file
         }
 
         self.dict_save(category=category, new_dict=new_dict)

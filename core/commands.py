@@ -11,7 +11,7 @@ from core.error import (
 
 from core.handlers.init import Init
 from core.handlers.add import Add
-from core.handlers.sync import Sync
+from core.handlers.install import Install
 
 
 class CommandInit(BaseCommand):
@@ -42,7 +42,7 @@ class CommandAdd(BaseCommand):
             print_error_settings()
 
 
-class CommandSync(BaseCommand):
+class CommandInstall(BaseCommand):
 
     def finalize_options(self):
         if self.module is None:
@@ -55,7 +55,7 @@ class CommandSync(BaseCommand):
         """Start
         """
         try:
-            Sync(
+            Install(
                 module=self.module,
                 category=self.category,
                 value=self.value

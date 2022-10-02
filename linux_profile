@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from setuptools import setup
-from core.commands import CommandInit, CommandAdd, CommandSync
+from core.commands import CommandInit, CommandAdd, CommandInstall
 
 
 setup(
@@ -9,6 +9,6 @@ setup(
         cmdclass={
                 'init': CommandInit,
                 'add': CommandAdd,
-                'sync': CommandSync
+                'install': CommandInstall
             }
     )

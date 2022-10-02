@@ -5,7 +5,7 @@ from core.base.config import BaseConfig
 from core.utils.file import write_file # read_file
 
 
-class Sync(BaseConfig):
+class Install(BaseConfig):
 
     def setup(self):
         """
@@ -15,13 +15,13 @@ class Sync(BaseConfig):
         self.add_config()
         self.load_profile()
 
-        call_add = getattr(self, "sync_"+self.module)
+        call_add = getattr(self, "install_"+self.module)
         call_add()
 
-    def sync_package(self):
+    def install_package(self):
         if self.category:
             for item in self.profile[self.module][self.category]:
-                self.install_package(
+                self.run_package(
                     type_pkg=item["type"],
                     name_pkg=item["name"]
                 )
@@ -29,27 +29,27 @@ class Sync(BaseConfig):
         else:
             for category in self.profile[self.module]:
                 for item in self.profile[self.module][category]:
-                    self.install_package(
+                    self.run_package(
                         type_pkg=item["type"],
                         name_pkg=item["name"]
                     )
 
-    def sync_alias(self):
+    def install_alias(self):
         if self.category:
             for item in self.profile[self.module][self.category]:
-                self.install_alias(
+                self.run_alias(
                     command=item["command"],
                     content=item["content"]
                 )
         else:
             for category in self.profile[self.module]:
                 for item in self.profile[self.module][category]:
-                    self.install_alias(
+                    self.run_alias(
                         command=item["command"],
                         content=item["content"]
                     )
 
-    def install_package(self, type_pkg: str, name_pkg: str):
+    def run_package(self, type_pkg: str, name_pkg: str):
         if type_pkg == 'apt-get':
             os.system(
                 "sudo {type} install {name} -y >> log.txt".format(
@@ -66,7 +66,7 @@ class Sync(BaseConfig):
                 )
             )
 
-    def install_alias(self, command: str, content: str):
+    def run_alias(self, command: str, content: str):
         # bash_aliases = str(Path.home()) + '/.bash_aliases'
         # aliases = read_file(path_file=bash_aliases)
 
