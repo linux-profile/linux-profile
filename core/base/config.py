@@ -96,8 +96,7 @@ class BaseConfig():
 
             write_file(
                 content=json.dumps(config, indent=4),
-                path_file=self.file_config,
-                type_file='.json'
+                path_file=self.file_config
             )
 
     def load_config(self) -> None:
@@ -108,10 +107,7 @@ class BaseConfig():
         in the application and internal operations.
         """
 
-        config = read_file(
-            path_file=self.file_config,
-            type_file='.json'
-        )
+        config = read_file(path_file=self.file_config)
         config = json.loads(config)
 
         self.system = config["system"]
@@ -139,8 +135,7 @@ class BaseConfig():
 
             write_file(
                 content=json.dumps(profile, indent=4),
-                path_file=self.file_profile,
-                type_file='.json'
+                path_file=self.file_profile
             )
 
     def load_profile(self) -> None:
@@ -152,7 +147,6 @@ class BaseConfig():
         """
 
         profile = read_file(
-            path_file=self.file_profile,
-            type_file='.json'
+            path_file=self.file_profile
         )
         self.profile = json.loads(profile)
