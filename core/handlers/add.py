@@ -2,7 +2,7 @@
 import uuid
 import json
 
-from core.base.log import Log
+from core.base.log import run_profile
 from core.base.error import print_option_is_missing, print_error_estrange
 from core.base.config import BaseConfig
 from core.utils.file import write_file
@@ -18,8 +18,10 @@ class Add(BaseConfig):
         """
         self.add_config()
         self.load_profile()
+        self.command = "add_"+self.module
+        self.log = run_profile(name_log=self.module)
 
-        call_add = getattr(self, "add_"+self.module)
+        call_add = getattr(self, self.command)
         call_add()
 
     def add_package(self):
@@ -138,13 +140,14 @@ class Add(BaseConfig):
             path_file=self.file_profile
         )
 
-        message = "New item added - {}".format(new_dict["id"])
-        LOG_PROFILE = Log().run_profile()
-        LOG_PROFILE.info(f"{message} - {self.module}")
+        _id = new_dict.get("id")
+        message = f"Command: {self.command} - ID: {_id}"
+
+        self.log.info(message)
 
         print(
             color(
-                text=f"SUCCESS: {message}",
+                text=message,
                 types=['bold', 'green']
             )
         )

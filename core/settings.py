@@ -18,5 +18,9 @@ FOLDER_LOG = f'{FOLDER_CONFIG}/logs'
 FILE_CONFIG = f'{FOLDER_CONFIG}/linux_config.json'
 FILE_PROFILE = f'{FOLDER_CONFIG}/linux_profile.json'
 
+FILE_CONFIG_LOG = f"{FOLDER_LOG}/app.log"
+FILE_PROFILE_LOG = f"{FOLDER_LOG}/profile.log"
+FILE_INSTALL_LOG = f"{FOLDER_LOG}/install.log"
+
 FILE_DISTRO = f'{FOLDER_CONFIG}/.os-release'
 FILE_SYSTEM = f'{FOLDER_CONFIG}/.hostnamectl'

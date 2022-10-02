@@ -1,7 +1,7 @@
 from core.utils.text import color
-from core.base.log import Log
+from core.base.log import run_app
 
-LOG_APP = Log().run_app()
+LOG_APP = run_app(name_log='app')
 
 
 class ErrorLoadSettings(Exception):
