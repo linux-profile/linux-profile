@@ -2,10 +2,11 @@
 import uuid
 import json
 
+from core.base.log import Log
+from core.error import print_option_is_missing, print_error_estrange
 from core.base.config import BaseConfig
 from core.utils.file import write_file
 from core.utils.text import color, cleaning_option
-from core.error import print_option_is_missing, print_estrange_error
 
 
 class Add(BaseConfig):
@@ -112,7 +113,6 @@ class Add(BaseConfig):
 
         self.dict_save(category=category, new_dict=new_dict)
 
-
     def dict_search_key(self, module: str, key: str, value: str):
         """
         """
@@ -123,7 +123,7 @@ class Add(BaseConfig):
                         return self.profile[module][item].pop(i)
 
                 except Exception as error:
-                    print_estrange_error(error)
+                    print_error_estrange(error)
 
     def dict_save(self, category: str, new_dict: dict):
         """
@@ -139,9 +139,13 @@ class Add(BaseConfig):
             type_file='.json'
         )
 
+        message = "New item added - {}".format(new_dict["id"])
+        LOG_PROFILE = Log().run_profile()
+        LOG_PROFILE.info(f"{message} - {self.module}")
+
         print(
             color(
-                text="SUCCESS: New item added - {}".format(new_dict["id"]),
+                text=f"SUCCESS: {message}",
                 types=['bold', 'green']
             )
         )

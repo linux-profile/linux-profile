@@ -1,4 +1,5 @@
 import logging
+from core.base.config import BaseConfig
 from logging.config import dictConfig
 from core.settings import FOLDER_LOG
 
@@ -23,7 +24,7 @@ logging_config = dict(
 log_format = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 
-class Log():
+class Log(BaseConfig):
     
     def setup_log(self, name_log, file_log: str, level: logging):
         log_handler = logging.FileHandler(file_log)
