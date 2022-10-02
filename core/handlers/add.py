@@ -26,7 +26,7 @@ class Add(BaseConfig):
         new_dict = None
 
         category = input("Package Category [default]: ")
-        manager = input("Package Manager [apt, snap, dnf, pacman, zypper]: ")
+        manager = input("Package Manager [apt-get, snap]: ")
         name = input("Package Name: ")
 
         category = category.lower() if category else 'default'
