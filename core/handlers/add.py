@@ -135,8 +135,7 @@ class Add(BaseConfig):
 
         write_file(
             content=json.dumps(self.profile, indent=4),
-            path_file=self.file_profile,
-            type_file='.json'
+            path_file=self.file_profile
         )
 
         message = "New item added - {}".format(new_dict["id"])
