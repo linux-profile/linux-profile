@@ -127,8 +127,11 @@ class BaseConfig():
                 }, 
                 'alias': {
                     'default': []
-                    }
+                },
+                'terminal': {
+                    'default': []
                 }
+            }
 
             write_file(
                 content=json.dumps(profile, indent=4),

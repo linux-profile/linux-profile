@@ -85,6 +85,34 @@ class Add(BaseConfig):
 
         self.dict_save(category=category, new_dict=new_dict)
 
+    def add_terminal(self):
+        old_dict = None
+        new_dict = None
+
+        category = input("Terminal Category [default]: ")
+        name = input("Terminal Name: ")
+
+        old_dict = self.dict_search_key(self.module, key='name', value=name)
+        category = category.lower() if category else 'default'
+
+        new_dict = {
+            "id": old_dict["id"] if old_dict else uuid.uuid4().hex.upper(),
+            "name": name,
+            "colorscheme": {},
+            "profile": {
+                "Appearance": {
+                    "ColorScheme": None
+                },
+                "General": {
+                    "Name": None,
+                    "Parent": None
+                }
+            }
+        }
+
+        self.dict_save(category=category, new_dict=new_dict)
+
+
     def dict_search_key(self, module: str, key: str, value: str):
         """
         """
