@@ -117,8 +117,16 @@ class BaseConfig():
 
         Save default profile settings in linux_profile.json.
         """
+
         if not exists(self.file_profile):
-            profile = {}
+            profile = {
+                'packages': {
+                    'default': []
+                }, 
+                'alias': {
+                    'default': []
+                    }
+                }
 
             write_file(
                 content=json.dumps(profile, indent=4),
