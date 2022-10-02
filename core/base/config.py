@@ -20,6 +20,7 @@ class BaseConfig():
     def __init__(
             self,
             module: str = None,
+            value: str = None,
             file_config: str = FILE_CONFIG,
             file_profile: str = FILE_PROFILE,
             folder_config: str = FOLDER_CONFIG,
@@ -29,6 +30,7 @@ class BaseConfig():
         Structure that defines the main variables.
         """
         self.module = module
+        self.value = value
         self.file_config = file_config
         self.file_profile = file_profile
         self.folder_config = folder_config
