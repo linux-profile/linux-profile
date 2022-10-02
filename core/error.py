@@ -39,6 +39,13 @@ def print_parameter_is_missing(parameter):
         )
     )
 
+def print_option_is_missing(parameter):
+    print(
+        color(
+            text="WARNING: Option [{}] is missing".format(parameter),
+            types=['bold', 'yellow']
+        )
+    )
 
 def print_error_invalid_value(parameter):
     print(
