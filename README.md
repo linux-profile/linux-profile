@@ -47,11 +47,11 @@ Linux Profile is a linux profile management tool.
 
 ## Commands
 
-| #      | Command                        | Argument      | Param                 |
-|--------|:-------------------------------|:--------------|:----------------------|
-| 01     | ``linux_profile init``         |               |                       |
-| 02     | ``linux_profile add``          | ``--module``  | ``package`` ``alias`` |
-| 03     | ``linux_profile sync``         | ``--module``  |                       |
+| #      | Command                        | Param         | Argument              | Param           | Argument      |
+|--------|:-------------------------------|:--------------|:----------------------| :---------------|:--------------|
+| 01     | ``linux_profile init``         |               |                       |                 |               |
+| 02     | ``linux_profile add``          | ``--module``  | ``package`` ``alias`` |                 |               |
+| 03     | ``linux_profile sync``         | ``--module``  | ``package`` ``alias`` | ``--category``  | ``default``   |
 
 
 **RESOURCES**
