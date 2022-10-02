@@ -19,3 +19,6 @@ def color(text: str, types: list):
         types_sancii = types_sancii + getattr(Colors, item.upper())
 
     return reduce(lambda x, y: x + y, types_sancii) + text + Colors.ENDC
+
+def cleaning_option(text: str):
+    return text.replace(" ", "").replace("\t", "").replace("\n", "")
