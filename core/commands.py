@@ -55,6 +55,10 @@ class CommandSync(BaseCommand):
         """Start
         """
         try:
-            Sync(module=self.module)
+            Sync(
+                module=self.module,
+                category=self.category,
+                value=self.value
+            )
         except Exception as error:
             print_error_settings()
