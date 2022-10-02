@@ -10,6 +10,7 @@ class BaseCommand(Command):
     description = 'LinuxProfile'
     user_options = [
             ('module=', 'i', 'input module'),
+            ('category=', 'i', 'input category'),
             ('value=', 'i', 'input value')
         ]
 
@@ -20,6 +21,7 @@ class BaseCommand(Command):
 
     def initialize_options(self):
         self.module = None
+        self.category = None
         self.value = None
 
     def finalize_options(self):
