@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from core.base.command import BaseCommand
-from core.error import (
+from core.base.error import (
     print_error_settings,
     print_parameter_is_missing,
     print_error_invalid_value

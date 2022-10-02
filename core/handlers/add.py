@@ -3,7 +3,7 @@ import uuid
 import json
 
 from core.base.log import Log
-from core.error import print_option_is_missing, print_error_estrange
+from core.base.error import print_option_is_missing, print_error_estrange
 from core.base.config import BaseConfig
 from core.utils.file import write_file
 from core.utils.text import color, cleaning_option
