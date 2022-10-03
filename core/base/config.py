@@ -4,15 +4,20 @@ import json
 
 from os import mkdir
 from os.path import exists
-
-from core.utils.file import get_system, get_distro, write_file, read_file
+from core.utils.file import (
+    get_system,
+    get_distro,
+    write_file,
+    read_file
+)
 from core.settings import (
     FILE_CONFIG,
     FILE_PROFILE,
     FOLDER_CONFIG,
     FOLDER_PROFILE,
     FOLDER_MODULE,
-    FOLDER_LOG
+    FOLDER_LOG,
+    BASE_PROFILE
 )
 
 
@@ -28,7 +33,8 @@ class BaseConfig():
             folder_config: str = FOLDER_CONFIG,
             folder_profile: str = FOLDER_PROFILE,
             folder_module: str = FOLDER_MODULE,
-            folder_log: str = FOLDER_LOG):
+            folder_log: str = FOLDER_LOG,
+            base_profile: str = BASE_PROFILE):
         """
         Structure that defines the main variables.
         """
@@ -41,6 +47,7 @@ class BaseConfig():
         self.folder_profile = folder_profile
         self.folder_module = folder_module
         self.folder_log = folder_log
+        self.base_profile = base_profile
 
         self.profile = {}
         self.system = {}
@@ -60,6 +67,7 @@ class BaseConfig():
 
         self.add_profile()
         self.load_profile()
+        self.check_profile()
 
     def set_folder(self) -> None:
         """
@@ -121,20 +129,8 @@ class BaseConfig():
         """
 
         if not exists(self.file_profile):
-            profile = {
-                'package': {
-                    'default': []
-                }, 
-                'alias': {
-                    'default': []
-                },
-                'terminal': {
-                    'default': []
-                }
-            }
-
             write_file(
-                content=json.dumps(profile, indent=4),
+                content=json.dumps(self.base_profile, indent=4),
                 path_file=self.file_profile
             )
 
@@ -150,3 +146,18 @@ class BaseConfig():
             path_file=self.file_profile
         )
         self.profile = json.loads(profile)
+
+    def check_profile(self) -> None:
+        """
+        Check Profile
+
+        Checks the profile file and includes missing modules.
+        """
+        for module in self.base_profile:
+            if not self.profile.get(module):
+                self.profile[module] = dict(default=[])
+
+                write_file(
+                    content=json.dumps(self.profile, indent=4),
+                    path_file=self.file_profile
+                )
