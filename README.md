@@ -11,15 +11,9 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 
 `linux_profile` installation involves:
 
-1 - Installing dependencies
-
-2 - Downloading linux_profile core
-
-3 - Installing linux_profile
-
-<hr>
-
-#### 1 - Installing dependencies
+<details>
+  <summary>1 - Installing dependencies</summary>
+  <br>
 
 | Package Manager    | Command                   |
 | :----------------: | :-----------------------: |
@@ -28,21 +22,30 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 | Pacman	         | `pacman -S curl git`      |
 | Zypper	         | `zypper install curl git` |
 
-#### 2 - Downloading linux_profile core
+</details>
+
+<details>
+  <summary>2 - Downloading linux_profile core</summary>
+  <br>
+
 | Method             | Command                                                                                      |
 | :----------------: | :------------------------------------------------------------------------------------------: |
 | Git   	         | `git clone https://github.com/MyLinuxProfile/linux-profile-basic.git ~/linuxp --branch master` |
 
-#### 3 - Installing linux_profile
+</details>
 
 <details>
-  <summary>Bash & Git</summary>
-    
+  <summary>3 - Installing linux_profile</summary>
+  <br>
   Add the following to ~/.bashrc:
 
     export PATH=$PATH":$HOME/linuxp"
 
 </details>
+
+## Quick Install
+
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/MyLinuxProfile/linux-profile-basic/master/scripts/install.sh)"
 
 ## Commands
 
