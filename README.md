@@ -56,7 +56,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 
 <details>
   <summary>[linux_profile.json]</summary>
-  
+   
     {
       "package": {
           "default": [
@@ -119,6 +119,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
       }
     }
   
+  Link: https://github.com/MyLinuxProfile/linux-profile-basic/blob/master/docs/linux_profile.json
 </details>
 
 **RESOURCES**
