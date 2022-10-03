@@ -122,7 +122,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
       }
     }
   
-  Link: https://github.com/MyLinuxProfile/linux-profile-basic/blob/master/docs/linux_profile.json
+  Link: https://raw.githubusercontent.com/MyLinuxProfile/linux-profile-basic/master/docs/linux_profile.json
 </details>
 
 **RESOURCES**
