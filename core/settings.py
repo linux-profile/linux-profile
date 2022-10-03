@@ -1,7 +1,12 @@
 import os
 
-PATH = os.getcwd()
-CONFIG = '.config' 
+if os.environ.get('ENVIRONMENT') == 'DEV':
+    # export ENVIRONMENT="DEV"
+    PATH = os.getcwd()
+else:
+    PATH = f"{os.getcwd()}/linuxp"
+
+CONFIG = '.config'
 
 FOLDER_CONFIG = f"{PATH}/{CONFIG}"
 FOLDER_PROFILE = f'{FOLDER_CONFIG}/profiles'
