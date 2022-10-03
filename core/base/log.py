@@ -4,6 +4,9 @@ from logging.config import dictConfig
 from core.settings import FILE_CONFIG_LOG, FILE_PROFILE_LOG
 
 
+BaseConfig()
+
+
 logging_config = dict(
     version = 1,
     formatters = {

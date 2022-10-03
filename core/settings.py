@@ -1,16 +1,9 @@
 import os
 
-try:
-    from dotenv import load_dotenv
-    load_dotenv()
-except:
-    pass
-
 PATH = os.getcwd()
-APP_NAME = os.environ.get('APP_NAME', 'linuxp')
 CONFIG = '.config' 
 
-FOLDER_CONFIG = f"{PATH}/{APP_NAME}/{CONFIG}"
+FOLDER_CONFIG = f"{PATH}/{CONFIG}"
 FOLDER_PROFILE = f'{FOLDER_CONFIG}/profiles'
 FOLDER_MODULE = f'{FOLDER_CONFIG}/modules'
 FOLDER_LOG = f'{FOLDER_CONFIG}/logs'
