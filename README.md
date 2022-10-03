@@ -95,12 +95,12 @@ Linux Profile is a Linux profile management tool. With this project it is possib
           "dev": [
               {
                   "id": "4EB1C7EA7BAF4A70BC40FE04B7EC7581",
-                  "content": "git config--globaluser.name",
+                  "content": "git config --global user.name",
                   "command": "git_name"
               },
               {
                   "id": "5ED4967EF17C4730A26970B20E8D1F14",
-                  "content": "git config--globaluser.email",
+                  "content": "git config --global user.email",
                   "command": "git_email"
               }
           ],
