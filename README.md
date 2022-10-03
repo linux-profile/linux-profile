@@ -95,24 +95,24 @@ Linux Profile is a Linux profile management tool. With this project it is possib
           "dev": [
               {
                   "id": "4EB1C7EA7BAF4A70BC40FE04B7EC7581",
-                  "content": "gitconfig--globaluser.name",
+                  "content": "git config--globaluser.name",
                   "command": "git_name"
               },
               {
                   "id": "5ED4967EF17C4730A26970B20E8D1F14",
-                  "content": "gitconfig--globaluser.email",
+                  "content": "git config--globaluser.email",
                   "command": "git_email"
               }
           ],
           "python": [
               {
                   "id": "88B57A16A13247B4A56CE90E44BFD607",
-                  "content": "sourcevenv/bin/activate",
+                  "content": "source venv/bin/activate",
                   "command": "activate"
               },
               {
                   "id": "D4C55E7F64884983A88257CE3DBAB87C",
-                  "content": "echo'Python!'",
+                  "content": "echo 'Python!'",
                   "command": "py3"
               }
           ]
