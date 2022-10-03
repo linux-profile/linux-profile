@@ -60,7 +60,7 @@ class ValidatorAddAlias(Validator):
             print_option_is_missing(parameter='Alias Content')
             self.is_valid = False
 
-        return cleaning_option(value)
+        return value
 
 
 class ValidatorAddTerminal(Validator):
