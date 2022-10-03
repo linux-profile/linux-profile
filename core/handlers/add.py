@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-import uuid
 import json
 
 from core.base.log import run_profile
@@ -119,8 +118,6 @@ class Add(BaseConfig):
         self.dict_save(category=category, new_dict=new_dict)
 
     def dict_search_key(self, module: str, key: str, value: str):
-        """
-        """
         for item in self.profile[module]:
             for i,x in enumerate(self.profile[module][item]):
                 try:
@@ -131,8 +128,6 @@ class Add(BaseConfig):
                     print_error_estrange(error)
 
     def dict_save(self, category: str, new_dict: dict):
-        """
-        """
         if self.profile[self.module].get(category):
             self.profile[self.module][category].append(new_dict)
         else:
