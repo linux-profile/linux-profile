@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 
 from setuptools import Command
-from core.base.error import print_parameter_is_missing, print_error_invalid_value
+from core.base.error import (
+    print_parameter_is_missing,
+    print_error_invalid_value
+)
 
 
 class BaseCommand(Command):

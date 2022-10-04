@@ -4,9 +4,6 @@ from logging.config import dictConfig
 from core.settings import FILE_CONFIG_LOG, FILE_PROFILE_LOG
 
 
-BaseConfig()
-
-
 logging_config = dict(
     version = 1,
     formatters = {
@@ -27,7 +24,19 @@ logging_config = dict(
 log_format = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 
+class LogBaseConfig(BaseConfig):
+
+    def setup(self):
+        """
+        Defines the functions that are executed each
+        time the class is instantiated.
+        """
+        self.set_folder()
+
+
 def setup_log(name_log: str, file_log: str, level: logging):
+    LogBaseConfig()
+
     log_handler = logging.FileHandler(file_log)
     log_handler.setFormatter(log_format)
 

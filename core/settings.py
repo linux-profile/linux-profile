@@ -22,3 +22,15 @@ FILE_INSTALL_LOG = f"{FOLDER_LOG}/install.log"
 
 FILE_DISTRO = f'{FOLDER_CONFIG}/.os-release'
 FILE_SYSTEM = f'{FOLDER_CONFIG}/.hostnamectl'
+
+BASE_PROFILE = {
+    'package': {
+        'default': []
+    }, 
+    'alias': {
+        'default': []
+    },
+    'terminal': {
+        'default': []
+    }
+}
