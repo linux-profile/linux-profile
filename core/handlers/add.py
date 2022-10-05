@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from core.base.json import JsonData
+from core.base.storage import Storage
 from core.base.log import run_profile
 from core.base.config import BaseConfig
 from core.base.validator import (
@@ -21,7 +21,7 @@ class Add(BaseConfig):
         self.load_profile()
 
         self.log = run_profile(name_log=self.module)
-        self.data = JsonData(database=self.file_profile)
+        self.data = Storage(database=self.file_profile)
 
         call_add = getattr(self, "add_"+self.module)
         call_add()

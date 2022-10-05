@@ -60,7 +60,7 @@ class HandlerModule(BaseFile):
     def _search_tag(self, tag: str):
         return self.json[self.module].get(tag)
 
-class JsonData(BaseFile):
+class Storage(BaseFile):
 
     def __init__(self, database: str) -> None:
         self.database = database
@@ -103,23 +103,3 @@ class JsonData(BaseFile):
 
     def search_tag(self, tag: str):
         return self.handler._search_tag(tag=tag)
-
-
-class Data():
-    
-    def __init__(
-            self,
-            database: str,
-            module: str = 'default',
-            tag: str = 'tag'):
-        self.database = database
-        self.module = module
-        self.tag = tag
-
-    def load(self):
-        data = JsonData(database=self.database)
-        data.load(
-            module=self.module,
-            tag=self.tag
-        )
-        return data

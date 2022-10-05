@@ -3,7 +3,7 @@
 from os import mkdir
 from os.path import exists
 
-from core.base.json import JsonData
+from core.base.storage import Storage
 from core.utils.file import get_system, get_distro
 from core.settings import (
     FILE_CONFIG,
@@ -38,8 +38,8 @@ class BaseConfig():
 
         self.set_folder()
 
-        self.class_profile = JsonData(database=self.file_profile)
-        self.class_config = JsonData(database=self.file_config)
+        self.class_profile = Storage(database=self.file_profile)
+        self.class_config = Storage(database=self.file_config)
 
         self.setup()
 
