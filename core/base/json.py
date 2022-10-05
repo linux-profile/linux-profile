@@ -15,13 +15,11 @@ class BaseFile():
         return content
 
     def touch(self, path: str):
-        data = json.dumps(dict(module=dict(default=[])), indent=4)
+        data = json.dumps(dict(), indent=4)
         self.write(data, path)
 
 
-class HandlerJsonModule(BaseFile):
-
-    DEFAULT = dict(default=list())
+class HandlerModule(BaseFile):
 
     def __init__(self, module: str, tag: str, json: dict,) -> None:
         self.model_id = uuid.uuid4().hex.upper()
@@ -30,56 +28,93 @@ class HandlerJsonModule(BaseFile):
         self.json = json
 
         if not self.json.get(module):
-            self.json[module] = dict(tag=list())
+            self.json[module] = dict()
 
-    def insert(self, content: dict):
-        content['id'] = self.model_id
+        if not self.json[self.module].get(self.tag):
+            self.json[self.module][self.tag] = list()
+
+    def _insert(self, content: dict):
+        if not content.get('id'):
+            content['id'] = self.model_id
         self.json[self.module][self.tag].append(content)
 
         return self.json
 
-    def update(self, content: dict, model_id: str):
-        position = self.search(key='id', value=model_id)
-        if position:
+    def _update(self, content: dict, model_id: str):
+        position = self._search(key='id', value=model_id)
+
+        if position >= 0:
             content["id"] = model_id
-            self.json[self.module][self.tag][position[0]] = content
+            self.json[self.module][self.tag][position] = content
 
         return self.json
 
-    def search(self, key: str, value: str):
+    def _search(self, key: str, value: str, position: bool = True):
         for x, item in enumerate(self.json[self.module][self.tag]):
             if item.get(key) == value:
-                return x, item
+                if position:
+                    return x
+                else:
+                    return item
 
 
 class JsonData(BaseFile):
 
     def __init__(self, database: str) -> None:
         self.database = database
+
         if not exists(self.database):
             self.touch(path=self.database)
 
-        self.json = self.load_data()
-
-    def load_module(self, module: str = 'default', tag: str = 'tag'):
-        self.handler = HandlerJsonModule(module=module, tag=tag, json=self.json)
+    def load(self, module: str = 'default', tag: str = 'tag'):
+        self.handler = HandlerModule(
+            module=module,
+            tag=tag,
+            json=self.load_data()
+        )
 
     def load_data(self):
         output = self.read(path_file=self.database)
         return json.loads(output)
 
-    def insert_item_module(self, content: dict):
-        response = self.handler.insert(content)
-        self.write(
-            path_file=self.database,
-            content=json.dumps(response, indent=4)
-        )
-        return self.load_data()
+    def insert(self, content: dict, check_key = None):
+        item = self.handler._search(key=check_key, value=content.get(check_key), position=False)
+        if item:
+            response = self.handler._update(content=content, model_id=item.get("id"))
+        else:
+            response = self.handler._insert(content)
 
-    def update_item_module(self, content: dict, model_id: str):
-        response = self.handler.update(content=content, model_id=model_id)
         self.write(
             path_file=self.database,
             content=json.dumps(response, indent=4)
         )
-        return self.load_data()
+
+    def update(self, content: dict, model_id: str):
+        response = self.handler._update(content=content, model_id=model_id)
+        self.write(
+            path_file=self.database,
+            content=json.dumps(response, indent=4)
+        )
+
+    def search(self, key: str, value: str):
+        return self.handler._search(key=key, value=value, position=False)
+
+
+class Data():
+    
+    def __init__(
+            self,
+            database: str,
+            module: str = 'default',
+            tag: str = 'tag'):
+        self.database = database
+        self.module = module
+        self.tag = tag
+
+    def load(self):
+        data = JsonData(database=self.database)
+        data.load(
+            module=self.module,
+            tag=self.tag
+        )
+        return data
