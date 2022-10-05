@@ -1,15 +1,10 @@
 #!/usr/bin/env python3
 
-import json
-
 from os import mkdir
 from os.path import exists
+
 from core.base.json import JsonData
-from core.utils.file import (
-    get_system,
-    get_distro,
-    read_file
-)
+from core.utils.file import get_system, get_distro
 from core.settings import (
     FILE_CONFIG,
     FILE_PROFILE,
@@ -41,9 +36,10 @@ class BaseConfig():
         self.folder_config = folder_config
         self.folder_log = folder_log
 
-        self.profile = {}
-        self.system = {}
-        self.distro = {}
+        self.set_folder()
+
+        self.class_profile = JsonData(database=self.file_profile)
+        self.class_config = JsonData(database=self.file_config)
 
         self.setup()
 
@@ -52,12 +48,8 @@ class BaseConfig():
         Defines the functions that are executed each
         time the class is instantiated.
         """
-        self.set_folder()
-
         self.add_config()
         self.load_config()
-
-        self.add_profile()
         self.load_profile()
 
     def set_folder(self) -> None:
@@ -82,16 +74,14 @@ class BaseConfig():
         Function that configures the basic settings of the
         operating system that the LinuxProfle package is running.
 
-        Saved in the linux_config.ini configuration file more
+        Saved in the linux_config.json configuration file more
         specifically Hardware and Distribution information.
         """
-        data = JsonData(database=self.file_config)
+        self.class_config.load(module='info', tag='distro')
+        self.class_config.insert(content=get_distro())
 
-        data.load(module='info', tag='distro')
-        data.insert(content=get_distro())
-
-        data.load(module='info', tag='system')
-        data.insert(content=get_system())
+        self.class_config.load(module='info', tag='system')
+        self.class_config.insert(content=get_system())
 
     def load_config(self) -> None:
         """
@@ -100,21 +90,7 @@ class BaseConfig():
         Loads basic configuration information for use
         in the application and internal operations.
         """
-        data = JsonData(database=self.file_config)
-
-        data.load(module='info', tag='system')
-        self.system = data.search_tag(tag='system')
-
-        data.load(module='info', tag='distro')
-        self.distro = data.search_tag(tag='distro')
-
-    def add_profile(self) -> None:
-        """
-        Add Profile
-
-        Save default profile settings in linux_profile.json.
-        """
-        JsonData(database=self.file_profile)
+        self.config = self.class_config.load_data()
 
     def load_profile(self) -> None:
         """
@@ -123,8 +99,4 @@ class BaseConfig():
         Load basic information from profiles for use in the
         application and internal operations.
         """
-
-        profile = read_file(
-            path_file=self.file_profile
-        )
-        self.profile = json.loads(profile)
+        self.profile = self.class_profile.load_data()
