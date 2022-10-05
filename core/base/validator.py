@@ -12,8 +12,10 @@ class Validator():
     def __init__(self, *args, **kwargs):
         self.id = uuid.uuid4().hex.upper()
         self.is_valid = True
-
+        
         for arg in kwargs:
+            setattr(self, arg, None)
+
             if hasattr(self, "validator_"+arg):
                 call = getattr(self, "validator_"+arg)
                 setattr(self, arg, call(kwargs.get(arg)))
@@ -73,4 +75,4 @@ class ValidatorAddTerminal(Validator):
             print_option_is_missing(parameter='Terminal Name')
             self.is_valid = False
 
-        return cleaning_option(value).lower()
+        return value
