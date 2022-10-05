@@ -8,7 +8,6 @@ from core.base.json import JsonData
 from core.utils.file import (
     get_system,
     get_distro,
-    write_file,
     read_file
 )
 from core.settings import (
@@ -36,6 +35,7 @@ class BaseConfig():
         self.module = module
         self.category = category
         self.value = value
+
         self.file_config = file_config
         self.file_profile = file_profile
         self.folder_config = folder_config
@@ -114,12 +114,7 @@ class BaseConfig():
 
         Save default profile settings in linux_profile.json.
         """
-
-        if not exists(self.file_profile):
-            write_file(
-                content=json.dumps(dict(), indent=4),
-                path_file=self.file_profile
-            )
+        JsonData(database=self.file_profile)
 
     def load_profile(self) -> None:
         """
