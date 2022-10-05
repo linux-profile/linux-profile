@@ -8,7 +8,7 @@ logging_config = dict(
     version = 1,
     formatters = {
         'f': {'format':
-              '%(asctime)s %(name)-12s %(levelname)-8s %(message)s'}
+              '%(asctime)s - %(name)s - %(levelname)s - %(message)s'}
         },
     handlers = {
         'h': {'class': 'logging.StreamHandler',
@@ -36,6 +36,8 @@ class LogBaseConfig(BaseConfig):
 
 def setup_log(name_log: str, file_log: str, level: logging):
     LogBaseConfig()
+
+    logging.config.dictConfig(logging_config)
 
     log_handler = logging.FileHandler(file_log)
     log_handler.setFormatter(log_format)

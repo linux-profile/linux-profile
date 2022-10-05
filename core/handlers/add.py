@@ -18,9 +18,10 @@ class Add(BaseConfig):
         time the class is instantiated.
         """
         self.add_config()
+        self.load_config()
         self.load_profile()
 
-        self.log = run_profile(name_log=self.module)
+        self.log = run_profile(name_log=self.__class__.__name__)
         self.data = Storage(database=self.file_profile)
 
         call_add = getattr(self, "add_"+self.module)

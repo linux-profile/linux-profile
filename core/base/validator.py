@@ -14,7 +14,7 @@ class Validator():
         self.is_valid = True
         
         for arg in kwargs:
-            setattr(self, arg, None)
+            setattr(self, arg, kwargs.get(arg))
 
             if hasattr(self, "validator_"+arg):
                 call = getattr(self, "validator_"+arg)
@@ -76,3 +76,8 @@ class ValidatorAddTerminal(Validator):
             self.is_valid = False
 
         return value
+
+class ValidatorInit(Validator):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)

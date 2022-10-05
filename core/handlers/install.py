@@ -16,11 +16,12 @@ class Install(BaseConfig):
         time the class is instantiated.
         """
         self.add_config()
+        self.load_config()
         self.load_profile()
-        self.command = "install_"+self.module
-        self.log = run_profile(name_log=self.module)
 
-        call_add = getattr(self, self.command)
+        self.log = run_profile(name_log=self.__class__.__name__)
+
+        call_add = getattr(self, "install_"+self.module)
         call_add()
 
     def install_package(self):
