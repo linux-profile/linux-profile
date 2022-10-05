@@ -57,6 +57,8 @@ class HandlerModule(BaseFile):
                 else:
                     return item
 
+    def _search_tag(self, tag: str):
+        return self.json[self.module].get(tag)
 
 class JsonData(BaseFile):
 
@@ -98,6 +100,9 @@ class JsonData(BaseFile):
 
     def search(self, key: str, value: str):
         return self.handler._search(key=key, value=value, position=False)
+
+    def search_tag(self, tag: str):
+        return self.handler._search_tag(tag=tag)
 
 
 class Data():

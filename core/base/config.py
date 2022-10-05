@@ -4,6 +4,7 @@ import json
 
 from os import mkdir
 from os.path import exists
+from core.base.json import JsonData
 from core.utils.file import (
     get_system,
     get_distro,
@@ -14,10 +15,7 @@ from core.settings import (
     FILE_CONFIG,
     FILE_PROFILE,
     FOLDER_CONFIG,
-    FOLDER_PROFILE,
-    FOLDER_MODULE,
-    FOLDER_LOG,
-    BASE_PROFILE
+    FOLDER_LOG
 )
 
 
@@ -31,10 +29,7 @@ class BaseConfig():
             file_config: str = FILE_CONFIG,
             file_profile: str = FILE_PROFILE,
             folder_config: str = FOLDER_CONFIG,
-            folder_profile: str = FOLDER_PROFILE,
-            folder_module: str = FOLDER_MODULE,
-            folder_log: str = FOLDER_LOG,
-            base_profile: str = BASE_PROFILE):
+            folder_log: str = FOLDER_LOG):
         """
         Structure that defines the main variables.
         """
@@ -44,10 +39,7 @@ class BaseConfig():
         self.file_config = file_config
         self.file_profile = file_profile
         self.folder_config = folder_config
-        self.folder_profile = folder_profile
-        self.folder_module = folder_module
         self.folder_log = folder_log
-        self.base_profile = base_profile
 
         self.profile = {}
         self.system = {}
@@ -67,7 +59,6 @@ class BaseConfig():
 
         self.add_profile()
         self.load_profile()
-        self.check_profile()
 
     def set_folder(self) -> None:
         """
@@ -78,8 +69,6 @@ class BaseConfig():
         """
         folders = [
             self.folder_config,
-            self.folder_profile,
-            self.folder_module,
             self.folder_log
         ]
         for folder in folders:
@@ -96,16 +85,13 @@ class BaseConfig():
         Saved in the linux_config.ini configuration file more
         specifically Hardware and Distribution information.
         """
-        if not exists(self.file_config):
-            config = {
-                "system": get_system(),
-                "distro": get_distro()
-            }
+        data = JsonData(database=self.file_config)
 
-            write_file(
-                content=json.dumps(config, indent=4),
-                path_file=self.file_config
-            )
+        data.load(module='info', tag='distro')
+        data.insert(content=get_distro())
+
+        data.load(module='info', tag='system')
+        data.insert(content=get_system())
 
     def load_config(self) -> None:
         """
@@ -114,12 +100,13 @@ class BaseConfig():
         Loads basic configuration information for use
         in the application and internal operations.
         """
+        data = JsonData(database=self.file_config)
 
-        config = read_file(path_file=self.file_config)
-        config = json.loads(config)
+        data.load(module='info', tag='system')
+        self.system = data.search_tag(tag='system')
 
-        self.system = config["system"]
-        self.distro = config["distro"]
+        data.load(module='info', tag='distro')
+        self.distro = data.search_tag(tag='distro')
 
     def add_profile(self) -> None:
         """
@@ -130,7 +117,7 @@ class BaseConfig():
 
         if not exists(self.file_profile):
             write_file(
-                content=json.dumps(self.base_profile, indent=4),
+                content=json.dumps(dict(), indent=4),
                 path_file=self.file_profile
             )
 
@@ -146,18 +133,3 @@ class BaseConfig():
             path_file=self.file_profile
         )
         self.profile = json.loads(profile)
-
-    def check_profile(self) -> None:
-        """
-        Check Profile
-
-        Checks the profile file and includes missing modules.
-        """
-        for module in self.base_profile:
-            if not self.profile.get(module):
-                self.profile[module] = dict(default=[])
-
-                write_file(
-                    content=json.dumps(self.profile, indent=4),
-                    path_file=self.file_profile
-                )

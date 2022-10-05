@@ -66,7 +66,17 @@ def get_system() -> dict:
     file_system = read_file(path_file=FILE_SYSTEM)
     system('rm ' + FILE_SYSTEM)
 
-    return get_content(path_file=file_system, separator=":")
+    content = get_content(path_file=file_system, separator=":")
+
+    return {
+        "kernel": content.get('kernel'),
+        "static_host_name": content.get('statichostname'),
+        "hardware_vendor": content.get('hardwarevendor'),
+        "hardware_model": content.get('hardwaremodel'),
+        "architecture": content.get('architecture'),
+        "icon_name": content.get('iconname'),
+        "chassis": content.get('chassis')
+    }
 
 
 def get_distro() -> dict:
@@ -81,4 +91,10 @@ def get_distro() -> dict:
     file_distro = read_file(path_file=FILE_DISTRO)
     system('rm ' + FILE_DISTRO)
 
-    return get_content(path_file=file_distro, separator="=")
+    content = get_content(path_file=file_distro, separator="=")
+    return {
+        "name": content.get('name'),
+        "pretty_name": content.get('pretty_name'),
+        "version_id": content.get('version_id'),
+        "version": content.get('version'),
+    }
