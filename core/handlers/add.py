@@ -48,7 +48,7 @@ class Add(BaseConfig):
                 "url": fields.url,
                 "file": fields.file
             },
-            check_key='name'
+            key='name'
         )
 
     def add_alias(self):
@@ -68,7 +68,7 @@ class Add(BaseConfig):
                 "content": fields.content,
                 "command": fields.command,
             },
-            check_key='command'
+            key='command'
         )
 
     def add_terminal(self):
@@ -96,5 +96,5 @@ class Add(BaseConfig):
                     }
                 }
             },
-            check_key='name'
+            key='name'
         )
