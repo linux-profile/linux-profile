@@ -77,13 +77,13 @@ class BaseConfig():
         Saved in the linux_config.json configuration file more
         specifically Hardware and Distribution information.
         """
-        self.class_config.load(module='info', tag='distro')
+        self.class_config.begin(module='info', tag='distro')
         if not len(self.class_config.search_tag('distro')):
-            self.class_config.insert(content=get_distro())
+            self.class_config.run(content=get_distro())
 
-        self.class_config.load(module='info', tag='system')
+        self.class_config.begin(module='info', tag='system')
         if not len(self.class_config.search_tag('system')):
-            self.class_config.insert(content=get_system())
+            self.class_config.run(content=get_system())
 
     def load_config(self) -> None:
         """
@@ -92,7 +92,7 @@ class BaseConfig():
         Loads basic configuration information for use
         in the application and internal operations.
         """
-        self.config = self.class_config.load_data()
+        self.config = self.class_config.load()
 
     def load_profile(self) -> None:
         """
@@ -101,4 +101,4 @@ class BaseConfig():
         Load basic information from profiles for use in the
         application and internal operations.
         """
-        self.profile = self.class_profile.load_data()
+        self.profile = self.class_profile.load()

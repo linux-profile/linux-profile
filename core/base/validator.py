@@ -14,11 +14,12 @@ class Validator():
         self.is_valid = True
         
         for arg in kwargs:
-            setattr(self, arg, kwargs.get(arg))
+            value = kwargs.get(arg) if kwargs.get(arg) else None
+            setattr(self, arg, value)
 
             if hasattr(self, "validator_"+arg):
                 call = getattr(self, "validator_"+arg)
-                setattr(self, arg, call(kwargs.get(arg)))
+                setattr(self, arg, call(value))
 
 
 class ValidatorAddPackage(Validator):

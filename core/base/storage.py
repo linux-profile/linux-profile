@@ -19,7 +19,7 @@ class BaseFile():
         self.write(data, path)
 
 
-class HandlerModule(BaseFile):
+class Handler():
 
     def __init__(self, module: str, tag: str, json: dict) -> None:
         self.module = module
@@ -32,91 +32,51 @@ class HandlerModule(BaseFile):
         if not self.json[self.module].get(self.tag):
             self.json[self.module][self.tag] = list()
 
-    def _insert(
-            self,
-            content: dict,
-            index: int = 0) -> dict:
-        self.json[self.module][self.tag].insert(index, content)
+    def _insert(self, content: dict) -> dict:
+        self.json[self.module][self.tag].append(content)
         return self.json
 
-    def _update(
-            self,
-            content: dict,
-            key: str,
-            value: str) -> dict:
-        position = self._search_field(key=key, value=value)
-        if position >= 0:
-            self.json[self.module][self.tag][position] = content
+    def _search_field(self, key: str, value: str, position: bool = False, ipop=False):
+        for tag in self.json[self.module]:
+            for index, item in enumerate(self.json[self.module][tag]):
+                fields = lambda: [field for field in item.keys()]
 
-        return self.json
-
-    def _search_field(
-            self,
-            key: str,
-            value: str,
-            position: bool = True):
-        for index, item in enumerate(self.json[self.module][self.tag]):
-            fields = lambda: [field for field in item.keys()]
-
-            if key in fields() and item.get(key) == value:
-                return index if position == True else item
+                if key in fields() and item.get(key) == value:
+                    if ipop:
+                        return self.json[self.module][tag].pop(index)
+                    return index if position == True else item
 
     def _search_tag(self, tag: str):
         return self.json[self.module].get(tag)
 
 
 class Storage(BaseFile):
-
+    
     def __init__(self, database: str) -> None:
         self.database = database
-        self.model_id = uuid.uuid4().hex.upper()
 
         if not exists(self.database):
             self.touch(path=self.database)
 
-    def load(self, module: str = 'default', tag: str = 'tag'):
-        self.handler = HandlerModule(
-            module=module,
-            tag=tag,
-            json=self.load_data()
-        )
-
-    def load_data(self):
+    def load(self):
         output = self.read(path_file=self.database)
         return json.loads(output)
 
-    def insert(self, content: dict, key: str = None, index: int = 0):
-        item = self.handler._search_field(
-            key=key,
-            value=content.get(key),
-            position=False
-        )
-        if item:
-            content["id"] = item["id"]
-            response = self.handler._update(
-                content=content,
-                key=key,
-                value=content.get(key)
-            )
+    def begin(self, module: str, tag: str):
+        self.handler = Handler(module=module, tag=tag, json=self.load())
+
+    def run(self, content: dict, key: str = None):
+        item = self.handler._search_field(key=key, value=content.get(key), ipop=True)
+
+        if not item:
+            content["id"] = uuid.uuid4().hex.upper()
         else:
-            if not content.get("id"):
-                content["id"] = self.model_id
-            response = self.handler._insert(content=content, index=index)
+            content["id"] = item["id"]
 
+        data = self.handler._insert(content=content)
         self.write(
             path_file=self.database,
-            content=json.dumps(response, indent=4)
-        )
-
-    def update(self, content: dict, key: str = None):
-        response = self.handler._update(
-            content=content,
-            key=key,
-            value=content.get(key)
-        )
-        self.write(
-            path_file=self.database,
-            content=json.dumps(response, indent=4)
+            content=json.dumps(data, indent=4)
         )
 
     def search(self, key: str, value: str):
