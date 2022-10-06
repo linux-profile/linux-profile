@@ -40,8 +40,8 @@ class Add(BaseConfig):
         if not fields.is_valid:
             return
 
-        self.data.load(module=self.module, tag=fields.category)
-        self.data.insert(
+        self.data.begin(module=self.module, tag=fields.category)
+        self.data.run(
             content={
                 "type": fields.manager,
                 "name": fields.name,
@@ -62,8 +62,8 @@ class Add(BaseConfig):
         if not fields.is_valid:
             return
 
-        self.data.load(module=self.module, tag=fields.category)
-        self.data.insert(
+        self.data.begin(module=self.module, tag=fields.category)
+        self.data.run(
             content={
                 "content": fields.content,
                 "command": fields.command,
@@ -81,8 +81,8 @@ class Add(BaseConfig):
         if not fields.is_valid:
             return
 
-        self.data.load(module=self.module, tag=fields.category)
-        self.data.insert(
+        self.data.begin(module=self.module, tag=fields.category)
+        self.data.run(
             content={
                 "name": fields.name,
                 "colorscheme": {},
