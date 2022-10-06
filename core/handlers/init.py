@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 import urllib.request
 
+from core.base.storage import Storage
 from core.base.log import run_profile
 from core.base.config import BaseConfig
-from core.base.validator import ValidatorInit
+from core.base.validator import ValidatorInitDefault, ValidatorInitConfig
 
 
 class Init(BaseConfig):
@@ -21,11 +22,12 @@ class Init(BaseConfig):
         self.init_profile()
 
     def init_profile(self):
-        fields = ValidatorInit(**{
-                "file_url": input("Profile file URL: ")
+        fields_config = ValidatorInitConfig(**{
+                "file_url_get": input("Profile file URL (GET): "),
+                "file_url_post": input("Profile file URL (POST): ")
             }
         )
-        if fields.file_url:
-            urllib.request.urlretrieve(fields.file_url, self.file_profile)
-            self.log.info("Profile import executed successfully.")
 
+        if fields_config.file_url_get:
+            urllib.request.urlretrieve(fields_config.file_url_get, self.file_profile)
+            self.log.info("Profile import executed successfully.")

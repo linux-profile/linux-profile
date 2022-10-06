@@ -78,10 +78,12 @@ class BaseConfig():
         specifically Hardware and Distribution information.
         """
         self.class_config.load(module='info', tag='distro')
-        self.class_config.insert(content=get_distro())
+        if not len(self.class_config.search_tag('distro')):
+            self.class_config.insert(content=get_distro())
 
         self.class_config.load(module='info', tag='system')
-        self.class_config.insert(content=get_system())
+        if not len(self.class_config.search_tag('system')):
+            self.class_config.insert(content=get_system())
 
     def load_config(self) -> None:
         """
