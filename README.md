@@ -55,6 +55,32 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 | 02     | ``linux_profile add``      | ``--module``  | ``package`` ``alias`` |                 |               |
 | 03     | ``linux_profile install``  | ``--module``  | ``package`` ``alias`` | ``--category``  | ``default``   |
 
+## Options:
+<details>
+  <summary>COMMAND: linux_profile add --module package</summary>
+
+- **Package Category [default]**:
+   - You choose
+
+- **Package Manager:**
+   - apt-get
+   - apt
+   - snap
+   - deb
+   - sh
+   - py
+   - dnf
+   - pacman
+   - zypper
+   - spack
+   - brew
+   
+- **Package Name:**
+   - You choose
+
+</details>
+
+
 ## File 
 
 <details>
