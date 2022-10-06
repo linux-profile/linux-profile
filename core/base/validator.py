@@ -24,6 +24,20 @@ class Validator():
 
 class ValidatorAddPackage(Validator):
 
+    option_manager = [
+        'apt-get',
+        'apt',
+        'snap',
+        'deb',
+        'sh',
+        'py',
+        'dnf',
+        'pacman',
+        'zypper',
+        'spack',
+        'brew'
+    ]
+
     def validator_category(self, value = None):
         return value.lower() if value else 'default'
 
@@ -32,7 +46,7 @@ class ValidatorAddPackage(Validator):
             print_option_is_missing(parameter='Package Manager')
             self.is_valid = False
 
-        if not value in ['apt-get', 'snap', 'deb']:
+        if not value in self.option_manager:
             print_option_invalid_value(parameter='Package Manager')
             self.is_valid = False
 
