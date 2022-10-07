@@ -29,5 +29,7 @@ class Init(BaseConfig):
         )
 
         if fields_config.file_url_get:
-            urllib.request.urlretrieve(fields_config.file_url_get, self.file_profile)
+            urllib.request.urlretrieve(
+                fields_config.file_url_get, self.file_profile
+            )
             self.log.info("Profile import executed successfully.")
