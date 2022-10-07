@@ -28,7 +28,6 @@ class Install(BaseConfig):
                 for item in self.profile[self.module][category]:
                     SetupPackage(**item)
 
-
     def install_alias(self):
         if self.category:
             for item in self.profile[self.module][self.category]:
