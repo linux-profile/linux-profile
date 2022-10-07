@@ -37,7 +37,7 @@ class LogBaseConfig(BaseConfig):
 def setup_log(name_log: str, file_log: str, level: logging):
     LogBaseConfig()
 
-    logging.config.dictConfig(logging_config)
+    # logging.config.dictConfig(logging_config)
 
     log_handler = logging.FileHandler(file_log)
     log_handler.setFormatter(log_format)
