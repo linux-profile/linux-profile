@@ -36,7 +36,12 @@ class HandlerStorage():
         self.json[self.module][self.tag].append(content)
         return self.json
 
-    def _search_field(self, key: str, value: str, position: bool = False, ipop=False):
+    def _search_field(
+            self,
+            key: str,
+            value: str,
+            position: bool = False,
+            ipop=False):
         for tag in self.json[self.module]:
             for index, item in enumerate(self.json[self.module][tag]):
                 fields = lambda: [field for field in item.keys()]
