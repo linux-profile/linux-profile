@@ -23,6 +23,7 @@ class Install(BaseConfig):
     def install_package(self):
         if self.category:
             for item in self.profile[self.module][self.category]:
+                item["command"] = self.command
                 SetupPackage(**item)
         else:
             for category in self.profile[self.module]:

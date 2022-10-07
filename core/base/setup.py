@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 
-from core.base.error import print_error, print_not_implemented
+from core.base.error import print_not_implemented
 from core.utils.file import write_file
 
 
@@ -11,6 +11,8 @@ class Setup():
     INSTALL = 'install'
     UNINSTALL = 'uninstall'
     SEARCH = 'serach'
+    DELETE = 'delete'
+    REMOVE = 'remove'
     LIST = 'list'
     CONFIG = 'config'
     B_ARG = ''
@@ -22,35 +24,37 @@ class Setup():
             value = kwargs.get(arg)
             setattr(self, arg, value)
 
-        func = f"setup_{self.type}".replace("-", "_")
-        if hasattr(self, func):
-            getattr(self, func, None)()
+        self.run = getattr(Setup, self.command.upper())
+        self.func = f"setup_{self.type}".replace("-", "_")
+
+        if hasattr(self, self.func):
+            getattr(self, self.func, None)()
+
+    def setup(
+            self,
+            sudo: str = SUDO,
+            run: str = None,
+            b_arg: list = list(),
+            l_arg: list = list(),
+            log: str = LOG):
+        b_arg = " ".join(b_arg)
+        l_arg = " ".join(l_arg)
+        run = run if run else self.run
+
+        command = [sudo, self.type, b_arg, run, self.name, l_arg, log]
+        os.system(" ".join(command).replace("  ", " "))
 
 
 class SetupPackage(Setup):
 
-    def setup_default(
-            self,
-            sudo: bool = Setup.SUDO,
-            b_arg: str = Setup.B_ARG,
-            l_arg: str = Setup.L_ARG,
-            log: str = Setup.LOG):
-        try:
-            run = getattr(Setup, self.command.upper())
-            command = [sudo, self.type, b_arg, run, self.name, l_arg, log]
-
-            os.system(" ".join(command).replace("  ", " "))
-        except Exception as error:
-            print_error(error)
-
     def setup_apt_get(self):
-        self.setup_default(b_arg=" -f", l_arg=" -y -q")
+        self.setup(b_arg=["-f"], l_arg=["-y", "-q"])
 
     def setup_apt(self):
-        self.setup_default(b_arg=" -f", l_arg=" -y -q")
+        self.setup(b_arg=["-f"], l_arg=["-y", "-q"])
 
     def setup_snap(self):
-        self.setup_default()
+        self.setup()
 
     def setup_deb(self):
         print_not_implemented(f"ID: {self.id}")
@@ -62,19 +66,19 @@ class SetupPackage(Setup):
         print_not_implemented(f"ID: {self.id}")
 
     def setup_dnf(self):
-        self.setup_default()
+        self.setup()
 
     def setup_pacman(self):
-        self.setup_default(b_arg=" -S")
+        self.setup(run=self.run, b_arg=["-S"])
 
     def setup_zypper(self):
-        self.setup_default()
+        self.setup()
 
     def setup_spack(self):
-        self.setup_default()
+        self.setup()
 
     def setup_brew(self):
-        self.setup_default()
+        self.setup()
 
 
 class SetupAlias(Setup):
