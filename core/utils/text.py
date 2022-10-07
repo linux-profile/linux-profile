@@ -20,5 +20,10 @@ def color(text: str, types: list):
 
     return reduce(lambda x, y: x + y, types_sancii) + text + Colors.ENDC
 
+
 def cleaning_option(text: str):
-    return text.replace(" ", "").replace("\t", "").replace("\n", "")
+    list_str = [" ", "\t", "\n", "\"", "\'", "'", "\u001b[C", "\u001b[D"]
+
+    for item in list_str:
+        text = text.replace(item, "")
+    return text
