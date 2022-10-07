@@ -28,7 +28,7 @@ class SetupPackage(Setup):
                 name=self.name,
                 file=FILE_INSTALL_LOG
             )
-        )   
+        )
 
     def setup_apt(self):
         os.system("sudo {type} install {name} -y".format(

@@ -51,7 +51,7 @@ def setup_log(name_log: str, file_log: str, level: logging):
 def run_app(name_log: str):
     return setup_log(
         name_log=name_log,
-        file_log=FILE_CONFIG_LOG, 
+        file_log=FILE_CONFIG_LOG,
         level=logging.WARNING
     )
 
