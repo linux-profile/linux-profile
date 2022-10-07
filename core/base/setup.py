@@ -7,6 +7,16 @@ from core.utils.file import write_file
 
 class Setup():
 
+    SUDO = 'sudo'
+    INSTALL = 'install'
+    UNINSTALL = 'uninstall'
+    SEARCH = 'serach'
+    LIST = 'list'
+    CONFIG = 'config'
+    B_ARG = ''
+    L_ARG = ''
+    LOG = ''
+
     def __init__(self, **kwargs):
         for arg in kwargs:
             value = kwargs.get(arg)
@@ -21,18 +31,15 @@ class SetupPackage(Setup):
 
     def setup_default(
             self,
-            b_arg: str = '',
-            l_arg: str = '',
-            log: str = ''):
+            sudo: bool = Setup.SUDO,
+            b_arg: str = Setup.B_ARG,
+            l_arg: str = Setup.L_ARG,
+            log: str = Setup.LOG):
         try:
-            command = "sudo {type}{b_arg} install {name}{l_arg}{log}".format(
-                    type=self.type,
-                    name=self.name,
-                    b_arg=b_arg,
-                    l_arg=l_arg,
-                    log=log
-                )
-            os.system(command)
+            run = getattr(Setup, self.command.upper())
+            command = [sudo, self.type, b_arg, run, self.name, l_arg, log]
+
+            os.system(" ".join(command).replace("  ", " "))
         except Exception as error:
             print_error(error)
 
