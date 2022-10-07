@@ -1,9 +1,8 @@
 import os
 from pathlib import Path
 
-from core.base.log import run_profile
+from core.base.error import print_error, print_not_implemented
 from core.utils.file import write_file
-from core.settings import FILE_INSTALL_LOG
 
 
 class Setup():
@@ -13,38 +12,62 @@ class Setup():
             value = kwargs.get(arg)
             setattr(self, arg, value)
 
-        log = run_profile(name_log=self.__class__.__name__)
-        log.info(f"ID: {self.id}")
-
-        if hasattr(self, f"setup_{self.type}"):
-            getattr(self, f"setup_{self.type}", None)()
+        func = f"setup_{self.type}".replace("-", "_")
+        if hasattr(self, func):
+            getattr(self, func, None)()
 
 
 class SetupPackage(Setup):
 
+    def setup_default(
+            self,
+            b_arg: str = '',
+            l_arg: str = '',
+            log: str = ''):
+        try:
+            command = "sudo {type}{b_arg} install {name}{l_arg}{log}".format(
+                    type=self.type,
+                    name=self.name,
+                    b_arg=b_arg,
+                    l_arg=l_arg,
+                    log=log
+                )
+            os.system(command)
+        except Exception as error:
+            print_error(error)
+
     def setup_apt_get(self):
-        os.system("sudo {type} install {name} -y".format(
-                type=self.type,
-                name=self.name,
-                file=FILE_INSTALL_LOG
-            )
-        )
+        self.setup_default(b_arg=" -f", l_arg=" -y -q")
 
     def setup_apt(self):
-        os.system("sudo {type} install {name} -y".format(
-                type=self.type,
-                name=self.name,
-                file=FILE_INSTALL_LOG
-            )
-        )
+        self.setup_default(b_arg=" -f", l_arg=" -y -q")
 
     def setup_snap(self):
-        os.system("sudo {type} install {name}".format(
-                type=self.type,
-                name=self.name,
-                file=FILE_INSTALL_LOG
-            )
-        )
+        self.setup_default()
+
+    def setup_deb(self):
+        print_not_implemented(f"ID: {self.id}")
+
+    def setup_sh(self):
+        print_not_implemented(f"ID: {self.id}")
+
+    def setup_py(self):
+        print_not_implemented(f"ID: {self.id}")
+
+    def setup_dnf(self):
+        self.setup_default()
+
+    def setup_pacman(self):
+        self.setup_default(b_arg=" -S")
+
+    def setup_zypper(self):
+        self.setup_default()
+
+    def setup_spack(self):
+        self.setup_default()
+
+    def setup_brew(self):
+        self.setup_default()
 
 
 class SetupAlias(Setup):
