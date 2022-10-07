@@ -49,7 +49,7 @@ class HandlerStorage():
                 if key in fields() and item.get(key) == value:
                     if ipop:
                         return self.json[self.module][tag].pop(index)
-                    return index if position == True else item
+                    return index if position else item
 
     def _search_tag(self, tag: str):
         return self.json[self.module].get(tag)
