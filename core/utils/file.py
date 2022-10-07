@@ -43,7 +43,7 @@ def write_file(
         content: str,
         path_file: str,
         type_file: str = '',
-        mode: str ='w') -> str:
+        mode: str = 'w') -> str:
     with open(path_file + type_file, mode) as outfile:
         outfile.write(content)
 
