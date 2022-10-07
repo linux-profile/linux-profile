@@ -109,3 +109,15 @@ def print_error(parameter):
             types=['bold', 'red']
         )
     )
+
+
+def print_not_implemented(parameter):
+    message = f"[{parameter}]"
+    LOG_APP.warning(message)
+
+    print(
+        color(
+            text=message.format("WARNING: Not implemented. " + message),
+            types=['bold', 'yellow']
+        )
+    )
