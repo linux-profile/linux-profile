@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 from core.base.storage import Storage
-from core.base.log import run_profile
 from core.base.config import BaseConfig
 from core.base.validator import (
     ValidatorAddPackage,
@@ -21,16 +20,16 @@ class Add(BaseConfig):
         self.load_config()
         self.load_profile()
 
-        self.log = run_profile(name_log=self.__class__.__name__)
         self.data = Storage(database=self.file_profile)
 
-        call_add = getattr(self, "add_"+self.module)
+        func = f"{self.__class__.__name__}_{self.module}".lower()
+        call_add = getattr(self, func)
         call_add()
 
     def add_package(self):
         fields = ValidatorAddPackage(**{
                 "category": input("Package Category [default]: "),
-                "manager": input("Package Manager [apt-get, snap, deb]: "),
+                "manager": input("Package Manager: "),
                 "name": input("Package Name: "),
                 "url": input("Package URL: "),
                 "file": input("Package File: ")
@@ -42,12 +41,7 @@ class Add(BaseConfig):
 
         self.data.begin(module=self.module, tag=fields.category)
         self.data.run(
-            content={
-                "type": fields.manager,
-                "name": fields.name,
-                "url": fields.url,
-                "file": fields.file
-            },
+            content=fields.__dict__,
             key='name'
         )
 
@@ -55,7 +49,8 @@ class Add(BaseConfig):
         fields = ValidatorAddAlias(**{
                 "category": input("Alias Category [default]: "),
                 "command": input("Alias Command: "),
-                "content": input("Alias Content: ")
+                "content": input("Alias Content: "),
+                "type": "exec"
             }
         )
 
@@ -64,10 +59,7 @@ class Add(BaseConfig):
 
         self.data.begin(module=self.module, tag=fields.category)
         self.data.run(
-            content={
-                "content": fields.content,
-                "command": fields.command,
-            },
+            content=fields.__dict__,
             key='command'
         )
 
