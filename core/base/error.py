@@ -57,7 +57,7 @@ def print_parameter_is_missing(parameter):
 
     print(
         color(
-            text=message.format("WARNING: "+parameter),
+            text="WARNING: " + message,
             types=['bold', 'yellow']
         )
     )
@@ -69,7 +69,7 @@ def print_option_is_missing(parameter):
 
     print(
         color(
-            text=message.format("WARNING: "+parameter),
+            text="WARNING: " + message,
             types=['bold', 'yellow']
         )
     )
@@ -81,7 +81,7 @@ def print_option_invalid_value(parameter):
 
     print(
         color(
-            text=message.format("WARNING: "+parameter),
+            text="WARNING: " + message,
             types=['bold', 'yellow']
         )
     )
@@ -93,7 +93,7 @@ def print_error_invalid_value(parameter):
 
     print(
         color(
-            text=message.format("WARNING: "+parameter),
+            text="WARNING: " + message,
             types=['bold', 'yellow']
         )
     )
@@ -105,19 +105,19 @@ def print_error(parameter):
 
     print(
         color(
-            text=message.format("ERROR: "+ parameter),
+            text="ERROR: " + message,
             types=['bold', 'red']
         )
     )
 
 
 def print_not_implemented(parameter):
-    message = f"[{parameter}]"
+    message = f"Not implemented. [{parameter}]"
     LOG_APP.warning(message)
 
     print(
         color(
-            text=message.format("WARNING: Not implemented. " + message),
+            text="WARNING: " + message,
             types=['bold', 'yellow']
         )
     )
