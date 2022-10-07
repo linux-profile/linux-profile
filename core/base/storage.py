@@ -71,7 +71,11 @@ class Storage(BaseFile):
         self.handler = HandlerStorage(module=module, tag=tag, json=self.load())
 
     def run(self, content: dict, key: str = None):
-        item = self.handler._search_field(key=key, value=content.get(key), ipop=True)
+        item = self.handler._search_field(
+            key=key,
+            value=content.get(key),
+            ipop=True
+        )
 
         if not item:
             content["id"] = uuid.uuid4().hex.upper()
