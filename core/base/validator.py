@@ -41,7 +41,7 @@ class ValidatorAddPackage(Validator):
     def validator_category(self, value = None):
         return value.lower() if value else 'default'
 
-    def validator_manager(self, value = None):
+    def validator_type(self, value = None):
         if not value:
             print_option_is_missing(parameter='Package Manager '+ str(self.option_manager))
             self.is_valid = False

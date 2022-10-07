@@ -29,7 +29,7 @@ class Add(BaseConfig):
     def add_package(self):
         fields = ValidatorAddPackage(**{
                 "category": input("Package Category [default]: "),
-                "manager": input("Package Manager: "),
+                "type": input("Package Manager: "),
                 "name": input("Package Name: "),
                 "url": input("Package URL: "),
                 "file": input("Package File: ")
