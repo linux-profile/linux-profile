@@ -38,6 +38,7 @@ def print_error_settings(error):
         )
     )
 
+
 def print_error_estrange(error):
     message = "Some weird error happened, but that's ok."
     LOG_APP.error(f"{message} [{str(error)}]")
@@ -48,6 +49,7 @@ def print_error_estrange(error):
             types=['bold', 'yellow']
         )
     )
+
 
 def print_parameter_is_missing(parameter):
     message = f"Parameter --{parameter} is missing"
@@ -60,6 +62,7 @@ def print_parameter_is_missing(parameter):
         )
     )
 
+
 def print_option_is_missing(parameter):
     message = f"Option [{parameter}] is missing"
     LOG_APP.warning(message)
@@ -71,6 +74,7 @@ def print_option_is_missing(parameter):
         )
     )
 
+
 def print_option_invalid_value(parameter):
     message = f"Option [{parameter}] invalid value"
     LOG_APP.warning(message)
@@ -81,6 +85,7 @@ def print_option_invalid_value(parameter):
             types=['bold', 'yellow']
         )
     )
+
 
 def print_error_invalid_value(parameter):
     message = f"Parameter --{parameter} invalid value"
