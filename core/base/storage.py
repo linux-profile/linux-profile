@@ -19,7 +19,7 @@ class BaseFile():
         self.write(data, path)
 
 
-class Handler():
+class HandlerStorage():
 
     def __init__(self, module: str, tag: str, json: dict) -> None:
         self.module = module
@@ -63,7 +63,7 @@ class Storage(BaseFile):
         return json.loads(output)
 
     def begin(self, module: str, tag: str):
-        self.handler = Handler(module=module, tag=tag, json=self.load())
+        self.handler = HandlerStorage(module=module, tag=tag, json=self.load())
 
     def run(self, content: dict, key: str = None):
         item = self.handler._search_field(key=key, value=content.get(key), ipop=True)
