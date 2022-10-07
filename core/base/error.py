@@ -97,3 +97,15 @@ def print_error_invalid_value(parameter):
             types=['bold', 'yellow']
         )
     )
+
+
+def print_error(parameter):
+    message = f"[{parameter}]"
+    LOG_APP.warning(message)
+
+    print(
+        color(
+            text=message.format("ERROR: "+ parameter),
+            types=['bold', 'red']
+        )
+    )
