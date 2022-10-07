@@ -56,7 +56,7 @@ class HandlerStorage():
 
 
 class Storage(BaseFile):
-    
+
     def __init__(self, database: str) -> None:
         self.database = database
 
