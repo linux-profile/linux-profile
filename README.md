@@ -151,6 +151,12 @@ Linux Profile is a Linux profile management tool. With this project it is possib
   Link: https://raw.githubusercontent.com/MyLinuxProfile/linux-profile-basic/master/docs/linux_profile.json
 </details>
 
+## Commits
+- ⚙️ NO-TASK
+- 📝 PEP8
+- 📌 ISSUE
+- 🪲 BUG
+
 **RESOURCES**
 - GitHub: https://github.com/MyLinuxProfile/linux-profile-basic
 - Docs:   https://linuxprofile.com
