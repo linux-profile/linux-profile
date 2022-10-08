@@ -20,7 +20,7 @@ class Validator():
 
 class ValidatorAddPackage(Validator):
 
-    option_manager = [
+    types = [
         'apt-get',
         'apt',
         'snap',
@@ -42,7 +42,7 @@ class ValidatorAddPackage(Validator):
         if not value:
             raise ErrorOptionIsMissing('Package Manager')
 
-        if not value in self.option_manager:
+        if not value in self.types:
             raise ErrorOptionIsMissing('Package Manager')
 
         return cleaning_option(value).lower()
@@ -82,6 +82,32 @@ class ValidatorAddTerminal(Validator):
             raise ErrorOptionIsMissing('Terminal Name')
 
         return value
+
+
+class ValidatorAddScript(Validator):
+
+    types = [
+        'sh',
+        'py'
+    ]
+
+    def validator_category(self, value = None):
+        return value.lower() if value else 'default'
+
+    def validator_type(self, value = None):
+        if not value:
+            raise ErrorOptionIsMissing('Script Type')
+
+        if not value in self.types:
+            raise ErrorOptionIsMissing('Script Type')
+
+        return cleaning_option(value).lower()
+
+    def validator_name(self, value = None):
+        if not value:
+            raise ErrorOptionIsMissing('Script name')
+
+        return cleaning_option(value)
 
 
 class ValidatorInitDefault(Validator):
