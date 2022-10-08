@@ -9,7 +9,7 @@ from core.base.error import (
     print_warning,
     print_error
 )
-from core.commands import (
+from core.main import (
     CommandInit,
     CommandAdd,
     CommandInstall,

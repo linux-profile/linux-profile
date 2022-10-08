@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 from core.base.command import BaseCommand
 from core.base.error import (
     ErrorParameterIsMissing,
