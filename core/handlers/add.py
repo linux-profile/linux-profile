@@ -7,6 +7,7 @@ from core.base.validator import (
     ValidatorAddAlias,
     ValidatorAddTerminal
 )
+from core.utils.text import asterisk
 
 
 class Add(BaseConfig):
@@ -29,8 +30,8 @@ class Add(BaseConfig):
     def add_package(self):
         fields = ValidatorAddPackage(**{
                 "category": input("Package Category [default]: "),
-                "type": input("Package Manager: "),
-                "name": input("Package Name: "),
+                "type": input(asterisk() + "Package Manager: "),
+                "name": input(asterisk() + "Package Name: "),
                 "url": input("Package URL: "),
                 "file": input("Package File: ")
             }
@@ -48,8 +49,8 @@ class Add(BaseConfig):
     def add_alias(self):
         fields = ValidatorAddAlias(**{
                 "category": input("Alias Category [default]: "),
-                "command": input("Alias Command: "),
-                "content": input("Alias Content: "),
+                "command": input(asterisk() + "Alias Command: "),
+                "content": input(asterisk() + "Alias Content: "),
                 "type": "exec"
             }
         )
@@ -66,7 +67,7 @@ class Add(BaseConfig):
     def add_terminal(self):
         fields = ValidatorAddTerminal(**{
                 "category": input("Terminal Category [default]: "),
-                "name": input("Terminal Name: ")
+                "name": input(asterisk() + "Terminal Name: ")
             }
         )
 

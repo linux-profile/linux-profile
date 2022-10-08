@@ -27,3 +27,7 @@ def cleaning_option(text: str):
     for item in list_str:
         text = text.replace(item, "")
     return text
+
+
+def asterisk():
+    return color("* ", types=['bold', 'red'])

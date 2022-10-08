@@ -2,11 +2,10 @@
 
 from core.base.command import BaseCommand
 from core.base.error import (
-    print_error_settings,
-    print_parameter_is_missing,
-    print_error_invalid_value
+    ErrorParameterIsMissing,
+    ErrorInvalidValue,
+    ErrorLoadSettings
 )
-
 from core.handlers.init import Init
 from core.handlers.add import Add
 from core.handlers.install import Install
@@ -23,11 +22,18 @@ class CommandInit(BaseCommand):
         """
         try:
             Init(module=self.module)
-        except Exception as error:
-            print_error_settings(error)
+        except Exception:
+            raise ErrorLoadSettings()
 
 
 class CommandAdd(BaseCommand):
+
+    def finalize_options(self):
+        if self.module is None:
+            raise ErrorParameterIsMissing("module")
+
+        if self.module not in self.modules:
+            raise ErrorInvalidValue("module")
 
     def run(self) -> None:
         """Start
@@ -37,18 +43,18 @@ class CommandAdd(BaseCommand):
                 module=self.module,
                 value=self.value
             )
-        except Exception as error:
-            print_error_settings(error)
+        except Exception:
+            raise ErrorLoadSettings()
 
 
 class CommandInstall(BaseCommand):
 
     def finalize_options(self):
         if self.module is None:
-            print_parameter_is_missing("module")
+            raise ErrorParameterIsMissing("module")
 
         if self.module not in self.modules:
-            print_error_invalid_value("module")
+            raise ErrorInvalidValue("module")
 
     def run(self) -> None:
         """Start
@@ -59,18 +65,11 @@ class CommandInstall(BaseCommand):
                 category=self.category,
                 value=self.value
             )
-        except Exception as error:
-            print_error_settings(error)
+        except Exception:
+            raise ErrorLoadSettings()
 
 
 class CommandUninstall(BaseCommand):
-
-    def finalize_options(self):
-        if self.module is None:
-            print_parameter_is_missing("module")
-
-        if self.module not in self.modules:
-            print_error_invalid_value("module")
 
     def run(self) -> None:
         """Start
@@ -81,5 +80,5 @@ class CommandUninstall(BaseCommand):
                 category=self.category,
                 value=self.value
             )
-        except Exception as error:
-            print_error_settings(error)
+        except Exception:
+            raise ErrorLoadSettings()

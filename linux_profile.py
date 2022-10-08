@@ -1,20 +1,24 @@
 #!/usr/bin/env python3
 
 from setuptools import setup
+from core.base.error import print_error
 from core.commands import (
-        CommandInit,
-        CommandAdd,
-        CommandInstall,
-        CommandUninstall
+    CommandInit,
+    CommandAdd,
+    CommandInstall,
+    CommandUninstall
 )
 
-
-setup(
+try:
+    setup(
         name="linux-profile",
         cmdclass={
-                'init': CommandInit,
-                'add': CommandAdd,
-                'install': CommandInstall,
-                'uninstall': CommandUninstall
-            }
+            'init': CommandInit,
+            'add': CommandAdd,
+            'install': CommandInstall,
+            'uninstall': CommandUninstall
+        }
     )
+
+except Exception as error:
+    print_error(error)

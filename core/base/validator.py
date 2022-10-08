@@ -44,7 +44,7 @@ class ValidatorAddPackage(Validator):
 
     def validator_type(self, value = None):
         if not value:
-            print_option_is_missing(parameter='Package Manager '+ str(self.option_manager))
+            print_option_is_missing(parameter='Package Manager')
             self.is_valid = False
 
         if not value in self.option_manager:
