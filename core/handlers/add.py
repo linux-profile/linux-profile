@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 
+from core.utils.text import option
 from core.base.storage import Storage
 from core.base.config import BaseConfig
 from core.base.validator import (
     ValidatorAddPackage,
     ValidatorAddAlias,
-    ValidatorAddTerminal
+    ValidatorAddTerminal,
+    ValidatorAddScript
 )
-from core.utils.text import asterisk
 
 
 class Add(BaseConfig):
@@ -29,11 +30,11 @@ class Add(BaseConfig):
 
     def add_package(self):
         fields = ValidatorAddPackage(**{
-                "category": input("Package Category [default]: "),
-                "type": input(asterisk() + "Package Manager: "),
-                "name": input(asterisk() + "Package Name: "),
-                "url": input("Package URL: "),
-                "file": input("Package File: ")
+                "category": option(text="Package Category [default]: "),
+                "type": option(text="Package Manager: ", required=True),
+                "name": option(text="Package Name: ", required=True),
+                "url": option(text="Package URL: "),
+                "file": option(text="Package File: ")
             }
         )
 
@@ -45,9 +46,9 @@ class Add(BaseConfig):
 
     def add_alias(self):
         fields = ValidatorAddAlias(**{
-                "category": input("Alias Category [default]: "),
-                "command": input(asterisk() + "Alias Command: "),
-                "content": input(asterisk() + "Alias Content: "),
+                "category": option(text="Alias Category [default]: "),
+                "command": option(text="Alias Command: ", required=True),
+                "content": option(text="Alias Content: ", required=True),
                 "type": "exec"
             }
         )
@@ -60,8 +61,8 @@ class Add(BaseConfig):
 
     def add_terminal(self):
         fields = ValidatorAddTerminal(**{
-                "category": input("Terminal Category [default]: "),
-                "name": input(asterisk() + "Terminal Name: ")
+                "category": option(text="Terminal Category [default]: "),
+                "name": option(text="Terminal Name: ", required=True)
             }
         )
 
@@ -80,5 +81,21 @@ class Add(BaseConfig):
                     }
                 }
             },
+            key='name'
+        )
+
+    def add_script(self):
+        fields = ValidatorAddScript(**{
+                "category": option(text="Script Category [default]: ", required=True),
+                "type": option(text="Script Type: ", required=True),
+                "name": option(text="Script Name: ", required=True),
+                "body": option(text="Script Body: ", required=True, body=True),
+
+            }
+        )
+
+        self.data.begin(module=self.module, tag=fields.category)
+        self.data.run(
+            content=fields.__dict__,
             key='name'
         )
