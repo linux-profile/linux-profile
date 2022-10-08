@@ -10,6 +10,7 @@ from core.base.error import (
 from core.handlers.init import Init
 from core.handlers.add import Add
 from core.handlers.install import Install
+from core.handlers.uninstall import Uninstall
 
 
 class CommandInit(BaseCommand):
@@ -54,6 +55,28 @@ class CommandInstall(BaseCommand):
         """
         try:
             Install(
+                module=self.module,
+                category=self.category,
+                value=self.value
+            )
+        except Exception as error:
+            print_error_settings(error)
+
+
+class CommandUninstall(BaseCommand):
+
+    def finalize_options(self):
+        if self.module is None:
+            print_parameter_is_missing("module")
+
+        if self.module not in self.modules:
+            print_error_invalid_value("module")
+
+    def run(self) -> None:
+        """Start
+        """
+        try:
+            Uninstall(
                 module=self.module,
                 category=self.category,
                 value=self.value
