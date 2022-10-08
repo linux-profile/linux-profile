@@ -49,11 +49,12 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 
 ## Commands
 
-| #      | Command                    | Param         | Argument              | Param           | Argument      |
-|--------|:---------------------------|:--------------|:----------------------| :---------------|:--------------|
-| 01     | ``linux_profile init``     |               |                       |                 |               |
-| 02     | ``linux_profile add``      | ``--module``  | ``package`` ``alias`` |                 |               |
-| 03     | ``linux_profile install``  | ``--module``  | ``package`` ``alias`` | ``--category``  | ``default``   |
+| #      | Command                      | Param         | Argument              | Param           | Argument      |
+|--------|:-----------------------------|:--------------|:----------------------| :---------------|:--------------|
+| 01     | ``linux_profile init``       |               |                       |                 |               |
+| 02     | ``linux_profile add``        | ``--module``* | ``package`` ``alias`` |                 |               |
+| 03     | ``linux_profile install``    | ``--module``* | ``package`` ``alias`` | ``--category``  | ``default``   |
+| 04     | ``linux_profile uninstall``  | ``--module``* | ``package`` ``alias`` | ``--category``* | ``default``   |
 
 ## Options:
 <details>
@@ -74,6 +75,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
    - zypper
    - spack
    - brew
+   - pip
    
 - **Package Name:**
    - You choose
