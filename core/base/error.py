@@ -23,7 +23,7 @@ class ErrorParameterIsMissing(Exception):
 class ErrorOptionIsMissing(Exception):
 
     def __init__(self, parameter):
-        message = f"Option --{parameter} is missing"
+        message = f"Option [{parameter}] is missing"
         LOG_APP.error(message)
         super(ErrorOptionIsMissing, self).__init__(message)
 

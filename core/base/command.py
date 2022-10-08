@@ -14,13 +14,15 @@ class BaseCommand(Command):
     user_options = [
             ('module=', 'i', 'input module'),
             ('category=', 'i', 'input category'),
-            ('value=', 'i', 'input value')
+            ('value=', 'i', 'input value'),
+            ('option=', 'i', 'input option'),
         ]
 
     modules = [
         'alias',
         'package',
-        'terminal'
+        'terminal',
+        'script'
     ]
 
     def initialize_options(self):
@@ -34,6 +36,12 @@ class BaseCommand(Command):
 
         if self.category is None:
             raise ErrorParameterIsMissing("category")
+
+        if self.value is None:
+            raise ErrorParameterIsMissing("value")
+
+        if self.option is None:
+            raise ErrorParameterIsMissing("option")
 
         if self.module not in self.modules:
             raise ErrorInvalidValue("module")

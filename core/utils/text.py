@@ -31,3 +31,23 @@ def cleaning_option(text: str):
 
 def asterisk():
     return color("* ", types=['bold', 'red'])
+
+
+def option(
+        text: str,
+        required: bool = False,
+        body: bool = False, 
+        output: list = None,
+        output_list: list = list()):
+    option = asterisk() + text if required else text
+
+    if body:
+        print(option, "To finish type",color("[end]", ['bold', 'green']))
+        while output != 'end':
+            output = input("> ")
+            if output != 'end':
+                output_list.append(output)
+        return output_list
+
+    else:
+        return input(option)
