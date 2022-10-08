@@ -1,7 +1,7 @@
 import logging
 from core.base.config import BaseConfig
 from logging.config import dictConfig
-from core.settings import FILE_CONFIG_LOG, FILE_PROFILE_LOG
+from core.settings import FILE
 
 
 logging_config = dict(
@@ -51,13 +51,13 @@ def setup_log(name_log: str, file_log: str, level: logging):
 def run_app(name_log: str):
     return setup_log(
         name_log=name_log,
-        file_log=FILE_CONFIG_LOG,
+        file_log=FILE.get("log_config"),
         level=logging.WARNING
     )
 
 def run_profile(name_log: str):
     return setup_log(
         name_log=name_log,
-        file_log=FILE_PROFILE_LOG,
+        file_log=FILE.get("log_profile"),
         level=logging.DEBUG
     )

@@ -1,6 +1,5 @@
 from os import system
-
-from core.settings import FILE_DISTRO, FILE_SYSTEM
+from core.settings import FILE
 
 
 def get_content(path_file: str, separator: str):
@@ -62,9 +61,11 @@ def get_system() -> dict:
     dict
         Dictionary with contents of the .hostnamectl file.
     """
-    system('hostnamectl > ' + FILE_SYSTEM)
-    file_system = read_file(path_file=FILE_SYSTEM)
-    system('rm ' + FILE_SYSTEM)
+    file_system = FILE.get("system")
+
+    system('hostnamectl > ' + file_system)
+    file_system = read_file(path_file=file_system)
+    system('rm ' + file_system)
 
     content = get_content(path_file=file_system, separator=":")
 
@@ -87,9 +88,11 @@ def get_distro() -> dict:
     dict
         Dictionary with contents of the .os-release file.
     """
-    system("cat /etc/os-release > " + FILE_DISTRO)
-    file_distro = read_file(path_file=FILE_DISTRO)
-    system('rm ' + FILE_DISTRO)
+    file_distro = FILE.get("distro")
+
+    system("cat /etc/os-release > " + file_distro)
+    file_distro = read_file(path_file=file_distro)
+    system('rm ' + file_distro)
 
     content = get_content(path_file=file_distro, separator="=")
     return {
