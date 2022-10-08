@@ -9,7 +9,7 @@ from core.base.error import (
 
 class Validator():
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, **kwargs):
         self.id = uuid.uuid4().hex.upper()
         self.is_valid = True
         

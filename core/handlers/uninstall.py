@@ -1,5 +1,5 @@
 from core.base.config import BaseConfig
-from core.base.system import System
+from core.modules.package import SystemPackage
 
 
 class Uninstall(BaseConfig):
@@ -22,9 +22,9 @@ class Uninstall(BaseConfig):
         if self.category:
             for item in self.profile[self.module][self.category]:
                 item["command"] = self.command
-                System(**item)
+                SystemPackage(**item)
         else:
             for category in self.profile[self.module]:
                 for item in self.profile[self.module][category]:
                     item["command"] = self.command
-                    System(**item)
+                    SystemPackage(**item)

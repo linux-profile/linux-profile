@@ -1,6 +1,7 @@
+from core.base.storage import Storage
 from core.base.config import BaseConfig
 from core.modules.alias import SystemAlias
-from core.base.system import System
+from core.modules.package import SystemPackage
 
 
 class Install(BaseConfig):
@@ -23,12 +24,12 @@ class Install(BaseConfig):
         if self.category:
             for item in self.profile[self.module][self.category]:
                 item["command"] = self.command
-                System(**item)
+                SystemPackage(**item)
         else:
             for category in self.profile[self.module]:
                 for item in self.profile[self.module][category]:
                     item["command"] = self.command
-                    System(**item)
+                    SystemPackage(**item)
 
     def install_alias(self):
         if self.category:
