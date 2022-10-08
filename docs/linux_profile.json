@@ -5,7 +5,7 @@
                 "id": "BDCA1EE005C5421E931F3A7C07C57110",
                 "is_valid": true,
                 "category": "music",
-                "manager": "snap",
+                "type": "snap",
                 "name": "spotify",
                 "url": null,
                 "file": null
@@ -16,7 +16,7 @@
                 "id": "74A91CA8E2F24DC28E20B4B99EB4D0EA",
                 "is_valid": true,
                 "category": "dev",
-                "manager": "apt-get",
+                "type": "apt-get",
                 "name": "git",
                 "url": null,
                 "file": null
@@ -27,7 +27,7 @@
                 "id": "AAD6CFE240944748ADDC999A6BA48FB9",
                 "is_valid": true,
                 "category": "util",
-                "manager": "apt-get",
+                "type": "apt-get",
                 "name": "curl",
                 "url": null,
                 "file": null

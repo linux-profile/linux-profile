@@ -1,5 +1,6 @@
 from core.base.config import BaseConfig
-from core.base.setup import SetupPackage, SetupAlias
+from core.modules.alias import SystemAlias
+from core.modules.package import SystemPackage
 
 
 class Install(BaseConfig):
@@ -27,7 +28,7 @@ class Install(BaseConfig):
             for _tag in self.profile[self.module]:
                 for item in self.profile[self.module][_tag]:
                     item["command"] = self.command
-                    SetupPackage(**item)
+                    SystemPackage(**item)
 
     def install_alias(self):
         if self.category:
