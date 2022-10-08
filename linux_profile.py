@@ -1,7 +1,12 @@
 #!/usr/bin/env python3
 
 from setuptools import setup
-from core.commands import CommandInit, CommandAdd, CommandInstall
+from core.commands import (
+        CommandInit,
+        CommandAdd,
+        CommandInstall,
+        CommandUninstall
+)
 
 
 setup(
@@ -9,6 +14,7 @@ setup(
         cmdclass={
                 'init': CommandInit,
                 'add': CommandAdd,
-                'install': CommandInstall
+                'install': CommandInstall,
+                'uninstall': CommandUninstall
             }
     )

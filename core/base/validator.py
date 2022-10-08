@@ -35,7 +35,8 @@ class ValidatorAddPackage(Validator):
         'pacman',
         'zypper',
         'spack',
-        'brew'
+        'brew',
+        'pip'
     ]
 
     def validator_category(self, value = None):
