@@ -1,8 +1,8 @@
 from core.base.config import BaseConfig
-from core.base.setup import SetupPackage, SetupAlias
+from core.modules.package import SystemPackage
 
 
-class Install(BaseConfig):
+class Uninstall(BaseConfig):
 
     def setup(self):
         """
@@ -18,7 +18,7 @@ class Install(BaseConfig):
         call_add = getattr(self, func)
         call_add()
 
-    def install_package(self):
+    def uninstall_package(self):
         if self.category:
             for item in self.profile[self.module].get(self.category, []):
                 item["command"] = self.command
@@ -27,13 +27,4 @@ class Install(BaseConfig):
             for _tag in self.profile[self.module]:
                 for item in self.profile[self.module][_tag]:
                     item["command"] = self.command
-                    SetupPackage(**item)
-
-    def install_alias(self):
-        if self.category:
-            for item in self.profile[self.module].get(self.category, []):
-                SystemAlias(**item)
-        else:
-            for _tag in self.profile[self.module]:
-                for item in self.profile[self.module][_tag]:
-                    SystemAlias(**item)
+                    SystemPackage(**item)
