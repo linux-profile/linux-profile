@@ -93,3 +93,59 @@ class Storage(BaseFile):
 
     def search_tag(self, tag: str):
         return self.handler._search_tag(tag=tag)
+
+
+class StorageQuery(BaseFile):
+
+    def __init__(self, database: str) -> None:
+        self.database = database
+
+        if not exists(self.database):
+            self.touch(path=self.database)
+
+        self.json = self.load()
+
+    def load(self):
+        output = self.read(path_file=self.database)
+        return json.loads(output)
+
+    def module(self, module: str):
+        return self.json.get(module)
+
+    def module_list(self, module: str, tag: str = None):
+        module_list = lambda: [item for item in self.json[module]]
+        if tag in module_list():
+            return [tag]
+        else:
+            return module_list()
+
+    def tag(self, tag: str, module: str = None):
+        try:
+            return self.json.get(module).get(tag)
+        except AttributeError:
+            pass
+
+        for _module in self.json:
+            for _tag in self.json.get(_module):
+                if tag == _tag:
+                    return self.json[_module][_tag]
+
+    def key(
+            self,
+            key: str,
+            value: str = None,
+            tag: str = None,
+            module: str = None):
+        try:
+            _tag = self.json.get(module).get(tag)
+            for item in _tag:
+                if item.get(key) == value:
+                    return item
+        except AttributeError:
+            pass
+        
+        for _module in self.json:
+            for _tag in self.json[_module]:
+                for item in self.json[_module][_tag]:
+                    if item.get(key) == value:
+                        return item
