@@ -48,7 +48,7 @@ class Add(BaseConfig):
         fields = ValidatorAddAlias(**{
                 "category": option(text="Alias Category [default]: "),
                 "command": option(text="Alias Command: ", required=True),
-                "content": option(text="Alias Content: ", required=True),
+                "body": option(text="Alias Body: ", required=True),
                 "type": "exec"
             }
         )
@@ -86,7 +86,7 @@ class Add(BaseConfig):
 
     def add_script(self):
         fields = ValidatorAddScript(**{
-                "category": option(text="Script Category [default]: ", required=True),
+                "category": option(text="Script Category [default]: "),
                 "type": option(text="Script Type: ", required=True),
                 "name": option(text="Script Name: ", required=True),
                 "body": option(text="Script Body: ", required=True, body=True),

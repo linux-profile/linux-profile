@@ -65,9 +65,9 @@ class ValidatorAddAlias(Validator):
 
         return cleaning_option(value).lower()
 
-    def validator_content(self, value = None):
+    def validator_body(self, value = None):
         if not value:
-            raise ErrorOptionIsMissing('Alias Content')
+            raise ErrorOptionIsMissing('Alias Body')
 
         return value
 

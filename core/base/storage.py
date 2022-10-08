@@ -1,5 +1,4 @@
 import json
-import uuid
 from os.path import exists
 
 
@@ -77,9 +76,7 @@ class Storage(BaseFile):
             ipop=True
         )
 
-        if not item:
-            content["id"] = uuid.uuid4().hex.upper()
-        else:
+        if item:
             content["id"] = item["id"]
 
         data = self.handler._insert(content=content)
