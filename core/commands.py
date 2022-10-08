@@ -3,8 +3,7 @@
 from core.base.command import BaseCommand
 from core.base.error import (
     ErrorParameterIsMissing,
-    ErrorInvalidValue,
-    ErrorLoadSettings
+    ErrorInvalidValue
 )
 from core.handlers.init import Init
 from core.handlers.add import Add
@@ -20,10 +19,7 @@ class CommandInit(BaseCommand):
     def run(self) -> None:
         """Start
         """
-        try:
-            Init(module=self.module)
-        except Exception:
-            raise ErrorLoadSettings()
+        Init(module=self.module)
 
 
 class CommandAdd(BaseCommand):
@@ -38,13 +34,10 @@ class CommandAdd(BaseCommand):
     def run(self) -> None:
         """Start
         """
-        try:
-            Add(
-                module=self.module,
-                value=self.value
-            )
-        except Exception:
-            raise ErrorLoadSettings()
+        Add(
+            module=self.module,
+            value=self.value
+        )
 
 
 class CommandInstall(BaseCommand):
@@ -59,14 +52,11 @@ class CommandInstall(BaseCommand):
     def run(self) -> None:
         """Start
         """
-        try:
-            Install(
-                module=self.module,
-                category=self.category,
-                value=self.value
-            )
-        except Exception:
-            raise ErrorLoadSettings()
+        Install(
+            module=self.module,
+            category=self.category,
+            value=self.value
+        )
 
 
 class CommandUninstall(BaseCommand):
@@ -74,11 +64,8 @@ class CommandUninstall(BaseCommand):
     def run(self) -> None:
         """Start
         """
-        try:
-            Uninstall(
-                module=self.module,
-                category=self.category,
-                value=self.value
-            )
-        except Exception:
-            raise ErrorLoadSettings()
+        Uninstall(
+            module=self.module,
+            category=self.category,
+            value=self.value
+        )
