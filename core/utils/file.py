@@ -61,12 +61,12 @@ def get_system() -> dict:
     dict
         Dictionary with contents of the .hostnamectl file.
     """
-    file_system = FILE.get("system")
+    path_system = FILE.get("system")
 
-    system('hostnamectl > ' + file_system)
-    file_system = read_file(path_file=file_system)
-    system('rm ' + file_system)
+    system('hostnamectl > ' + path_system)
+    file_system = read_file(path_file=path_system)
 
+    system('rm ' + path_system)
     content = get_content(path_file=file_system, separator=":")
 
     return {
@@ -88,11 +88,11 @@ def get_distro() -> dict:
     dict
         Dictionary with contents of the .os-release file.
     """
-    file_distro = FILE.get("distro")
+    path_distro = FILE.get("distro")
+    system("cat /etc/os-release > " + path_distro)
 
-    system("cat /etc/os-release > " + file_distro)
-    file_distro = read_file(path_file=file_distro)
-    system('rm ' + file_distro)
+    file_distro = read_file(path_file=path_distro)
+    system('rm ' + path_distro)
 
     content = get_content(path_file=file_distro, separator="=")
     return {
