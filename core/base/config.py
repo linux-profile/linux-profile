@@ -6,9 +6,9 @@ from os.path import exists
 from core.base.storage import Storage
 from core.utils.file import get_system, get_distro
 from core.settings import (
-    FILE_CONFIG,
-    FILE_PROFILE,
+    FILE,
     FOLDER_CONFIG,
+    FOLDER_PROFILE,
     FOLDER_LOG
 )
 
@@ -20,9 +20,10 @@ class BaseConfig():
             module: str = None,
             category: str = None,
             value: str = None,
-            file_config: str = FILE_CONFIG,
-            file_profile: str = FILE_PROFILE,
+            file_config: str = FILE.get("config"),
+            file_profile: str = FILE.get("profile"),
             folder_config: str = FOLDER_CONFIG,
+            folder_profile: str = FOLDER_PROFILE,
             folder_log: str = FOLDER_LOG):
         """
         Structure that defines the main variables.
@@ -34,6 +35,7 @@ class BaseConfig():
         self.file_config = file_config
         self.file_profile = file_profile
         self.folder_config = folder_config
+        self.folder_profile = folder_profile
         self.folder_log = folder_log
 
         self.set_folder()
@@ -61,7 +63,8 @@ class BaseConfig():
         """
         folders = [
             self.folder_config,
-            self.folder_log
+            self.folder_profile,
+            self.folder_log,
         ]
         for folder in folders:
             if not exists(folder):

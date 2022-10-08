@@ -37,9 +37,6 @@ class Add(BaseConfig):
             }
         )
 
-        if not fields.is_valid:
-            return
-
         self.data.begin(module=self.module, tag=fields.category)
         self.data.run(
             content=fields.__dict__,
@@ -55,9 +52,6 @@ class Add(BaseConfig):
             }
         )
 
-        if not fields.is_valid:
-            return
-
         self.data.begin(module=self.module, tag=fields.category)
         self.data.run(
             content=fields.__dict__,
@@ -70,9 +64,6 @@ class Add(BaseConfig):
                 "name": input(asterisk() + "Terminal Name: ")
             }
         )
-
-        if not fields.is_valid:
-            return
 
         self.data.begin(module=self.module, tag=fields.category)
         self.data.run(
