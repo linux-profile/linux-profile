@@ -92,7 +92,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
           "package": {
               "music": [
                   {
-                      "id": "BDCA1EE005C5421E931F3A7C07C57110",
+                      "id": "8394F3F8EC4A4BC1AE026FEC834D8641",
                       "is_valid": true,
                       "category": "music",
                       "type": "snap",
@@ -103,10 +103,10 @@ Linux Profile is a Linux profile management tool. With this project it is possib
               ],
               "dev": [
                   {
-                      "id": "74A91CA8E2F24DC28E20B4B99EB4D0EA",
+                      "id": "3A892C46F1FA46BCAF825D47B70D813F",
                       "is_valid": true,
                       "category": "dev",
-                      "type": "apt-get",
+                      "type": "apt",
                       "name": "git",
                       "url": null,
                       "file": null
@@ -114,10 +114,10 @@ Linux Profile is a Linux profile management tool. With this project it is possib
               ],
               "util": [
                   {
-                      "id": "AAD6CFE240944748ADDC999A6BA48FB9",
+                      "id": "4D48DBE688C344D5866B0FD93813EE9E",
                       "is_valid": true,
                       "category": "util",
-                      "type": "apt-get",
+                      "type": "apt",
                       "name": "curl",
                       "url": null,
                       "file": null
@@ -127,7 +127,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
           "alias": {
               "dev": [
                   {
-                      "id": "4EB1C7EA7BAF4A70BC40FE04B7EC7581",
+                      "id": "78EC0EB1EAC14C2FA755892D222FD48C",
                       "is_valid": true,
                       "category": "dev",
                       "command": "git_name",
@@ -135,7 +135,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
                       "type": "exec"
                   },
                   {
-                      "id": "5ED4967EF17C4730A26970B20E8D1F14",
+                      "id": "FE1E8CCA2DEF479F8AAC3BDE35827A07",
                       "is_valid": true,
                       "category": "dev",
                       "command": "git_email",
@@ -145,7 +145,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
               ],
               "python": [
                   {
-                      "id": "88B57A16A13247B4A56CE90E44BFD607",
+                      "id": "AC640AFF20E5455A80BF1AFECD3FF7B9",
                       "is_valid": true,
                       "category": "python",
                       "command": "activate",
