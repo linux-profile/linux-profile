@@ -20,11 +20,11 @@ class Uninstall(BaseConfig):
 
     def uninstall_package(self):
         if self.category:
-            for item in self.profile[self.module][self.category]:
+            for item in self.profile[self.module].get(self.category, []):
                 item["command"] = self.command
                 SystemPackage(**item)
         else:
-            for category in self.profile[self.module]:
-                for item in self.profile[self.module][category]:
+            for _tag in self.profile[self.module]:
+                for item in self.profile[self.module][_tag]:
                     item["command"] = self.command
                     SystemPackage(**item)
