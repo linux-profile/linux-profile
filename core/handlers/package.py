@@ -1,15 +1,18 @@
 from os import system
-
 from core.base.system import System
-from core.base.error import print_not_implemented
 
 
 class HandlerPackage(System):
 
-    def setup_system(self, sudo: bool = True, b_arg: list = list(), l_arg: list = list()):
+    def setup_system(
+            self,
+            sudo: bool = True,
+            b_arg: list = list(),
+            l_arg: list = list()):
         sudo = "sudo" if sudo else ""
         b_arg = " ".join(b_arg)
         l_arg = " ".join(l_arg)
+
         command = [sudo, self.type, b_arg, self.command, self.name, l_arg]
         system(" ".join(command).replace("  ", " "))
 
@@ -20,7 +23,7 @@ class HandlerPackage(System):
         if self.command == 'uninstall':
             self.command = 'remove'
             self.setup_system(l_arg=["-y"])
-        
+
     def setup_apt(self):
         if self.command == 'install':
             self.setup_system(l_arg=["-y"])
@@ -68,7 +71,21 @@ class HandlerPackage(System):
             self.setup_system(sudo=False, l_arg=[" -y"])
 
     def setup_deb(self):
-        print_not_implemented(f"Type: [deb] - ID: {self.id}")
+        path_file = f"{self.temp}/{self.file}"
+
+        system(f"curl {self.url} --output {path_file}")
+        system(f"sudo dpkg -i {path_file}")
+        system("sudo apt install -f")
+
+        # Removing the temporary installation file
+        system(f"sudo rm -r {path_file}")
 
     def setup_shell(self):
-        print_not_implemented(f"Type: [sh] - ID: {self.id}")
+        path_file = f"{self.temp}/{self.name}"
+
+        system(f"curl {self.url} --output {path_file}")
+        system(f"sudo chmod +x {path_file}")
+        system(path_file)
+
+        # Removing the temporary installation file
+        system(f"sudo rm -r {path_file}")

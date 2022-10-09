@@ -31,7 +31,7 @@ class Install(BaseConfig):
         )
         for item in data:
             item["command"] = self.command
-            HandlerPackage(**item)
+            HandlerPackage(**item, **self.folder)
 
     def install_alias(self):
         data = self.query.deep_search(
