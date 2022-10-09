@@ -70,8 +70,5 @@ class HandlerPackage(System):
     def setup_deb(self):
         print_not_implemented(f"Type: [deb] - ID: {self.id}")
 
-    def setup_sh(self):
+    def setup_shell(self):
         print_not_implemented(f"Type: [sh] - ID: {self.id}")
-
-    def setup_py(self):
-        print_not_implemented(f"Type: [py] - ID: {self.id}")

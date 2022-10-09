@@ -20,7 +20,7 @@ class HandlerScript(System):
         system(f"sudo chmod +x {path_file}")
         system(path_file)
 
-    def setup_bash(self):
+    def setup_shell(self):
         shebang = self.shebang if self.shebang else '#!/bin/bash'
         self.setup_system(shebang=shebang)
 
