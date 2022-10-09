@@ -2,7 +2,7 @@
 
 chmod +x linux_profile.py
 
-cp ./linux_profile.py ./linux_profile
+cp ./linux_profile.py ./linuxp
 mkdir -p ~/linuxp
 
 cp -r ./core/ ~/linuxp/ 
