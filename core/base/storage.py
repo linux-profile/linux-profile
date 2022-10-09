@@ -140,9 +140,53 @@ class StorageQuery(BaseFile):
                     return item
         except AttributeError:
             pass
-        
+
         for _module in self.json:
             for _tag in self.json[_module]:
                 for item in self.json[_module][_tag]:
                     if item.get(key) == value:
                         return item
+
+    def deep_search(
+            self,
+            module: str,
+            tag: str = None,
+            key: str = None,
+            value: str = None,
+            output: list = list(),
+            lvl: int = 0):
+
+        if module is not None:
+            lvl = 3
+        if module and tag is not None:
+            lvl = 2
+        if module and tag and key and value is not None:
+            lvl = 1
+
+        # Search by parameter of [module], [tag], [key] and [value].
+        if lvl == 1:
+            try:
+                _tag = self.json[module][tag]
+                for item in _tag:
+                    if item.get(key) == value:
+                        return [item]
+            except:
+                pass
+
+        # Search by parameter of [module] and [tag].
+        if lvl == 2:
+            try:
+                return self.json[module][tag]
+            except:
+                pass
+
+        # Search by parameter of [module].
+        if lvl == 3:
+            try:
+                for _tag in self.json[module]:
+                    for item in self.json[module][_tag]:
+                        output.append(item)
+            except:
+                pass
+
+        return output

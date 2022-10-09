@@ -13,7 +13,8 @@ from core.main import (
     CommandInit,
     CommandAdd,
     CommandInstall,
-    CommandUninstall
+    CommandUninstall,
+    CommandList
 )
 
 try:
@@ -23,7 +24,8 @@ try:
             'init': CommandInit,
             'add': CommandAdd,
             'install': CommandInstall,
-            'uninstall': CommandUninstall
+            'uninstall': CommandUninstall,
+            'list': CommandList
         }
     )
 
