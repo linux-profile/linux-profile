@@ -20,7 +20,7 @@ class HandlerAlias(System):
             if item[5:len(item)] != self.command:
                 new_alias = f'\nalias {item[5:len(item)]}="{body.get(item)}"'
                 rebase_alias.append(new_alias)
-    
+
         system(f"true > {path_file}")
         for _rebase in rebase_alias:
             if _rebase != '\n':
