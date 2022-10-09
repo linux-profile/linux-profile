@@ -53,7 +53,7 @@ class CommandInstall(BaseCommand):
         """
         Install(
             module=self.module,
-            category=self.category,
+            tag=self.tag,
             value=self.value,
             option=self.option
         )
@@ -73,7 +73,7 @@ class CommandUninstall(BaseCommand):
         """
         Uninstall(
             module=self.module,
-            category=self.category,
+            tag=self.tag,
             value=self.value
         )
 
@@ -92,6 +92,6 @@ class CommandList(BaseCommand):
         """
         List(
             module=self.module,
-            category=self.category,
+            tag=self.tag,
             value=self.value
         )

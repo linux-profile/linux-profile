@@ -23,7 +23,7 @@ class Uninstall(BaseConfig):
     def uninstall_package(self):
         data = self.query.deep_search(
             module=self.module,
-            tag=self.category,
+            tag=self.tag,
             key='name',
             value=self.value
         )

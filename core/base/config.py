@@ -13,7 +13,7 @@ class BaseConfig():
     def __init__(
             self,
             module: str = None,
-            category: str = None,
+            tag: str = None,
             value: str = None,
             option: str = None,
             _file: dict = FILE,
@@ -22,7 +22,7 @@ class BaseConfig():
         Structure that defines the main variables.
         """
         self.module = module
-        self.category = category
+        self.tag = tag
         self.value = value
         self.option = option
 

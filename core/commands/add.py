@@ -28,7 +28,7 @@ class Add(BaseConfig):
 
     def add_package(self):
         fields = InputAddPackage(**{
-                "category": option(text="Package Category [default]: "),
+                "tag": option(text="Package Tag [default]: "),
                 "type": option(text="Package Manager: ", required=True),
                 "name": option(text="Package Name: ", required=True),
                 "url": option(text="Package URL: "),
@@ -36,7 +36,7 @@ class Add(BaseConfig):
             }
         )
 
-        self.data.begin(module=self.module, tag=fields.category)
+        self.data.begin(module=self.module, tag=fields.tag)
         self.data.run(
             content=fields.__dict__,
             key='name'
@@ -44,14 +44,14 @@ class Add(BaseConfig):
 
     def add_alias(self):
         fields = InputAddAlias(**{
-                "category": option(text="Alias Category [default]: "),
+                "tag": option(text="Alias Tag [default]: "),
                 "command": option(text="Alias Command: ", required=True),
                 "body": option(text="Alias Body: ", required=True),
                 "type": "exec"
             }
         )
 
-        self.data.begin(module=self.module, tag=fields.category)
+        self.data.begin(module=self.module, tag=fields.tag)
         self.data.run(
             content=fields.__dict__,
             key='command'
@@ -59,12 +59,12 @@ class Add(BaseConfig):
 
     def add_terminal(self):
         fields = InputAddTerminal(**{
-                "category": option(text="Terminal Category [default]: "),
+                "tag": option(text="Terminal Tag [default]: "),
                 "name": option(text="Terminal Name: ", required=True)
             }
         )
 
-        self.data.begin(module=self.module, tag=fields.category)
+        self.data.begin(module=self.module, tag=fields.tag)
         self.data.run(
             content={
                 "name": fields.name,
@@ -84,7 +84,7 @@ class Add(BaseConfig):
 
     def add_script(self):
         fields = InputAddScript(**{
-                "category": option(text="Script Category [default]: "),
+                "tag": option(text="Script Tag [default]: "),
                 "type": option(text="Script Type: ", required=True),
                 "name": option(text="Script Name: ", required=True),
                 "shebang": option(text="Script Shebang: "),
@@ -92,7 +92,7 @@ class Add(BaseConfig):
             }
         )
 
-        self.data.begin(module=self.module, tag=fields.category)
+        self.data.begin(module=self.module, tag=fields.tag)
         self.data.run(
             content=fields.__dict__,
             key='name'

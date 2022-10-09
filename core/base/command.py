@@ -12,10 +12,10 @@ class BaseCommand(Command):
     """
     description = 'LinuxProfile'
     user_options = [
-            ('module=', 'i', 'input module'),
-            ('category=', 'i', 'input category'),
-            ('value=', 'i', 'input value'),
-            ('option=', 'i', 'input option'),
+            ('module=', 'm', 'input module'),
+            ('tag=', 'c', 'input tag'),
+            ('value=', 'x', 'input value'),
+            ('option=', 'y', 'input option'),
         ]
 
     modules = [
@@ -27,7 +27,7 @@ class BaseCommand(Command):
 
     def initialize_options(self):
         self.module = None
-        self.category = None
+        self.tag = None
         self.value = None
         self.option = None
 
@@ -35,8 +35,8 @@ class BaseCommand(Command):
         if self.module is None:
             raise ErrorParameterIsMissing("module")
 
-        if self.category is None:
-            raise ErrorParameterIsMissing("category")
+        if self.tag is None:
+            raise ErrorParameterIsMissing("tag")
 
         if self.value is None:
             raise ErrorParameterIsMissing("value")
