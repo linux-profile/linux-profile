@@ -25,8 +25,7 @@ class InputAddPackage(Validator):
         'apt',
         'snap',
         'deb',
-        'sh',
-        'py',
+        'shell',
         'dnf',
         'pacman',
         'zypper',
@@ -87,7 +86,7 @@ class InputAddTerminal(Validator):
 class InputAddScript(Validator):
 
     types = [
-        'bash',
+        'shell',
         'python',
         'python3',
         'ruby'

@@ -149,7 +149,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
         - ``apt`` * [ Fixed argument ]
         - ``snap`` * [ Fixed argument ]
         - ``deb`` * [ Fixed argument ]
-        - ``bash`` * [ Fixed argument ]
+        - ``shell`` * [ Fixed argument ]
         - ``dnf`` * [ Fixed argument ]
         - ``pacman`` * [ Fixed argument ]
         - ``zypper`` * [ Fixed argument ]
@@ -189,7 +189,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 
 - **SCRIPT TYPE:** * [ Option Required ]
     - *Example*: 
-        - ``bash`` * [ Fixed argument ]
+        - ``shell`` * [ Fixed argument ]
         - ``python`` * [ Fixed argument ]
         - ``python3`` * [ Fixed argument ]
         - ``ruby`` * [ Fixed argument ]
