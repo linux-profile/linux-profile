@@ -1,5 +1,6 @@
 from core.base.config import BaseConfig
 from core.modules.package import SystemPackage
+from core.base.storage import StorageQuery
 
 
 class Uninstall(BaseConfig):
@@ -13,18 +14,19 @@ class Uninstall(BaseConfig):
         self.load_config()
         self.load_profile()
         self.command = self.__class__.__name__.lower()
+        self.query = StorageQuery(self.file.get("profile"))
 
         func = f"{self.command }_{self.module}"
         call_add = getattr(self, func)
         call_add()
 
     def uninstall_package(self):
-        if self.category:
-            for item in self.profile[self.module].get(self.category, []):
-                item["command"] = self.command
-                SystemPackage(**item)
-        else:
-            for _tag in self.profile[self.module]:
-                for item in self.profile[self.module][_tag]:
-                    item["command"] = self.command
-                    SystemPackage(**item)
+        data = self.query.deep_search(
+            module=self.module,
+            tag=self.category,
+            key='name',
+            value=self.value
+        )
+        for item in data:
+            item["command"] = self.command
+            SystemPackage(**item)

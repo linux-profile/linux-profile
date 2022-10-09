@@ -11,6 +11,7 @@ class Colors:
     ENDC = '\033[0m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
+    DARK_GRAY = '\033[1;30;40m'
 
 
 def color(text: str, types: list):
@@ -51,3 +52,10 @@ def option(
 
     else:
         return input(option)
+
+
+def print_item(module:str, category: str, item: str) -> None:
+    print(
+        color(text=f" {module} ", types=['bold', 'dark_gray']),
+        color(text="- Category:", types=['bold']), category, "-", item
+    )
