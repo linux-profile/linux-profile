@@ -54,7 +54,7 @@ def option(
         return input(option)
 
 
-def print_item(module:str, tag: str, item: str) -> None:
+def print_item(module: str, tag: str, item: str) -> None:
     print(
         color(text=f" {module} ", types=['bold', 'dark_gray']),
         color(text="- Tag:", types=['bold']), tag, "-", item
