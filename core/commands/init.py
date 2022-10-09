@@ -2,7 +2,7 @@ import urllib.request
 
 from core.base.log import run_profile
 from core.base.config import BaseConfig
-from core.validator.input import InputInitConfig
+from core.base.validator import InputInitConfig
 
 
 class Init(BaseConfig):

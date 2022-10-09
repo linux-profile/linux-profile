@@ -3,11 +3,11 @@ from core.base.error import (
     ErrorParameterIsMissing,
     ErrorInvalidValue
 )
-from core.handlers.init import Init
-from core.handlers.add import Add
-from core.handlers.install import Install
-from core.handlers.uninstall import Uninstall
-from core.handlers.list import List
+from core.commands.init import Init
+from core.commands.add import Add
+from core.commands.install import Install
+from core.commands.uninstall import Uninstall
+from core.commands.list import List
 
 
 class CommandInit(BaseCommand):

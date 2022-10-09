@@ -1,5 +1,5 @@
 from core.base.config import BaseConfig
-from core.modules.package import SystemPackage
+from core.handlers.package import HandlerPackage
 from core.base.storage import StorageQuery
 
 
@@ -17,8 +17,8 @@ class Uninstall(BaseConfig):
         self.query = StorageQuery(self.file.get("profile"))
 
         func = f"{self.command }_{self.module}"
-        call_add = getattr(self, func)
-        call_add()
+        call = getattr(self, func, self)
+        call()
 
     def uninstall_package(self):
         data = self.query.deep_search(
@@ -29,4 +29,4 @@ class Uninstall(BaseConfig):
         )
         for item in data:
             item["command"] = self.command
-            SystemPackage(**item)
+            HandlerPackage(**item)

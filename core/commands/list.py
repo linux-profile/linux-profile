@@ -18,6 +18,7 @@ class List(BaseConfig):
 
         func = f"{self.command }_{self.module}"
         call = getattr(self, func, self)
+
         call()
 
     def list_package(self):

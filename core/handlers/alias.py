@@ -5,7 +5,7 @@ from core.base.system import System
 from core.utils.file import read_file, get_content
 
 
-class SystemAlias(System):
+class HandlerAlias(System):
 
     def setup_exec(self):
         path_file = str(Path.home()) + '/.bash_aliases'

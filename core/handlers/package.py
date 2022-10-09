@@ -4,7 +4,7 @@ from core.base.system import System
 from core.base.error import print_not_implemented
 
 
-class SystemPackage(System):
+class HandlerPackage(System):
 
     def setup_system(self, sudo: bool = True, b_arg: list = list(), l_arg: list = list()):
         sudo = "sudo" if sudo else ""

@@ -4,7 +4,7 @@ from core.base.system import System
 from core.utils.file import write_file
 
 
-class SystemScript(System):
+class HandlerScript(System):
 
     def setup_system(self, shebang: str):
         path_file = f"{self.temp}/{self.name}"

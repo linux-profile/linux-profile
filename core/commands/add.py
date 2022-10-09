@@ -1,9 +1,7 @@
-#!/usr/bin/env python3
-
 from core.utils.text import option
 from core.base.storage import Storage
 from core.base.config import BaseConfig
-from core.validator.input import (
+from core.base.validator import (
     InputAddPackage,
     InputAddAlias,
     InputAddTerminal,
@@ -21,12 +19,12 @@ class Add(BaseConfig):
         self.add_config()
         self.load_config()
         self.load_profile()
-
+        self.command = self.__class__.__name__.lower()
         self.data = Storage(database=self.file.get("profile"))
 
-        func = f"{self.__class__.__name__}_{self.module}".lower()
-        call_add = getattr(self, func)
-        call_add()
+        func = f"{self.command }_{self.module}"
+        call = getattr(self, func, self)
+        call()
 
     def add_package(self):
         fields = InputAddPackage(**{
