@@ -9,7 +9,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 
 ## Quick Install
 
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/MyLinuxProfile/linux-profile-basic/master/scripts/install.sh)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/MyLinuxProfile/linux-profile/master/scripts/install.sh)"
 
 <hr>
 
