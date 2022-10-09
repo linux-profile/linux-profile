@@ -29,6 +29,7 @@ class BaseCommand(Command):
         self.module = None
         self.category = None
         self.value = None
+        self.option = None
 
     def finalize_options(self):
         if self.module is None:

@@ -3,11 +3,11 @@
 from core.utils.text import option
 from core.base.storage import Storage
 from core.base.config import BaseConfig
-from core.base.validator import (
-    ValidatorAddPackage,
-    ValidatorAddAlias,
-    ValidatorAddTerminal,
-    ValidatorAddScript
+from core.validator.input import (
+    InputAddPackage,
+    InputAddAlias,
+    InputAddTerminal,
+    InputAddScript
 )
 
 
@@ -22,14 +22,14 @@ class Add(BaseConfig):
         self.load_config()
         self.load_profile()
 
-        self.data = Storage(database=self.file_profile)
+        self.data = Storage(database=self.file.get("profile"))
 
         func = f"{self.__class__.__name__}_{self.module}".lower()
         call_add = getattr(self, func)
         call_add()
 
     def add_package(self):
-        fields = ValidatorAddPackage(**{
+        fields = InputAddPackage(**{
                 "category": option(text="Package Category [default]: "),
                 "type": option(text="Package Manager: ", required=True),
                 "name": option(text="Package Name: ", required=True),
@@ -45,7 +45,7 @@ class Add(BaseConfig):
         )
 
     def add_alias(self):
-        fields = ValidatorAddAlias(**{
+        fields = InputAddAlias(**{
                 "category": option(text="Alias Category [default]: "),
                 "command": option(text="Alias Command: ", required=True),
                 "body": option(text="Alias Body: ", required=True),
@@ -60,7 +60,7 @@ class Add(BaseConfig):
         )
 
     def add_terminal(self):
-        fields = ValidatorAddTerminal(**{
+        fields = InputAddTerminal(**{
                 "category": option(text="Terminal Category [default]: "),
                 "name": option(text="Terminal Name: ", required=True)
             }
@@ -85,12 +85,12 @@ class Add(BaseConfig):
         )
 
     def add_script(self):
-        fields = ValidatorAddScript(**{
+        fields = InputAddScript(**{
                 "category": option(text="Script Category [default]: "),
                 "type": option(text="Script Type: ", required=True),
                 "name": option(text="Script Name: ", required=True),
+                "shebang": option(text="Script Shebang: "),
                 "body": option(text="Script Body: ", required=True, body=True),
-
             }
         )
 

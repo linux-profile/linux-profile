@@ -5,12 +5,7 @@ from os.path import exists
 
 from core.base.storage import Storage
 from core.utils.file import get_system, get_distro
-from core.settings import (
-    FILE,
-    FOLDER_CONFIG,
-    FOLDER_PROFILE,
-    FOLDER_LOG
-)
+from core.settings import FILE, FOLDER
 
 
 class BaseConfig():
@@ -20,28 +15,23 @@ class BaseConfig():
             module: str = None,
             category: str = None,
             value: str = None,
-            file_config: str = FILE.get("config"),
-            file_profile: str = FILE.get("profile"),
-            folder_config: str = FOLDER_CONFIG,
-            folder_profile: str = FOLDER_PROFILE,
-            folder_log: str = FOLDER_LOG):
+            option: str = None,
+            _file: dict = FILE,
+            _folder: dict = FOLDER):
         """
         Structure that defines the main variables.
         """
         self.module = module
         self.category = category
         self.value = value
+        self.option = option
 
-        self.file_config = file_config
-        self.file_profile = file_profile
-        self.folder_config = folder_config
-        self.folder_profile = folder_profile
-        self.folder_log = folder_log
-
+        self.file = _file
+        self.folder = _folder
         self.set_folder()
 
-        self.class_profile = Storage(database=self.file_profile)
-        self.class_config = Storage(database=self.file_config)
+        self.class_profile = Storage(database=self.file.get('profile'))
+        self.class_config = Storage(database=self.file.get('config'))
 
         self.setup()
 
@@ -61,14 +51,9 @@ class BaseConfig():
         Checks and creates the structure of configuration
         folders that are used by the package.
         """
-        folders = [
-            self.folder_config,
-            self.folder_profile,
-            self.folder_log,
-        ]
-        for folder in folders:
-            if not exists(folder):
-                mkdir(folder)
+        for folder in self.folder:
+            if not exists(self.folder.get(folder)):
+                mkdir(self.folder.get(folder))
 
     def add_config(self):
         """
