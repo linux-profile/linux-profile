@@ -1,6 +1,10 @@
 from core.base.config import BaseConfig
 from core.modules.alias import SystemAlias
+from core.modules.script import SystemScript
 from core.modules.package import SystemPackage
+
+from core.base.storage import StorageQuery
+from core.validator.operation import OperationInstallScript
 
 
 class Install(BaseConfig):
@@ -38,3 +42,16 @@ class Install(BaseConfig):
             for _tag in self.profile[self.module]:
                 for item in self.profile[self.module][_tag]:
                     SystemAlias(**item)
+
+    def install_script(self):
+        OperationInstallScript(**self.__dict__)
+
+        query = StorageQuery(self.file.get("profile"))
+        item = query.key(
+            module=self.module,
+            tag=self.category,
+            key='name',
+            value=self.value
+        )
+        if item:
+            SystemScript(**item, **self.folder)
