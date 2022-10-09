@@ -53,7 +53,8 @@ class CommandInstall(BaseCommand):
         Install(
             module=self.module,
             category=self.category,
-            value=self.value
+            value=self.value,
+            option=self.option
         )
 
 
