@@ -78,7 +78,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
       - ``linuxp install``
           - *Expected parameters*:
               - ``--module`` * [ Required Parameter ]
-              - ``--category`` 
+              - ``--tag`` 
               - ``--value`` 
 
 </details>
@@ -90,7 +90,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
       - ``linuxp uninstall``
           - *Expected parameters*:
               - ``--module`` * [ Required Parameter ]
-              - ``--category``
+              - ``--tag``
 
 </details>
 
@@ -101,7 +101,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
       - ``linuxp list``
           - *Expected parameters*:
               - ``--module`` * [ Required Parameter ]
-              - ``--category`` 
+              - ``--tag`` 
               - ``--value`` 
 
 </details>
@@ -120,9 +120,9 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 </details>
 
 <details>
-<summary>CATEGORY</summary>
+<summary>tag</summary>
 
-- **CATEGORY**
+- **tag**
   - *Example*: 
       - ``whatever``
 
@@ -142,7 +142,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 <details>
   <summary>COMMAND: linuxp add --module package</summary>
 
-- **PACKAGE CATEGORY [DEFAULT]**:
+- **PACKAGE tag [DEFAULT]**:
     - *Example*: 
         - ``You choose``
 
@@ -169,7 +169,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 <details>
   <summary>COMMAND: linuxp add --module alias</summary>
 
-- **ALIAS CATEGORY [DEFAULT]:**:
+- **ALIAS tag [DEFAULT]:**:
     - *Example*: 
         - ``You choose``
 
@@ -186,7 +186,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 <details>
   <summary>COMMAND: linuxp add --module script</summary>
 
-- **SCRIPT CATEGORY [DEFAULT]:**:
+- **SCRIPT tag [DEFAULT]:**:
     - *Example*: 
         - ``You choose``
 
@@ -224,7 +224,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
             "util": [
                 {
                     "id": "E07BB00A71C14FF3878153A329745974",
-                    "category": "util",
+                    "tag": "util",
                     "type": "apt",
                     "name": "curl",
                     "url": null,
@@ -234,7 +234,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
             "dev": [
                 {
                     "id": "6826AB807A114923BE4CDDAF5FFE5CD0",
-                    "category": "dev",
+                    "tag": "dev",
                     "type": "apt",
                     "name": "git",
                     "url": null,
@@ -242,7 +242,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
                 },
                 {
                     "id": "9C3D83B360FF498CBDA02CA7DE12E440",
-                    "category": "dev",
+                    "tag": "dev",
                     "type": "apt",
                     "name": "python3-pip",
                     "url": null,
@@ -252,7 +252,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
             "music": [
                 {
                     "id": "B304C96D5E6A4E92A884B0845EDD0885",
-                    "category": "music",
+                    "tag": "music",
                     "type": "snap",
                     "name": "spotify",
                     "url": null,
@@ -264,14 +264,14 @@ Linux Profile is a Linux profile management tool. With this project it is possib
             "git": [
                 {
                     "id": "02BEF934DC8E4D0F90766C24320E0778",
-                    "category": "git",
+                    "tag": "git",
                     "command": "giename",
                     "body": "git config --global user.name 'LinuxProfile'",
                     "type": "exec"
                 },
                 {
                     "id": "E345D563A2CB495780B7F41156ED80EA",
-                    "category": "git",
+                    "tag": "git",
                     "command": "giename",
                     "body": "git config --global user.email 'email@linuxprofile.com'",
                     "type": "exec"
@@ -282,7 +282,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
             "dev": [
                 {
                     "id": "63982A972A4C460C881714FF1EE6C391",
-                    "category": "dev",
+                    "tag": "dev",
                     "type": "sh",
                     "name": "install_poetry",
                     "body": [
@@ -294,7 +294,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
                 },
                 {
                     "id": "0238BB34E0AC44CAAA0E35C5E8335787",
-                    "category": "dev",
+                    "tag": "dev",
                     "type": "sh",
                     "name": "install_asdf",
                     "body": [
