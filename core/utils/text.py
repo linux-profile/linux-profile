@@ -43,7 +43,7 @@ def option(
     option = asterisk() + text if required else text
 
     if body:
-        print(option, "To finish type",color("[end]", ['bold', 'green']))
+        print(option, "To finish type", color("[end]", ['bold', 'green']))
         while output != 'end':
             output = input("> ")
             if output != 'end':
