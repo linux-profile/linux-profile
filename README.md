@@ -122,7 +122,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 <details>
 <summary>tag</summary>
 
-- **tag**
+- **TAG**
   - *Example*: 
       - ``whatever``
 
