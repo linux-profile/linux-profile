@@ -58,17 +58,27 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 
 ## Params:
 
-- **INIT**
+<details>
+  <summary>INIT</summary>
+
   - *Example*: 
       - ``linuxp init``
 
-- **ADD**
+</details>
+
+<details>
+  <summary>ADD</summary>
+
   - *Example*: 
       - ``linuxp add``
           - *Expected parameters*:
               - ``--module`` * [ Required Parameter ]
 
-- **INSTALL**
+</details>
+
+<details>
+  <summary>INSTALL</summary>
+
   - *Example*: 
       - ``linuxp install``
           - *Expected parameters*:
@@ -76,28 +86,49 @@ Linux Profile is a Linux profile management tool. With this project it is possib
               - ``--category`` 
               - ``--value`` 
 
-- **UNINSTALL**
+</details>
+
+<details>
+  <summary>UNINSTALL</summary>
+
   - *Example*: 
       - ``linuxp uninstall``
           - *Expected parameters*:
               - ``--module`` * [ Required Parameter ]
               - ``--category``
 
-## Arguments:
+</details>
 
+## Arguments:
+  
+<details>
+<summary>MODULE</summary>
+  
 - **MODULE**
   - *Example*: 
       - ``package`` * [ Fixed argument ]
       - ``alias`` * [ Fixed argument ]
       - ``script`` * [ Fixed argument ]
 
+</details>
+
+<details>
+<summary>CATEGORY</summary>
+
 - **CATEGORY**
   - *Example*: 
       - ``whatever``
 
+</details>
+
+<details>
+<summary>VALUE</summary>
+
 - **VALUE**
   - *Example*: 
       - ``whatever``
+
+</details>
 
 ## Options:
 
