@@ -314,19 +314,19 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 
 - First save the file somewhere like:
 
-        > cat ~/.config/linuxp/linux_profile.json > ~/backup_profile.json
+        cat ~/.config/linuxp/linux_profile.json > ~/backup_profile.json
 
 - Open in a text editor:
 
-        > xdg-open ~/backup_profile.json
+        xdg-open ~/backup_profile.json
         
 - Open in Google Chrome browser:
 
-        > google-chrome ~/backup_profile.json
+        google-chrome ~/backup_profile.json
         
 - Open in Firefox browser:
 
-        > firefox ~/backup_profile.json
+        firefox ~/backup_profile.json
 
 ## Commit Style
 - ⚙️ NO-TASK
