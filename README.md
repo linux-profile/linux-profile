@@ -310,6 +310,24 @@ Linux Profile is a Linux profile management tool. With this project it is possib
   Link: https://raw.githubusercontent.com/MyLinuxProfile/linux-profile-basic/master/docs/linux_profile.json
 </details>
 
+## How to Backup?
+
+- First save the file somewhere like:
+
+        > cat ~/.config/linuxp/linux_profile.json > ~/backup_profile.json
+
+- Open in a text editor:
+
+        > xdg-open ~/backup_profile.json
+        
+- Open in Google Chrome browser:
+
+        > google-chrome ~/backup_profile.json
+        
+- Open in Firefox browser:
+
+        > firefox ~/backup_profile.json
+
 ## Commit Style
 - ⚙️ NO-TASK
 - 📝 PEP8
