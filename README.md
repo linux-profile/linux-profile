@@ -49,39 +49,133 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 
 ## Commands
 
-| #      | Command                      | Param         | Argument                          | Param           | Argument      |
-|--------|:-----------------------------|:--------------|:----------------------------------| :---------------|:--------------|
-| 01     | ``linux_profile init``       |               |                                   |                 |               |
-| 02     | ``linux_profile add``        | ``--module``* | ``package`` ``alias`` ``script``  |                 |               |
-| 03     | ``linux_profile install``    | ``--module``* | ``package`` ``alias``             | ``--category``  | ``default``   |
-| 04     | ``linux_profile uninstall``  | ``--module``* | ``package`` ``alias``             | ``--category``* | ``default``   |
+| #      | Command               |
+|--------|:----------------------|
+| 01     | ``linuxp init``       |
+| 02     | ``linuxp add``        |
+| 03     | ``linuxp install``    |
+| 04     | ``linuxp uninstall``  |
+
+## Params:
+
+1. - **INIT** - Initial configuration of profile files and server connection.
+    - *Example*: 
+        - ``linuxp init``
+
+2. - **ADD**
+    - *Example*: 
+        - ``linuxp add``
+            - *Expected parameters*:
+                - ``--module`` * [ Required Parameter ]
+
+3. - **INSTALL**
+    - *Example*: 
+        - ``linuxp install``
+            - *Expected parameters*:
+                - ``--module`` * [ Required Parameter ]
+                - ``--category`` 
+                - ``--value`` 
+
+4. - **UNINSTALL**
+    - *Example*: 
+        - ``linuxp uninstall``
+            - *Expected parameters*:
+                - ``--module`` * [ Required Parameter ]
+                - ``--category``
+
+## Arguments:
+
+1. - **--MODULE**
+    - *Example*: 
+        - ``package`` * [ Fixed argument ]
+        - ``alias`` * [ Fixed argument ]
+        - ``script`` * [ Fixed argument ]
+
+2. - **--CATEGORY**
+    - *Example*: 
+        - ``whatever``
+
+2. - **--VALUE**
+    - *Example*: 
+        - ``whatever``
 
 ## Options:
+
 <details>
-  <summary>COMMAND: linux_profile add --module package</summary>
+  <summary>COMMAND: linuxp add --module package</summary>
 
-- **Package Category [default]**:
-   - You choose
+- **PACKAGE CATEGORY [DEFAULT]**:
+    - *Example*: 
+        - ``You choose``
 
-- **Package Manager:**
-   - apt-get
-   - apt
-   - snap
-   - deb
-   - sh
-   - py
-   - dnf
-   - pacman
-   - zypper
-   - spack
-   - brew
-   - pip
-   
-- **Package Name:**
-   - You choose
+- **PACKAGE MANAGER:** * [ Option Required ]
+    - *Example*: 
+        - ``apt-get`` * [ Fixed argument ]
+        - ``apt`` * [ Fixed argument ]
+        - ``snap`` * [ Fixed argument ]
+        - ``deb`` * [ Fixed argument ]
+        - ``sh`` * [ Fixed argument ]
+        - ``py`` * [ Fixed argument ]
+        - ``dnf`` * [ Fixed argument ]
+        - ``pacman`` * [ Fixed argument ]
+        - ``zypper`` * [ Fixed argument ]
+        - ``spack`` * [ Fixed argument ]
+        - ``brew`` * [ Fixed argument ]
+        - ``pip`` * [ Fixed argument ]
+
+- **PACKAGE NAME:** * [ Option Required ]
+    - *Example*: 
+        - ``You choose``
 
 </details>
 
+<details>
+  <summary>COMMAND: linuxp add --module alias</summary>
+
+- **ALIAS CATEGORY [DEFAULT]:**:
+    - *Example*: 
+        - ``You choose``
+
+- **ALIAS COMMAND:** * [ Option Required ]
+    - *Example*: 
+        - ``You choose``
+
+- **ALIAS BODY:** * [ Option Required ]
+    - *Example*: 
+        - ``You choose``
+
+</details>
+
+<details>
+  <summary>COMMAND: linuxp add --module script</summary>
+
+- **SCRIPT CATEGORY [DEFAULT]:**:
+    - *Example*: 
+        - ``You choose``
+
+- **SCRIPT TYPE:** * [ Option Required ]
+    - *Example*: 
+        - ``bash`` * [ Fixed argument ]
+        - ``python`` * [ Fixed argument ]
+        - ``python3`` * [ Fixed argument ]
+        - ``ruby`` * [ Fixed argument ]
+
+- **SCRIPT NAME:** * [ Option Required ]
+    - *Example*: 
+        - ``You choose``
+
+- **SCRIPT SHEBANG:**
+    - *Example*: 
+        - ``#!/bin/bash``
+        - ``#!/usr/bin/env python``
+        - ``#!/usr/bin/env python3``
+        - ``#!/usr/bin/env ruby``
+
+- **SCRIPT BODY:** * [ Option Required ]
+    - *Example*: 
+        - ``echo 'LinuxProfile!'``
+
+</details>
 
 ## File 
 
@@ -182,11 +276,12 @@ Linux Profile is a Linux profile management tool. With this project it is possib
   Link: https://raw.githubusercontent.com/MyLinuxProfile/linux-profile-basic/master/docs/linux_profile.json
 </details>
 
-## Commits
+## Commit Style
 - ⚙️ NO-TASK
 - 📝 PEP8
 - 📌 ISSUE
 - 🪲 BUG
+- 📘 DOCS
 
 **RESOURCES**
 - GitHub: https://github.com/MyLinuxProfile/linux-profile-basic
