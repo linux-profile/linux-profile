@@ -10,6 +10,14 @@ CONFIG = '.config'
 FOLDER_CONFIG = f"{PATH}/{CONFIG}"
 FOLDER_PROFILE = f'{FOLDER_CONFIG}/profiles'
 FOLDER_LOG = f'{FOLDER_CONFIG}/logs'
+FOLDER_TEMP = f'{FOLDER_CONFIG}/temp'
+
+FOLDER = {
+    "config": FOLDER_CONFIG,
+    "profile": FOLDER_PROFILE,
+    "log": FOLDER_LOG,
+    "temp": FOLDER_TEMP
+}
 
 FILE = {
     "config": f'{FOLDER_CONFIG}/linux_config.json',
