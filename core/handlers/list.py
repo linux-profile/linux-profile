@@ -1,13 +1,9 @@
 from core.base.config import BaseConfig
-from core.modules.alias import SystemAlias
-from core.modules.script import SystemScript
-from core.modules.package import SystemPackage
-
+from core.utils.text import print_item
 from core.base.storage import StorageQuery
-from core.validator.operation import OperationInstallScript
 
 
-class Install(BaseConfig):
+class List(BaseConfig):
 
     def setup(self):
         """
@@ -21,10 +17,10 @@ class Install(BaseConfig):
         self.query = StorageQuery(self.file.get("profile"))
 
         func = f"{self.command }_{self.module}"
-        call_add = getattr(self, func)
-        call_add()
+        call = getattr(self, func, self)
+        call()
 
-    def install_package(self):
+    def list_package(self):
         data = self.query.deep_search(
             module=self.module,
             tag=self.category,
@@ -32,10 +28,9 @@ class Install(BaseConfig):
             value=self.value
         )
         for item in data:
-            item["command"] = self.command
-            SystemPackage(**item)
+            print_item(self.module, item["category"], item["name"])
 
-    def install_alias(self):
+    def list_alias(self):
         data = self.query.deep_search(
             module=self.module,
             tag=self.category,
@@ -43,9 +38,9 @@ class Install(BaseConfig):
             value=self.value
         )
         for item in data:
-            SystemAlias(**item)
+            print_item(self.module, item["category"], item["command"])
 
-    def install_script(self):
+    def list_script(self):
         data = self.query.deep_search(
             module=self.module,
             tag=self.category,
@@ -53,4 +48,4 @@ class Install(BaseConfig):
             value=self.value
         )
         for item in data:
-            SystemScript(**item, **self.folder)
+            print_item(self.module, item["category"], item["name"])
