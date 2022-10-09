@@ -31,7 +31,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 
 | Method             | Command                                                                                      |
 | :----------------: | :------------------------------------------------------------------------------------------: |
-| Git   	         | `git clone https://github.com/MyLinuxProfile/linux-profile-basic.git ~/linuxp --branch master` |
+| Git   	         | `git clone https://github.com/MyLinuxProfile/linux-profile.git ~/linuxp --branch master` |
 
 
 ### 3. Installing linux_profile
