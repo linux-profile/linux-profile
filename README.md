@@ -59,45 +59,45 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 ## Params:
 
 - **INIT**
-- *Example*: 
-    - ``linuxp init``
+  - *Example*: 
+      - ``linuxp init``
 
 - **ADD**
-- *Example*: 
-    - ``linuxp add``
-        - *Expected parameters*:
-            - ``--module`` * [ Required Parameter ]
+  - *Example*: 
+      - ``linuxp add``
+          - *Expected parameters*:
+              - ``--module`` * [ Required Parameter ]
 
 - **INSTALL**
-- *Example*: 
-    - ``linuxp install``
-        - *Expected parameters*:
-            - ``--module`` * [ Required Parameter ]
-            - ``--category`` 
-            - ``--value`` 
+  - *Example*: 
+      - ``linuxp install``
+          - *Expected parameters*:
+              - ``--module`` * [ Required Parameter ]
+              - ``--category`` 
+              - ``--value`` 
 
 - **UNINSTALL**
-- *Example*: 
-    - ``linuxp uninstall``
-        - *Expected parameters*:
-            - ``--module`` * [ Required Parameter ]
-            - ``--category``
+  - *Example*: 
+      - ``linuxp uninstall``
+          - *Expected parameters*:
+              - ``--module`` * [ Required Parameter ]
+              - ``--category``
 
 ## Arguments:
 
 - **MODULE**
-- *Example*: 
-    - ``package`` * [ Fixed argument ]
-    - ``alias`` * [ Fixed argument ]
-    - ``script`` * [ Fixed argument ]
+  - *Example*: 
+      - ``package`` * [ Fixed argument ]
+      - ``alias`` * [ Fixed argument ]
+      - ``script`` * [ Fixed argument ]
 
 - **CATEGORY**
-- *Example*: 
-    - ``whatever``
+  - *Example*: 
+      - ``whatever``
 
 - **VALUE**
-- *Example*: 
-    - ``whatever``
+  - *Example*: 
+      - ``whatever``
 
 ## Options:
 
