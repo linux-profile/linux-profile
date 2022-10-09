@@ -45,13 +45,22 @@ class Install(BaseConfig):
 
     def install_script(self):
         OperationInstallScript(**self.__dict__)
-
         query = StorageQuery(self.file.get("profile"))
-        item = query.key(
-            module=self.module,
-            tag=self.category,
-            key='name',
-            value=self.value
-        )
-        if item:
-            SystemScript(**item, **self.folder)
+
+        if self.value:
+            item = query.key(
+                module=self.module,
+                tag=self.category,
+                key='name',
+                value=self.value
+            )
+            if item:
+                SystemScript(**item, **self.folder)
+        else:
+            items = query.tag(
+                module=self.module,
+                tag=self.category
+            )
+            if items:
+                for item in items:
+                    SystemScript(**item, **self.folder)
