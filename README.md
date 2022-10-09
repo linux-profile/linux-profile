@@ -7,13 +7,17 @@
 # Introduction
 Linux Profile is a Linux profile management tool. With this project it is possible, from commands executed in the console, to create a 'json' file to store backup configurations. such as information about installed packages, alias, terminal settings. It also allows with a single command to restore saved configurations.
 
+## Quick Install
+
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/MyLinuxProfile/linux-profile-basic/master/scripts/install.sh)"
+
+<hr>
+
 ## Getting Started
 
 `linux_profile` installation involves:
 
-<details>
-  <summary>1 - Installing dependencies</summary>
-  <br>
+### 1. Installing dependencies
 
 | Package Manager    | Command                   |
 | :----------------: | :-----------------------: |
@@ -22,30 +26,20 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 | Pacman	         | `pacman -S curl git`      |
 | Zypper	         | `zypper install curl git` |
 
-</details>
 
-<details>
-  <summary>2 - Downloading linux_profile core</summary>
-  <br>
+### 2. Downloading linux_profile core
 
 | Method             | Command                                                                                      |
 | :----------------: | :------------------------------------------------------------------------------------------: |
 | Git   	         | `git clone https://github.com/MyLinuxProfile/linux-profile-basic.git ~/linuxp --branch master` |
 
-</details>
 
-<details>
-  <summary>3 - Installing linux_profile</summary>
-  <br>
+### 3. Installing linux_profile
   Add the following to ~/.bashrc:
 
     export PATH=$PATH":$HOME/linuxp"
 
-</details>
-
-## Quick Install
-
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/MyLinuxProfile/linux-profile-basic/master/scripts/install.sh)"
+<hr>
 
 ## Commands
 
