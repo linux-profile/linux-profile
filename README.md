@@ -111,29 +111,26 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 <details>
 <summary>MODULE</summary>
   
-- **MODULE**
-  - *Example*: 
-      - ``package`` * [ Fixed argument ]
-      - ``alias`` * [ Fixed argument ]
-      - ``script`` * [ Fixed argument ]
+- *Example*: 
+  - ``package`` * [ Fixed argument ]
+  - ``alias`` * [ Fixed argument ]
+  - ``script`` * [ Fixed argument ]
 
 </details>
 
 <details>
-<summary>tag</summary>
+<summary>TAG</summary>
 
-- **tag**
-  - *Example*: 
-      - ``whatever``
+- *Example*: 
+  - ``whatever``
 
 </details>
 
 <details>
 <summary>VALUE</summary>
 
-- **VALUE**
-  - *Example*: 
-      - ``whatever``
+- *Example*: 
+  - ``whatever``
 
 </details>
 
