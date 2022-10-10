@@ -314,7 +314,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 
 - First save the file somewhere like:
 
-        cat ~/.config/linuxp/linux_profile.json > ~/backup_profile.json
+        cat ~/linuxp/.config/linux_profile.json > ~/backup_profile.json
 
 - Open in a text editor:
 

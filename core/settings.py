@@ -1,8 +1,13 @@
+import os
 from pathlib import Path
 
-PATH = str(Path.home())
+if os.environ.get('ENVIRONMENT') == 'DEV':
+    # export ENVIRONMENT="DEV"
+    PATH = os.getcwd()
+else:
+    PATH = f"{str(Path.home())}/linuxp"
 
-CONFIG = '.config/linuxp'
+CONFIG = '.config'
 FOLDER_CONFIG = f"{PATH}/{CONFIG}"
 FOLDER_PROFILE = f'{FOLDER_CONFIG}/profiles'
 FOLDER_LOG = f'{FOLDER_CONFIG}/logs'
