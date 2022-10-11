@@ -326,6 +326,10 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 
         firefox ~/backup_profile.json
 
+- Open vi text editor
+
+        vi ~/backup_profile.json
+
 ## Commit Style
 - ⚙️ NO-TASK
 - 📝 PEP8
