@@ -41,8 +41,6 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 
 <hr>
 
-## Commands
-
 | #      | Command               | Description
 |--------|:----------------------|:-----------------------------------------------------------------------------------------|
 | 01     | ``linuxp init``       | Initial configuration of profile files and server connection.                            |
@@ -51,7 +49,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 | 04     | ``linuxp uninstall``  | Command used to uninstall items. Be **very careful** when running.                       |
 | 05     | ``linuxp list``       | Lists all modules in the terminal and can also apply filters to find items.              |
 
-## Params:
+## Commands
 
 <details>
   <summary>INIT</summary>
@@ -106,7 +104,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 
 </details>
 
-## Arguments:
+## Options:
   
 <details>
 <summary>MODULE</summary>
@@ -134,7 +132,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 
 </details>
 
-## Options:
+## Arguments:
 
 <details>
   <summary>COMMAND: linuxp add --module package</summary>
