@@ -49,7 +49,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 | 02     | ``linuxp add``        | Parameter used to add a new item to the list in your profile file.                       |
 | 03     | ``linuxp install``    | This parameter is used to install the modules, **package**, **alias** and **script**.    |
 | 04     | ``linuxp uninstall``  | Command used to uninstall items. Be **very careful** when running.                       |
-| 04     | ``linuxp list``       | Lists all modules in the terminal and can also apply filters to find items.              |
+| 05     | ``linuxp list``       | Lists all modules in the terminal and can also apply filters to find items.              |
 
 ## Params:
 
