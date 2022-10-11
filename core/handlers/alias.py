@@ -2,7 +2,7 @@ from os import system
 from pathlib import Path
 
 from core.base.system import System
-from core.utils.file import read_file, get_content
+from core.utils.file import read_file, write_file, get_content
 
 
 class HandlerAlias(System):
@@ -26,4 +26,8 @@ class HandlerAlias(System):
             if _rebase != '\n':
                 system(f"echo '{_rebase}' >> {path_file}")
 
-        system(f"echo '{current_alias}' >> {path_file}")
+        write_file(
+            content=current_alias,
+            path_file=path_file,
+            mode='a'
+        )
