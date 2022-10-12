@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+from setuptools.command.install import install
 from setuptools import setup
 from core.base.error import (
     ErrorInvalidValue,
@@ -20,7 +20,8 @@ from core.main import (
 
 try:
     setup(
-        name="linux-profile",
+        name="linuxp",
+        version="1.0.0",
         author="Fernando Celmer",
         author_email="email@fernandocelmer.com",
         cmdclass={
@@ -40,7 +41,10 @@ try:
             "Programming Language :: Python :: 3.8",
             "Programming Language :: Python :: 3.9",
         ],
-        python_requires=">=3.6"
+        include_package_data=True,
+        python_requires=">=3.6",
+        zip_safe=True,
+        fullname='linuxp'
     )
 
 except ErrorParameterIsMissing as error:
