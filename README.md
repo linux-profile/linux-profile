@@ -212,105 +212,6 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 
 </details>
 
-## File 
-
-<details>
-  <summary>[linux_profile.json]</summary>
-   
-    {
-        "package": {
-            "util": [
-                {
-                    "id": "E07BB00A71C14FF3878153A329745974",
-                    "tag": "util",
-                    "type": "apt",
-                    "name": "curl",
-                    "url": null,
-                    "file": null
-                }
-            ],
-            "dev": [
-                {
-                    "id": "6826AB807A114923BE4CDDAF5FFE5CD0",
-                    "tag": "dev",
-                    "type": "apt",
-                    "name": "git",
-                    "url": null,
-                    "file": null
-                },
-                {
-                    "id": "9C3D83B360FF498CBDA02CA7DE12E440",
-                    "tag": "dev",
-                    "type": "apt",
-                    "name": "python3-pip",
-                    "url": null,
-                    "file": null
-                }
-            ],
-            "music": [
-                {
-                    "id": "B304C96D5E6A4E92A884B0845EDD0885",
-                    "tag": "music",
-                    "type": "snap",
-                    "name": "spotify",
-                    "url": null,
-                    "file": null
-                }
-            ]
-        },
-        "alias": {
-            "git": [
-                {
-                    "id": "02BEF934DC8E4D0F90766C24320E0778",
-                    "tag": "git",
-                    "command": "giename",
-                    "body": "git config --global user.name 'LinuxProfile'",
-                    "type": "exec"
-                },
-                {
-                    "id": "E345D563A2CB495780B7F41156ED80EA",
-                    "tag": "git",
-                    "command": "giename",
-                    "body": "git config --global user.email 'email@linuxprofile.com'",
-                    "type": "exec"
-                }
-            ]
-        },
-        "script": {
-            "dev": [
-                {
-                    "id": "63982A972A4C460C881714FF1EE6C391",
-                    "tag": "dev",
-                    "type": "sh",
-                    "name": "install_poetry",
-                    "body": [
-                        "#!/bin/bash",
-                        "",
-                        "sudo apt install curl git",
-                        "curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -"
-                    ]
-                },
-                {
-                    "id": "0238BB34E0AC44CAAA0E35C5E8335787",
-                    "tag": "dev",
-                    "type": "sh",
-                    "name": "install_asdf",
-                    "body": [
-                        "#!/bin/bash",
-                        "",
-                        "sudo apt install curl git",
-                        "git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.2",
-                        "echo '. $HOME/.asdf/asdf.sh' >> ~/.bashrc",
-                        "echo '. $HOME/.asdf/completions/asdf.bash' >> ~/.bashrc"
-                    ]
-                }
-            ]
-        }
-    }
-  
-  Link: https://raw.githubusercontent.com/MyLinuxProfile/linux-profile-basic/master/docs/linux_profile.json
-</details>
-
 ## How to Backup?
 
 - First save the file somewhere like:
@@ -332,6 +233,10 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 - Open vi text editor
 
         vi ~/backup_profile.json
+
+## Profile File 
+
+- Link - [linux_profile.json](https://github.com/MyLinuxProfile/linux-profile/blob/master/docs/linux_profile.json)
 
 ## Commit Style
 - ⚙️ NO-TASK
