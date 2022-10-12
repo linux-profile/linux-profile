@@ -1,14 +1,14 @@
 
-from core.base.command import BaseCommand
-from core.base.error import (
+from linuxp.base.command import BaseCommand
+from linuxp.base.error import (
     ErrorParameterIsMissing,
     ErrorInvalidValue
 )
-from core.commands.init import Init
-from core.commands.add import Add
-from core.commands.install import Install
-from core.commands.uninstall import Uninstall
-from core.commands.list import List
+from linuxp.commands.init import Init
+from linuxp.commands.add import Add
+from linuxp.commands.install import Install
+from linuxp.commands.uninstall import Uninstall
+from linuxp.commands.list import List
 
 
 class CommandInit(BaseCommand):

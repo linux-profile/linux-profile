@@ -1,5 +1,5 @@
 from os import system
-from core.base.system import System
+from linuxp.base.system import System
 
 
 class HandlerPackage(System):

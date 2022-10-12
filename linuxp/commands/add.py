@@ -1,7 +1,7 @@
-from core.utils.text import option
-from core.base.storage import Storage
-from core.base.config import BaseConfig
-from core.base.validator import (
+from linuxp.utils.text import option
+from linuxp.base.storage import Storage
+from linuxp.base.config import BaseConfig
+from linuxp.base.validator import (
     InputAddPackage,
     InputAddAlias,
     InputAddTerminal,

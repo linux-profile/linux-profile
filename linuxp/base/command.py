@@ -1,8 +1,8 @@
 from setuptools import Command
-from core.settings import FILE
-from core.utils.text import color
-from core.base.storage import StorageQuery
-from core.base.error import (
+from linuxp.settings import FILE
+from linuxp.utils.text import color
+from linuxp.base.storage import StorageQuery
+from linuxp.base.error import (
     ErrorParameterIsMissing,
     ErrorInvalidValue,
     ShowHelper

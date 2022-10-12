@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-from setuptools.command.install import install
+
 from setuptools import setup
-from core.base.error import (
+from linuxp.base.error import (
     ErrorInvalidValue,
     ErrorParameterIsMissing,
     ErrorLoadSettings,
@@ -10,7 +10,7 @@ from core.base.error import (
     print_warning,
     print_error
 )
-from core.main import (
+from linuxp.main import (
     CommandInit,
     CommandAdd,
     CommandInstall,

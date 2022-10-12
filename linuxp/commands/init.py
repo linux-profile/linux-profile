@@ -1,8 +1,8 @@
 import urllib.request
 
-from core.base.log import run_profile
-from core.base.config import BaseConfig
-from core.base.validator import InputInitConfig
+from linuxp.base.log import run_profile
+from linuxp.base.config import BaseConfig
+from linuxp.base.validator import InputInitConfig
 
 
 class Init(BaseConfig):

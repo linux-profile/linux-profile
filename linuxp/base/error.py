@@ -1,5 +1,5 @@
-from core.utils.text import color
-from core.base.log import run_app
+from linuxp.utils.text import color
+from linuxp.base.log import run_app
 
 LOG_APP = run_app(name_log='app')
 

@@ -28,5 +28,5 @@ FILE = {
     "log_install": f"{FOLDER_LOG}/install.log",
     "distro": f'{FOLDER_CONFIG}/.os-release',
     "system": f'{FOLDER_CONFIG}/.hostnamectl',
-    "help": f'{PATH}/docs/help.json',
+    "help": f'{PATH}/core/help.json',
 }

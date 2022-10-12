@@ -1,7 +1,7 @@
 from os import system
 
-from core.base.system import System
-from core.utils.file import write_file
+from linuxp.base.system import System
+from linuxp.utils.file import write_file
 
 
 class HandlerScript(System):
