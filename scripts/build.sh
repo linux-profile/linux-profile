@@ -1,9 +1,9 @@
 #!/bin/sh
 
-chmod +x linux_profile.py
+chmod +x setup.py
 
-cp ./linux_profile.py ./linuxp
+cp ./setup.py ./linuxp
 mkdir -p ~/linuxp
 
-cp -r ./core/ ~/linuxp/ 
-cp ./linux_profile ~/linuxp/linux_profile
+cp -r ./linux_profile/ ~/linuxp/ 
+cp ./linuxp ~/linuxp/linuxp
