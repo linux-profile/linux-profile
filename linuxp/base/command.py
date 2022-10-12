@@ -12,7 +12,7 @@ from linuxp.base.error import (
 class BaseCommand(Command):
     """ Run command.
     """
-    query = StorageQuery(FILE.get("help"))
+    # query = StorageQuery(FILE.get("help"))
 
     description = 'LinuxProfile'
     user_options = [
@@ -54,18 +54,19 @@ class BaseCommand(Command):
             raise ErrorInvalidValue("module")
 
     def run(self):
-        try:
-            data = self.query.deep_search(
-                module='help',
-                tag=self.distribution.script_args[0]
-            )
-            if self.help != 0:
-                print("Documented commands (type help <topic>):")
-                print(color(text=40*"=", types=['bold']))
-                for text in data[0]["text"]:
-                    print(text)
-                print(color(text=40*"=", types=['bold']))
+        # try:
+        #     data = self.query.deep_search(
+        #         module='help',
+        #         tag=self.distribution.script_args[0]
+        #     )
+        #     if self.help != 0:
+        #         print("Documented commands (type help <topic>):")
+        #         print(color(text=40*"=", types=['bold']))
+        #         for text in data[0]["text"]:
+        #             print(text)
+        #         print(color(text=40*"=", types=['bold']))
 
-                raise ShowHelper()
-        except:
-            raise ShowHelper()
+        #         raise ShowHelper()
+        # except:
+        #     raise ShowHelper()
+        pass

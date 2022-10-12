@@ -113,3 +113,7 @@ class CommandList(BaseCommand):
             tag=self.tag,
             value=self.value
         )
+
+
+def main():
+    print("linuxp --versio 1.0.0.")
