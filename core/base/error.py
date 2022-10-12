@@ -36,6 +36,12 @@ class ErrorInvalidValue(Exception):
         super(ErrorInvalidValue, self).__init__(message)
 
 
+class ShowHelper(Exception):
+
+    def __init__(self):
+        super(ShowHelper, self).__init__()
+
+
 def print_not_implemented(parameter):
     message = f"Not implemented. [{parameter}]"
     print(

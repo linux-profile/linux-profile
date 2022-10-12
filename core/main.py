@@ -1,3 +1,4 @@
+
 from core.base.command import BaseCommand
 from core.base.error import (
     ErrorParameterIsMissing,
@@ -15,15 +16,19 @@ class CommandInit(BaseCommand):
     def finalize_options(self):
         pass
 
-    def run(self) -> None:
+    def run(self):
         """Start
         """
+        super().run()
         Init(module=self.module)
-
+        
 
 class CommandAdd(BaseCommand):
 
     def finalize_options(self):
+        if '--help' in self.distribution.script_args:
+            return
+
         if self.module is None:
             raise ErrorParameterIsMissing("module")
 
@@ -33,6 +38,7 @@ class CommandAdd(BaseCommand):
     def run(self) -> None:
         """Start
         """
+        super().run()
         Add(
             module=self.module,
             value=self.value
@@ -42,6 +48,9 @@ class CommandAdd(BaseCommand):
 class CommandInstall(BaseCommand):
 
     def finalize_options(self):
+        if '--help' in self.distribution.script_args:
+            return
+
         if self.module is None:
             raise ErrorParameterIsMissing("module")
 
@@ -51,6 +60,7 @@ class CommandInstall(BaseCommand):
     def run(self) -> None:
         """Start
         """
+        super().run()
         Install(
             module=self.module,
             tag=self.tag,
@@ -62,6 +72,9 @@ class CommandInstall(BaseCommand):
 class CommandUninstall(BaseCommand):
 
     def finalize_options(self):
+        if '--help' in self.distribution.script_args:
+            return
+
         if self.module is None:
             raise ErrorParameterIsMissing("module")
 
@@ -71,6 +84,7 @@ class CommandUninstall(BaseCommand):
     def run(self) -> None:
         """Start
         """
+        super().run()
         Uninstall(
             module=self.module,
             tag=self.tag,
@@ -81,6 +95,9 @@ class CommandUninstall(BaseCommand):
 class CommandList(BaseCommand):
 
     def finalize_options(self):
+        if '--help' in self.distribution.script_args:
+            return
+
         if self.module is None:
             raise ErrorParameterIsMissing("module")
 
@@ -90,6 +107,7 @@ class CommandList(BaseCommand):
     def run(self) -> None:
         """Start
         """
+        super().run()
         List(
             module=self.module,
             tag=self.tag,
