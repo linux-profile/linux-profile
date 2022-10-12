@@ -336,6 +336,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 - 📌 ISSUE
 - 🪲 BUG
 - 📘 DOCS
+- 📦 PyPI
 
 **RESOURCES**
 - GitHub: https://github.com/MyLinuxProfile/linux-profile-basic
