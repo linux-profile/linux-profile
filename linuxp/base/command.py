@@ -1,72 +1,92 @@
-from setuptools import Command
-from linuxp.settings import FILE
-from linuxp.utils.text import color
-from linuxp.base.storage import StorageQuery
 from linuxp.base.error import (
-    ErrorParameterIsMissing,
     ErrorInvalidValue,
-    ShowHelper
+    ErrorParameterIsMissing,
+    ErrorLoadSettings,
+    ErrorOptionIsMissing,
+    print_warning,
+    print_error
 )
 
 
-class BaseCommand(Command):
-    """ Run command.
-    """
-    # query = StorageQuery(FILE.get("help"))
+class Command():
 
-    description = 'LinuxProfile'
-    user_options = [
-            ('module=', 'm', 'input module'),
-            ('tag=', 't', 'input tag'),
-            ('value=', 'i', 'input value'),
-            ('option=', 'o', 'input option'),
-            ('help=', 'h', 'input help'),
-        ]
+    list_option = ['module', 'tag', 'value']
 
-    modules = [
-        'alias',
-        'package',
-        'terminal',
-        'script'
-    ]
+    def __init__(self, parser, arguments) -> None:
+        self.parser = parser
+        self.arguments = arguments
 
-    def initialize_options(self):
+        self.setup_options()
+        self.execute()
+
+    def setup_options(self):
         self.module = None
         self.tag = None
         self.value = None
-        self.option = None
-        self.help = None
 
-    def finalize_options(self):
-        if self.module is None:
-            raise ErrorParameterIsMissing("module")
+        for item in self.list_option:
+            if hasattr(self.arguments, item):
+                setattr(self, item, getattr(self.arguments, item))
 
-        if self.tag is None:
-            raise ErrorParameterIsMissing("tag")
 
-        if self.value is None:
-            raise ErrorParameterIsMissing("value")
+class BaseCommand:
 
-        if self.option is None:
-            raise ErrorParameterIsMissing("option")
+    list_module = ['package', 'alias', 'script']
 
-        if self.module not in self.modules:
-            raise ErrorInvalidValue("module")
+    def __init__(self, parser):
+        self.parser = parser
+        self.subparsers = self.parser.add_subparsers()
+
+        self.argument_module = {"required": True, "choices":self.list_module}
+
+        self.setup_init()
+        self.setup_add()
+        self.setup_install()
+        self.setup_uninstall()
+        self.setup_list()
+
+    def setup_init(self):
+        self.cmd_init = self.subparsers.add_parser('init')
+
+    def setup_add(self):
+        self.cmd_add = self.subparsers.add_parser('add')
+        self.cmd_add.add_argument('--module', '-m', **self.argument_module)
+
+    def setup_install(self):
+        self.cmd_install = self.subparsers.add_parser('install')
+        self.cmd_install.add_argument('--module', '-m', **self.argument_module)
+        self.cmd_install.add_argument('--tag', '-t')
+        self.cmd_install.add_argument('--value', '-v')
+
+    def setup_uninstall(self):
+        self.cmd_uninstall = self.subparsers.add_parser('uninstall')
+        self.cmd_uninstall.add_argument('--module', '-m', **self.argument_module)
+        self.cmd_uninstall.add_argument('--tag', '-t')
+        self.cmd_uninstall.add_argument('--value', '-v')
+
+    def setup_list(self):
+        self.cmd_list = self.subparsers.add_parser('list')
+        self.cmd_list.add_argument('--module', '-m', **self.argument_module)
+        self.cmd_list.add_argument('--tag', '-t')
+        self.cmd_list.add_argument('--value', '-v')
 
     def run(self):
-        # try:
-        #     data = self.query.deep_search(
-        #         module='help',
-        #         tag=self.distribution.script_args[0]
-        #     )
-        #     if self.help != 0:
-        #         print("Documented commands (type help <topic>):")
-        #         print(color(text=40*"=", types=['bold']))
-        #         for text in data[0]["text"]:
-        #             print(text)
-        #         print(color(text=40*"=", types=['bold']))
+        try:
 
-        #         raise ShowHelper()
-        # except:
-        #     raise ShowHelper()
-        pass
+            arguments = self.parser.parse_args()
+            arguments.exec(parser=self.parser, arguments=arguments)
+
+        except ErrorParameterIsMissing as error:
+            print_warning(str(error))
+
+        except ErrorInvalidValue as error:
+            print_warning(str(error))
+
+        except ErrorOptionIsMissing as error:
+            print_warning(str(error))
+
+        except ErrorLoadSettings as error:
+            print_error(str(error))
+
+        except Exception as error:
+            print_error(str(error))

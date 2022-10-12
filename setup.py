@@ -1,7 +1,13 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
+from linuxp import __version__
 from setuptools import setup
 from setuptools.command.install import install
+
+
+with open("README.md", "r", encoding="utf-8") as fh:
+    long_description = fh.read()
 
 
 class CustomInstallCommand(install):
@@ -11,9 +17,13 @@ class CustomInstallCommand(install):
 
 setup(
     name="linuxp",
-    version="1.0.1",
+    version=__version__,
     author="Fernando Celmer",
     author_email="email@fernandocelmer.com",
+    description="Linux profile management tool",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    url="https://github.com/MyLinuxProfile/linux-profile",
     cmdclass={
         'install': CustomInstallCommand,
     },
