@@ -109,26 +109,29 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 <details>
 <summary>MODULE</summary>
   
-- *Example*: 
-  - ``package`` * [ Fixed argument ]
-  - ``alias`` * [ Fixed argument ]
-  - ``script`` * [ Fixed argument ]
+| Example            |                     | Wiki page      |
+| :----------------: | :-----------------: | :------------: |
+| ``package``	     | * [ Fixed argument] | [Module](https://github.com/MyLinuxProfile/linux-profile/wiki/Options#module) |
+| ``alias``	         | * [ Fixed argument] | [Module](https://github.com/MyLinuxProfile/linux-profile/wiki/Options#module) |
+| ``script``	     | * [ Fixed argument] | [Module](https://github.com/MyLinuxProfile/linux-profile/wiki/Options#module) |
 
 </details>
 
 <details>
 <summary>TAG</summary>
 
-- *Example*: 
-  - ``whatever``
+| Example            |                       | Wiki page      |
+| :----------------: | :-------------------: | :------------: |
+| ``whatever``	     | [ Any text argument ] | [Tag](https://github.com/MyLinuxProfile/linux-profile/wiki/Options#tag) |
 
 </details>
 
 <details>
 <summary>VALUE</summary>
 
-- *Example*: 
-  - ``whatever``
+| Example            |                       | Wiki page      |
+| :----------------: | :-------------------: | :------------: |
+| ``whatever``	     | [ Any text argument ] | [Value](https://github.com/MyLinuxProfile/linux-profile/wiki/Options#value) |
 
 </details>
 
