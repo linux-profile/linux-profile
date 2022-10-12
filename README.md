@@ -4,16 +4,16 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/MyLinuxProfile/linux-profile-basic?style=flat-square)
 ![GitHub Pipenv locked Python version](https://img.shields.io/github/pipenv/locked/python-version/MyLinuxProfile/linux-profile?style=flat-square)
 
-# Introduction
+# [Introduction](https://github.com/MyLinuxProfile/linux-profile/wiki)
 Linux Profile is a Linux profile management tool. With this project it is possible, from commands executed in the console, to create a 'json' file to store backup configurations. such as information about installed packages, alias, terminal settings. It also allows with a single command to restore saved configurations.
 
-## Quick Install
+## [Quick Install](https://github.com/MyLinuxProfile/linux-profile/wiki/Installation#quick-install)
 
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/MyLinuxProfile/linux-profile/master/scripts/install.sh)"
 
 <hr>
 
-## Getting Started
+## [Getting Started](https://github.com/MyLinuxProfile/linux-profile/wiki/Installation#getting-started)
 
 `linux_profile` installation involves:
 
@@ -41,7 +41,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 
 <hr>
 
-# Wiki Page
+# [Wiki Page](https://github.com/MyLinuxProfile/linux-profile/wiki)
 
 ## Commands:
 
@@ -75,27 +75,27 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 | :----------------: | :-------------------: | :------------: |
 | ``whatever``	     | [ Any text argument ] | [Value](https://github.com/MyLinuxProfile/linux-profile/wiki/Options#value) |
 
-## How to Backup?
+## [Make a profile backup](https://github.com/MyLinuxProfile/linux-profile/wiki/Make-a-profile-backup)
 
-- First save the file somewhere like:
+- Saving the profile file:
 
-        cat ~/linuxp/.config/linux_profile.json > ~/backup_profile.json
+      cat ~/linuxp/.config/linux_profile.json > ~/backup_profile.json
 
 - Open in a text editor:
 
-        xdg-open ~/backup_profile.json
+      xdg-open ~/backup_profile.json
         
 - Open in Google Chrome browser:
 
-        google-chrome ~/backup_profile.json
+      google-chrome ~/backup_profile.json
         
 - Open in Firefox browser:
 
-        firefox ~/backup_profile.json
+      firefox ~/backup_profile.json
 
-- Open vi text editor
+- Open vi text editor:
 
-        vi ~/backup_profile.json
+      vi ~/backup_profile.json
 
 ## Profile File 
 
