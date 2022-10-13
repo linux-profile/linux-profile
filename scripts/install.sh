@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo "1 - Installing dependencies"
-sudo apt install curl git python-setuptools
+sudo apt install curl git
 
 echo "2 - Download Github Repository"
 git clone https://github.com/MyLinuxProfile/linux-profile.git ~/linuxp/temp --branch pypi
