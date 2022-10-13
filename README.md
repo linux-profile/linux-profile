@@ -51,10 +51,10 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 | #      | Command               | Description                                                                              | Wiki page                    |
 |--------|:----------------------|:-----------------------------------------------------------------------------------------| :--------------------------: | 
 | 01     | ``linuxp init``       | Initial configuration of profile files and server connection.                            | [Command Init](https://github.com/MyLinuxProfile/linux-profile/wiki/Command---Init) |
-| 02     | ``linuxp add``        | Parameter used to add a new value to the list in your profile file.                       | [Command Add](https://github.com/MyLinuxProfile/linux-profile/wiki/Command--Add) |
+| 02     | ``linuxp add``        | Parameter used to add a new item to the list in your profile file.                       | [Command Add](https://github.com/MyLinuxProfile/linux-profile/wiki/Command--Add) |
 | 03     | ``linuxp install``    | This parameter is used to install the modules, **package**, **alias** and **script**.    | [Command Install](https://github.com/MyLinuxProfile/linux-profile/wiki/Command-Install) |
-| 04     | ``linuxp uninstall``  | Command used to uninstall values. Be **very careful** when running.                       | [Command Uninstall](https://github.com/MyLinuxProfile/linux-profile/wiki/Command--Uninstall) |
-| 05     | ``linuxp list``       | Lists all modules in the terminal and can also apply filters to find values.              | [Command List](https://github.com/MyLinuxProfile/linux-profile/wiki/Command-List) |
+| 04     | ``linuxp uninstall``  | Command used to uninstall items. Be **very careful** when running.                       | [Command Uninstall](https://github.com/MyLinuxProfile/linux-profile/wiki/Command--Uninstall) |
+| 05     | ``linuxp list``       | Lists all modules in the terminal and can also apply filters to find items.              | [Command List](https://github.com/MyLinuxProfile/linux-profile/wiki/Command-List) |
 
 ## Options:
   
@@ -76,7 +76,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 
 | Example            |                       | Wiki page      |
 | :----------------: | :-------------------: | :------------: |
-| ``whatever``	     | [ Any text argument ] | [Value](https://github.com/MyLinuxProfile/linux-profile/wiki/Options#value) |
+| ``whatever``	     | [ Any text argument ] | [Value](https://github.com/MyLinuxProfile/linux-profile/wiki/Options#item) |
 
 ## [Make a profile backup](https://github.com/MyLinuxProfile/linux-profile/wiki/Make-a-profile-backup)
 
