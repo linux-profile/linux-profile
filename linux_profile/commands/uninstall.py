@@ -1,6 +1,6 @@
-from core.base.config import BaseConfig
-from core.handlers.package import HandlerPackage
-from core.base.storage import StorageQuery
+from linux_profile.base.config import BaseConfig
+from linux_profile.handlers.package import HandlerPackage
+from linux_profile.base.storage import StorageQuery
 
 
 class Uninstall(BaseConfig):

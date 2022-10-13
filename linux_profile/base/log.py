@@ -1,7 +1,7 @@
 import logging
-from core.base.config import BaseConfig
+from linux_profile.base.config import BaseConfig
 from logging.config import dictConfig
-from core.settings import FILE
+from linux_profile.settings import FILE
 
 
 logging_config = dict(

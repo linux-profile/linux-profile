@@ -1,7 +1,7 @@
 from os import system
 
-from core.base.system import System
-from core.utils.file import write_file
+from linux_profile.base.system import System
+from linux_profile.utils.file import write_file
 
 
 class HandlerScript(System):

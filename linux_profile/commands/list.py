@@ -1,6 +1,6 @@
-from core.base.config import BaseConfig
-from core.utils.text import print_item
-from core.base.storage import StorageQuery
+from linux_profile.base.config import BaseConfig
+from linux_profile.utils.text import print_item
+from linux_profile.base.storage import StorageQuery
 
 
 class List(BaseConfig):

@@ -1,7 +1,7 @@
 import uuid
 
-from core.utils.text import cleaning_option
-from core.base.error import ErrorOptionIsMissing
+from linux_profile.utils.text import cleaning_option
+from linux_profile.base.error import ErrorOptionIsMissing
 
 
 class Validator():

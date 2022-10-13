@@ -1,5 +1,5 @@
 from os import system
-from core.settings import FILE
+from linux_profile.settings import FILE
 
 
 def get_content(path_file: str, separator: str):

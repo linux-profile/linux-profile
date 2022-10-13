@@ -1,4 +1,4 @@
-# linux-profile-basic
+# linux-profile
 
 ![GitHub Org's stars](https://img.shields.io/github/stars/MyLinuxProfile?label=LinuxProfile&style=flat-square)
 ![GitHub last commit](https://img.shields.io/github/last-commit/MyLinuxProfile/linux-profile-basic?style=flat-square)
@@ -107,6 +107,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 - 📌 ISSUE
 - 🪲 BUG
 - 📘 DOCS
+- 📦 PyPI
 
 **RESOURCES**
 - GitHub: https://github.com/MyLinuxProfile/linux-profile-basic

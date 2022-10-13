@@ -1,11 +1,6 @@
-import os
 from pathlib import Path
 
-if os.environ.get('ENVIRONMENT') == 'DEV':
-    # export ENVIRONMENT="DEV"
-    PATH = os.getcwd()
-else:
-    PATH = f"{str(Path.home())}/linuxp"
+PATH = f"{str(Path.home())}/linuxp"
 
 CONFIG = '.config'
 FOLDER_CONFIG = f"{PATH}/{CONFIG}"
@@ -14,6 +9,7 @@ FOLDER_LOG = f'{FOLDER_CONFIG}/logs'
 FOLDER_TEMP = f'{FOLDER_CONFIG}/temp'
 
 FOLDER = {
+    "linuxp": PATH,
     "config": FOLDER_CONFIG,
     "profile": FOLDER_PROFILE,
     "log": FOLDER_LOG,
@@ -27,6 +23,5 @@ FILE = {
     "log_profile": f"{FOLDER_LOG}/profile.log",
     "log_install": f"{FOLDER_LOG}/install.log",
     "distro": f'{FOLDER_CONFIG}/.os-release',
-    "system": f'{FOLDER_CONFIG}/.hostnamectl',
-    "help": f'{PATH}/docs/help.json',
+    "system": f'{FOLDER_CONFIG}/.hostnamectl'
 }

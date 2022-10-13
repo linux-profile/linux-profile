@@ -1,5 +1,5 @@
 from os import system
-from core.base.system import System
+from linux_profile.base.system import System
 
 
 class HandlerPackage(System):

@@ -3,9 +3,9 @@
 from os import mkdir
 from os.path import exists
 
-from core.base.storage import Storage
-from core.utils.file import get_system, get_distro
-from core.settings import FILE, FOLDER
+from linux_profile.base.storage import Storage
+from linux_profile.utils.file import get_system, get_distro
+from linux_profile.settings import FILE, FOLDER
 
 
 class BaseConfig():

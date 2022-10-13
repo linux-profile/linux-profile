@@ -6,7 +6,7 @@
                     " Usage: init [OPTIONS]",
                     "",
                     " Options:",
-                    "   --help                          Show this message and exit.",
+                    "   --help        [Prefix --h]      Show this message and exit.",
                     ""
                 ]
             }
@@ -18,7 +18,7 @@
                     "",
                     " Options:",
                     "   --module TEXT [Prefix --m]      Option with module name. [Fixed argument: *package, *alias, *script]",
-                    "   --help                          Show this message and exit.",
+                    "   --help        [Prefix --h]      Show this message and exit.",
                     ""
                 ]
             }
@@ -31,8 +31,8 @@
                     " Options:",
                     "   --module TEXT [Prefix --m]      Option with module name. [Fixed argument: *package, *alias, *script]",
                     "   --tag TEXT    [Prefix --t]      The 'tag' is intended to group the items within each module.",
-                    "   --value TEXT  [Prefix --i]      The 'value' is the name of the item inside a 'tag'.",
-                    "   --help                          Show this message and exit.",
+                    "   --value TEXT  [Prefix --v]      The 'value' is the name of the item inside a 'tag'.",
+                    "   --help        [Prefix --h]      Show this message and exit.",
                     ""
                 ]
             }
@@ -45,8 +45,8 @@
                     " Options:",
                     "   --module TEXT [Prefix --m]      Option with module name. [Fixed argument: *package, *alias, *script]",
                     "   --tag TEXT    [Prefix --t]      The 'tag' is intended to group the items within each module.",
-                    "   --value TEXT  [Prefix --i]      The 'value' is the name of the item inside a 'tag'.",
-                    "   --help                          Show this message and exit.",
+                    "   --value TEXT  [Prefix --v]      The 'value' is the name of the item inside a 'tag'.",
+                    "   --help        [Prefix --h]      Show this message and exit.",
                     ""
                 ]
             }
@@ -59,8 +59,8 @@
                     " Options:",
                     "   --module TEXT [Prefix --m]      Option with module name. [Fixed argument: *package, *alias, *script]",
                     "   --tag TEXT    [Prefix --t]      The 'tag' is intended to group the items within each module.",
-                    "   --value TEXT  [Prefix --i]      The 'value' is the name of the item inside a 'tag'.",
-                    "   --help                          Show this message and exit.",
+                    "   --value TEXT  [Prefix --v]      The 'value' is the name of the item inside a 'tag'.",
+                    "   --help        [Prefix --h]      Show this message and exit.",
                     ""
                 ]
             }

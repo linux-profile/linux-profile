@@ -1,8 +1,8 @@
-from core.base.config import BaseConfig
-from core.handlers.alias import HandlerAlias
-from core.handlers.script import HandlerScript
-from core.handlers.package import HandlerPackage
-from core.base.storage import StorageQuery
+from linux_profile.base.config import BaseConfig
+from linux_profile.handlers.alias import HandlerAlias
+from linux_profile.handlers.script import HandlerScript
+from linux_profile.handlers.package import HandlerPackage
+from linux_profile.base.storage import StorageQuery
 
 
 class Install(BaseConfig):
