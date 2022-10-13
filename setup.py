@@ -28,6 +28,7 @@ setup(
         'install': CustomInstallCommand,
     },
     classifiers=[
+        'Development Status :: 4 - Beta',
         "Operating System :: OS Independent",
         "License :: OSI Approved :: MIT License",
         'Intended Audience :: Developers',
