@@ -1,12 +1,12 @@
 import argparse
 
-from linuxp.commands.init import Init
-from linuxp.commands.add import Add
-from linuxp.commands.install import Install
-from linuxp.commands.uninstall import Uninstall
-from linuxp.commands.list import List
+from linux_profile.commands.init import Init
+from linux_profile.commands.add import Add
+from linux_profile.commands.install import Install
+from linux_profile.commands.uninstall import Uninstall
+from linux_profile.commands.list import List
 
-from linuxp.base.command import BaseCommand, Command
+from linux_profile.base.command import BaseCommand, Command
 
 
 class CommandInit(Command):

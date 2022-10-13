@@ -1,7 +1,7 @@
 from os import path
 from shutil import rmtree
 
-from linuxp.base.config import BaseConfig
+from linux_profile.base.config import BaseConfig
 from tests.settings import (
     FILE_CONFIG,
     FILE_PROFILE,

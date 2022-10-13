@@ -1,9 +1,11 @@
-from linuxp.base.config import BaseConfig
-from linuxp.utils.text import print_item
-from linuxp.base.storage import StorageQuery
+from linux_profile.base.config import BaseConfig
+from linux_profile.handlers.alias import HandlerAlias
+from linux_profile.handlers.script import HandlerScript
+from linux_profile.handlers.package import HandlerPackage
+from linux_profile.base.storage import StorageQuery
 
 
-class List(BaseConfig):
+class Install(BaseConfig):
 
     def setup(self):
         """
@@ -18,10 +20,9 @@ class List(BaseConfig):
 
         func = f"{self.command }_{self.module}"
         call = getattr(self, func, self)
-
         call()
 
-    def list_package(self):
+    def install_package(self):
         data = self.query.deep_search(
             module=self.module,
             tag=self.tag,
@@ -29,9 +30,10 @@ class List(BaseConfig):
             value=self.value
         )
         for item in data:
-            print_item(self.module, item["tag"], item["name"])
+            item["command"] = self.command
+            HandlerPackage(**item, **self.folder)
 
-    def list_alias(self):
+    def install_alias(self):
         data = self.query.deep_search(
             module=self.module,
             tag=self.tag,
@@ -39,9 +41,9 @@ class List(BaseConfig):
             value=self.value
         )
         for item in data:
-            print_item(self.module, item["tag"], item["command"])
+            HandlerAlias(**item)
 
-    def list_script(self):
+    def install_script(self):
         data = self.query.deep_search(
             module=self.module,
             tag=self.tag,
@@ -49,4 +51,4 @@ class List(BaseConfig):
             value=self.value
         )
         for item in data:
-            print_item(self.module, item["tag"], item["name"])
+            HandlerScript(**item, **self.folder)

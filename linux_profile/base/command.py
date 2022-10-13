@@ -1,4 +1,4 @@
-from linuxp.base.error import (
+from linux_profile.base.error import (
     ErrorInvalidValue,
     ErrorParameterIsMissing,
     ErrorLoadSettings,

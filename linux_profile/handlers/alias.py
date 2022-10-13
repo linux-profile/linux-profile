@@ -1,8 +1,8 @@
 from os import system
 from pathlib import Path
 
-from linuxp.base.system import System
-from linuxp.utils.file import read_file, write_file, get_content
+from linux_profile.base.system import System
+from linux_profile.utils.file import read_file, write_file, get_content
 
 
 class HandlerAlias(System):
