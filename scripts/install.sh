@@ -4,17 +4,18 @@ echo "1 - Installing dependencies"
 sudo apt install curl git python-setuptools
 
 echo "2 - Download Github Repository"
-git clone https://github.com/MyLinuxProfile/linux-profile.git ~/linuxp/linux_profile --branch pypi
+git clone https://github.com/MyLinuxProfile/linux-profile.git ~/linuxp/temp --branch pypi
 
-cp -r ./linux_profile ~/linuxp/linux_profile
-cp ./setup_dev.py ~/linuxp/setup_dev.py
+echo "3 - Creating project structure"
+mv ~/linuxp/temp/linux_profile ~/linuxp/linux_profile
+mv ~/linuxp/temp/linuxp.py ~/linuxp/linuxp
 
-chmod +x ~/linuxp/setup_dev.py
-mv ~/linuxp/setup_dev.py ~/linuxp/linuxp
+echo "4 - Creating executable"
+chmod +x ~/linuxp/linuxp
+sudo rm -r ~/linuxp/temp/
 
-
-echo "3 - Creating new line in '.bashrc' file with project configuration."
+echo "5 - Creating new line in '.bashrc' file with project configuration."
 echo 'export PATH=$PATH":$HOME/linuxp"' >> ~/.bashrc
 
-echo "4 - Exporting project configuration."
+echo "6 - Exporting project configuration."
 export PATH=$PATH":$HOME/linuxp"
