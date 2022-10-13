@@ -14,37 +14,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/MyLinuxProfile/linux-profile/master/scripts/install.sh)"
 
-<hr>
-
-## [Getting Started](https://github.com/MyLinuxProfile/linux-profile/wiki/Installation#getting-started)
-
-`linux_profile` installation involves:
-
-### 1. Installing dependencies
-
-| Package Manager    | Command                   |
-| :----------------: | :-----------------------: |
-| Aptitude	         | `apt install curl git`    |
-| DNF	             | `dnf install curl git`    |
-| Pacman	         | `pacman -S curl git`      |
-| Zypper	         | `zypper install curl git` |
-
-
-### 2. Downloading linux_profile core
-
-| Method             | Command                                                                                      |
-| :----------------: | :------------------------------------------------------------------------------------------: |
-| Git   	         | `git clone https://github.com/MyLinuxProfile/linux-profile.git ~/linuxp --branch master` |
-
-
-### 3. Installing linux_profile
-  Add the following to ~/.bashrc:
-
-    export PATH=$PATH":$HOME/linuxp"
-
-<hr>
-
-# [Wiki Page](https://github.com/MyLinuxProfile/linux-profile/wiki)
+## [Wiki Page](https://github.com/MyLinuxProfile/linux-profile/wiki)
 
 ## Commands:
 
