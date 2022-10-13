@@ -35,7 +35,7 @@ class CommandInstall(Command):
         Install(
             module=self.module,
             tag=self.tag,
-            value=self.value
+            item=self.item
         )
 
 
@@ -47,7 +47,7 @@ class CommandUninstall(Command):
         Uninstall(
             module=self.module,
             tag=self.tag,
-            value=self.value
+            item=self.item
         )
 
 
@@ -59,7 +59,7 @@ class CommandList(Command):
         List(
             module=self.module,
             tag=self.tag,
-            value=self.value
+            item=self.item
         )
 
 

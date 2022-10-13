@@ -27,7 +27,7 @@ class Install(BaseConfig):
             module=self.module,
             tag=self.tag,
             key='name',
-            value=self.value
+            value=self.item
         )
         for item in data:
             item["command"] = self.command
@@ -38,7 +38,7 @@ class Install(BaseConfig):
             module=self.module,
             tag=self.tag,
             key='command',
-            value=self.value
+            value=self.item
         )
         for item in data:
             HandlerAlias(**item)
@@ -48,7 +48,7 @@ class Install(BaseConfig):
             module=self.module,
             tag=self.tag,
             key='name',
-            value=self.value
+            value=self.item
         )
         for item in data:
             HandlerScript(**item, **self.folder)

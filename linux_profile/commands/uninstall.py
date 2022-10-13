@@ -25,7 +25,7 @@ class Uninstall(BaseConfig):
             module=self.module,
             tag=self.tag,
             key='name',
-            value=self.value
+            value=self.item
         )
         for item in data:
             item["command"] = self.command

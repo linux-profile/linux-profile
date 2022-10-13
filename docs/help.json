@@ -6,7 +6,7 @@
                     " Usage: init [OPTIONS]",
                     "",
                     " Options:",
-                    "   --help        [Prefix --h]      Show this message and exit.",
+                    "   --help        [Prefix -h]      Show this message and exit.",
                     ""
                 ]
             }
@@ -17,8 +17,8 @@
                     " Usage: add [OPTIONS]",
                     "",
                     " Options:",
-                    "   --module TEXT [Prefix --m]      Option with module name. [Fixed argument: *package, *alias, *script]",
-                    "   --help        [Prefix --h]      Show this message and exit.",
+                    "   --module TEXT [Prefix -m]      Option with module name. [Fixed argument: *package, *alias, *script]",
+                    "   --help        [Prefix -h]      Show this message and exit.",
                     ""
                 ]
             }
@@ -29,10 +29,10 @@
                     " Usage: install [OPTIONS]",
                     "",
                     " Options:",
-                    "   --module TEXT [Prefix --m]      Option with module name. [Fixed argument: *package, *alias, *script]",
-                    "   --tag TEXT    [Prefix --t]      The 'tag' is intended to group the items within each module.",
-                    "   --value TEXT  [Prefix --v]      The 'value' is the name of the item inside a 'tag'.",
-                    "   --help        [Prefix --h]      Show this message and exit.",
+                    "   --module TEXT [Prefix -m]      Option with module name. [Fixed argument: *package, *alias, *script]",
+                    "   --tag TEXT    [Prefix -t]      The 'tag' is intended to group the items within each module.",
+                    "   --item TEXT   [Prefix -i]      The 'item' is the name of the item inside a 'tag'.",
+                    "   --help        [Prefix -h]      Show this message and exit.",
                     ""
                 ]
             }
@@ -43,10 +43,10 @@
                     " Usage: uninstall [OPTIONS]",
                     "",
                     " Options:",
-                    "   --module TEXT [Prefix --m]      Option with module name. [Fixed argument: *package, *alias, *script]",
-                    "   --tag TEXT    [Prefix --t]      The 'tag' is intended to group the items within each module.",
-                    "   --value TEXT  [Prefix --v]      The 'value' is the name of the item inside a 'tag'.",
-                    "   --help        [Prefix --h]      Show this message and exit.",
+                    "   --module TEXT [Prefix -m]      Option with module name. [Fixed argument: *package, *alias, *script]",
+                    "   --tag TEXT    [Prefix -t]      The 'tag' is intended to group the items within each module.",
+                    "   --item TEXT   [Prefix -i]      The 'item' is the name of the item inside a 'tag'.",
+                    "   --help        [Prefix -h]      Show this message and exit.",
                     ""
                 ]
             }
@@ -57,10 +57,10 @@
                     " Usage: list [OPTIONS]",
                     "",
                     " Options:",
-                    "   --module TEXT [Prefix --m]      Option with module name. [Fixed argument: *package, *alias, *script]",
-                    "   --tag TEXT    [Prefix --t]      The 'tag' is intended to group the items within each module.",
-                    "   --value TEXT  [Prefix --v]      The 'value' is the name of the item inside a 'tag'.",
-                    "   --help        [Prefix --h]      Show this message and exit.",
+                    "   --module TEXT [Prefix -m]      Option with module name. [Fixed argument: *package, *alias, *script]",
+                    "   --tag TEXT    [Prefix -t]      The 'tag' is intended to group the items within each module.",
+                    "   --item TEXT   [Prefix -i]      The 'item' is the name of the item inside a 'tag'.",
+                    "   --help        [Prefix -h]      Show this message and exit.",
                     ""
                 ]
             }

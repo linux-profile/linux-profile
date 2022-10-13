@@ -14,7 +14,7 @@ class BaseConfig():
             self,
             module: str = None,
             tag: str = None,
-            value: str = None,
+            item: str = None,
             option: str = None,
             _file: dict = FILE,
             _folder: dict = FOLDER):
@@ -23,7 +23,7 @@ class BaseConfig():
         """
         self.module = module
         self.tag = tag
-        self.value = value
+        self.item = item
         self.option = option
 
         self.file = _file

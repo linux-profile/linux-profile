@@ -1,12 +1,11 @@
 import argparse
 
+from linux_profile.base.command import BaseCommand, Command
 from linux_profile.commands.init import Init
 from linux_profile.commands.add import Add
 from linux_profile.commands.install import Install
 from linux_profile.commands.uninstall import Uninstall
 from linux_profile.commands.list import List
-
-from linux_profile.base.command import BaseCommand, Command
 
 
 class CommandInit(Command):
@@ -33,7 +32,7 @@ class CommandInstall(Command):
         Install(
             module=self.module,
             tag=self.tag,
-            value=self.value
+            item=self.item
         )
 
 
@@ -45,7 +44,7 @@ class CommandUninstall(Command):
         Uninstall(
             module=self.module,
             tag=self.tag,
-            value=self.value
+            item=self.item
         )
 
 
@@ -57,7 +56,7 @@ class CommandList(Command):
         List(
             module=self.module,
             tag=self.tag,
-            value=self.value
+            item=self.item
         )
 
 
