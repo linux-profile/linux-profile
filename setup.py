@@ -43,6 +43,6 @@ setup(
     zip_safe=True,
     fullname='linuxp',
     entry_points={
-        'console_scripts': ['linuxp=linuxp.main:main'],
+        'console_scripts': ['linuxp=linux_profile.main:main'],
     },
 )
