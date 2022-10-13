@@ -26,7 +26,7 @@ class List(BaseConfig):
             module=self.module,
             tag=self.tag,
             key='name',
-            value=self.value
+            value=self.item
         )
         for item in data:
             print_item(self.module, item["tag"], item["name"])
@@ -36,7 +36,7 @@ class List(BaseConfig):
             module=self.module,
             tag=self.tag,
             key='command',
-            value=self.value
+            value=self.item
         )
         for item in data:
             print_item(self.module, item["tag"], item["command"])
@@ -46,7 +46,7 @@ class List(BaseConfig):
             module=self.module,
             tag=self.tag,
             key='name',
-            value=self.value
+            value=self.item
         )
         for item in data:
             print_item(self.module, item["tag"], item["name"])
