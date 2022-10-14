@@ -24,14 +24,15 @@ class InputAddPackage(Validator):
         'apt-get',
         'apt',
         'snap',
-        'deb',
-        'shell',
+        'yum',
         'dnf',
         'pacman',
         'zypper',
         'spack',
         'brew',
-        'pip'
+        'pip',
+        'shell',
+        'deb'
     ]
 
     def validator_category(self, value = None):
