@@ -1,12 +1,13 @@
 {
     "help": {
-        "init": [
+        "config": [
             {
                 "text": [
-                    " Usage: init [OPTIONS]",
+                    " Usage: config [OPTIONS]",
                     "",
                     " Options:",
                     "   --help        [Prefix -h]      Show this message and exit.",
+                    "   --get TEXT                     URL of your profile file to download and sync in the current project.",
                     ""
                 ]
             }
