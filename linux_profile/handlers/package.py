@@ -7,40 +7,35 @@ class HandlerPackage(System):
     def setup_system(
             self,
             sudo: bool = True,
-            b_arg: list = list(),
-            l_arg: list = list()):
+            parameter: list = list()):
         sudo = "sudo" if sudo else ""
-        b_arg = " ".join(b_arg)
-        l_arg = " ".join(l_arg)
+        parameter = " ".join(parameter)
 
-        command = [sudo, self.type, b_arg, self.command, self.name, l_arg]
+        command = [sudo, self.type, self.command, self.name, parameter]
         system(" ".join(command).replace("  ", " "))
 
     def setup_apt_get(self):
         if self.command == 'install':
-            self.setup_system(l_arg=["-y"])
+            self.setup_system(parameter=["-y"])
 
         if self.command == 'uninstall':
             self.command = 'remove'
-            self.setup_system(l_arg=["-y"])
+            self.setup_system(parameter=["-y"])
 
     def setup_apt(self):
         if self.command == 'install':
-            self.setup_system(l_arg=["-y"])
+            self.setup_system(parameter=["-y"])
 
         if self.command == 'uninstall':
             self.command = 'remove'
-            self.setup_system(l_arg=["-y"])
-
-    def setup_pacman(self):
-        if self.command == 'install':
-            self.setup_system(b_arg=["-S"])
-
-        if self.command == 'uninstall':
-            self.command = '-R'
-            self.setup_system()
+            self.setup_system(parameter=["-y"])
 
     def setup_snap(self):
+        if self.command == 'uninstall':
+            self.command = 'remove'
+        self.setup_system()
+
+    def setup_yum(self):
         if self.command == 'uninstall':
             self.command = 'remove'
         self.setup_system()
@@ -49,6 +44,14 @@ class HandlerPackage(System):
         if self.command == 'uninstall':
             self.command = 'remove'
         self.setup_system()
+
+    def setup_pacman(self):
+        if self.command == 'install':
+            self.command = '-S'
+
+        if self.command == 'uninstall':
+            self.command = '-R'
+            self.setup_system()
 
     def setup_zypper(self):
         if self.command == 'uninstall':
@@ -68,7 +71,7 @@ class HandlerPackage(System):
             self.setup_system(sudo=False)
 
         if self.command == 'uninstall':
-            self.setup_system(sudo=False, l_arg=[" -y"])
+            self.setup_system(sudo=False, parameter=[" -y"])
 
     def setup_deb(self):
         path_file = f"{self.temp}/{self.file}"
