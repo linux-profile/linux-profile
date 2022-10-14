@@ -109,9 +109,3 @@ class InputAddScript(Validator):
             raise ErrorOptionIsMissing('Script name')
 
         return cleaning_option(value)
-
-
-class InputInitConfig(Validator):
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
