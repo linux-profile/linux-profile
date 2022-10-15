@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-from os import mkdir
 from os.path import exists
+from os import mkdir, system
 
 from linux_profile.base.storage import Storage
 from linux_profile.utils.file import get_system, get_distro
@@ -32,6 +32,7 @@ class BaseConfig():
                 setattr(self, arg, kwargs.get(arg))
 
         self.set_folder()
+        self.set_file()
 
         self.class_profile = Storage(database=self.file.get('profile'))
         self.class_config = Storage(database=self.file.get('config'))
@@ -57,6 +58,15 @@ class BaseConfig():
         for folder in self.folder:
             if not exists(self.folder.get(folder)):
                 mkdir(self.folder.get(folder))
+
+    def set_file(self) -> None:
+        """
+        Setup File
+
+        Checks and creates files.
+        """
+        if not exists(self.file.get('bash_aliases')):
+            system(f"touch {self.file.get('bash_aliases')}")
 
     def add_config(self):
         """
