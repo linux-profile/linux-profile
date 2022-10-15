@@ -40,14 +40,14 @@ class List(BaseConfig):
         data = self.query.deep_search(
             module=self.module,
             tag=self.tag,
-            key='command',
+            key='name',
             value=self.item
         )
         for item in data:
             print_item(
                 module=self.module,
                 tag=item.get("tag"),
-                item=item.get("command"),
+                item=item.get("name"),
                 description=item.get("description")
             )
 
