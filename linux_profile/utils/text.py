@@ -63,7 +63,7 @@ def option(
         return input(option)
 
 
-def print_item(module: str, tag: str, item: str, description: str = None) -> None:
+def print_item(module: str, tag: str, item: str, description: str) -> None:
     description = description if description else 'No description'
 
     print(
