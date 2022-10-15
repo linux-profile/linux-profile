@@ -1,15 +1,16 @@
 from pathlib import Path
 
-PATH = f"{str(Path.home())}/linuxp"
+PATH = str(Path.home())
+PATH_LINUXP = f"{PATH}/linuxp"
 
 CONFIG = '.config'
-FOLDER_CONFIG = f"{PATH}/{CONFIG}"
+FOLDER_CONFIG = f"{PATH_LINUXP}/{CONFIG}"
 FOLDER_PROFILE = f'{FOLDER_CONFIG}/profiles'
 FOLDER_LOG = f'{FOLDER_CONFIG}/logs'
 FOLDER_TEMP = f'{FOLDER_CONFIG}/temp'
 
 FOLDER = {
-    "linuxp": PATH,
+    "linuxp": PATH_LINUXP,
     "config": FOLDER_CONFIG,
     "profile": FOLDER_PROFILE,
     "log": FOLDER_LOG,
@@ -23,5 +24,6 @@ FILE = {
     "log_profile": f"{FOLDER_LOG}/profile.log",
     "log_install": f"{FOLDER_LOG}/install.log",
     "distro": f'{FOLDER_CONFIG}/.os-release',
-    "system": f'{FOLDER_CONFIG}/.hostnamectl'
+    "system": f'{FOLDER_CONFIG}/.hostnamectl',
+    "bash_aliases": f'{PATH}/.bash_aliases'
 }

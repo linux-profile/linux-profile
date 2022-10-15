@@ -1,10 +1,10 @@
 import uuid
 
-from linux_profile.utils.text import cleaning_option
+from linux_profile.utils.text import slugify, cleaning_option
 from linux_profile.base.error import (
     ErrorOptionIsMissing,
     ErrorInvalidValue,
-    ErrorInvalidOption
+    ErrorOptionIsInvalid
 )
 
 
@@ -39,21 +39,21 @@ class InputAddPackage(Validator):
         'deb'
     ]
 
-    def validator_category(self, value = None):
-        return value.lower() if value else 'default'
+    def validator_tag(self, value = None):
+        return slugify(value) if value else 'default'
 
     def validator_type(self, value = None):
         if not value:
             raise ErrorOptionIsMissing('Package Manager')
 
         if not value in self.types:
-            raise ErrorInvalidOption('Package Type', self.types)
+            raise ErrorOptionIsInvalid('Package Type', self.types)
 
-        return cleaning_option(value).lower()
+        return slugify(value=value, slug_type='-')
 
     def validator_name(self, value = None):
         if not value:
-            raise ErrorOptionIsMissing('Package name')
+            raise ErrorOptionIsMissing('Package Name')
 
         return cleaning_option(value)
 
@@ -62,19 +62,25 @@ class InputAddPackage(Validator):
         if len(value) > 85:
             raise ErrorInvalidValue("Package Description")
 
-        return value
+        return cleaning_option(value)
 
 
 class InputAddAlias(Validator):
 
-    def validator_category(self, value = None):
-        return value.lower() if value else 'default'
+    def validator_tag(self, value = None):
+        return slugify(value) if value else 'default'
+
+    def validator_name(self, value = None):
+        if not value:
+            raise ErrorOptionIsMissing('Alias Name')
+
+        return slugify(value)
 
     def validator_command(self, value = None):
         if not value:
             raise ErrorOptionIsMissing('Alias Command')
 
-        return cleaning_option(value).lower()
+        return slugify(value)
 
     def validator_body(self, value = None):
         if not value:
@@ -87,26 +93,26 @@ class InputAddAlias(Validator):
         if len(value) > 85:
             raise ErrorInvalidValue("Alias Description")
 
-        return value
+        return cleaning_option(value)
 
 
 class InputAddTerminal(Validator):
 
-    def validator_category(self, value = None):
-        return value.lower() if value else 'default'
+    def validator_tag(self, value = None):
+        return slugify(value) if value else 'default'
 
     def validator_name(self, value = None):
         if not value:
             raise ErrorOptionIsMissing('Terminal Name')
 
-        return value
+        return slugify(value)
 
     def validator_description(self, value = None):
         value = value if value else 'No description'
         if len(value) > 85:
             raise ErrorInvalidValue("Terminal Description")
 
-        return value
+        return cleaning_option(value)
 
 
 class InputAddScript(Validator):
@@ -118,27 +124,27 @@ class InputAddScript(Validator):
         'ruby'
     ]
 
-    def validator_category(self, value = None):
-        return value.lower() if value else 'default'
+    def validator_tag(self, value = None):
+        return slugify(value) if value else 'default'
 
     def validator_type(self, value = None):
         if not value:
             raise ErrorOptionIsMissing('Script Type')
 
         if not value in self.types:
-            raise ErrorInvalidOption('Script Type', self.types)
+            raise ErrorOptionIsInvalid('Script Type', self.types)
 
-        return cleaning_option(value).lower()
+        return slugify(value=value, slug_type='-')
 
     def validator_name(self, value = None):
         if not value:
-            raise ErrorOptionIsMissing('Script name')
+            raise ErrorOptionIsMissing('Script Name')
 
-        return cleaning_option(value)
+        return slugify(value)
 
     def validator_description(self, value = None):
         value = value if value else 'No description'
         if len(value) > 85:
             raise ErrorInvalidValue("Script Description")
 
-        return value
+        return cleaning_option(value)

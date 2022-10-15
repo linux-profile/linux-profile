@@ -4,7 +4,7 @@ from linux_profile.base.error import (
     ErrorParameterIsMissing,
     ErrorLoadSettings,
     ErrorOptionIsMissing,
-    ErrorInvalidOption,
+    ErrorOptionIsInvalid,
     print_warning,
     print_error
 )
@@ -102,13 +102,13 @@ class BaseCommand:
         except ErrorParameterIsMissing as error:
             print_warning(str(error))
 
-        except ErrorInvalidValue as error:
-            print_warning(str(error))
-
         except ErrorOptionIsMissing as error:
             print_warning(str(error))
 
-        except ErrorInvalidOption as error:
+        except ErrorOptionIsInvalid as error:
+            print_warning(str(error))
+
+        except ErrorInvalidValue as error:
             print_warning(str(error))
 
         except ErrorLoadSettings as error:
