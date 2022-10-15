@@ -1,3 +1,4 @@
+import re
 from functools import reduce
 
 
@@ -22,8 +23,16 @@ def color(text: str, types: list):
     return reduce(lambda x, y: x + y, types_sancii) + text + Colors.ENDC
 
 
+def slugify(value: str, slug_type: str = '_'):
+    value = value.lower().strip()
+    value = re.sub(r'[^\w\s-]', '', value)
+    value = re.sub(r'[\s_-]+', slug_type, value)
+    value = re.sub(r'^-+|-+$', '', value)
+    return value
+
+
 def cleaning_option(text: str):
-    list_str = [" ", "\t", "\n", "\"", "\'", "'", "\u001b[C", "\u001b[D"]
+    list_str = ["\t", "\n", "\"", "\'", "'", "\u001b[C", "\u001b[D"]
 
     for item in list_str:
         text = text.replace(item, "")
