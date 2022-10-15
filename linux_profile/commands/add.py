@@ -31,9 +31,9 @@ class Add(BaseConfig):
                 "tag": option(text="Package Tag [default]: "),
                 "type": option(text="Package Manager: ", required=True),
                 "name": option(text="Package Name: ", required=True),
-                "description": option(text="Package Description [limit 85]: "),
                 "url": option(text="Package URL: "),
-                "file": option(text="Package File: ")
+                "file": option(text="Package File: "),
+                "description": option(text="Package Description [limit 85]: ")
             }
         )
 
@@ -46,9 +46,10 @@ class Add(BaseConfig):
     def add_alias(self):
         fields = InputAddAlias(**{
                 "tag": option(text="Alias Tag [default]: "),
-                "description": option(text="Package Description [limit 85]: "),
+                "name": option(text="Alias Name: ", required=True),
                 "command": option(text="Alias Command: ", required=True),
                 "body": option(text="Alias Body: ", required=True),
+                "description": option(text="Package Description [limit 85]: "),
                 "type": "exec"
             }
         )
@@ -90,9 +91,9 @@ class Add(BaseConfig):
                 "tag": option(text="Script Tag [default]: "),
                 "type": option(text="Script Type: ", required=True),
                 "name": option(text="Script Name: ", required=True),
-                "description": option(text="Package Description [limit 85]: "),
-                "shebang": option(text="Script Shebang: "),
                 "body": option(text="Script Body: ", required=True, body=True),
+                "shebang": option(text="Script Shebang: "),
+                "description": option(text="Package Description [limit 85]: "),
             }
         )
 

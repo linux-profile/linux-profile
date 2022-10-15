@@ -10,9 +10,15 @@
 # [Introduction](https://github.com/MyLinuxProfile/linux-profile/wiki)
 Linux Profile is a Linux profile management tool. With this project it is possible, from commands executed in the console, to create a 'json' file to store backup configurations. such as information about installed packages, alias, terminal settings. It also allows with a single command to restore saved configurations.
 
-## [Quick Install](https://github.com/MyLinuxProfile/linux-profile/wiki/Installation#quick-install)
+## [Installation](https://github.com/MyLinuxProfile/linux-profile/wiki/Installation)
 
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/MyLinuxProfile/linux-profile/master/scripts/install.sh)"
+- **Install - Pypi/PIP**
+
+      pip install -U linuxp
+
+- **Install - Shell/Curl**
+
+      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/MyLinuxProfile/linux-profile/master/scripts/install.sh)"
 
 ## [Wiki Page](https://github.com/MyLinuxProfile/linux-profile/wiki)
 
