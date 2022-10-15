@@ -29,7 +29,12 @@ class List(BaseConfig):
             value=self.item
         )
         for item in data:
-            print_item(self.module, item["tag"], item["name"])
+            print_item(
+                module=self.module,
+                tag=item.get("tag"),
+                item=item.get("name"),
+                description=item.get("description")
+            )
 
     def list_alias(self):
         data = self.query.deep_search(
@@ -39,7 +44,12 @@ class List(BaseConfig):
             value=self.item
         )
         for item in data:
-            print_item(self.module, item["tag"], item["command"])
+            print_item(
+                module=self.module,
+                tag=item.get("tag"),
+                item=item.get("command"),
+                description=item.get("description")
+            )
 
     def list_script(self):
         data = self.query.deep_search(
@@ -49,4 +59,9 @@ class List(BaseConfig):
             value=self.item
         )
         for item in data:
-            print_item(self.module, item["tag"], item["name"])
+            print_item(
+                module=self.module,
+                tag=item.get("tag"),
+                item=item.get("name"),
+                description=item.get("description")
+            )

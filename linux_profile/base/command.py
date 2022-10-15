@@ -4,6 +4,7 @@ from linux_profile.base.error import (
     ErrorParameterIsMissing,
     ErrorLoadSettings,
     ErrorOptionIsMissing,
+    ErrorInvalidOption,
     print_warning,
     print_error
 )
@@ -45,15 +46,18 @@ class BaseCommand:
         self.parser.add_argument('-v', '--version',
             action='version', version=f'linuxp=={__version__}', help="Show program's version number and exit.")
 
-        self.setup_init()
+        self.setup_config()
         self.setup_add()
         self.setup_install()
         self.setup_uninstall()
         self.setup_list()
 
-    def setup_init(self):
-        self.cmd_init = self.subparsers.add_parser(
-            'init', help="Initial configuration of profile files and server connection.")
+    def setup_config(self):
+        self.cmd_config = self.subparsers.add_parser(
+            'config', help="Configuration of profile files and server connection.")
+
+        self.cmd_config = self.cmd_config.add_argument_group('Usage: linuxp config [OPTIONS]')
+        self.cmd_config.add_argument('--get', help="URL of your profile file to download and sync in the current project.")
 
     def setup_add(self):
         self.cmd_add = self.subparsers.add_parser(
@@ -102,6 +106,9 @@ class BaseCommand:
             print_warning(str(error))
 
         except ErrorOptionIsMissing as error:
+            print_warning(str(error))
+
+        except ErrorInvalidOption as error:
             print_warning(str(error))
 
         except ErrorLoadSettings as error:

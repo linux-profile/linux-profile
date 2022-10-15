@@ -1,7 +1,11 @@
 import uuid
 
 from linux_profile.utils.text import cleaning_option
-from linux_profile.base.error import ErrorOptionIsMissing
+from linux_profile.base.error import (
+    ErrorOptionIsMissing,
+    ErrorInvalidValue,
+    ErrorInvalidOption
+)
 
 
 class Validator():
@@ -24,14 +28,15 @@ class InputAddPackage(Validator):
         'apt-get',
         'apt',
         'snap',
-        'deb',
-        'shell',
+        'yum',
         'dnf',
         'pacman',
         'zypper',
         'spack',
         'brew',
-        'pip'
+        'pip',
+        'shell',
+        'deb'
     ]
 
     def validator_category(self, value = None):
@@ -42,7 +47,7 @@ class InputAddPackage(Validator):
             raise ErrorOptionIsMissing('Package Manager')
 
         if not value in self.types:
-            raise ErrorOptionIsMissing('Package Manager')
+            raise ErrorInvalidOption('Package Type', self.types)
 
         return cleaning_option(value).lower()
 
@@ -51,6 +56,12 @@ class InputAddPackage(Validator):
             raise ErrorOptionIsMissing('Package name')
 
         return cleaning_option(value)
+
+    def validator_description(self, value = 'No description'):
+        if len(value) > 85:
+            raise ErrorInvalidValue("Package Description")
+
+        return value
 
 
 class InputAddAlias(Validator):
@@ -70,6 +81,12 @@ class InputAddAlias(Validator):
 
         return value
 
+    def validator_description(self, value = 'No description'):
+        if len(value) > 85:
+            raise ErrorInvalidValue("Alias Description")
+
+        return value
+
 
 class InputAddTerminal(Validator):
 
@@ -79,6 +96,12 @@ class InputAddTerminal(Validator):
     def validator_name(self, value = None):
         if not value:
             raise ErrorOptionIsMissing('Terminal Name')
+
+        return value
+
+    def validator_description(self, value = 'No description'):
+        if len(value) > 85:
+            raise ErrorInvalidValue("Terminal Description")
 
         return value
 
@@ -100,7 +123,7 @@ class InputAddScript(Validator):
             raise ErrorOptionIsMissing('Script Type')
 
         if not value in self.types:
-            raise ErrorOptionIsMissing('Script Type')
+            raise ErrorInvalidOption('Script Type', self.types)
 
         return cleaning_option(value).lower()
 
@@ -110,8 +133,8 @@ class InputAddScript(Validator):
 
         return cleaning_option(value)
 
+    def validator_description(self, value = 'No description'):
+        if len(value) > 85:
+            raise ErrorInvalidValue("Script Description")
 
-class InputInitConfig(Validator):
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+        return value

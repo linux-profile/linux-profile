@@ -15,19 +15,22 @@ class BaseConfig():
             module: str = None,
             tag: str = None,
             item: str = None,
-            option: str = None,
             _file: dict = FILE,
-            _folder: dict = FOLDER):
+            _folder: dict = FOLDER,
+            **kwargs):
         """
         Structure that defines the main variables.
         """
         self.module = module
         self.tag = tag
         self.item = item
-        self.option = option
-
         self.file = _file
         self.folder = _folder
+
+        if kwargs:
+            for arg in kwargs:
+                setattr(self, arg, kwargs.get(arg))
+
         self.set_folder()
 
         self.class_profile = Storage(database=self.file.get('profile'))

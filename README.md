@@ -20,7 +20,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 
 | #      | Command               | Description                                                                              | Wiki page                    |
 |--------|:----------------------|:-----------------------------------------------------------------------------------------| :--------------------------: | 
-| 01     | ``linuxp init``       | Initial configuration of profile files and server connection.                            | [Command Init](https://github.com/MyLinuxProfile/linux-profile/wiki/Command---Init) |
+| 01     | ``linuxp config``       | Configuration of profile files and server connection.                                    | [Command Config](https://github.com/MyLinuxProfile/linux-profile/wiki/Command---Config) |
 | 02     | ``linuxp add``        | Parameter used to add a new item to the list in your profile file.                       | [Command Add](https://github.com/MyLinuxProfile/linux-profile/wiki/Command--Add) |
 | 03     | ``linuxp install``    | This parameter is used to install the modules, **package**, **alias** and **script**.    | [Command Install](https://github.com/MyLinuxProfile/linux-profile/wiki/Command-Install) |
 | 04     | ``linuxp uninstall``  | Command used to uninstall items. Be **very careful** when running.                       | [Command Uninstall](https://github.com/MyLinuxProfile/linux-profile/wiki/Command--Uninstall) |
