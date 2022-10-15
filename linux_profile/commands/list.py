@@ -31,8 +31,8 @@ class List(BaseConfig):
         for item in data:
             print_item(
                 module=self.module,
-                tag=item.get("tag"),
-                item=item.get("name"),
+                tag=item.get("tag", 'Null'),
+                item=item.get("name", 'Null'),
                 description=item.get("description")
             )
 
@@ -46,8 +46,8 @@ class List(BaseConfig):
         for item in data:
             print_item(
                 module=self.module,
-                tag=item.get("tag"),
-                item=item.get("name"),
+                tag=item.get("tag", 'Null'),
+                item=item.get("name", 'Null'),
                 description=item.get("description")
             )
 
@@ -61,7 +61,7 @@ class List(BaseConfig):
         for item in data:
             print_item(
                 module=self.module,
-                tag=item.get("tag"),
-                item=item.get("name"),
+                tag=item.get("tag", 'Null'),
+                item=item.get("name", 'Null'),
                 description=item.get("description")
             )
