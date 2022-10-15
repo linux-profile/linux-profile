@@ -46,8 +46,8 @@ class Add(BaseConfig):
     def add_alias(self):
         fields = InputAddAlias(**{
                 "tag": option(text="Alias Tag [default]: "),
-                "command": option(text="Alias Command: ", required=True),
                 "description": option(text="Package Description [limit 85]: "),
+                "command": option(text="Alias Command: ", required=True),
                 "body": option(text="Alias Body: ", required=True),
                 "type": "exec"
             }

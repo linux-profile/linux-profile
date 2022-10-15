@@ -57,7 +57,8 @@ class InputAddPackage(Validator):
 
         return cleaning_option(value)
 
-    def validator_description(self, value = 'No description'):
+    def validator_description(self, value = None):
+        value = value if value else 'No description'
         if len(value) > 85:
             raise ErrorInvalidValue("Package Description")
 
@@ -81,7 +82,8 @@ class InputAddAlias(Validator):
 
         return value
 
-    def validator_description(self, value = 'No description'):
+    def validator_description(self, value = None):
+        value = value if value else 'No description'
         if len(value) > 85:
             raise ErrorInvalidValue("Alias Description")
 
@@ -99,7 +101,8 @@ class InputAddTerminal(Validator):
 
         return value
 
-    def validator_description(self, value = 'No description'):
+    def validator_description(self, value = None):
+        value = value if value else 'No description'
         if len(value) > 85:
             raise ErrorInvalidValue("Terminal Description")
 
@@ -133,7 +136,8 @@ class InputAddScript(Validator):
 
         return cleaning_option(value)
 
-    def validator_description(self, value = 'No description'):
+    def validator_description(self, value = None):
+        value = value if value else 'No description'
         if len(value) > 85:
             raise ErrorInvalidValue("Script Description")
 
