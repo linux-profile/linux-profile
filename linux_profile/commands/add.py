@@ -31,6 +31,7 @@ class Add(BaseConfig):
                 "tag": option(text="Package Tag [default]: "),
                 "type": option(text="Package Manager: ", required=True),
                 "name": option(text="Package Name: ", required=True),
+                "description": option(text="Package Description [limit 85]: "),
                 "url": option(text="Package URL: "),
                 "file": option(text="Package File: ")
             }
@@ -46,6 +47,7 @@ class Add(BaseConfig):
         fields = InputAddAlias(**{
                 "tag": option(text="Alias Tag [default]: "),
                 "command": option(text="Alias Command: ", required=True),
+                "description": option(text="Package Description [limit 85]: "),
                 "body": option(text="Alias Body: ", required=True),
                 "type": "exec"
             }
@@ -60,7 +62,8 @@ class Add(BaseConfig):
     def add_terminal(self):
         fields = InputAddTerminal(**{
                 "tag": option(text="Terminal Tag [default]: "),
-                "name": option(text="Terminal Name: ", required=True)
+                "name": option(text="Terminal Name: ", required=True),
+                "description": option(text="Package Description [limit 85]: "),
             }
         )
 
@@ -87,6 +90,7 @@ class Add(BaseConfig):
                 "tag": option(text="Script Tag [default]: "),
                 "type": option(text="Script Type: ", required=True),
                 "name": option(text="Script Name: ", required=True),
+                "description": option(text="Package Description [limit 85]: "),
                 "shebang": option(text="Script Shebang: "),
                 "body": option(text="Script Body: ", required=True, body=True),
             }
