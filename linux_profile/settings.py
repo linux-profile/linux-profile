@@ -8,7 +8,8 @@ PATH_PROFILE = f'{PATH_CONFIG}/profiles'
 PATH_LOG = f'{PATH_CONFIG}/logs'
 
 folder_location = {
-    "config": PATH_CONFIG,
+    "config": CONFIG,
+    "config_linuxp": PATH_CONFIG,
     "profile": PATH_PROFILE,
     "log": PATH_LOG,
     "temp": "/tmp/linuxp/",
