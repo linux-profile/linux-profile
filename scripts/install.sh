@@ -4,7 +4,7 @@ echo "1 - Installing dependencies"
 sudo apt install curl git
 
 echo "2 - Download Github Repository"
-sudo git clone https://github.com/MyLinuxProfile/linux-profile.git /opt/linuxp/temp --branch tests
+sudo git clone https://github.com/MyLinuxProfile/linux-profile.git /opt/linuxp/temp --branch master
 
 echo "3 - Creating project structure"
 sudo mv /opt/linuxp/temp/linux_profile /opt/linuxp/linux_profile
