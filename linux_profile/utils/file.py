@@ -1,5 +1,4 @@
-from os import system
-from linux_profile.settings import FILE
+from os import popen
 
 
 def get_content(path_file: str, separator: str):
@@ -61,15 +60,11 @@ def get_system() -> dict:
     dict
         Dictionary with contents of the .hostnamectl file.
     """
-    path_system = FILE.get("system")
-
-    system('hostnamectl > ' + path_system)
-    file_system = read_file(path_file=path_system)
-
-    system('rm ' + path_system)
+    file_system = popen('hostnamectl').read()
     content = get_content(path_file=file_system, separator=":")
 
     return {
+        "id": "index",
         "kernel": content.get('kernel'),
         "static_host_name": content.get('statichostname'),
         "hardware_vendor": content.get('hardwarevendor'),
@@ -88,14 +83,11 @@ def get_distro() -> dict:
     dict
         Dictionary with contents of the .os-release file.
     """
-    path_distro = FILE.get("distro")
-    system("cat /etc/os-release > " + path_distro)
-
-    file_distro = read_file(path_file=path_distro)
-    system('rm ' + path_distro)
-
+    file_distro = popen('cat /etc/os-release').read()
     content = get_content(path_file=file_distro, separator="=")
+
     return {
+        "id": "index",
         "name": content.get('name'),
         "pretty_name": content.get('pretty_name'),
         "version_id": content.get('version_id'),

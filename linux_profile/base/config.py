@@ -5,7 +5,7 @@ from os import mkdir, system
 
 from linux_profile.base.storage import Storage
 from linux_profile.utils.file import get_system, get_distro
-from linux_profile.settings import FILE, FOLDER
+from linux_profile.settings import file_location, folder_location
 
 
 class BaseConfig():
@@ -15,8 +15,8 @@ class BaseConfig():
             module: str = None,
             tag: str = None,
             item: str = None,
-            _file: dict = FILE,
-            _folder: dict = FOLDER,
+            _file: dict = file_location,
+            _folder: dict = folder_location,
             **kwargs):
         """
         Structure that defines the main variables.
@@ -57,7 +57,7 @@ class BaseConfig():
         """
         for folder in self.folder:
             if not exists(self.folder.get(folder)):
-                mkdir(self.folder.get(folder))
+                system(f"sudo mkdir {self.folder.get(folder)}")
 
     def set_file(self) -> None:
         """
