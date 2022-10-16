@@ -60,7 +60,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 
 - Saving the profile file:
 
-      cat ~/linuxp/.config/linux_profile.json > ~/backup_profile.json
+      cat ~/.config/linuxp/linux_profile.json > ~/backup_profile.json
 
 - Open in a text editor:
 
