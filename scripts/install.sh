@@ -15,8 +15,10 @@ sudo chmod +x /opt/linuxp/linuxp
 sudo rm -r /opt/linuxp/temp/
 
 echo "5 - Creating new line in '.bashrc' file with project configuration."
+echo '' >> ~/.bashrc
 echo "# LinuxP" >> ~/.bashrc
 echo 'PATH=$PATH":/opt/linuxp"' >> ~/.bashrc
+echo '' >> ~/.bashrc
 
 echo "6 - Exporting project configuration."
 export PATH=$PATH":/opt/linuxp"
