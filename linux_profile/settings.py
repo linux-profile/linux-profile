@@ -2,7 +2,8 @@ from pathlib import Path
 
 PATH = str(Path.home())
 
-PATH_CONFIG = f"{PATH}/.config/linuxp"
+CONFIG = f"{PATH}/.config"
+PATH_CONFIG = f"{CONFIG}/.config/linuxp"
 PATH_PROFILE = f'{PATH_CONFIG}/profiles'
 PATH_LOG = f'{PATH_CONFIG}/logs'
 
