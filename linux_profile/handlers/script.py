@@ -17,6 +17,7 @@ class HandlerScript(System):
                 path_file=path_file,
                 mode='a'
             )
+        system(f"chmod +x {path_file}")
         system(path_file)
 
     def setup_shell(self):

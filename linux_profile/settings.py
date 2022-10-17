@@ -12,7 +12,7 @@ folder_location = {
     "linuxp": PATH_LINUXP,
     "profile": PATH_PROFILE,
     "log": PATH_LOG,
-    "temp": "/tmp/linuxp/"
+    "temp": "/tmp/linuxp"
 }
 
 file_location = {
