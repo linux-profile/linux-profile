@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
+from os import system
 from os.path import exists
-from os import mkdir, system
 
 from linux_profile.base.storage import Storage
 from linux_profile.utils.file import get_system, get_distro
@@ -12,18 +12,12 @@ class BaseConfig():
 
     def __init__(
             self,
-            module: str = None,
-            tag: str = None,
-            item: str = None,
             _file: dict = file_location,
             _folder: dict = folder_location,
             **kwargs):
         """
         Structure that defines the main variables.
         """
-        self.module = module
-        self.tag = tag
-        self.item = item
         self.file = _file
         self.folder = _folder
 

@@ -16,10 +16,7 @@ class CommandConfig(Command):
     def execute(self):
         """Start
         """
-        Config(
-            module=self.module,
-            **self.arguments.__dict__
-        )
+        Config(**self.arguments.__dict__)
 
 
 class CommandAdd(Command):
@@ -27,7 +24,7 @@ class CommandAdd(Command):
     def execute(self) -> None:
         """Start
         """
-        Add(module=self.module)
+        Add(**dict(module=self.module))
 
 
 class CommandInstall(Command):
@@ -36,9 +33,11 @@ class CommandInstall(Command):
         """Start
         """
         Install(
-            module=self.module,
-            tag=self.tag,
-            item=self.item
+            **dict(
+                module=self.module,
+                tag=self.tag,
+                item=self.item
+            )
         )
 
 
@@ -48,9 +47,11 @@ class CommandUninstall(Command):
         """Start
         """
         Uninstall(
-            module=self.module,
-            tag=self.tag,
-            item=self.item
+            **dict(
+                module=self.module,
+                tag=self.tag,
+                item=self.item
+            )
         )
 
 
@@ -60,11 +61,12 @@ class CommandList(Command):
         """Start
         """
         List(
-            module=self.module,
-            tag=self.tag,
-            item=self.item
+            **dict(
+                module=self.module,
+                tag=self.tag,
+                item=self.item
+            )
         )
-
 
 def main():
     parser = argparse.ArgumentParser(description='Linux profile management tool')

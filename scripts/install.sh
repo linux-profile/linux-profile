@@ -1,18 +1,20 @@
 #!/bin/sh
 
+APP='/opt/linuxp'
+
 echo "1 - Installing dependencies"
-sudo apt install curl git
+sudo apt install git
 
 echo "2 - Download Github Repository"
-sudo git clone https://github.com/MyLinuxProfile/linux-profile.git /opt/linuxp/temp --branch master
+sudo git clone https://github.com/MyLinuxProfile/linux-profile.git $APP/temp --branch master
 
 echo "3 - Creating project structure"
-sudo mv /opt/linuxp/temp/linux_profile /opt/linuxp/linux_profile
-sudo mv /opt/linuxp/temp/linuxp.py /opt/linuxp/linuxp
+sudo mv $APP/temp/linux_profile $APP/linux_profile
+sudo mv $APP/temp/linuxp.py $APP/linuxp
 
 echo "4 - Creating executable"
-sudo chmod +x /opt/linuxp/linuxp
-sudo rm -r /opt/linuxp/temp/
+sudo chmod +x $APP/linuxp
+sudo rm -r $APP/temp/
 
 echo "5 - Creating new line in '.bashrc' file with project configuration."
 echo '' >> ~/.bashrc

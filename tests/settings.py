@@ -1,6 +1,4 @@
-from pathlib import Path
-
-PATH = str(Path.home())
+PATH = './tests'
 
 PATH_CONFIG = f"{PATH}/.config"
 PATH_LINUXP = f"{PATH_CONFIG}/linuxp"
