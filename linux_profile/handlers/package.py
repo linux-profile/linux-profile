@@ -87,7 +87,7 @@ class HandlerPackage(System):
         path_file = f"{self.temp}/{self.name}"
 
         system(f"curl {self.url} --output {path_file}")
-        system(f"sudo chmod +x {path_file}")
+        system(f"chmod +x {path_file}")
         system(path_file)
 
         # Removing the temporary installation file
