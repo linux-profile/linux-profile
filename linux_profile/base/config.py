@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from os import system
+from os import system, mkdir
 from os.path import exists
 
 from linux_profile.base.storage import Storage
@@ -51,7 +51,10 @@ class BaseConfig():
         """
         for folder in self.folder:
             if not exists(self.folder.get(folder)):
-                system(f"sudo mkdir {self.folder.get(folder)}")
+                try:
+                    mkdir(self.folder.get(folder))
+                except PermissionError:
+                    system(f"sudo mkdir {self.folder.get(folder)}")
 
     def set_file(self) -> None:
         """
