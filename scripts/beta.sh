@@ -16,6 +16,7 @@ echo "2 - Download Github Repository"
 sudo git clone https://github.com/MyLinuxProfile/linux-profile.git $APP/temp --branch $branch
 
 echo "3 - Creating project structure"
+sudo rm -r $APP/linux_profile
 sudo mv $APP/temp/linux_profile $APP/linux_profile
 sudo mv $APP/temp/linuxp.py $APP/linuxp
 
