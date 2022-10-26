@@ -1,4 +1,7 @@
-from linux_profile import __version__
+from linux_profile import (
+    __version__,
+    __info__
+)
 from linux_profile.base.error import (
     ErrorInvalidValue,
     ErrorParameterIsMissing,
@@ -98,6 +101,8 @@ class BaseCommand:
             arguments = self.parser.parse_args()
             if  hasattr(arguments, 'exec'):
                 arguments.exec(parser=self.parser, arguments=arguments)
+            else:
+                print(__info__)
 
         except ErrorParameterIsMissing as error:
             print_warning(str(error))
