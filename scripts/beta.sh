@@ -2,11 +2,18 @@
 
 APP='/opt/linuxp'
 
+if  [ ! -n "$1" ]
+then 
+	branch='develop'
+else 
+	branch=$1
+fi
+
 echo "1 - Installing dependencies"
 sudo apt install git
 
 echo "2 - Download Github Repository"
-sudo git clone https://github.com/MyLinuxProfile/linux-profile.git $APP/temp --branch master
+sudo git clone https://github.com/MyLinuxProfile/linux-profile.git $APP/temp --branch $branch
 
 echo "3 - Creating project structure"
 sudo rm -r $APP/linux_profile
