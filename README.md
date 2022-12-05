@@ -6,6 +6,7 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/MyLinuxProfile/linux-profile-basic?style=flat-square)
 ![GitHub Pipenv locked Python version](https://img.shields.io/github/pipenv/locked/python-version/MyLinuxProfile/linux-profile?style=flat-square)
 ![PyPI](https://img.shields.io/pypi/v/linuxp)
+<br>
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/linuxp?style=flat-square)
 ![PyPI - Status](https://img.shields.io/pypi/status/linuxp?style=flat-square)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/linuxp?style=flat-square)
