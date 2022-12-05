@@ -8,6 +8,7 @@
 ![PyPI](https://img.shields.io/pypi/v/linuxp)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/linuxp?style=flat-square)
 ![PyPI - Status](https://img.shields.io/pypi/status/linuxp?style=flat-square)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/linuxp?style=flat-square)
 
 # [Introduction](https://github.com/MyLinuxProfile/linux-profile/wiki)
 Linux Profile is a Linux profile management tool. With this project it is possible, from commands executed in the console, to create a 'json' file to store backup configurations. such as information about installed packages, alias, terminal settings. It also allows with a single command to restore saved configurations.
