@@ -30,11 +30,11 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 
 | Command               | Description                                                                              | Wiki page                    |
 |:----------------------|:-----------------------------------------------------------------------------------------| :--------------------------: | 
-| ``linuxp config``       | Configuration of profile files and server connection.                                    | [Command Config](https://github.com/MyLinuxProfile/linux-profile/wiki/Command---Config) |
-| ``linuxp add``        | Parameter used to add a new item to the list in your profile file.                       | [Command Add](https://github.com/MyLinuxProfile/linux-profile/wiki/Command--Add) |
-| ``linuxp install``    | This parameter is used to install the modules, **package**, **alias** and **script**.    | [Command Install](https://github.com/MyLinuxProfile/linux-profile/wiki/Command-Install) |
-| ``linuxp uninstall``  | Command used to uninstall items. Be **very careful** when running.                       | [Command Uninstall](https://github.com/MyLinuxProfile/linux-profile/wiki/Command--Uninstall) |
-| ``linuxp list``       | Lists all modules in the terminal and can also apply filters to find items.              | [Command List](https://github.com/MyLinuxProfile/linux-profile/wiki/Command-List) |
+| ``linuxp config``       | Configuration of profile files and server connection.                                    | [Link](https://github.com/MyLinuxProfile/linux-profile/wiki/Command---Config) |
+| ``linuxp add``        | Parameter used to add a new item to the list in your profile file.                       | [Link](https://github.com/MyLinuxProfile/linux-profile/wiki/Command--Add) |
+| ``linuxp install``    | This parameter is used to install the modules, **package**, **alias** and **script**.    | [Link](https://github.com/MyLinuxProfile/linux-profile/wiki/Command-Install) |
+| ``linuxp uninstall``  | Command used to uninstall items. Be **very careful** when running.                       | [Link](https://github.com/MyLinuxProfile/linux-profile/wiki/Command--Uninstall) |
+| ``linuxp list``       | Lists all modules in the terminal and can also apply filters to find items.              | [Link](https://github.com/MyLinuxProfile/linux-profile/wiki/Command-List) |
 
 ## Options:
   
