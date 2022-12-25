@@ -49,10 +49,20 @@ class InputAddPackage(Validator):
 
         return cleaning_option(value)
 
-    def valid_all(self, fields: bool):
+    def generate_all(self):
+        list_packages = []
+        fields = self.__dict__
         fields_name = fields.get("name").split(",")
+
         for field in fields_name:
-            new_fields = fields
-            new_fields["id"] = self.get_uuid()
-            new_fields["name"] = field
-            self.all.append(new_fields)
+            new_fields = dict(
+                id=self.get_uuid(),
+                tag=self.tag,
+                type=self.type,
+                name=cleaning_option(field),
+                url=self.url,
+                file=self.file,
+                description=self.description
+            )
+            list_packages.append(new_fields)
+        return list_packages
