@@ -3,12 +3,11 @@
 import argparse
 
 from linux_profile.base.command import BaseCommand, Command
-
-from linux_profile.commands.config import Config
-from linux_profile.commands.add import Add
-from linux_profile.commands.install import Install
-from linux_profile.commands.uninstall import Uninstall
-from linux_profile.commands.list import List
+from linux_profile.commands import Add
+from linux_profile.commands import Config
+from linux_profile.commands import Install
+from linux_profile.commands import Uninstall
+from linux_profile.commands import List
 
 
 class CommandConfig(Command):
