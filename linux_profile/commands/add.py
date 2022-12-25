@@ -1,7 +1,7 @@
 from linux_profile.utils.text import option
 from linux_profile.base.storage import Storage
 from linux_profile.base.config import BaseConfig
-from linux_profile.base.validator import (
+from linux_profile.validators import (
     InputAddPackage,
     InputAddAlias,
     InputAddTerminal,
