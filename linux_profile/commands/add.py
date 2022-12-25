@@ -38,10 +38,11 @@ class Add(BaseConfig):
         )
 
         self.data.begin(module=self.module, tag=fields.tag)
-        self.data.run(
-            content=fields.__dict__,
-            key='name'
-        )
+        for item in fields.generate_all():
+            self.data.run(
+                content=item,
+                key='name'
+            )
 
     def add_alias(self):
         fields = InputAddAlias(**{
