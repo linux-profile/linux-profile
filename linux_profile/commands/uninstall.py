@@ -29,4 +29,4 @@ class Uninstall(BaseConfig):
         )
         for item in data:
             item["command"] = self.command
-            HandlerPackage(**item)
+            HandlerPackage(sudo=self.sudo, **item)

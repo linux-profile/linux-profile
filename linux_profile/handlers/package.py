@@ -6,12 +6,16 @@ class HandlerPackage(System):
 
     def setup_system(
             self,
-            sudo: bool = True,
-            parameter: list = list()):
-        sudo = "sudo" if sudo else ""
+            sudo: bool = 'of',
+            parameter: list = []):
+        sudo = "sudo" if self.sudo == 'on' else ""
         parameter = " ".join(parameter)
 
-        command = [sudo, self.type, self.command, self.name, parameter]
+        command = []
+        commands = [sudo, self.type, self.command, self.name, parameter]
+        for item in commands:
+            if item:
+                command.append(item)
         system(" ".join(command).replace("  ", " "))
 
     def setup_apt_get(self):
@@ -69,10 +73,10 @@ class HandlerPackage(System):
 
     def setup_pip(self):
         if self.command == 'install':
-            self.setup_system(sudo=False)
+            self.setup_system()
 
         if self.command == 'uninstall':
-            self.setup_system(sudo=False, parameter=[" -y"])
+            self.setup_system(parameter=[" -y"])
 
     def setup_deb(self):
         path_file = f"{self.temp}/{self.file}"
