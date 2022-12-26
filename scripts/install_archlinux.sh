@@ -26,3 +26,4 @@ echo '' >> ~/.bashrc
 
 echo "6 - Exporting project configuration."
 export PATH=$PATH":/opt/linuxp"
+PATH=$PATH":/opt/linuxp"
