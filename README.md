@@ -19,6 +19,10 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 - Install Debian -> https://linuxprofile.com/install_debian.sh
 - Install Arch -> https://linuxprofile.com/install_arch.sh
 
+### Quick development URLs
+- Beta Debian -> https://linuxprofile.com/beta_debian.sh
+- Beta Arch -> https://linuxprofile.com/beta_arch.sh
+
 ## [Installation](https://github.com/MyLinuxProfile/linux-profile/wiki/Installation)
 
 - **Install - Pypi/PIP**
