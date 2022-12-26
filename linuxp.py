@@ -36,7 +36,8 @@ class CommandInstall(Command):
             **dict(
                 module=self.module,
                 tag=self.tag,
-                item=self.item
+                item=self.item,
+                sudo=self.sudo,
             )
         )
 
@@ -50,7 +51,8 @@ class CommandUninstall(Command):
             **dict(
                 module=self.module,
                 tag=self.tag,
-                item=self.item
+                item=self.item,
+                sudo=self.sudo,
             )
         )
 

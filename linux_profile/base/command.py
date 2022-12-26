@@ -15,7 +15,7 @@ from linux_profile.base.error import (
 
 class Command():
 
-    list_option = ['module', 'tag', 'item']
+    list_option = ['module', 'tag', 'item', 'sudo']
 
     def __init__(self, parser, arguments) -> None:
         self.parser = parser
@@ -28,6 +28,7 @@ class Command():
         self.module = None
         self.tag = None
         self.item = None
+        self.sudo = None
 
         for option in self.list_option:
             if hasattr(self.arguments, option):
@@ -77,6 +78,7 @@ class BaseCommand:
         self.cmd_install.add_argument('-m', '--module', **self.argument_module)
         self.cmd_install.add_argument('-t', '--tag')
         self.cmd_install.add_argument('-i', '--item')
+        self.cmd_install.add_argument('-s', '--sudo')
 
     def setup_uninstall(self):
         self.cmd_uninstall = self.subparsers.add_parser(
@@ -86,6 +88,7 @@ class BaseCommand:
         self.cmd_uninstall.add_argument('-m', '--module', **self.argument_module)
         self.cmd_uninstall.add_argument('-t', '--tag')
         self.cmd_uninstall.add_argument('-i', '--item')
+        self.cmd_uninstall.add_argument('-s', '--sudo')
 
     def setup_list(self):
         self.cmd_list = self.subparsers.add_parser(
