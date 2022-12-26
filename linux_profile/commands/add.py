@@ -4,6 +4,7 @@ from linux_profile.base.config import BaseConfig
 from linux_profile.validators import (
     InputAddPackage,
     InputAddAlias,
+    InputAddTerminal,
     InputAddScript
 )
 
@@ -58,6 +59,32 @@ class Add(BaseConfig):
         self.data.run(
             content=fields.__dict__,
             key='command'
+        )
+
+    def add_terminal(self):
+        fields = InputAddTerminal(**{
+                "tag": option(text="Terminal Tag [default]: "),
+                "name": option(text="Terminal Name: ", required=True),
+                "description": option(text="Package Description [limit 85]: "),
+            }
+        )
+
+        self.data.begin(module=self.module, tag=fields.tag)
+        self.data.run(
+            content={
+                "name": fields.name,
+                "colorscheme": {},
+                "profile": {
+                    "Appearance": {
+                        "ColorScheme": None
+                    },
+                    "General": {
+                        "Name": None,
+                        "Parent": None
+                    }
+                }
+            },
+            key='name'
         )
 
     def add_script(self):
