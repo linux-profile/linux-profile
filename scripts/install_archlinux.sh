@@ -3,6 +3,7 @@
 APP='/opt/linuxp'
 
 echo "1 - Installing dependencies"
+pacman -Sy
 pacman -S curl git
 
 echo "2 - Download Github Repository"
