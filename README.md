@@ -23,6 +23,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 - **Install - Shell/Curl**
 
       /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/MyLinuxProfile/linux-profile/master/scripts/install.sh)"
+      export PATH=$PATH":/opt/linuxp"
 
 ## [Wiki Page](https://github.com/MyLinuxProfile/linux-profile/wiki)
 
