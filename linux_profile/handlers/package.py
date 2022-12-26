@@ -48,6 +48,7 @@ class HandlerPackage(System):
     def setup_pacman(self):
         if self.command == 'install':
             self.command = '-S'
+            self.setup_system()
 
         if self.command == 'uninstall':
             self.command = '-R'
