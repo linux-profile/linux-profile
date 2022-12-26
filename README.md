@@ -14,16 +14,24 @@
 # [Introduction](https://github.com/MyLinuxProfile/linux-profile/wiki)
 Linux Profile is a Linux profile management tool. With this project it is possible, from commands executed in the console, to create a 'json' file to store backup configurations. such as information about installed packages, alias, terminal settings. It also allows with a single command to restore saved configurations.
 
+### Quick URLs
+- Last Version -> https://linuxprofile.com/LAST_VERSION
+- Install Debian -> https://linuxprofile.com/install_debian.sh
+- Install Arch -> https://linuxprofile.com/install_arch.sh
+
 ## [Installation](https://github.com/MyLinuxProfile/linux-profile/wiki/Installation)
 
 - **Install - Pypi/PIP**
 
       pip install -U linuxp
 
-- **Install - Shell/Curl**
+- **Install - Shell/Curl** - Debian
 
-      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/MyLinuxProfile/linux-profile/master/scripts/install.sh)"
-      export PATH=$PATH":/opt/linuxp"
+      /bin/bash -c "$(curl -fsSL https://linuxprofile.com/install_debian.sh)"
+
+- **Install - Shell/Curl** - Arch
+
+      /bin/bash -c "$(curl -fsSL https://linuxprofile.com/install_arch.sh)"
 
 ## [Wiki Page](https://github.com/MyLinuxProfile/linux-profile/wiki)
 

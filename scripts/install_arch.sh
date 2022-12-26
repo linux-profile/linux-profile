@@ -4,10 +4,10 @@ APP='/opt/linuxp'
 
 echo "1 - Installing dependencies"
 pacman -Sy
-pacman -S curl git
+pacman -S git
 
 echo "2 - Download Github Repository"
-git clone https://github.com/MyLinuxProfile/linux-profile.git $APP/temp --branch develop
+git clone https://github.com/MyLinuxProfile/linux-profile.git $APP/temp --branch master
 
 echo "3 - Creating project structure"
 rm -r $APP/linux_profile
@@ -25,5 +25,5 @@ echo 'PATH=$PATH":/opt/linuxp"' >> ~/.bashrc
 echo '' >> ~/.bashrc
 
 echo "6 - Exporting project configuration."
-export PATH=$PATH":/opt/linuxp"
-PATH=$PATH":/opt/linuxp"
+PATH=$PATH":/opt/linuxp"; export PATH
+exec bash
