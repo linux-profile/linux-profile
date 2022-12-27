@@ -4,19 +4,20 @@ from linux_profile.base.system import System
 
 class HandlerPackage(System):
 
-    def setup_system(
-            self,
-            sudo: bool = 'on',
-            parameter: list = []):
+    def setup_system(self, parameter: list = []):
         sudo = "sudo" if self.sudo == 'on' else ""
         parameter = " ".join(parameter)
 
         command = []
-        commands = [sudo, self.type, self.command, self.name, parameter]
-        for item in commands:
+        for item in [sudo, self.type, self.command, self.name, parameter]:
             if item:
                 command.append(item)
-        system(" ".join(command).replace("  ", " "))
+
+        cmd = " ".join(command).replace("  ", " ")
+        if self.debug:
+            self.debug_command = cmd
+        else:
+            system(cmd)
 
     def setup_apt_get(self):
         if self.command == 'install':
