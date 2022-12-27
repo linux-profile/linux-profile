@@ -2,7 +2,8 @@ from linux_profile.utils.text import (
     Colors,
     color,
     slugify,
-    asterisk
+    asterisk,
+    cleaning_option
 )
 
 
@@ -74,3 +75,7 @@ def test_utils_color_dark_gray():
 
 def test_utils_asterisk():
     assert asterisk() == '\x1b[1m\x1b[91m* \x1b[0m'
+
+
+def test_utils_cleaning():
+    assert cleaning_option("\t\n\\\u001b[C\u001b[D") == ''

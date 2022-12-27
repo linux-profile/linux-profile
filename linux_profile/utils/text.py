@@ -32,8 +32,7 @@ def slugify(value: str, slug_type: str = '_'):
 
 
 def cleaning_option(text: str):
-    list_str = ["\t", "\n", "\"", "\'", "'", "\u001b[C", "\u001b[D"]
-
+    list_str = ["\t", "\n", "\"", "\'", "'", "\u001b[C", "\u001b[D", "\\"]
     for item in list_str:
         text = text.replace(item, "")
     return text

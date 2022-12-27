@@ -6,7 +6,7 @@ class HandlerPackage(System):
 
     def setup_system(
             self,
-            sudo: bool = 'of',
+            sudo: bool = 'on',
             parameter: list = []):
         sudo = "sudo" if self.sudo == 'on' else ""
         parameter = " ".join(parameter)

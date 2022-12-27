@@ -104,6 +104,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 - 🪲 BUG
 - 📘 DOCS
 - 📦 PyPI
+- ❤️️ TEST
 
 **RESOURCES**
 - GitHub: https://github.com/MyLinuxProfile/linux-profile-basic
