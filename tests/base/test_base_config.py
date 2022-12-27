@@ -12,9 +12,6 @@ class Config(BaseConfig):
             _file: dict = file_location,
             _folder: dict = folder_location,
             **kwargs):
-        """
-        Structure that defines the main variables.
-        """
         self.file = _file
         self.folder = _folder
 
@@ -23,7 +20,7 @@ class Config(BaseConfig):
                 setattr(self, arg, kwargs.get(arg))
 
 
-def test_set_folder():
+def test_base_config_set_folder():
     test_config = Config()
     test_config.set_folder()
 
@@ -36,7 +33,7 @@ def test_set_folder():
     rmtree(folder_location.get("config"))
 
 
-def test_set_file():
+def test_base_config_set_file():
     test_config = Config()
     test_config.set_file()
 

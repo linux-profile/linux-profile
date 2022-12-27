@@ -13,8 +13,6 @@ class Validator():
             if hasattr(self, "validator_"+arg):
                 call = getattr(self, "validator_"+arg)
                 setattr(self, arg, call(value))
-        
-        self.generate_all()
 
     def get_uuid(self):
         return uuid.uuid4().hex.upper()

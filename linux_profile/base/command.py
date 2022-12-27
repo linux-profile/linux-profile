@@ -37,7 +37,7 @@ class Command():
 
 class BaseCommand:
 
-    list_module = ['package', 'alias', 'script']
+    list_module = ['package', 'alias', 'script', 'file']
 
     def __init__(self, parser):
         self.parser = parser
@@ -55,6 +55,7 @@ class BaseCommand:
         self.setup_install()
         self.setup_uninstall()
         self.setup_list()
+        self.setup_execute()
 
     def setup_config(self):
         self.cmd_config = self.subparsers.add_parser(
@@ -98,6 +99,17 @@ class BaseCommand:
         self.cmd_list.add_argument('-m', '--module', **self.argument_module)
         self.cmd_list.add_argument('-t', '--tag')
         self.cmd_list.add_argument('-i', '--item')
+
+    def setup_execute(self):
+        self.cmd_execute = self.subparsers.add_parser(
+            'execute', help="This parameter is used to execute the modules, package, alias and script.")
+
+        self.cmd_execute = self.cmd_execute.add_argument_group('Usage: linuxp execute [OPTIONS]')
+        self.cmd_execute.add_argument('-m', '--module', **self.argument_module)
+        self.cmd_execute.add_argument('-t', '--tag')
+        self.cmd_execute.add_argument('-i', '--item')
+        self.cmd_execute.add_argument('-s', '--sudo')
+
 
     def run(self):
         try:

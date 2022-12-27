@@ -4,7 +4,8 @@ from linux_profile.base.config import BaseConfig
 from linux_profile.validators import (
     InputAddPackage,
     InputAddAlias,
-    InputAddScript
+    InputAddScript,
+    InputAddFile
 )
 
 
@@ -75,4 +76,21 @@ class Add(BaseConfig):
         self.data.run(
             content=fields.__dict__,
             key='name'
+        )
+
+    def add_file(self):
+        fields = InputAddFile(**{
+                "tag": option(text="File Tag [default]: "),
+                "type": option(text="File Operation Type [create, read, update, delete]: ", required=True),
+                "name": option(text="File Name: ", required=True),
+                "file_path": option(text="File Path: ", required=True),
+                "line_operation": option(text="Line Operation: "),
+                "body": option(text="Content Body: ")
+            }
+        )
+
+        self.data.begin(module=self.module, tag=fields.tag)
+        self.data.run(
+            content=fields.__dict__,
+            key='id'
         )
