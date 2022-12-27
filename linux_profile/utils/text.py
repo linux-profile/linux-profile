@@ -63,12 +63,13 @@ def option(
         return input(option)
 
 
-def print_item(module: str, tag: str, item: str, description: str) -> None:
+def print_item(module: str, tag: str, item: str, description: str, id = '') -> None:
     description = description if description else 'No description'
 
     print(
         color(text=f"[{module.center(11)}]", types=['bold', 'dark_gray']),
+        id,
         color(text=f"Tag: {tag}".ljust(20), types=['bold']),
-        item.ljust(35),
+        item.ljust(30),
         description
     )
