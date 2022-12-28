@@ -1,6 +1,39 @@
 from os import popen
 
 
+def write_file(
+        content: str,
+        path_file: str,
+        type_file: str = '',
+        mode: str = 'w') -> str:
+    with open(path_file + type_file, mode) as outfile:
+        outfile.write(content)
+
+
+def read_file(
+        path_file: str,
+        type_file: str = '') -> str:
+    with open(path_file + type_file, 'r', encoding='utf8') as content:
+        return content.read()
+
+
+def read_lines_file(
+        path_file: str,
+        type_file: str = '') -> list:
+    with open(path_file + type_file, 'r', encoding='utf8') as content:
+        return content.readlines()
+
+
+def write_lines_file(
+        content: list,
+        path_file: str,
+        type_file: str = '',
+        mode: str = 'w') -> list:
+    with open(path_file + type_file, mode) as outfile:
+        outfile.writelines(content)
+
+
+# TODO: This method will be removed in the future.
 def get_content(path_file: str, separator: str):
     """Get the contents of a file.
 
@@ -37,21 +70,7 @@ def get_content(path_file: str, separator: str):
     return my_info
 
 
-def write_file(
-        content: str,
-        path_file: str,
-        type_file: str = '',
-        mode: str = 'w') -> str:
-    with open(path_file + type_file, mode) as outfile:
-        outfile.write(content)
-
-
-def read_file(path_file: str, type_file: str = '') -> str:
-    with open(path_file + type_file, 'r', encoding='utf8') as content:
-        content = content.read()
-    return content
-
-
+# TODO: This method will be removed in the future.
 def get_system() -> dict:
     """Get System Information
 
@@ -75,6 +94,7 @@ def get_system() -> dict:
     }
 
 
+# TODO: This method will be removed in the future.
 def get_distro() -> dict:
     """Get Linux distribution
 
