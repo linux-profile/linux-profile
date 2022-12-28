@@ -12,6 +12,14 @@ class ErrorLoadSettings(Exception):
         super(ErrorLoadSettings, self).__init__(message)
 
 
+class ErrorFile(Exception):
+
+    def __init__(self):
+        message = "File error"
+        LOG_APP.error(message)
+        super(ErrorFile, self).__init__(message)
+
+
 class ErrorOptionIsMissing(Exception):
 
     def __init__(self, parameter):
