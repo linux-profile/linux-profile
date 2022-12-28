@@ -1,7 +1,7 @@
 from linux_profile.base.config import BaseConfig
 
 
-class Execute(BaseConfig):
+class Remove(BaseConfig):
 
     def setup(self):
         """
