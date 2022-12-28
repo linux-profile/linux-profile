@@ -15,7 +15,7 @@ from linux_profile.base.error import (
 
 class Command():
 
-    list_option = ['module', 'tag', 'item', 'sudo']
+    list_option = ['id', 'module', 'tag', 'item', 'sudo']
 
     def __init__(self, parser, arguments) -> None:
         self.parser = parser
@@ -25,6 +25,7 @@ class Command():
         self.execute()
 
     def setup_options(self):
+        self.id = None
         self.module = None
         self.tag = None
         self.item = None
@@ -52,10 +53,12 @@ class BaseCommand:
 
         self.setup_config()
         self.setup_add()
+        self.setup_update()
+        self.setup_remove()
+        self.setup_execute()
         self.setup_install()
         self.setup_uninstall()
         self.setup_list()
-        self.setup_execute()
 
     def setup_config(self):
         self.cmd_config = self.subparsers.add_parser(
@@ -70,6 +73,24 @@ class BaseCommand:
 
         self.cmd_add = self.cmd_add.add_argument_group('Usage: linuxp add [OPTIONS]')
         self.cmd_add.add_argument('-m', '--module', **self.argument_module)
+
+    def setup_update(self):
+        self.cmd_update = self.subparsers.add_parser('update')
+
+        self.cmd_update = self.cmd_update.add_argument_group('Usage: linuxp update [OPTIONS]')
+        self.cmd_update.add_argument('--id', required=True)
+
+    def setup_remove(self):
+        self.cmd_remove = self.subparsers.add_parser('remove')
+
+        self.cmd_remove = self.cmd_remove.add_argument_group('Usage: linuxp remove [OPTIONS]')
+        self.cmd_remove.add_argument('--id', required=True)
+
+    def setup_execute(self):
+        self.cmd_execute = self.subparsers.add_parser('execute')
+
+        self.cmd_execute = self.cmd_execute.add_argument_group('Usage: linuxp execute [OPTIONS]')
+        self.cmd_execute.add_argument('--id', required=True)
 
     def setup_install(self):
         self.cmd_install = self.subparsers.add_parser(
@@ -99,17 +120,6 @@ class BaseCommand:
         self.cmd_list.add_argument('-m', '--module', **self.argument_module)
         self.cmd_list.add_argument('-t', '--tag')
         self.cmd_list.add_argument('-i', '--item')
-
-    def setup_execute(self):
-        self.cmd_execute = self.subparsers.add_parser(
-            'execute', help="This parameter is used to execute the modules, package, alias and script.")
-
-        self.cmd_execute = self.cmd_execute.add_argument_group('Usage: linuxp execute [OPTIONS]')
-        self.cmd_execute.add_argument('-m', '--module', **self.argument_module)
-        self.cmd_execute.add_argument('-t', '--tag')
-        self.cmd_execute.add_argument('-i', '--item')
-        self.cmd_execute.add_argument('-s', '--sudo')
-
 
     def run(self):
         try:

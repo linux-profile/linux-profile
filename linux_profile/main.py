@@ -8,31 +8,51 @@ from linux_profile.commands.add import Add
 from linux_profile.commands.config import Config
 from linux_profile.commands.execute import Execute
 from linux_profile.commands.install import Install
-from linux_profile.commands.list import List
 from linux_profile.commands.uninstall import Uninstall
+from linux_profile.commands.list import List
+from linux_profile.commands.remove import Remove
+from linux_profile.commands.update import Update
 
 
 class CommandConfig(Command):
 
     def execute(self):
-        """Start
-        """
+        """Start"""
         Config(**self.arguments.__dict__)
 
 
 class CommandAdd(Command):
 
     def execute(self) -> None:
-        """Start
-        """
+        """Start"""
         Add(**dict(module=self.module))
+
+
+class CommandUpdate(Command):
+
+    def execute(self) -> None:
+        """Start"""
+        Update(**dict(id=self.id))
+
+
+class CommandRemove(Command):
+
+    def execute(self) -> None:
+        """Start"""
+        Remove(**dict(id=self.id))
+
+
+class CommandExecute(Command):
+
+    def execute(self) -> None:
+        """Start"""
+        Execute(**dict(id=self.id))
 
 
 class CommandInstall(Command):
 
     def execute(self) -> None:
-        """Start
-        """
+        """Start"""
         Install(
             **dict(
                 module=self.module,
@@ -46,8 +66,7 @@ class CommandInstall(Command):
 class CommandUninstall(Command):
 
     def execute(self) -> None:
-        """Start
-        """
+        """Start"""
         Uninstall(
             **dict(
                 module=self.module,
@@ -61,28 +80,12 @@ class CommandUninstall(Command):
 class CommandList(Command):
 
     def execute(self) -> None:
-        """Start
-        """
+        """Start"""
         List(
             **dict(
                 module=self.module,
                 tag=self.tag,
                 item=self.item
-            )
-        )
-
-
-class CommandExecute(Command):
-
-    def execute(self) -> None:
-        """Start
-        """
-        Execute(
-            **dict(
-                module=self.module,
-                tag=self.tag,
-                item=self.item,
-                sudo=self.sudo,
             )
         )
 
@@ -93,10 +96,14 @@ def main():
 
     command.cmd_config.set_defaults(exec=CommandConfig)
     command.cmd_add.set_defaults(exec=CommandAdd)
+
+    command.cmd_update.set_defaults(exec=CommandUpdate)
+    command.cmd_remove.set_defaults(exec=CommandRemove)
+    command.cmd_execute.set_defaults(exec=CommandExecute)
+
     command.cmd_install.set_defaults(exec=CommandInstall)
     command.cmd_uninstall.set_defaults(exec=CommandUninstall)
     command.cmd_list.set_defaults(exec=CommandList)
-    command.cmd_execute.set_defaults(exec=CommandExecute)
 
     command.run()
 
