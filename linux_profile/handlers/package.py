@@ -66,3 +66,20 @@ class HandlerPackage(System):
 
         if self.command == 'uninstall':
             self.setup_system(parameter=[" -y"])
+
+    def setup_swupd(self):
+        if self.command == 'install':
+            self.command = 'bundle-add'
+            
+        if self.command == 'uninstall':
+            self.command = 'bundle-remove'
+
+        self.setup_system()
+
+    def setup_guix(self):
+        if self.command == 'uninstall':
+            self.command = 'remove'
+        self.setup_system()
+
+    def setup_flatpak(self):
+        self.setup_system()

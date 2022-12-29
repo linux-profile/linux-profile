@@ -15,7 +15,10 @@ types = [
     'zypper',
     'spack',
     'brew',
-    'pip'
+    'pip',
+    'swupd',
+    'guix',
+    'flatpak'
 ]
 
 

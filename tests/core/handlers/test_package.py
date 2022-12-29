@@ -78,6 +78,21 @@ def test_handlers_package_install_pip():
     assert output.debug_command == "sudo pip install konsole"
 
 
+def test_handlers_package_install_swupd():
+    output = HandlerPackage(type="swupd", **item_install)
+    assert output.debug_command == "sudo swupd bundle-add konsole"
+
+
+def test_handlers_package_install_guix():
+    output = HandlerPackage(type="guix", **item_install)
+    assert output.debug_command == "sudo guix install konsole"
+
+
+def test_handlers_package_install_flatpak():
+    output = HandlerPackage(type="flatpak", **item_install)
+    assert output.debug_command == "sudo flatpak install konsole"
+
+
 def test_handlers_package_uninstall_apt_get():
     output = HandlerPackage(type="apt-get", **item_uninstall)
     assert output.debug_command == "sudo apt-get remove konsole -y"
@@ -126,3 +141,18 @@ def test_handlers_package_uninstall_brew():
 def test_handlers_package_uninstall_pip():
     output = HandlerPackage(type="pip", **item_uninstall)
     assert output.debug_command == "sudo pip uninstall konsole -y"
+
+
+def test_handlers_package_uninstall_swupd():
+    output = HandlerPackage(type="swupd", **item_uninstall)
+    assert output.debug_command == "sudo swupd bundle-remove konsole"
+
+
+def test_handlers_package_uninstall_guix():
+    output = HandlerPackage(type="guix", **item_uninstall)
+    assert output.debug_command == "sudo guix remove konsole"
+
+
+def test_handlers_package_uninstall_flatpak():
+    output = HandlerPackage(type="flatpak", **item_uninstall)
+    assert output.debug_command == "sudo flatpak uninstall konsole"
