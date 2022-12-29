@@ -141,6 +141,8 @@ class BaseAction(BaseSearch):
                     if content.get(field):
                         self.json[index[0]][index[1]][index[2]][field] = content.get(field)
                 BaseFile.write(path_file=self.database, content=self.json)
+                return True
+            return False
         except Exception:
             raise ErrorFile
 
@@ -150,5 +152,7 @@ class BaseAction(BaseSearch):
             if index:
                 self.json[index[0]][index[1]].pop(index[2])
                 BaseFile.write(path_file=self.database, content=self.json)
+                return True
+            return False
         except Exception:
             raise ErrorFile
