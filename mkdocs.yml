@@ -1,6 +1,25 @@
-site_name: MkLorum
-site_url: https://example.com/
+site_name: LinuxProfile
+site_url: http://linuxprofile.com
 nav:
     - Home: index.md
-    - About: about.md
+    - Installation: nav/installation.md
+    - Commands: 
+        - Add:
+            - nav/commands/add/index.md
+            - nav/commands/add/exemple.md
+        - Remove:
+            - nav/commands/remove/index.md
+            - nav/commands/remove/exemple.md
+        - Install:
+            - nav/commands/install/index.md
+            - nav/commands/install/exemple.md
+        - Uninstall:
+            - nav/commands/uninstall/index.md
+            - nav/commands/uninstall/exemple.md
+    - Database: nav/database.md
+    - Backup: nav/backup.md
+
 theme: material
+extra_css:
+  - stylesheets/extra.css
+repo_url: https://github.com/MyLinuxProfile/linux-profile
