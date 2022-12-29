@@ -66,8 +66,7 @@ def print_item(module: str, tag: str, item: str, description: str, id = '') -> N
     description = description if description else 'No description'
 
     print(
-        color(text=f"[{module.center(11)}]", types=['bold', 'dark_gray']),
-        id[0:10],
+        color(text=id, types=['bold', 'dark_gray']),
         color(text=f"Tag: {tag}".ljust(20), types=['bold']),
         item.ljust(25),
         description
