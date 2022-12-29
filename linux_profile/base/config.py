@@ -4,7 +4,6 @@ from os import system, mkdir
 from os.path import exists
 
 from linux_profile.base.file import BaseStorage
-from linux_profile.utils.file import get_system, get_distro
 from linux_profile.settings import file_location, folder_location
 
 
