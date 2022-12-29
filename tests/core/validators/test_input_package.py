@@ -15,9 +15,7 @@ types = [
     'zypper',
     'spack',
     'brew',
-    'pip',
-    'shell',
-    'deb'
+    'pip'
 ]
 
 

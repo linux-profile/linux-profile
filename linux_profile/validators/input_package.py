@@ -19,9 +19,7 @@ class InputAddPackage(Validator):
         'zypper',
         'spack',
         'brew',
-        'pip',
-        'shell',
-        'deb'
+        'pip'
     ]
 
     def validator_tag(self, value = None):

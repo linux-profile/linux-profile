@@ -1,4 +1,3 @@
-from os import system
 from linux_profile.base.system import System
 
 
@@ -67,23 +66,3 @@ class HandlerPackage(System):
 
         if self.command == 'uninstall':
             self.setup_system(parameter=[" -y"])
-
-    def setup_deb(self):
-        path_file = f"{self.temp}/{self.file}"
-
-        self.system(cmd=['curl', self.url, '--output', path_file])
-        self.system(cmd=['dpkg', '-i', path_file])
-        self.system(cmd=['apt', 'install', '-f'])
-
-        # Removing the temporary installation file
-        self.system(cmd=f"rm -r {path_file}")
-
-    def setup_shell(self):
-        path_file = f"{self.temp}/{self.name}"
-
-        self.system(cmd=['curl', self.url, '--output', path_file])
-        self.system(cmd=['chmod', '+x', path_file])
-        self.system(cmd=[path_file])
-
-        # Removing the temporary installation file
-        self.system(cmd=['rm', '-r', path_file])
