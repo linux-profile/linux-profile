@@ -1,6 +1,6 @@
 from linux_profile.base.config import BaseConfig
 from linux_profile.utils.text import print_item
-from linux_profile.base.storage import StorageQuery
+from linux_profile.base.file import BaseAction
 
 
 class List(BaseConfig):
@@ -10,11 +10,9 @@ class List(BaseConfig):
         Defines the functions that are executed each
         time the class is instantiated.
         """
-        self.add_config()
-        self.load_config()
         self.load_profile()
         self.command = self.__class__.__name__.lower()
-        self.query = StorageQuery(self.file.get("profile"))
+        self.action = BaseAction(self.file.get("profile"))
 
         func = f"{self.command }_{self.module}"
         call = getattr(self, func, self)
@@ -22,7 +20,7 @@ class List(BaseConfig):
         call()
 
     def list_package(self):
-        data = self.query.deep_search(
+        data = self.action.deep_search(
             module=self.module,
             tag=self.tag,
             key='name',
@@ -38,7 +36,7 @@ class List(BaseConfig):
             )
 
     def list_alias(self):
-        data = self.query.deep_search(
+        data = self.action.deep_search(
             module=self.module,
             tag=self.tag,
             key='name',
@@ -54,7 +52,7 @@ class List(BaseConfig):
             )
 
     def list_script(self):
-        data = self.query.deep_search(
+        data = self.action.deep_search(
             module=self.module,
             tag=self.tag,
             key='name',
@@ -70,7 +68,7 @@ class List(BaseConfig):
             )
 
     def list_file(self):
-        data = self.query.deep_search(
+        data = self.action.deep_search(
             module=self.module,
             tag=self.tag,
             key='name',

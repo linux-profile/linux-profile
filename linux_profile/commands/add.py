@@ -16,8 +16,6 @@ class Add(BaseConfig):
         Defines the functions that are executed each
         time the class is instantiated.
         """
-        self.add_config()
-        self.load_config()
         self.load_profile()
         self.command = self.__class__.__name__.lower()
         self.action = BaseAction(database=self.file.get("profile"))

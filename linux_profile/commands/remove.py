@@ -9,8 +9,6 @@ class Remove(BaseConfig):
         Defines the functions that are executed each
         time the class is instantiated.
         """
-        self.add_config()
-        self.load_config()
         self.load_profile()
 
         action = BaseAction(self.file.get("profile"))

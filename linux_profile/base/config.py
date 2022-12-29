@@ -3,7 +3,7 @@
 from os import system, mkdir
 from os.path import exists
 
-from linux_profile.base.storage import Storage
+from linux_profile.base.file import BaseStorage
 from linux_profile.utils.file import get_system, get_distro
 from linux_profile.settings import file_location, folder_location
 
@@ -28,8 +28,8 @@ class BaseConfig():
         self.set_folder()
         self.set_file()
 
-        self.class_profile = Storage(database=self.file.get('profile'))
-        self.class_config = Storage(database=self.file.get('config'))
+        self.class_profile = BaseStorage(database=self.file.get('profile'))
+        self.class_config = BaseStorage(database=self.file.get('config'))
 
         self.setup()
 
@@ -38,8 +38,6 @@ class BaseConfig():
         Defines the functions that are executed each
         time the class is instantiated.
         """
-        self.add_config()
-        self.load_config()
         self.load_profile()
 
     def set_folder(self) -> None:
@@ -65,32 +63,6 @@ class BaseConfig():
         if not exists(self.file.get('bash_aliases')):
             system(f"touch {self.file.get('bash_aliases')}")
 
-    def add_config(self):
-        """
-        Configuring system settings
-
-        Function that configures the basic settings of the
-        operating system that the LinuxProfle package is running.
-
-        Saved in the linux_config.json configuration file more
-        specifically Hardware and Distribution information.
-        """
-        self.class_config.begin(module='info', tag='distro')
-        if not len(self.class_config.search_tag('distro')):
-            self.class_config.run(content=get_distro())
-
-        self.class_config.begin(module='info', tag='system')
-        if not len(self.class_config.search_tag('system')):
-            self.class_config.run(content=get_system())
-
-    def load_config(self) -> None:
-        """
-        Load Config
-
-        Loads basic configuration information for use
-        in the application and internal operations.
-        """
-        self.config = self.class_config.load()
 
     def load_profile(self) -> None:
         """
@@ -99,4 +71,4 @@ class BaseConfig():
         Load basic information from profiles for use in the
         application and internal operations.
         """
-        self.profile = self.class_profile.load()
+        self.profile = self.class_profile.json

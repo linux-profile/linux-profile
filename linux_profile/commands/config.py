@@ -10,8 +10,6 @@ class Config(BaseConfig):
         Defines the functions that are executed each
         time the class is instantiated.
         """
-        self.add_config()
-        self.load_config()
         self.load_profile()
 
         if self.get:

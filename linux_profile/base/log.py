@@ -1,7 +1,6 @@
 import logging
 
 from logging.config import dictConfig
-from linux_profile.base.config import BaseConfig
 from linux_profile.settings import file_location
 
 
@@ -25,19 +24,7 @@ logging_config = dict(
 log_format = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 
-class LogBaseConfig(BaseConfig):
-
-    def setup(self):
-        """
-        Defines the functions that are executed each
-        time the class is instantiated.
-        """
-        self.set_folder()
-
-
 def setup_log(name_log: str, file_log: str, level: logging):
-    LogBaseConfig()
-
     log_handler = logging.FileHandler(file_log)
     log_handler.setFormatter(log_format)
 
