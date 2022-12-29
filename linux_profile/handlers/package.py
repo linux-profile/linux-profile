@@ -5,19 +5,8 @@ from linux_profile.base.system import System
 class HandlerPackage(System):
 
     def setup_system(self, parameter: list = []):
-        sudo = "sudo" if self.sudo == 'on' else ""
-        parameter = " ".join(parameter)
-
-        command = []
-        for item in [sudo, self.type, self.command, self.name, parameter]:
-            if item:
-                command.append(item)
-
-        cmd = " ".join(command).replace("  ", " ")
-        if self.debug:
-            self.debug_command = cmd
-        else:
-            system(cmd)
+        command = [self.type, self.command, self.name, " ".join(parameter)]
+        self.system(cmd=command)
 
     def setup_apt_get(self):
         if self.command == 'install':
@@ -82,19 +71,19 @@ class HandlerPackage(System):
     def setup_deb(self):
         path_file = f"{self.temp}/{self.file}"
 
-        system(f"curl {self.url} --output {path_file}")
-        system(f"sudo dpkg -i {path_file}")
-        system("sudo apt install -f")
+        self.system(cmd=['curl', self.url, '--output', path_file])
+        self.system(cmd=['dpkg', '-i', path_file])
+        self.system(cmd=['apt', 'install', '-f'])
 
         # Removing the temporary installation file
-        system(f"sudo rm -r {path_file}")
+        self.system(cmd=f"rm -r {path_file}")
 
     def setup_shell(self):
         path_file = f"{self.temp}/{self.name}"
 
-        system(f"curl {self.url} --output {path_file}")
-        system(f"chmod +x {path_file}")
-        system(path_file)
+        self.system(cmd=['curl', self.url, '--output', path_file])
+        self.system(cmd=['chmod', '+x', path_file])
+        self.system(cmd=[path_file])
 
         # Removing the temporary installation file
-        system(f"sudo rm -r {path_file}")
+        self.system(cmd=['rm', '-r', path_file])

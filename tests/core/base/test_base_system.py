@@ -20,6 +20,6 @@ def test_base_system_with_specific_method():
 def test_base_system_standard_variables_check():
     item = SystemTest()
     assert item.debug == False
-    assert item.sudo == 'on'
+    assert item.sudo == True
     assert item.command == 'exec'
     assert item.type == 'default'

@@ -29,7 +29,7 @@ class Install(BaseConfig):
         )
         for item in data:
             item["command"] = self.command
-            HandlerPackage(sudo=self.sudo, **item, **self.folder)
+            HandlerPackage(sudo=self.sudo, debug=self.debug, **item, **self.folder)
 
     def install_alias(self):
         data = self.action.deep_search(
@@ -39,7 +39,7 @@ class Install(BaseConfig):
             value=self.item
         )
         for item in data:
-            HandlerAlias(**item)
+            HandlerAlias(sudo=self.sudo, debug=self.debug, **item)
 
     def install_script(self):
         data = self.action.deep_search(
@@ -49,4 +49,4 @@ class Install(BaseConfig):
             value=self.item
         )
         for item in data:
-            HandlerScript(**item, **self.folder)
+            HandlerScript(sudo=self.sudo, debug=self.debug, **item, **self.folder)

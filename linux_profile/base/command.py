@@ -15,7 +15,7 @@ from linux_profile.base.error import (
 
 class Command():
 
-    list_option = ['id', 'module', 'tag', 'item', 'sudo']
+    list_option = ['id', 'module', 'tag', 'item', 'sudo', 'debug']
 
     def __init__(self, parser, arguments) -> None:
         self.parser = parser
@@ -30,6 +30,7 @@ class Command():
         self.tag = None
         self.item = None
         self.sudo = None
+        self.debug = None
 
         for option in self.list_option:
             if hasattr(self.arguments, option):
@@ -49,11 +50,12 @@ class BaseCommand:
         self.parser._positionals.title = 'Commands'
         self.parser._optionals.title = 'Default Options'
         self.parser.add_argument('-v', '--version',
-            action='version', version=f'linuxp=={__version__}', help="Show program's version number and exit.")
+            action='version',
+            version=f'linuxp=={__version__}',
+            help="Show program's version number and exit.")
 
         self.setup_config()
         self.setup_add()
-        self.setup_update()
         self.setup_remove()
         self.setup_execute()
         self.setup_install()
@@ -74,14 +76,9 @@ class BaseCommand:
         self.cmd_add = self.cmd_add.add_argument_group('Usage: linuxp add [OPTIONS]')
         self.cmd_add.add_argument('-m', '--module', **self.argument_module)
 
-    def setup_update(self):
-        self.cmd_update = self.subparsers.add_parser('update')
-
-        self.cmd_update = self.cmd_update.add_argument_group('Usage: linuxp update [OPTIONS]')
-        self.cmd_update.add_argument('--id', required=True)
-
     def setup_remove(self):
-        self.cmd_remove = self.subparsers.add_parser('remove')
+        self.cmd_remove = self.subparsers.add_parser(
+            'remove', help="Removes items from the profile file.")
 
         self.cmd_remove = self.cmd_remove.add_argument_group('Usage: linuxp remove [OPTIONS]')
         self.cmd_remove.add_argument('--id', required=True)
@@ -100,7 +97,8 @@ class BaseCommand:
         self.cmd_install.add_argument('-m', '--module', **self.argument_module)
         self.cmd_install.add_argument('-t', '--tag')
         self.cmd_install.add_argument('-i', '--item')
-        self.cmd_install.add_argument('-s', '--sudo')
+        self.cmd_install.add_argument('-s', '--sudo', default='on')
+        self.cmd_install.add_argument('-d', '--debug', default='of')
 
     def setup_uninstall(self):
         self.cmd_uninstall = self.subparsers.add_parser(
@@ -110,7 +108,8 @@ class BaseCommand:
         self.cmd_uninstall.add_argument('-m', '--module', **self.argument_module)
         self.cmd_uninstall.add_argument('-t', '--tag')
         self.cmd_uninstall.add_argument('-i', '--item')
-        self.cmd_uninstall.add_argument('-s', '--sudo')
+        self.cmd_uninstall.add_argument('-s', '--sudo', default='on')
+        self.cmd_uninstall.add_argument('-d', '--debug', default='of')
 
     def setup_list(self):
         self.cmd_list = self.subparsers.add_parser(

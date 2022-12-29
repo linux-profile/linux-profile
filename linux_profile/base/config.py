@@ -22,7 +22,13 @@ class BaseConfig():
 
         if kwargs:
             for arg in kwargs:
-                setattr(self, arg, kwargs.get(arg))
+                value = kwargs.get(arg)
+
+                if value == 'on':
+                    value = True
+                if value == 'of':
+                    value = False
+                setattr(self, arg, value)
 
         self.set_folder()
         self.set_file()

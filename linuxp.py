@@ -11,7 +11,6 @@ from linux_profile.commands.install import Install
 from linux_profile.commands.uninstall import Uninstall
 from linux_profile.commands.list import List
 from linux_profile.commands.remove import Remove
-from linux_profile.commands.update import Update
 
 
 class CommandConfig(Command):
@@ -26,13 +25,6 @@ class CommandAdd(Command):
     def execute(self) -> None:
         """Start"""
         Add(**dict(module=self.module))
-
-
-class CommandUpdate(Command):
-
-    def execute(self) -> None:
-        """Start"""
-        Update(**dict(id=self.id))
 
 
 class CommandRemove(Command):
@@ -55,10 +47,11 @@ class CommandInstall(Command):
         """Start"""
         Install(
             **dict(
+                sudo=self.sudo,
+                debug=self.debug,
                 module=self.module,
                 tag=self.tag,
-                item=self.item,
-                sudo=self.sudo,
+                item=self.item
             )
         )
 
@@ -69,10 +62,11 @@ class CommandUninstall(Command):
         """Start"""
         Uninstall(
             **dict(
+                sudo=self.sudo,
+                debug=self.debug,
                 module=self.module,
                 tag=self.tag,
-                item=self.item,
-                sudo=self.sudo,
+                item=self.item
             )
         )
 
@@ -97,7 +91,6 @@ def main():
     command.cmd_config.set_defaults(exec=CommandConfig)
     command.cmd_add.set_defaults(exec=CommandAdd)
 
-    command.cmd_update.set_defaults(exec=CommandUpdate)
     command.cmd_remove.set_defaults(exec=CommandRemove)
     command.cmd_execute.set_defaults(exec=CommandExecute)
 
