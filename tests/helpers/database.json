@@ -1,0 +1,30 @@
+{
+    "package": {
+        "python": [
+            {
+                "id": "A48D2542AF3045888DC1242EF77C7666",
+                "tag": "python",
+                "type": "pacman",
+                "name": "python-pip",
+                "url": null,
+                "file": null,
+                "description": "No description"
+            }
+        ]
+    },
+    "script": {
+        "init": [
+            {
+                "id": "EE959D7607694622B030BEEA1174AF56",
+                "tag": "init",
+                "type": "shell",
+                "name": "echo",
+                "body": [
+                    "echo 'LinuxProfile'"
+                ],
+                "shebang": null,
+                "description": "No description"
+            }
+        ]
+    }
+}
