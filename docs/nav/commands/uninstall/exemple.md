@@ -19,7 +19,6 @@ linuxp uninstall --module package --debug on
 
 ## Uninstall Package
 
-
 ### Module
 
 **Full Command**

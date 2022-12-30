@@ -6,7 +6,7 @@ Lists all modules in the terminal and can also apply filters to find items.
 
 
 ```bash
- $> linuxp list --help
+linuxp list --help
 
 =============== Output ===============
 

@@ -5,7 +5,7 @@ Parameter used to add a new item to the list in your profile file.
 ## Usage
 
 ```bash
- $> linuxp add --help
+linuxp add --help
 
 =============== Output ===============
 

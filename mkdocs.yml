@@ -23,7 +23,7 @@ nav:
             - nav/commands/uninstall/exemple.md
         - List:
             - nav/commands/list/index.md
-            # - nav/commands/list/exemple.md
+            - nav/commands/list/exemple.md
     - Storage: nav/storage.md
     - Backup: nav/backup.md
 

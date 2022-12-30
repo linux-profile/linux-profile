@@ -5,7 +5,7 @@ Configuration of profile files and server connection.
 ## Usage
 
 ```bash
-$> linuxp config --help
+linuxp config --help
 
 =============== Output ===============
 

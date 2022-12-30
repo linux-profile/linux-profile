@@ -5,7 +5,7 @@ This parameter is used to install the modules, package, alias and script.
 ## Usage
 
 ```bash
- $> linuxp install --help
+linuxp install --help
 
 =============== Output ===============
 

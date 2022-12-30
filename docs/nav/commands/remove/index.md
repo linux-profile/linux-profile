@@ -5,7 +5,7 @@ Removes items from the profile file.
 ## Usage
 
 ```bash
- $> linuxp remove --help
+linuxp remove --help
 
 =============== Output ===============
 

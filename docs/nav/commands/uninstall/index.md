@@ -3,7 +3,7 @@
 ## Usage
 
 ```bash
- $> linuxp uninstall --help
+linuxp uninstall --help
 
 =============== Output ===============
 

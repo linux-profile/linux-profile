@@ -15,7 +15,7 @@ linuxp add --module package
 linuxp add -m package
 ```
 
-### Output
+### Input
 
 ```bash
 =============== Input ===============
@@ -96,7 +96,7 @@ linuxp add --module alias
 linuxp add -m alias
 ```
 
-### Output
+### Input
 
 ```bash
 =============== Input ===============
@@ -156,7 +156,7 @@ linuxp add --module script
 linuxp add -m script
 ```
 
-### Output
+### Input
 
 ```bash
 =============== Input ===============
