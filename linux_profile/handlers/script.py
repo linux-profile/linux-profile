@@ -15,17 +15,17 @@ class HandlerScript(System):
         self.system(cmd=[path_file])
 
     def setup_shell(self):
-        shebang = self.shebang if self.shebang else '#!/bin/bash'
+        shebang = self.shebang if hasattr(self, 'shebang') else '#!/bin/bash'
         self.setup_system(shebang=shebang)
 
     def setup_python(self):
-        shebang = self.shebang if self.shebang else '#!/usr/bin/env python'
+        shebang = self.shebang if hasattr(self, 'shebang') else '#!/usr/bin/env python'
         self.setup_system(shebang=shebang)
 
     def setup_python3(self):
-        shebang = self.shebang if self.shebang else '#!/usr/bin/env python3'
+        shebang = self.shebang if hasattr(self, 'shebang') else '#!/usr/bin/env python3'
         self.setup_system(shebang=shebang)
 
     def setup_ruby(self):
-        shebang = self.shebang if self.shebang else '#!/usr/bin/env ruby'
+        shebang = self.shebang if hasattr(self, 'shebang') else '#!/usr/bin/env ruby'
         self.setup_system(shebang=shebang)
