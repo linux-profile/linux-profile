@@ -8,8 +8,8 @@ class HandlerScript(System):
 
         for index, line in enumerate(self.body):
             if index == 0:
-                self.system(cmd=['echo', shebang, '>', path_file])
-            self.system(cmd=['echo', str(line+'\n'), '>>', path_file])
+                self.system(cmd=['echo', f'"{shebang}\n"', '>', path_file])
+            self.system(cmd=['echo', f'"{line}"',  '>>', path_file])
 
         self.system(cmd=['chmod', '+x', path_file])
         self.system(cmd=[path_file])
