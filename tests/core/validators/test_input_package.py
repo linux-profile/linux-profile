@@ -90,7 +90,7 @@ def test_validator_input_package_description_character_limit_error():
 
 
 def test_validator_input_package_generate_all_success():
-    names = "linuxp, linuxprofile, linux"
+    names = "linuxp,linuxprofile,linux"
     fields = InputAddPackage(**{
             "tag": None,
             "name": names,

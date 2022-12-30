@@ -41,6 +41,12 @@ class InputAddPackage(Validator):
         if not value:
             raise ErrorOptionIsMissing('Package Name')
 
+        if value[0:1] == " ":
+            value = value[1:len(value)]
+
+        if value[-1] == " ":
+            value = value[0:len(value)-1]
+
         return cleaning_option(value)
 
     def validator_description(self, value = None):
@@ -60,7 +66,7 @@ class InputAddPackage(Validator):
                 id=self.get_uuid(),
                 tag=self.tag,
                 type=self.type,
-                name=cleaning_option(field),
+                name=self.validator_name(field),
                 url=self.url,
                 file=self.file,
                 description=self.description
