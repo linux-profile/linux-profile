@@ -5,7 +5,7 @@ class Validator():
 
     def __init__(self, **kwargs):
         self.id = self.get_uuid()
-        
+
         for arg in kwargs:
             value = kwargs.get(arg) if kwargs.get(arg) else None
             setattr(self, arg, value)

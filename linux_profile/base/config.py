@@ -68,7 +68,6 @@ class BaseConfig():
         if not exists(self.file.get('bash_aliases')):
             system(f"touch {self.file.get('bash_aliases')}")
 
-
     def load_profile(self) -> None:
         """
         Load Profile

@@ -70,7 +70,7 @@ class HandlerPackage(System):
     def setup_swupd(self):
         if self.command == 'install':
             self.command = 'bundle-add'
-            
+
         if self.command == 'uninstall':
             self.command = 'bundle-remove'
 

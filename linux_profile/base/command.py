@@ -45,11 +45,13 @@ class BaseCommand:
         self.parser = parser
         self.subparsers = self.parser.add_subparsers()
 
-        self.argument_module = {"required": True, "choices":self.list_module}
+        self.argument_module = {"required": True, "choices": self.list_module}
 
         self.parser._positionals.title = 'Commands'
         self.parser._optionals.title = 'Default Options'
-        self.parser.add_argument('-v', '--version',
+        self.parser.add_argument(
+            '-v',
+            '--version',
             action='version',
             version=f'linuxp=={__version__}',
             help="Show program's version number and exit.")
@@ -81,7 +83,7 @@ class BaseCommand:
             'remove', help="Removes items from the profile file.")
 
         self.cmd_remove = self.cmd_remove.add_argument_group('Usage: linuxp remove [OPTIONS]')
-        self.cmd_remove.add_argument('--id',required=True, help="Reference ID of a database item.")
+        self.cmd_remove.add_argument('--id', required=True, help="Reference ID of a database item.")
 
     def setup_execute(self):
         self.cmd_execute = self.subparsers.add_parser('execute')
@@ -123,7 +125,7 @@ class BaseCommand:
     def run(self):
         try:
             arguments = self.parser.parse_args()
-            if  hasattr(arguments, 'exec'):
+            if hasattr(arguments, 'exec'):
                 arguments.exec(parser=self.parser, arguments=arguments)
             else:
                 print(__info__)

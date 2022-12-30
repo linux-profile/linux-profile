@@ -15,14 +15,14 @@ class InputAddFile(Validator):
         "delete"
     ]
 
-    def validator_tag(self, value = None):
+    def validator_tag(self, value=None):
         return slugify(value) if value else 'default'
 
-    def validator_type(self, value = None):
+    def validator_type(self, value=None):
         if not value:
             raise ErrorOptionIsMissing('File Operation Type ')
 
-        if not value in self.types:
+        if value not in self.types:
             raise ErrorOptionIsInvalid('File Operation Type ', self.types)
 
         return cleaning_option(value)

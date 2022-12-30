@@ -45,7 +45,7 @@ def asterisk():
 def option(
         text: str,
         required: bool = False,
-        body: bool = False, 
+        body: bool = False,
         output: list = None,
         output_list: list = list()):
     option = asterisk() + text if required else text
@@ -62,7 +62,7 @@ def option(
         return input(option)
 
 
-def print_item(module: str, tag: str, item: str, description: str, id = '') -> None:
+def print_item(module: str, tag: str, item: str, description: str, id='') -> None:
     description = description if description else 'No description'
 
     print(

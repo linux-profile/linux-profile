@@ -16,25 +16,25 @@ class InputAddScript(Validator):
         'ruby'
     ]
 
-    def validator_tag(self, value = None):
+    def validator_tag(self, value=None):
         return slugify(value) if value else 'default'
 
-    def validator_type(self, value = None):
+    def validator_type(self, value=None):
         if not value:
             raise ErrorOptionIsMissing('Script Type')
 
-        if not value in self.types:
+        if value not in self.types:
             raise ErrorOptionIsInvalid('Script Type', self.types)
 
         return slugify(value=value, slug_type='-')
 
-    def validator_name(self, value = None):
+    def validator_name(self, value=None):
         if not value:
             raise ErrorOptionIsMissing('Script Name')
 
         return slugify(value)
 
-    def validator_description(self, value = None):
+    def validator_description(self, value=None):
         value = value if value else 'No description'
         if len(value) > 85:
             raise ErrorInvalidValue("Script Description")
