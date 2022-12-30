@@ -2,14 +2,23 @@
 
 <img src="https://github.com/MyLinuxProfile/linux-profile/blob/master/docs/linuxp.png?raw=true">
 
+<center>
+
 ![GitHub Org's stars](https://img.shields.io/github/stars/MyLinuxProfile?label=LinuxProfile&style=flat-square)
 ![GitHub last commit](https://img.shields.io/github/last-commit/MyLinuxProfile/linux-profile-basic?style=flat-square)
 ![GitHub Pipenv locked Python version](https://img.shields.io/github/pipenv/locked/python-version/MyLinuxProfile/linux-profile?style=flat-square)
 ![PyPI](https://img.shields.io/pypi/v/linuxp)
-<br>
-![PyPI - Python Version](https://img.shields.io/pypi/pyversions/linuxp?style=flat-square)
 ![PyPI - Status](https://img.shields.io/pypi/status/linuxp?style=flat-square)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/linuxp?style=flat-square)
+
+</center>
+
+---
+
+- **Documentation**: [https://docs.linuxprofile.com](https://docs.linuxprofile.com)
+- **Source Code**: [https://github.com/MyLinuxProfile/linux-profile](https://github.com/MyLinuxProfile/linux-profile)
+
+---
 
 # [Introduction](https://github.com/MyLinuxProfile/linux-profile/wiki)
 Linux Profile is a Linux profile management tool. With this project it is possible, from commands executed in the console, to create a 'json' file to store backup configurations. such as information about installed packages, alias. It also allows with a single command to restore saved configurations.
@@ -50,28 +59,6 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 | ``linuxp uninstall``  | Command used to uninstall items. Be **very careful** when running.                       | [Link](https://github.com/MyLinuxProfile/linux-profile/wiki/Command--Uninstall) |
 | ``linuxp list``       | Lists all modules in the terminal and can also apply filters to find items.              | [Link](https://github.com/MyLinuxProfile/linux-profile/wiki/Command-List) |
 
-## Options:
-  
-### MODULE
-  
-| Example            |                     | Wiki page      |
-| :----------------: | :-----------------: | :------------: |
-| ``package``	     | * [ Fixed argument] | [Module](https://github.com/MyLinuxProfile/linux-profile/wiki/Options#module) |
-| ``alias``	         | * [ Fixed argument] | [Module](https://github.com/MyLinuxProfile/linux-profile/wiki/Options#module) |
-| ``script``	     | * [ Fixed argument] | [Module](https://github.com/MyLinuxProfile/linux-profile/wiki/Options#module) |
-
-### TAG
-
-| Example            |                       | Wiki page      |
-| :----------------: | :-------------------: | :------------: |
-| ``whatever``	     | [ Any text argument ] | [Tag](https://github.com/MyLinuxProfile/linux-profile/wiki/Options#tag) |
-
-### ITEM
-
-| Example            |                       | Wiki page      |
-| :----------------: | :-------------------: | :------------: |
-| ``whatever``	     | [ Any text argument ] | [Value](https://github.com/MyLinuxProfile/linux-profile/wiki/Options#item) |
-
 ## [Make a profile backup](https://github.com/MyLinuxProfile/linux-profile/wiki/Make-a-profile-backup)
 
 - Saving the profile file:
@@ -107,6 +94,6 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 - 📦 PyPI
 - ❤️️ TEST
 
-**RESOURCES**
-- GitHub: https://github.com/MyLinuxProfile/linux-profile-basic
-- Docs:   https://linuxprofile.com
+## License
+
+This project is licensed under the terms of the MIT license.

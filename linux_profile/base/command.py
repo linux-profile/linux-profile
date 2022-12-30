@@ -81,13 +81,13 @@ class BaseCommand:
             'remove', help="Removes items from the profile file.")
 
         self.cmd_remove = self.cmd_remove.add_argument_group('Usage: linuxp remove [OPTIONS]')
-        self.cmd_remove.add_argument('--id', required=True)
+        self.cmd_remove.add_argument('--id',required=True, help="Reference ID of a database item.")
 
     def setup_execute(self):
         self.cmd_execute = self.subparsers.add_parser('execute')
 
         self.cmd_execute = self.cmd_execute.add_argument_group('Usage: linuxp execute [OPTIONS]')
-        self.cmd_execute.add_argument('--id', required=True)
+        self.cmd_execute.add_argument('--id', required=True, help="Reference ID of a database item.")
 
     def setup_install(self):
         self.cmd_install = self.subparsers.add_parser(
@@ -97,8 +97,8 @@ class BaseCommand:
         self.cmd_install.add_argument('-m', '--module', **self.argument_module)
         self.cmd_install.add_argument('-t', '--tag')
         self.cmd_install.add_argument('-i', '--item')
-        self.cmd_install.add_argument('-s', '--sudo', default='on')
-        self.cmd_install.add_argument('-d', '--debug', default='of')
+        self.cmd_install.add_argument('--sudo', default='on', help="Run the command with system root permissions.", choices=['on', 'of'])
+        self.cmd_install.add_argument('--debug', default='of', help="Run a command in test mode. It only shows the command.", choices=['on', 'of'])
 
     def setup_uninstall(self):
         self.cmd_uninstall = self.subparsers.add_parser(
@@ -108,8 +108,8 @@ class BaseCommand:
         self.cmd_uninstall.add_argument('-m', '--module', **self.argument_module)
         self.cmd_uninstall.add_argument('-t', '--tag')
         self.cmd_uninstall.add_argument('-i', '--item')
-        self.cmd_uninstall.add_argument('-s', '--sudo', default='on')
-        self.cmd_uninstall.add_argument('-d', '--debug', default='of')
+        self.cmd_uninstall.add_argument('--sudo', default='on', help="Run the command with system root permissions.", choices=['on', 'of'])
+        self.cmd_uninstall.add_argument('--debug', default='of', help="Run a command in test mode. It only shows the command.", choices=['on', 'of'])
 
     def setup_list(self):
         self.cmd_list = self.subparsers.add_parser(

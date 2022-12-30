@@ -3,7 +3,10 @@ site_url: http://linuxprofile.com
 nav:
     - Home: index.md
     - Installation: nav/installation.md
-    - Commands: 
+    - Commands:
+        - Config:
+            - nav/commands/config/index.md
+            - nav/commands/config/exemple.md
         - Add:
             - nav/commands/add/index.md
             - nav/commands/add/exemple.md
@@ -16,7 +19,10 @@ nav:
         - Uninstall:
             - nav/commands/uninstall/index.md
             - nav/commands/uninstall/exemple.md
-    - Database: nav/database.md
+        - List:
+            - nav/commands/list/index.md
+            - nav/commands/list/exemple.md
+    # - Database: nav/database.md
     - Backup: nav/backup.md
 
 theme: material
