@@ -14,12 +14,15 @@ class BaseFile:
             content: str,
             path_file: str,
             mode: str = 'w',
+            dump: bool = True,
+            jump_line: bool = True,
             encoding: str = 'utf8') -> None:
         try:
             with open(file=path_file, mode=mode, encoding=encoding) as outfile:
-                if type(content) == dict:
-                    content = dumps(content, indent=4)
+                content = dumps(content, indent=4) if dump else content
+                content = content = f"{content}\n" if jump_line else content
                 outfile.write(content)
+
         except Exception:
             raise ErrorFile
 
@@ -41,8 +44,12 @@ class BaseFile:
             content: list,
             path_file: str,
             mode: str = 'w',
-            encoding: str = 'utf8') -> None:
+            encoding: str = 'utf8',
+            jump_line: bool = True) -> None:
         try:
+            if jump_line:
+                content = [f"{line}\n" for line in content]
+
             with open(file=path_file, mode=mode, encoding=encoding) as outfile:
                 outfile.writelines(content)
         except Exception:
@@ -74,12 +81,16 @@ class BaseStorage:
 
     def __init__(self, database: str) -> None:
         self.database = database
+        system(f"cp {self.database} ~/.linux_profile_backup.json")
 
         if not exists(self.database):
             BaseFile.touch(path=self.database)
 
-        system(f"cp {self.database} ~/.linux_profile_backup.json")
-        self.json = loads(BaseFile.read(path_file=self.database))
+        try:
+            self.json = loads(BaseFile.read(path_file=self.database))
+        except Exception:
+            BaseFile.touch(path=self.database)
+            self.json = loads(BaseFile.read(path_file=self.database))
 
 
 class BaseSearch(BaseStorage):
@@ -114,7 +125,6 @@ class BaseSearch(BaseStorage):
                                 response.append(key)
                                 return response
 
-
     def deep_search(
             self,
             module: str,
@@ -138,14 +148,14 @@ class BaseSearch(BaseStorage):
                 for item in _tag:
                     if item.get(key) == value:
                         return [item]
-            except:
+            except Exception:
                 pass
 
         # Search by parameter of [module] and [tag].
         if lvl == 2:
             try:
                 return self.json[module][tag]
-            except:
+            except Exception:
                 pass
 
         # Search by parameter of [module].
@@ -154,7 +164,7 @@ class BaseSearch(BaseStorage):
                 for _tag in self.json[module]:
                     for item in self.json[module][_tag]:
                         output.append(item)
-            except:
+            except Exception:
                 pass
 
         return output

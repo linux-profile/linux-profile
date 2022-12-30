@@ -26,8 +26,6 @@ def test_base_config_set_folder():
 
     assert path.isdir(folder_location.get("config")) == True
     assert path.isdir(folder_location.get("linuxp")) == True
-    assert path.isdir(folder_location.get("profile")) == True
-    assert path.isdir(folder_location.get("log")) == True
     assert path.isdir(folder_location.get("temp")) == True
 
     rmtree(folder_location.get("config"))
