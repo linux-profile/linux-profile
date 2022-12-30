@@ -125,7 +125,7 @@ $> linuxp add --module script
 
 Script Tag [default]: system
 * Script Type: shell
-* Script Name: clen_my_linux
+* Script Name: clean_my_linux
 * Script Body:  To finish type [end]
 > sudo apt clean
 > sudo apt autoclean
@@ -158,7 +158,7 @@ Package Description [limit 85]: This script will clean up some memory.
 
 | Fixed Text  | Required | Example            | Description      |
 | :---------: | :------: | :----------------: |:---------------: |
-|   ◻️ No      |  ✅ Yes  | ``clen_my_linux``	 | Your script name  |
+|   ◻️ No      |  ✅ Yes  | ``clean_my_linux``	 | Your script name  |
 
 ### Script Body
 
