@@ -2,9 +2,22 @@
 
 ## Package
 
-```bash
-$> linuxp add --module package
 
+ - **Full Command**
+
+```bash
+linuxp add --module package
+```
+
+- **Short Command**
+
+```bash
+linuxp add -m package
+```
+
+### Output
+
+```bash
 =============== Input ===============
 
 Package Tag [default]: music
@@ -17,62 +30,75 @@ Package Description [limit 85]:
 =============== Input ===============
 ```
 
-### Package Tag
+### Fields
 
-| Fixed Text  | Required | Example   | Description    |
-| :---------: | :------: | :-------: |:-------------: |
-|   ◻️ No      |  ◻️ No    | ``music``	| Tag group name |
+=== "Tag"
 
-### Package Manager 
+    | Fixed Text  | Required | Example   | Description    |
+    | :---------: | :------: | :-------: |:-------------: |
+    |   ◻️ No      |  ◻️ No    | ``music``	| Tag group name |
 
-| Fixed Text |   Required   | Option             | Description            |
-| :--------: | :----------: | :----------------: |:---------------------: |
-|   ✅ Yes   |    ✅ Yes    | ``apt-get``	     | Linux Package Manager  |
-|   ✅ Yes   |    ✅ Yes    | ``apt``	         | Linux Package Manager  |
-|   ✅ Yes   |    ✅ Yes    | ``snap``	         | Linux Package Manager  |
-|   ✅ Yes   |    ✅ Yes    | ``yum``	         | Linux Package Manager  |
-|   ✅ Yes   |    ✅ Yes    | ``dnf``	         | Linux Package Manager  |
-|   ✅ Yes   |    ✅ Yes    | ``pacman``	     | Linux Package Manager  |
-|   ✅ Yes   |    ✅ Yes    | ``zypper``	     | Linux Package Manager  |
-|   ✅ Yes   |    ✅ Yes    | ``spack``	         | Linux Package Manager  |
-|   ✅ Yes   |    ✅ Yes    | ``brew``	         | Linux Package Manager  |
-|   ✅ Yes   |    ✅ Yes    | ``swupd``	         | Linux Package Manager  |
-|   ✅ Yes   |    ✅ Yes    | ``guix``	         | Linux Package Manager  |
-|   ✅ Yes   |    ✅ Yes    | ``flatpak``	     | Linux Package Manager  |
-|   ✅ Yes   |    ✅ Yes    | ``pip``	         | Python Package Manager |
+=== "Manager"
 
-### Package Name
+    | Fixed Text |   Required   | Option             | Description            |
+    | :--------: | :----------: | :----------------: |:---------------------: |
+    |   ✅ Yes   |    ✅ Yes    | ``apt-get``	     | Linux Package Manager  |
+    |   ✅ Yes   |    ✅ Yes    | ``apt``	         | Linux Package Manager  |
+    |   ✅ Yes   |    ✅ Yes    | ``snap``	         | Linux Package Manager  |
+    |   ✅ Yes   |    ✅ Yes    | ``yum``	         | Linux Package Manager  |
+    |   ✅ Yes   |    ✅ Yes    | ``dnf``	         | Linux Package Manager  |
+    |   ✅ Yes   |    ✅ Yes    | ``pacman``	     | Linux Package Manager  |
+    |   ✅ Yes   |    ✅ Yes    | ``zypper``	     | Linux Package Manager  |
+    |   ✅ Yes   |    ✅ Yes    | ``spack``	         | Linux Package Manager  |
+    |   ✅ Yes   |    ✅ Yes    | ``brew``	         | Linux Package Manager  |
+    |   ✅ Yes   |    ✅ Yes    | ``swupd``	         | Linux Package Manager  |
+    |   ✅ Yes   |    ✅ Yes    | ``guix``	         | Linux Package Manager  |
+    |   ✅ Yes   |    ✅ Yes    | ``flatpak``	     | Linux Package Manager  |
+    |   ✅ Yes   |    ✅ Yes    | ``pip``	         | Python Package Manager |
 
-| Fixed Text |   Required   | Example            | Description             |
-| :--------: | :----------: | :----------------: |:----------------------: |
-|   ◻️ No     |    ✅ Yes    | ``spotify``  	     | Package name to install |
+=== "Name"
+
+    | Fixed Text |   Required   | Example            | Description             |
+    | :--------: | :----------: | :----------------: |:----------------------: |
+    |   ◻️ No     |    ✅ Yes    | ``spotify``  	     | Package name to install |
 
 
-### Package URL
+=== "Package URL"
 
-| Fixed Text  | Required | Example                     | Description    |
-| :---------: | :------: | :-------------------------: |:-------------: |
-|   ◻️ No      |  ◻️ No    | `https://linuxprofile.com/` |                |
+    | Fixed Text  | Required | Example                     | Description    |
+    | :---------: | :------: | :-------------------------: |:-------------: |
+    |   ◻️ No      |  ◻️ No    | `https://linuxprofile.com/` |                |
 
-### Package File
+=== "File"
 
-| Fixed Text  | Required | Example                | Description    |
-| :---------: | :------: | :--------------------: |:-------------: |
-|   ◻️ No      |  ◻️ No    | `spotify.txt`          |                |
+    | Fixed Text  | Required | Example                | Description    |
+    | :---------: | :------: | :--------------------: |:-------------: |
+    |   ◻️ No      |  ◻️ No    | `spotify.txt`          |                |
 
-### Package Description
 
-| Fixed Text  | Required | Example                | Description    |
-| :---------: | :------: | :--------------------: |:-------------: |
-|   ◻️ No      |  ◻️ No    | `Music application`    |                |
+=== "Description"
 
----
+    | Fixed Text  | Required | Example                | Description    |
+    | :---------: | :------: | :--------------------: |:-------------: |
+    |   ◻️ No      |  ◻️ No    | `Music application`    |                |
 
 ## Alias
 
-```bash
-$> linuxp add --module alias
+- **Full Command**
 
+```bash
+linuxp add --module alias
+```
+
+- **Short Command**
+
+```bash
+linuxp add -m alias
+```
+
+### Output
+
+```bash
 =============== Input ===============
 
 Alias Tag [default]: music
@@ -84,43 +110,55 @@ Package Description [limit 85]: This command will play my favorite song.
 =============== Input ===============
 ```
 
-### Alias Tag
+### Fields
 
-| Fixed Text  | Required | Example   | Description    |
-| :---------: | :------: | :-------: |:-------------: |
-|   ◻️ No      |  ◻️ No    | ``music``	| Tag group name |
+=== "Tag"
 
-### Alias Name
+    | Fixed Text  | Required | Example   | Description    |
+    | :---------: | :------: | :-------: |:-------------: |
+    |   ◻️ No      |  ◻️ No    | ``music``	| Tag group name |
 
-| Fixed Text | Required | Example            | Description                      |
-| :--------: | :------: | :----------------: |:-------------------------------: |
-|   ◻️ No     |  ✅ Yes  | ``play_music``	 | Name that references the command |
+=== "Name"
 
-### Alias Command
+    | Fixed Text | Required | Example            | Description                      |
+    | :--------: | :------: | :----------------: |:-------------------------------: |
+    |   ◻️ No     |  ✅ Yes  | ``play_music``	 | Name that references the command |
 
-| Fixed Text | Required | Example            | Description                   |
-| :--------: | :------: | :----------------: |:----------------------------: |
-|   ◻️ No     |  ✅ Yes  | ``play_music``	 | Command that will be executed |
+=== "Command"
 
-### Alias Body
+    | Fixed Text | Required | Example            | Description                   |
+    | :--------: | :------: | :----------------: |:----------------------------: |
+    |   ◻️ No     |  ✅ Yes  | ``play_music``	 | Command that will be executed |
 
-| Fixed Text | Required | Example                      | Description           |
-| :--------: | :------: | :--------------------------: |:--------------------: |
-|   ◻️ No     |  ✅ Yes  | ``mplayer linuxprofile.mp3`` | Content that will run |
+=== "Body"
 
-### Alias Description
+    | Fixed Text | Required | Example                      | Description           |
+    | :--------: | :------: | :--------------------------: |:--------------------: |
+    |   ◻️ No     |  ✅ Yes  | ``mplayer linuxprofile.mp3`` | Content that will run |
 
-| Fixed Text  | Required | Example                                    | Description    |
-| :---------: | :------: | :----------------------------------------: |:-------------: |
-|   ◻️ No      |  ◻️ No    | `This command will play my favorite song.` |                |
+=== "Description"
 
----
+    | Fixed Text  | Required | Example                                    | Description    |
+    | :---------: | :------: | :----------------------------------------: |:-------------: |
+    |   ◻️ No      |  ◻️ No    | `This command will play my favorite song.` |                |
 
 ## Script
 
-```bash
-$> linuxp add --module script
+- **Full Command**
 
+```bash
+linuxp add --module script
+```
+
+- **Short Command**
+
+```bash
+linuxp add -m script
+```
+
+### Output
+
+```bash
 =============== Input ===============
 
 Script Tag [default]: system
@@ -138,45 +176,46 @@ Package Description [limit 85]: This script will clean up some memory.
 =============== Input ===============
 ```
 
-### Script Tag
+### Fields
 
-| Fixed Text  | Required | Example       | Description    |
-| :---------: | :------: | :-----------: |:-------------: |
-|   ◻️ No      |  ◻️ No    | ``system``	| Tag group name |
+=== "Tag"
 
+    | Fixed Text  | Required | Example       | Description    |
+    | :---------: | :------: | :-----------: |:-------------: |
+    |   ◻️ No      |  ◻️ No    | ``system``	| Tag group name |
 
-### Script Type
+=== "Type"
 
-| Fixed Text  | Required | Option    | Description    |
-| :---------: | :------: | :-------: |:-------------: |
-|   ✅ Yes    |  ✅ Yes  | `shell`	| Shell Script   |
-|   ✅ Yes    |  ✅ Yes  | `python`	| Python Script  |
-|   ✅ Yes    |  ✅ Yes  | `python3`	| Python Script  |
-|   ✅ Yes    |  ✅ Yes  | `ruby` 	| Ruby Script    |
+    | Fixed Text  | Required | Option    | Description    |
+    | :---------: | :------: | :-------: |:-------------: |
+    |   ✅ Yes    |  ✅ Yes  | `shell`	| Shell Script   |
+    |   ✅ Yes    |  ✅ Yes  | `python`	| Python Script  |
+    |   ✅ Yes    |  ✅ Yes  | `python3`	| Python Script  |
+    |   ✅ Yes    |  ✅ Yes  | `ruby` 	| Ruby Script    |
 
-### Script Name
+=== "Name"
 
-| Fixed Text  | Required | Example            | Description      |
-| :---------: | :------: | :----------------: |:---------------: |
-|   ◻️ No      |  ✅ Yes  | ``clean_my_linux``	 | Your script name  |
+    | Fixed Text  | Required | Example            | Description      |
+    | :---------: | :------: | :----------------: |:---------------: |
+    |   ◻️ No      |  ✅ Yes  | ``clean_my_linux``	 | Your script name  |
 
-### Script Body
+=== "Body"
 
-| Fixed Text  | Required | Example                | Description    |
-| :---------: | :------: | :--------------------: |:-------------: |
-|   ◻️ No      |  ✅ Yes  | `echo 'LinuxProfile!'` |                |
+    | Fixed Text  | Required | Example                | Description    |
+    | :---------: | :------: | :--------------------: |:-------------: |
+    |   ◻️ No      |  ✅ Yes  | `echo 'LinuxProfile!'` |                |
 
-### Script Shebang:
+=== "Shebang:"
 
-| Fixed Text  | Required | Example                  | Description    |
-| :---------: | :------: | :----------------------: |:-------------: |
-|   ◻️ No      |  ◻️ No    | `#!/bin/bash`            | Shell Script   |
-|   ◻️ No      |  ◻️ No    | `#!/usr/bin/env python`  | Python Script  |
-|   ◻️ No      |  ◻️ No    | `#!/usr/bin/env python3` | Python Script  |
-|   ◻️ No      |  ◻️ No    | `#!/usr/bin/env ruby`    | Ruby Script    |
+    | Fixed Text  | Required | Example                  | Description    |
+    | :---------: | :------: | :----------------------: |:-------------: |
+    |   ◻️ No      |  ◻️ No    | `#!/bin/bash`            | Shell Script   |
+    |   ◻️ No      |  ◻️ No    | `#!/usr/bin/env python`  | Python Script  |
+    |   ◻️ No      |  ◻️ No    | `#!/usr/bin/env python3` | Python Script  |
+    |   ◻️ No      |  ◻️ No    | `#!/usr/bin/env ruby`    | Ruby Script    |
 
-### Script Description
+=== "Description"
 
-| Fixed Text  | Required | Example                                  | Description    |
-| :---------: | :------: | :--------------------------------------: |:-------------: |
-|   ◻️ No      |  ◻️ No    | `This script will clean up some memory.` |                |
+    | Fixed Text  | Required | Example                                  | Description    |
+    | :---------: | :------: | :--------------------------------------: |:-------------: |
+    |   ◻️ No      |  ◻️ No    | `This script will clean up some memory.` |                |

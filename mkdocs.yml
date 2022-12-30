@@ -17,10 +17,10 @@ nav:
             # - nav/commands/remove/exemple.md
         - Install:
             - nav/commands/install/index.md
-            # - nav/commands/install/exemple.md
+            - nav/commands/install/exemple.md
         - Uninstall:
             - nav/commands/uninstall/index.md
-            # - nav/commands/uninstall/exemple.md
+            - nav/commands/uninstall/exemple.md
         - List:
             - nav/commands/list/index.md
             # - nav/commands/list/exemple.md
@@ -31,6 +31,13 @@ theme:
     name: material
     logo: assets/linux-profile-icon.png
     favicon: assets/linux-profile-icon.ico
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true 
 
 extra_css:
   - stylesheets/extra.css
