@@ -69,14 +69,12 @@ class BaseFile:
     @classmethod
     def touch(cls, path: str):
         try:
-            cls.write(dumps(dict(), indent=4), path)
+            cls.write(content=dict(), path_file=path)
         except Exception:
             raise ErrorFile
 
 
 class BaseStorage:
-
-    backup = str(Path.home())
 
     def __init__(self, database: str) -> None:
         self.database = database
