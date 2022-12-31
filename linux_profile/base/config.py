@@ -57,7 +57,7 @@ class BaseConfig():
                 try:
                     mkdir(self.folder.get(folder))
                 except PermissionError:
-                    system(f"sudo mkdir {self.folder.get(folder)}")
+                    system(f"mkdir -p {self.folder.get(folder)}")
 
     def set_file(self) -> None:
         """

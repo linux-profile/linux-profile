@@ -1,4 +1,3 @@
-from os import system
 from pathlib import Path
 from os.path import exists
 from json import dumps, loads
@@ -81,8 +80,6 @@ class BaseStorage:
 
     def __init__(self, database: str) -> None:
         self.database = database
-        system(f"cp {self.database} ~/.linux_profile_backup.json")
-
         if not exists(self.database):
             BaseFile.touch(path=self.database)
 
