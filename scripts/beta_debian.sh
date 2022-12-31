@@ -1,7 +1,5 @@
 #!/bin/sh
 
-APP='/opt/linuxp'
-
 if  [ ! -n "$1" ]
 then 
 	branch='develop'
@@ -9,30 +7,71 @@ else
 	branch=$1
 fi
 
-APP='/opt/linuxp'
 
-echo "1 - Installing dependencies"
-sudo apt update
-sudo apt install git
+APP_TEMP=$LINUXP_PATH/temp
+URL=https://github.com/MyLinuxProfile/linux-profile.git 
 
-echo "2 - Download Github Repository"
-sudo git clone https://github.com/MyLinuxProfile/linux-profile.git $APP/temp --branch $branch
 
-echo "3 - Creating project structure"
-sudo rm -r $APP/linux_profile
-sudo mv $APP/temp/linux_profile $APP/linux_profile
-sudo mv $APP/temp/linuxp.py $APP/linuxp
+update_linux() {
+    echo "- Update linux"
+    sudo apt update -y > /dev/null 2>&1
 
-echo "4 - Creating executable"
-sudo chmod +x $APP/linuxp
-sudo rm -r $APP/temp/
+}
 
-echo "5 - Creating new line in '.bashrc' file with project configuration."
-echo '' >> ~/.bashrc
-echo "# LinuxP" >> ~/.bashrc
+install_dependencies() {
+    echo "- Installing dependencies [Git]"
+    sudo apt install git -y > /dev/null 2>&1
+
+}
+
+clone_repository() {
+    echo "- Cloning Repository --branch $branch"
+
+    if [ -d "$APP_TEMP" ]; then
+        sudo rm -r $APP_TEMP    
+    fi
+
+    sudo git clone $URL $APP_TEMP --branch $branch > /dev/null 2>&1
+
+}
+
+create_structure() {
+    echo "- Creating project structure"
+
+    if [ -d "$LINUXP_PATH/linux_profile" ]; then
+        sudo rm -r $LINUXP_PATH/linux_profile
+    fi
+
+    sudo mv $APP_TEMP/linux_profile $LINUXP_PATH/linux_profile
+    sudo mv $APP_TEMP/linuxp.py $LINUXP_PATH/linuxp
+}
+
+create_executable() {
+    echo "- Creating executable"
+
+    sudo chmod +x $LINUXP_PATH/linuxp
+
+    if [ -d "$APP_TEMP" ]; then
+        sudo rm -r $APP_TEMP
+    fi
+    
+}
+
+main() {
+    update_linux
+    install_dependencies
+    clone_repository
+    create_structure
+    create_executable
+}
+
+
+main
+
+echo "- Creating configuration in .bashrc file"
 echo 'PATH=$PATH":/opt/linuxp"' >> ~/.bashrc
-echo '' >> ~/.bashrc
 
-echo "6 - Exporting project configuration."
-PATH=$PATH":/opt/linuxp"; export PATH
-exec bash
+echo "- Exporting path"
+PATH=$PATH":$LINUXP_PATH"; export PATH
+
+exec $SHELL
