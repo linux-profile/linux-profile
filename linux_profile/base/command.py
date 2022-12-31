@@ -99,7 +99,7 @@ class BaseCommand:
         self.cmd_install.add_argument('-m', '--module', **self.argument_module)
         self.cmd_install.add_argument('-t', '--tag')
         self.cmd_install.add_argument('-i', '--item')
-        self.cmd_install.add_argument('--sudo', default='on', help="Run the command with system root permissions.", choices=['on', 'of'])
+        self.cmd_install.add_argument('--sudo', default='of', help="Run the command with system root permissions.", choices=['on', 'of'])
         self.cmd_install.add_argument('--debug', default='of', help="Run a command in test mode. It only shows the command.", choices=['on', 'of'])
 
     def setup_uninstall(self):
@@ -110,7 +110,7 @@ class BaseCommand:
         self.cmd_uninstall.add_argument('-m', '--module', **self.argument_module)
         self.cmd_uninstall.add_argument('-t', '--tag')
         self.cmd_uninstall.add_argument('-i', '--item')
-        self.cmd_uninstall.add_argument('--sudo', default='on', help="Run the command with system root permissions.", choices=['on', 'of'])
+        self.cmd_uninstall.add_argument('--sudo', default='of', help="Run the command with system root permissions.", choices=['on', 'of'])
         self.cmd_uninstall.add_argument('--debug', default='of', help="Run a command in test mode. It only shows the command.", choices=['on', 'of'])
 
     def setup_list(self):

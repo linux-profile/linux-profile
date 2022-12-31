@@ -4,7 +4,7 @@ from os import system as _system
 class System:
 
     def __init__(self, **kwargs) -> None:
-        self.sudo = True
+        self.sudo = False
         self.debug = False
         self.debug_command = None
         self.command = 'exec'
