@@ -18,7 +18,7 @@ class InputAddAlias(Validator):
         if not value:
             raise ErrorOptionIsMissing('Alias Command')
 
-        return slugify(value)
+        return value
 
     def validator_body(self, value=None):
         if not value:
