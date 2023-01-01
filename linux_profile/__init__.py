@@ -25,14 +25,15 @@ SOFTWARE."""
 
 
 try:
-    with open("linux_profile/text_ascii", "r", encoding="utf-8") as fh:
-        text_name = fh.read()
+    import urllib.request
+    text_ascii = urllib.request.urlopen(
+        "https://linuxprofile.com/text-ascii").read().decode('utf-8')
 except Exception:
-    text_name = "LinuxProfile"
+    info = "LinuxProfile"
 
 
 __info__ = f"""
-{text_name} {__version__}
+{text_ascii} 
 
 Help: linuxp --help
 Docs: https://docs.linuxprofile.com/
