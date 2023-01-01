@@ -24,11 +24,15 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE."""
 
 
+try:
+    with open("linux_profile/text_ascii", "r", encoding="utf-8") as fh:
+        text_name = fh.read()
+except Exception:
+    text_name = "LinuxProfile"
+
+
 __info__ = f"""
- _     _                  ___             __  _  _      
-| |   (_) _ _  _  _ __ __| _ \ _ _  ___  / _|(_)| | ___ 
-| |__ | || ' \| || |\ \ /|  _/| '_|/ _ \|  _|| || |/ -_)
-|____||_||_||_|\_,_|/_\_\|_|  |_|  \___/|_|  |_||_|\___| {__version__}
+{text_name} {__version__}
 
 Help: linuxp --help
 Docs: https://docs.linuxprofile.com/
