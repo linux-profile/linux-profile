@@ -1,11 +1,9 @@
-from pathlib import Path
 from os.path import exists
 from json import dumps, loads
-
 from linux_profile.base.error import ErrorFile
 
 
-class BaseFile:
+class File:
 
     @classmethod
     def write(
@@ -67,28 +65,30 @@ class BaseFile:
             raise ErrorFile
 
     @classmethod
-    def touch(cls, path: str):
+    def touch(cls, path: str, content = {}):
         try:
-            cls.write(content=dict(), path_file=path)
+            cls.write(content=content, path_file=path)
         except Exception:
             raise ErrorFile
 
 
-class BaseStorage:
+class Storage:
 
     def __init__(self, database: str) -> None:
         self.database = database
         if not exists(self.database):
-            BaseFile.touch(path=self.database)
+            File.touch(path=self.database)
 
         try:
-            self.json = loads(BaseFile.read(path_file=self.database))
+            self.json = loads(File.read(path_file=self.database))
         except Exception:
-            BaseFile.touch(path=self.database)
-            self.json = loads(BaseFile.read(path_file=self.database))
+            File.touch(path=self.database)
+            self.json = loads(File.read(path_file=self.database))
 
+    def get(self):
+        return self.json
 
-class BaseSearch(BaseStorage):
+class BaseSearch(Storage):
 
     def _module(self, key: str) -> list:
         response = []
@@ -170,7 +170,7 @@ class BaseAction(BaseSearch):
     def _create_item(self, content: dict, module: str, tag: str):
         try:
             self.json[module][tag].append(content)
-            BaseFile.write(path_file=self.database, content=self.json)
+            File.write(path_file=self.database, content=self.json)
         except KeyError as error:
             if error.args[0] == module:
                 self.json[module] = {}
@@ -190,7 +190,7 @@ class BaseAction(BaseSearch):
                 for field in content:
                     if content.get(field):
                         self.json[index[0]][index[1]][index[2]][field] = content.get(field)
-                BaseFile.write(path_file=self.database, content=self.json)
+                File.write(path_file=self.database, content=self.json)
                 return True
             return False
         except Exception:
@@ -201,7 +201,7 @@ class BaseAction(BaseSearch):
         try:
             if index:
                 self.json[index[0]][index[1]].pop(index[2])
-                BaseFile.write(path_file=self.database, content=self.json)
+                File.write(path_file=self.database, content=self.json)
                 return True
             return False
         except Exception:

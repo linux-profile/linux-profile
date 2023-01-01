@@ -1,11 +1,7 @@
-from linux_profile.base.config import BaseConfig
+from linux_profile.base.config import Config
 
 
-class Execute(BaseConfig):
+class Execute(Config):
 
-    def setup(self):
-        """
-        Defines the functions that are executed each
-        time the class is instantiated.
-        """
-        self.load_profile()
+    def __init__(self, **kwargs) -> None:
+        super().__init__(**kwargs)

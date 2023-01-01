@@ -1,5 +1,5 @@
 from linux_profile.base.system import System
-from linux_profile.base.file import BaseFile
+from linux_profile.base.file import File
 
 
 class HandlerScript(System):
@@ -7,8 +7,8 @@ class HandlerScript(System):
     def setup_system(self, shebang: str):
         path_file = f"{self.temp}/{self.name}"
 
-        BaseFile.write(content=shebang, path_file=path_file, dump=False)
-        BaseFile.write_lines(content=self.body, path_file=path_file, mode="a")
+        File.write(content=shebang, path_file=path_file, dump=False)
+        File.write_lines(content=self.body, path_file=path_file, mode="a")
 
         self.system(cmd=["chmod", "+x", path_file])
         self.system(cmd=[path_file])

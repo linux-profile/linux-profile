@@ -1,17 +1,14 @@
 import urllib.request
 
-from linux_profile.base.config import BaseConfig
+from linux_profile.base.config import Config
 
 
-class Config(BaseConfig):
+class Config(Config):
 
     def setup(self):
-        """
-        Defines the functions that are executed each
+        """Defines the functions that are executed each
         time the class is instantiated.
         """
-        self.load_profile()
-
         if self.get:
             self.setup_get()
 

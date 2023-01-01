@@ -1,6 +1,6 @@
 from linux_profile.utils.text import option
 from linux_profile.base.file import BaseAction
-from linux_profile.base.config import BaseConfig
+from linux_profile.base.config import Config
 from linux_profile.validators import (
     InputAddPackage,
     InputAddAlias,
@@ -9,20 +9,18 @@ from linux_profile.validators import (
 )
 
 
-class Add(BaseConfig):
+class Add(Config):
 
     def setup(self):
-        """
-        Defines the functions that are executed each
+        """Defines the functions that are executed each
         time the class is instantiated.
         """
-        self.load_profile()
         self.command = self.__class__.__name__.lower()
-        self.action = BaseAction(database=self.file.get("profile"))
+        self.action = BaseAction(
+            self.join([self.linuxp_path_config, self.linuxp_file_profile]))
 
-        func = f"{self.command }_{self.module}"
-        call = getattr(self, func, self)
-        call()
+        func = self.join(value=[self.command, self.module], separator="_")
+        getattr(self, func, self)()
 
     def add_package(self):
         fields = InputAddPackage(**{

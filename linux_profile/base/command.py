@@ -8,6 +8,7 @@ from linux_profile.base.error import (
     ErrorLoadSettings,
     ErrorOptionIsMissing,
     ErrorOptionIsInvalid,
+    ErrorFile,
     print_warning,
     print_error
 )
@@ -15,7 +16,7 @@ from linux_profile.base.error import (
 
 class Command():
 
-    list_option = ['id', 'module', 'tag', 'item', 'sudo', 'debug']
+    list_option = ['id', 'module', 'tag', 'item', 'sudo', 'debug', 'group']
 
     def __init__(self, parser, arguments) -> None:
         self.parser = parser
@@ -31,6 +32,7 @@ class Command():
         self.item = None
         self.sudo = None
         self.debug = None
+        self.group = None
 
         for option in self.list_option:
             if hasattr(self.arguments, option):
@@ -101,6 +103,7 @@ class BaseCommand:
         self.cmd_install.add_argument('-i', '--item')
         self.cmd_install.add_argument('--sudo', default='of', help="Run the command with system root permissions.", choices=['on', 'of'])
         self.cmd_install.add_argument('--debug', default='of', help="Run a command in test mode. It only shows the command.", choices=['on', 'of'])
+        self.cmd_install.add_argument('--group', default='of', help="Group items for executing a command.", choices=['on', 'of'])
 
     def setup_uninstall(self):
         self.cmd_uninstall = self.subparsers.add_parser(
@@ -112,6 +115,7 @@ class BaseCommand:
         self.cmd_uninstall.add_argument('-i', '--item')
         self.cmd_uninstall.add_argument('--sudo', default='of', help="Run the command with system root permissions.", choices=['on', 'of'])
         self.cmd_uninstall.add_argument('--debug', default='of', help="Run a command in test mode. It only shows the command.", choices=['on', 'of'])
+        self.cmd_uninstall.add_argument('--group', default='of', help="Group items for executing a command.", choices=['on', 'of'])
 
     def setup_list(self):
         self.cmd_list = self.subparsers.add_parser(
@@ -144,6 +148,9 @@ class BaseCommand:
 
         except ErrorLoadSettings as error:
             print_error(str(error))
+
+        except ErrorFile as error:
+            print_error(str(ErrorFile))
 
         except Exception as error:
             print_error(str(error))

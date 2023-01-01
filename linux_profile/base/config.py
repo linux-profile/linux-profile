@@ -1,78 +1,88 @@
 #!/usr/bin/env python3
 
-from os import system, mkdir
-from os.path import exists
+from os import getenv, system
+from json import loads
+from pathlib import Path
+from linux_profile.base.file import File
 
-from linux_profile.base.file import BaseStorage
-from linux_profile.settings import file_location, folder_location
+
+PATH = str(Path.home())
 
 
-class BaseConfig():
+class Config():
 
-    def __init__(
-            self,
-            _file: dict = file_location,
-            _folder: dict = folder_location,
-            **kwargs):
-        """
-        Structure that defines the main variables.
-        """
-        self.file = _file
-        self.folder = _folder
+    attributes = []
 
-        if kwargs:
-            for arg in kwargs:
-                value = kwargs.get(arg)
+    class Meta:
+        linuxp_path = "/opt/linuxp"
+        linuxp_path_config = f"{PATH}/.config/linuxp"
+        linuxp_path_temp = "/tmp/linuxp"
+        linuxp_file_profile = "linux_profile.json"
+        linuxp_file_config = "linux_profile.conf"
 
-                if value == 'on':
-                    value = True
-                if value == 'of':
-                    value = False
-                setattr(self, arg, value)
+    def __init__(self, **kwargs) -> None:
+        self.profile = None
+        self.config = None
 
-        self.set_folder()
-        self.set_file()
+        for arg in kwargs:
+            setattr(self, arg, kwargs.get(arg))
 
-        self.class_profile = BaseStorage(database=self.file.get('profile'))
-        self.class_config = BaseStorage(database=self.file.get('config'))
+        self._load_attributes()
+        self._load_structure()
+        self._load_storage()
 
         self.setup()
 
-    def setup(self):
-        """
-        Defines the functions that are executed each
-        time the class is instantiated.
-        """
-        self.load_profile()
+    def setup(self) -> str:
+        return "Method not Implemented"
 
-    def set_folder(self) -> None:
-        """
-        Setup Folder
+    def _load_attributes(self) -> None:
+        for attr_name, attr_content in self.Meta.__dict__.items():
+            if not (attr_name.startswith('_') or attr_name.endswith('_')):
+                self.attributes.append(attr_name)
 
-        Checks and creates the structure of configuration
-        folders that are used by the package.
-        """
-        for folder in self.folder:
-            if not exists(self.folder.get(folder)):
+                attr = self.local_getattr(key=attr_name)
+                if not attr:
+                    self.local_setattr(key=attr_name, value=attr_content)
+                setattr(self, attr_name, attr_content)
+
+    def _load_structure(self) -> None:
+        for item in self.attributes:
+            if item.find("path") > 0:
                 try:
-                    mkdir(self.folder.get(folder))
+                    system(f"mkdir -p {getattr(self, item)}")
                 except PermissionError:
-                    system(f"mkdir -p {self.folder.get(folder)}")
+                    system(f"sudo mkdir -p {getattr(self, item)}")
 
-    def set_file(self) -> None:
-        """
-        Setup File
+    def _load_storage(self) -> None:
+        path_profile = self.join([self.linuxp_path_config, self.linuxp_file_profile])
+        path_config = self.join([self.linuxp_path_config, self.linuxp_file_config])
 
-        Checks and creates files.
-        """
-        if not exists(self.file.get('bash_aliases')):
-            system(f"touch {self.file.get('bash_aliases')}")
+        try:
+            self.profile = loads(File.read(path_file=path_profile))
+        except Exception as error:
+            File.touch(path=path_profile)
+            self._load_storage()
 
-    def load_profile(self) -> None:
-        """
-        Load Profile
+        try:
+            self.config = loads(File.read(path_file=path_config))
+        except Exception as error:
+            File.touch(path=path_config, content="")
+            self._load_storage()
 
-        Load basic information from profiles for use in the
-        application and internal operations.
-        """
-        self.profile = self.class_profile.json
+    @classmethod
+    def join(cls, value: list, separator: str = "/") -> str:
+        return separator.join(value)
+
+    @classmethod
+    def local_getattr(cls, key: str) -> str:
+        return getenv(key.upper())
+
+    @classmethod
+    def local_setattr(cls, key: str, value: str) -> None:
+        File.write(
+            content=f'export {key.upper()}="{value}"',
+            path_file=f'{PATH}/.bashrc',
+            mode='a',
+            dump=False
+        )
