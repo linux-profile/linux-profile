@@ -3,7 +3,7 @@ Module Config
 """
 
 
-from os import getenv, system
+from os import getenv, makedirs
 from json import loads
 from pathlib import Path
 from linux_profile.base.file import File
@@ -53,9 +53,9 @@ class Config:
         for item in self.attributes:
             if item.find("path") > 0:
                 try:
-                    system(f"mkdir -p {getattr(self, item)}")
-                except PermissionError:
-                    system(f"sudo mkdir -p {getattr(self, item)}")
+                    makedirs(getattr(self, item))
+                except Exception:
+                    pass
 
     def _load_storage(self) -> None:
         path_profile = self.join(
