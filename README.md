@@ -76,7 +76,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 
 ## Profile File 
 
-- Link - [linux_profile.json](https://github.com/MyLinuxProfile/linux-profile/blob/master/docs/linux_profile.json)
+- Link - [linux_profile.json](hhttps://linuxprofile.com/linux_profile.json)
 
 ## Commit Style
 - ⚙️ NO-TASK
