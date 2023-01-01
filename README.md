@@ -12,7 +12,6 @@
 [![check](https://github.com/MyLinuxProfile/linux-profile/actions/workflows/python-publish-pypi-test.yml/badge.svg)](https://github.com/MyLinuxProfile/linux-profile/actions/workflows/python-publish-pypi-test.yml)
 [![check](https://github.com/MyLinuxProfile/linux-profile/actions/workflows/python-app-test.yml/badge.svg)](https://github.com/MyLinuxProfile/linux-profile/actions/workflows/python-app-test.yml)
 
-
 ---
 
 - **Documentation**: [https://docs.linuxprofile.com](https://docs.linuxprofile.com)
