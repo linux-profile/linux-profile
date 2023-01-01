@@ -1,11 +1,11 @@
-from linux_profile.base.file import BaseSearch
+from linux_profile.base.search import Search
 
 
 file_path = "./tests/helpers/database.json"
 
 
 def test_base_search_module():
-    data = BaseSearch(file_path)
+    data = Search(file_path)
     index = data._module("script")
 
     assert len(index) == 1
@@ -14,7 +14,7 @@ def test_base_search_module():
 
 
 def test_base_search_tag():
-    data = BaseSearch(file_path)
+    data = Search(file_path)
     index = data._tag(key="init")
 
     assert len(index) == 2
@@ -24,7 +24,7 @@ def test_base_search_tag():
 
 def test_base_search_item():
     id = "A48D2542AF3045888DC1242EF77C7666"
-    data = BaseSearch(file_path)
+    data = Search(file_path)
     index = data._item(key="id", value=id)
 
     assert len(index) == 4

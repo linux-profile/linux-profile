@@ -1,13 +1,13 @@
 from json import loads
-from os import path, remove
-from linux_profile.base.file import BaseAction, File
+from linux_profile.base.file import File
+from linux_profile.base.action import Action
 
 
 file_path = "./tests/helpers/database.json"
 
 
 def test_base_file_action_create():
-    action = BaseAction(file_path)
+    action = Action(file_path)
 
     content_create = {"id": 1, "name": "Linux"}
 
@@ -20,7 +20,7 @@ def test_base_file_action_create():
 
 def test_base_file_action_update():
     id = "EE959D7607694622B030BEEA1174AF56"
-    action = BaseAction(file_path)
+    action = Action(file_path)
 
     content = loads(File.read(path_file=file_path))
     assert content["script"]["init"][0]["name"] == "echo"
@@ -35,7 +35,7 @@ def test_base_file_action_update():
 
 
 def test_base_file_action_delete():
-    action = BaseAction(file_path)
+    action = Action(file_path)
 
     initial_content = loads(File.read(path_file=file_path))
     assert len(initial_content["package"]["python"]) == 1
