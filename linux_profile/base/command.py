@@ -1,3 +1,8 @@
+"""
+Module Command
+"""
+
+
 from linux_profile import (
     __version__,
     __info__

@@ -2,10 +2,27 @@
 Module Search
 """
 
-from linux_profile.base.file import Storage
+
+from json import loads
+from os.path import exists
+from linux_profile.base.file import File
 
 
-class Search(Storage):
+class Search:
+
+    def __init__(self, database: str) -> None:
+        self.database = database
+        if not exists(self.database):
+            File.touch(path=self.database)
+
+        try:
+            self.json = loads(File.read(path_file=self.database))
+        except Exception:
+            File.touch(path=self.database)
+            self.json = loads(File.read(path_file=self.database))
+
+    def get(self):
+        return self.json
 
     def _module(self, key: str) -> list:
         response = []

@@ -2,8 +2,8 @@
 Module File
 """
 
-from os.path import exists
-from json import dumps, loads
+
+from json import dumps
 from linux_profile.base.error import ErrorFile
 
 
@@ -74,20 +74,3 @@ class File:
             cls.write(content=content, path_file=path)
         except Exception:
             raise ErrorFile
-
-
-class Storage:
-
-    def __init__(self, database: str) -> None:
-        self.database = database
-        if not exists(self.database):
-            File.touch(path=self.database)
-
-        try:
-            self.json = loads(File.read(path_file=self.database))
-        except Exception:
-            File.touch(path=self.database)
-            self.json = loads(File.read(path_file=self.database))
-
-    def get(self):
-        return self.json

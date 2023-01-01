@@ -2,6 +2,7 @@
 Module Config
 """
 
+
 from os import getenv, system
 from json import loads
 from pathlib import Path
@@ -81,10 +82,11 @@ class Config():
         return getenv(key.upper())
 
     @classmethod
-    def local_setattr(cls, key: str, value: str) -> None:
+    def local_setattr(cls, key: str, value: str, path_file: str = None) -> None:
+        path_file = path_file if path_file else f'{PATH}/.bashrc'
         File.write(
             content=f'export {key.upper()}="{value}"',
-            path_file=f'{PATH}/.bashrc',
+            path_file=path_file,
             mode='a',
             dump=False
         )
