@@ -2,61 +2,59 @@
 
 <img src="https://github.com/MyLinuxProfile/linux-profile/blob/master/docs/linuxp.png?raw=true">
 
+<center>
+
 ![GitHub Org's stars](https://img.shields.io/github/stars/MyLinuxProfile?label=LinuxProfile&style=flat-square)
 ![GitHub last commit](https://img.shields.io/github/last-commit/MyLinuxProfile/linux-profile-basic?style=flat-square)
 ![GitHub Pipenv locked Python version](https://img.shields.io/github/pipenv/locked/python-version/MyLinuxProfile/linux-profile?style=flat-square)
 ![PyPI](https://img.shields.io/pypi/v/linuxp)
-<br>
-![PyPI - Python Version](https://img.shields.io/pypi/pyversions/linuxp?style=flat-square)
-![PyPI - Status](https://img.shields.io/pypi/status/linuxp?style=flat-square)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/linuxp?style=flat-square)
 
-# [Introduction](https://github.com/MyLinuxProfile/linux-profile/wiki)
-Linux Profile is a Linux profile management tool. With this project it is possible, from commands executed in the console, to create a 'json' file to store backup configurations. such as information about installed packages, alias, terminal settings. It also allows with a single command to restore saved configurations.
+[![check](https://github.com/MyLinuxProfile/linux-profile/actions/workflows/python-publish-pypi.yml/badge.svg)](https://github.com/MyLinuxProfile/linux-profile/actions/workflows/python-publish-pypi.yml)
+[![check](https://github.com/MyLinuxProfile/linux-profile/actions/workflows/python-publish-pypi-test.yml/badge.svg)](https://github.com/MyLinuxProfile/linux-profile/actions/workflows/python-publish-pypi-test.yml)
+[![check](https://github.com/MyLinuxProfile/linux-profile/actions/workflows/python-app-test.yml/badge.svg)](https://github.com/MyLinuxProfile/linux-profile/actions/workflows/python-app-test.yml)
 
-## [Installation](https://github.com/MyLinuxProfile/linux-profile/wiki/Installation)
+</center>
+
+---
+
+- **Documentation**: [https://docs.linuxprofile.com](https://docs.linuxprofile.com)
+- **Source Code**: [https://github.com/MyLinuxProfile/linux-profile](https://github.com/MyLinuxProfile/linux-profile)
+
+---
+
+# [Introduction](https://docs.linuxprofile.com/)
+Linux Profile is a Linux profile management tool. With this project it is possible, from commands executed in the console, to create a 'json' file to store backup configurations. such as information about installed packages, alias. It also allows with a single command to restore saved configurations.
+
+### Quick URLs
+- Last Version -> https://linuxprofile.com/LAST_VERSION
+- Install -> https://linuxprofile.com/install.sh
+
+### Quick development URLs
+- Beta -> https://linuxprofile.com/beta.sh
+
+## [Installation](https://docs.linuxprofile.com/)
 
 - **Install - Pypi/PIP**
 
       pip install -U linuxp
 
-- **Install - Shell/Curl**
+- **Install - Shell/Curl** - **STABLE**
 
-      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/MyLinuxProfile/linux-profile/master/scripts/install.sh)"
+      /bin/bash -c "$(curl -fsSL https://linuxprofile.com/install.sh)"
 
-## [Wiki Page](https://github.com/MyLinuxProfile/linux-profile/wiki)
+## [Wiki Page](https://docs.linuxprofile.com/)
 
 ## Commands:
 
-| #      | Command               | Description                                                                              | Wiki page                    |
-|--------|:----------------------|:-----------------------------------------------------------------------------------------| :--------------------------: | 
-| 01     | ``linuxp config``       | Configuration of profile files and server connection.                                    | [Command Config](https://github.com/MyLinuxProfile/linux-profile/wiki/Command---Config) |
-| 02     | ``linuxp add``        | Parameter used to add a new item to the list in your profile file.                       | [Command Add](https://github.com/MyLinuxProfile/linux-profile/wiki/Command--Add) |
-| 03     | ``linuxp install``    | This parameter is used to install the modules, **package**, **alias** and **script**.    | [Command Install](https://github.com/MyLinuxProfile/linux-profile/wiki/Command-Install) |
-| 04     | ``linuxp uninstall``  | Command used to uninstall items. Be **very careful** when running.                       | [Command Uninstall](https://github.com/MyLinuxProfile/linux-profile/wiki/Command--Uninstall) |
-| 05     | ``linuxp list``       | Lists all modules in the terminal and can also apply filters to find items.              | [Command List](https://github.com/MyLinuxProfile/linux-profile/wiki/Command-List) |
-
-## Options:
-  
-### MODULE
-  
-| Example            |                     | Wiki page      |
-| :----------------: | :-----------------: | :------------: |
-| ``package``	     | * [ Fixed argument] | [Module](https://github.com/MyLinuxProfile/linux-profile/wiki/Options#module) |
-| ``alias``	         | * [ Fixed argument] | [Module](https://github.com/MyLinuxProfile/linux-profile/wiki/Options#module) |
-| ``script``	     | * [ Fixed argument] | [Module](https://github.com/MyLinuxProfile/linux-profile/wiki/Options#module) |
-
-### TAG
-
-| Example            |                       | Wiki page      |
-| :----------------: | :-------------------: | :------------: |
-| ``whatever``	     | [ Any text argument ] | [Tag](https://github.com/MyLinuxProfile/linux-profile/wiki/Options#tag) |
-
-### ITEM
-
-| Example            |                       | Wiki page      |
-| :----------------: | :-------------------: | :------------: |
-| ``whatever``	     | [ Any text argument ] | [Value](https://github.com/MyLinuxProfile/linux-profile/wiki/Options#item) |
+| Command               | Description                                                                           | Docs                                   |
+|:--------------------- |:------------------------------------------------------------------------------------- | :------------------------------------: | 
+| ``linuxp config``     | Configuration of profile files and server connection.                                 | [Link](https://docs.linuxprofile.com/) |
+| ``linuxp add``        | Parameter used to add a new item to the list in your profile file.                    | [Link](https://docs.linuxprofile.com/) |
+| ``linuxp remove``     | Removes items from the profile file.                                                  | [Link](https://docs.linuxprofile.com/) |
+| ``linuxp install``    | This parameter is used to install the modules, **package**, **alias** and **script**. | [Link](https://docs.linuxprofile.com/) |
+| ``linuxp uninstall``  | Command used to uninstall items. Be **very careful** when running.                    | [Link](https://docs.linuxprofile.com/) |
+| ``linuxp list``       | Lists all modules in the terminal and can also apply filters to find items.           | [Link](https://docs.linuxprofile.com/) |
 
 ## [Make a profile backup](https://github.com/MyLinuxProfile/linux-profile/wiki/Make-a-profile-backup)
 
@@ -91,7 +89,8 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 - 🪲 BUG
 - 📘 DOCS
 - 📦 PyPI
+- ❤️️ TEST
 
-**RESOURCES**
-- GitHub: https://github.com/MyLinuxProfile/linux-profile-basic
-- Docs:   https://linuxprofile.com
+## License
+
+This project is licensed under the terms of the MIT license.

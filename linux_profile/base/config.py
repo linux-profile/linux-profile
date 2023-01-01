@@ -1,102 +1,107 @@
-#!/usr/bin/env python3
-
-from os import system, mkdir
-from os.path import exists
-
-from linux_profile.base.storage import Storage
-from linux_profile.utils.file import get_system, get_distro
-from linux_profile.settings import file_location, folder_location
+"""
+Module Config
+"""
 
 
-class BaseConfig():
+from os import getenv, system
+from json import loads
+from pathlib import Path
+from linux_profile.base.file import File
 
-    def __init__(
-            self,
-            _file: dict = file_location,
-            _folder: dict = folder_location,
-            **kwargs):
-        """
-        Structure that defines the main variables.
-        """
-        self.file = _file
-        self.folder = _folder
 
-        if kwargs:
-            for arg in kwargs:
-                setattr(self, arg, kwargs.get(arg))
+PATH = str(Path.home())
 
-        self.set_folder()
-        self.set_file()
 
-        self.class_profile = Storage(database=self.file.get('profile'))
-        self.class_config = Storage(database=self.file.get('config'))
+class Config:
+
+    attributes = []
+
+    class Meta:
+        linuxp_path = "/opt/linuxp"
+        linuxp_path_config = f"{PATH}/.config/linuxp"
+        linuxp_path_temp = "/tmp/linuxp"
+        linuxp_file_profile = "linux_profile.json"
+        linuxp_file_config = "linux_profile.conf"
+
+    def __init__(self, **kwargs) -> None:
+        self.profile = None
+        self.config = None
+
+        for arg in kwargs:
+            setattr(self, arg, kwargs.get(arg))
+
+        self._load_attributes()
+        self._load_structure()
+        self._load_storage()
 
         self.setup()
 
-    def setup(self):
-        """
-        Defines the functions that are executed each
-        time the class is instantiated.
-        """
-        self.add_config()
-        self.load_config()
-        self.load_profile()
+    def setup(self) -> str:
+        return "Method not Implemented"
 
-    def set_folder(self) -> None:
-        """
-        Setup Folder
+    def _load_attributes(self) -> None:
+        for attr_name, attr_content in self.Meta.__dict__.items():
+            if not (attr_name.startswith('_') or attr_name.endswith('_')):
+                self.attributes.append(attr_name)
 
-        Checks and creates the structure of configuration
-        folders that are used by the package.
-        """
-        for folder in self.folder:
-            if not exists(self.folder.get(folder)):
+                attr = self.local_getattr(key=attr_name)
+                if not attr:
+                    self.local_setattr(key=attr_name, value=attr_content)
+                setattr(self, attr_name, attr_content)
+
+    def _load_structure(self) -> None:
+        for item in self.attributes:
+            if item.find("path") > 0:
                 try:
-                    mkdir(self.folder.get(folder))
+                    system(f"mkdir -p {getattr(self, item)}")
                 except PermissionError:
-                    system(f"sudo mkdir {self.folder.get(folder)}")
+                    system(f"sudo mkdir -p {getattr(self, item)}")
 
-    def set_file(self) -> None:
-        """
-        Setup File
+    def _load_storage(self) -> None:
+        path_profile = self.join(
+            [self.linuxp_path_config, self.linuxp_file_profile])
+        path_config = self.join(
+            [self.linuxp_path_config, self.linuxp_file_config])
 
-        Checks and creates files.
-        """
-        if not exists(self.file.get('bash_aliases')):
-            system(f"touch {self.file.get('bash_aliases')}")
+        try:
+            self.profile = loads(File.read(path_file=path_profile))
+        except Exception:
+            File.touch(path=path_profile)
+            self._load_storage()
 
-    def add_config(self):
-        """
-        Configuring system settings
+        try:
+            self.config = loads(File.read(path_file=path_config))
+        except Exception:
+            File.touch(path=path_config, content="")
+            self._load_storage()
 
-        Function that configures the basic settings of the
-        operating system that the LinuxProfle package is running.
+    @classmethod
+    def join(cls, value: list, separator: str = "/") -> str:
+        return separator.join(value)
 
-        Saved in the linux_config.json configuration file more
-        specifically Hardware and Distribution information.
-        """
-        self.class_config.begin(module='info', tag='distro')
-        if not len(self.class_config.search_tag('distro')):
-            self.class_config.run(content=get_distro())
+    @classmethod
+    def local_getattr(cls, key: str, path_file: str = None) -> str:
+        path_file = path_file if path_file else cls.join([PATH, ".bashrc"])
+        key_value = getenv(key.upper())
+        if not key_value:
+            bashrc = File.read_lines(path_file=path_file)
+            for line in bashrc:
+                if line.find("export") == 0:
+                    text = line.split("=")
+                    if key.upper() == text[0][7:]:
+                        return loads(text[1])
+        return key_value
 
-        self.class_config.begin(module='info', tag='system')
-        if not len(self.class_config.search_tag('system')):
-            self.class_config.run(content=get_system())
-
-    def load_config(self) -> None:
-        """
-        Load Config
-
-        Loads basic configuration information for use
-        in the application and internal operations.
-        """
-        self.config = self.class_config.load()
-
-    def load_profile(self) -> None:
-        """
-        Load Profile
-
-        Load basic information from profiles for use in the
-        application and internal operations.
-        """
-        self.profile = self.class_profile.load()
+    @classmethod
+    def local_setattr(
+            cls,
+            key: str,
+            value: str,
+            path_file: str = None) -> None:
+        path_file = path_file if path_file else cls.join([PATH, ".bashrc"])
+        File.write(
+            content=f'export {key.upper()}="{value}"',
+            path_file=path_file,
+            mode='a',
+            dump=False
+        )
