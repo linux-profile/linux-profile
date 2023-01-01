@@ -52,7 +52,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 | ``linuxp uninstall``  | Command used to uninstall items. Be **very careful** when running.                    | [Link](https://docs.linuxprofile.com/) |
 | ``linuxp list``       | Lists all modules in the terminal and can also apply filters to find items.           | [Link](https://docs.linuxprofile.com/) |
 
-## [Make a profile backup](https://github.com/MyLinuxProfile/linux-profile/wiki/Make-a-profile-backup)
+## [Make a profile backup](https://docs.linuxprofile.com/)
 
 - Saving the profile file:
 
