@@ -6,13 +6,13 @@ URL=https://github.com/MyLinuxProfile/linux-profile.git
 
 update_linux() {
     echo "- Update linux"
-    sudo pacman -Sy > /dev/null 2>&1
+    sudo pacman -Sy
 
 }
 
 install_dependencies() {
     echo "- Installing dependencies [Git]"
-    sudo pacman -S git > /dev/null 2>&1
+    sudo pacman -S git
 
 }
 
