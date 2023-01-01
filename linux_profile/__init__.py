@@ -1,4 +1,4 @@
-__version__ = "1.0.9.6"
+__version__ = "1.0.9.7"
 
 __author__ = 'Fernando Celmer <email@fernandocelmer.com>'
 __copyright__ = """MIT License
