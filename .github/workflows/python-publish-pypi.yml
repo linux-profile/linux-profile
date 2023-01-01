@@ -1,4 +1,4 @@
-name: 📦 Python Package PyPI
+name: 📦 Package PyPI
 
 on:
   release:

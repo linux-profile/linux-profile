@@ -1,4 +1,4 @@
-name: 📦 Python Package PyPI-Test
+name: 📦 Package PyPI-Test
 
 on:
   push:

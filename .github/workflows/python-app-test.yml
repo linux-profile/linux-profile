@@ -1,8 +1,9 @@
-name: ❤️️ Python Unit Testing
+name: ❤️️ Unit Testing
 
 on:
   push:
-    branches: [ "develop" ]
+    branches:
+    - develop
 
 permissions:
   contents: read
