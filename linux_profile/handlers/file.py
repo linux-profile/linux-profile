@@ -4,4 +4,4 @@ from linux_profile.base.system import System
 class HandlerFile(System):
 
     def setup_update(self):
-        print(self.name)
+        return "Method not Implemented"

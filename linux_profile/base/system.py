@@ -1,3 +1,7 @@
+"""
+Module System
+"""
+
 from os import system as _system
 
 

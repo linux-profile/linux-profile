@@ -1,3 +1,7 @@
+"""
+Module Error
+"""
+
 from linux_profile.utils.text import color
 
 

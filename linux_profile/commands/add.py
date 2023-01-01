@@ -1,6 +1,6 @@
-from linux_profile.utils.text import option
-from linux_profile.base.file import BaseAction
+from linux_profile.base.action import Action
 from linux_profile.base.config import Config
+from linux_profile.utils.text import option
 from linux_profile.validators import (
     InputAddPackage,
     InputAddAlias,
@@ -16,7 +16,7 @@ class Add(Config):
         time the class is instantiated.
         """
         self.command = self.__class__.__name__.lower()
-        self.action = BaseAction(
+        self.action = Action(
             self.join([self.linuxp_path_config, self.linuxp_file_profile]))
 
         func = self.join(value=[self.command, self.module], separator="_")

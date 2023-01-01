@@ -1,4 +1,6 @@
-#!/usr/bin/env python3
+"""
+Module Config
+"""
 
 from os import getenv, system
 from json import loads

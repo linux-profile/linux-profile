@@ -25,19 +25,37 @@ class Command():
         self.setup_options()
         self.execute()
 
-    def setup_options(self):
-        self.id = None
-        self.module = None
-        self.tag = None
-        self.item = None
-        self.sudo = None
-        self.debug = None
-        self.group = None
+    def is_bool(self, value: str) -> str:
+        bool_list = [
+            ("on", True),
+            ("true", True),
+            ("True", True),
+            ("1", True),
+            ("yes", True),
+            ("ok", True),
+            ("y", True),
+            ("Y", True),
+            ("of", False),
+            ("false", False),
+            ("False", False),
+            ("0", False),
+            ("no", False),
+            ("not", False),
+            ("n", False),
+            ("N", False)
+        ]
+        for item in bool_list:
+            if value in item:
+                return item[1]
 
+        return value
+
+    def setup_options(self):
         for option in self.list_option:
             if hasattr(self.arguments, option):
-                setattr(self, option, getattr(self.arguments, option))
-
+                setattr(self, option, self.is_bool(getattr(self.arguments, option)))
+            else:
+                setattr(self, option, None)
 
 class BaseCommand:
 
