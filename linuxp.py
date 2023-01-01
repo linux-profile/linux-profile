@@ -90,10 +90,8 @@ def main():
 
     command.cmd_config.set_defaults(exec=CommandConfig)
     command.cmd_add.set_defaults(exec=CommandAdd)
-
     command.cmd_remove.set_defaults(exec=CommandRemove)
     command.cmd_execute.set_defaults(exec=CommandExecute)
-
     command.cmd_install.set_defaults(exec=CommandInstall)
     command.cmd_uninstall.set_defaults(exec=CommandUninstall)
     command.cmd_list.set_defaults(exec=CommandList)
