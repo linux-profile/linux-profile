@@ -18,7 +18,7 @@ update_linux() {
 
     if [[ $DISTRO == "Ubuntu" ]]; then
         echo "- Update linux"
-        sudo apt > teste 2> teste
+        sudo apt update -y > /dev/null 2>&1
     fi
 
 }
@@ -26,7 +26,7 @@ update_linux() {
 install_dependencies() {
     if [[ $DISTRO == "Ubuntu" ]]; then
         echo "- Installing dependencies [Git]"
-        sudo apt install git -y > teste 2> teste
+        sudo apt install git -y > /dev/null 2>&1
     fi
 
 }
@@ -38,7 +38,7 @@ clone_repository() {
         sudo rm -r $APP_TEMP    
     fi
 
-    sudo git clone $URL $APP_TEMP --branch $branch >> teste 2>&1
+    sudo git clone $URL $APP_TEMP --branch $branch > /dev/null 2>&1
 
 }
 
