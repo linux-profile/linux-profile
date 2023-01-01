@@ -24,14 +24,12 @@
 
 Linux Profile is a Linux profile management tool. With this project it is possible, from commands executed in the console, to create a 'json' file to store backup configurations. such as information about installed packages, alias. It also allows with a single command to restore saved configurations.
 
-## Quick URLs
-- Last Version -> [https://linuxprofile.com/LAST_VERSION](https://linuxprofile.com/LAST_VERSION)
-- Install Debian -> [https://linuxprofile.com/install_debian.sh](https://linuxprofile.com/install_debian.sh)
-- Install Arch -> [https://linuxprofile.com/install_arch.sh](https://linuxprofile.com/install_arch.sh)
+### Quick URLs
+- Last Version -> https://linuxprofile.com/LAST_VERSION
+- Install -> https://linuxprofile.com/install.sh
 
-## Quick development URLs
-- Beta Debian -> [https://linuxprofile.com/beta_debian.sh](https://linuxprofile.com/beta_debian.sh)
-- Beta Arch -> [https://linuxprofile.com/beta_arch.sh](https://linuxprofile.com/beta_arch.sh)
+### Quick development URLs
+- Beta -> https://linuxprofile.com/beta.sh
 
 ## Commands
 

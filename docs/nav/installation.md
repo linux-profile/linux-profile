@@ -4,14 +4,14 @@
 pip install -U linuxp
 ```
 
-- **Install - Shell/Curl** - Debian
+- **Install - Shell/Curl** - **STABLE**
 
 ```bash
-/bin/bash -c "$(curl -fsSL https://linuxprofile.com/install_debian.sh)"
+/bin/bash -c "$(curl -fsSL https://linuxprofile.com/install.sh)"
 ```
 
-- **Install - Shell/Curl** - Arch
+- **Install - Shell/Curl** - **BETA**
 
 ```bash
-/bin/bash -c "$(curl -fsSL https://linuxprofile.com/install_arch.sh)"
+/bin/bash -c "$(curl -fsSL https://linuxprofile.com/beta.sh)"
 ```
