@@ -6,7 +6,7 @@ from linux_profile.base.action import Action
 file_path = "./tests/helpers/database.json"
 
 
-def test_base_file_action_create():
+def test_base_action_create():
     action = Action(file_path)
 
     content_create = {"id": 1, "name": "Linux"}
@@ -18,7 +18,7 @@ def test_base_file_action_create():
     action._delete_item(value=1)
 
 
-def test_base_file_action_update():
+def test_base_action_update():
     id = "EE959D7607694622B030BEEA1174AF56"
     action = Action(file_path)
 
@@ -34,7 +34,7 @@ def test_base_file_action_update():
     assert content["script"]["init"][0]["name"] == "echo"
 
 
-def test_base_file_action_delete():
+def test_base_action_delete():
     action = Action(file_path)
 
     initial_content = loads(File.read(path_file=file_path))
