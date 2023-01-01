@@ -7,20 +7,38 @@ else
 	branch=$1
 fi
 
+DISTRO=$(cat /etc/*-release | grep -w ID | cut -d= -f2 | tr -d '"')
 
+LINUXP_PATH="/opt/linuxp"
 APP_TEMP=$LINUXP_PATH/temp
 URL=https://github.com/MyLinuxProfile/linux-profile.git
 
 
 update_linux() {
-    echo "- Update linux"
-    sudo pacman -Sy > /dev/null 2>&1
+
+    if [[ $DISTRO == "ubuntu" ]]; then
+        echo "- Update $DISTRO"
+        sudo apt update -y > /dev/null 2>&1
+    fi
+
+    if [[ $DISTRO == "arch" ]]; then
+        echo "- Update $DISTRO"
+        sudo pacman -Sy
+    fi
 
 }
 
 install_dependencies() {
-    echo "- Installing dependencies [Git]"
-    sudo pacman -S git > /dev/null 2>&1
+
+    if [[ $DISTRO == "ubuntu" ]]; then
+        echo "- Installing dependencies [Git]"
+        sudo apt install git -y > /dev/null 2>&1
+    fi
+
+    if [[ $DISTRO == "arch" ]]; then
+        echo "- Installing dependencies [Git]"
+        sudo pacman -S git
+    fi
 
 }
 
