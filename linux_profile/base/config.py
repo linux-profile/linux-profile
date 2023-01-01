@@ -12,7 +12,7 @@ from linux_profile.base.file import File
 PATH = str(Path.home())
 
 
-class Config():
+class Config:
 
     attributes = []
 
@@ -58,18 +58,20 @@ class Config():
                     system(f"sudo mkdir -p {getattr(self, item)}")
 
     def _load_storage(self) -> None:
-        path_profile = self.join([self.linuxp_path_config, self.linuxp_file_profile])
-        path_config = self.join([self.linuxp_path_config, self.linuxp_file_config])
+        path_profile = self.join(
+            [self.linuxp_path_config, self.linuxp_file_profile])
+        path_config = self.join(
+            [self.linuxp_path_config, self.linuxp_file_config])
 
         try:
             self.profile = loads(File.read(path_file=path_profile))
-        except Exception as error:
+        except Exception:
             File.touch(path=path_profile)
             self._load_storage()
 
         try:
             self.config = loads(File.read(path_file=path_config))
-        except Exception as error:
+        except Exception:
             File.touch(path=path_config, content="")
             self._load_storage()
 
@@ -78,12 +80,25 @@ class Config():
         return separator.join(value)
 
     @classmethod
-    def local_getattr(cls, key: str) -> str:
-        return getenv(key.upper())
+    def local_getattr(cls, key: str, path_file: str = None) -> str:
+        path_file = path_file if path_file else cls.join([PATH, ".bashrc"])
+        key_value = getenv(key.upper())
+        if not key_value:
+            bashrc = File.read_lines(path_file=path_file)
+            for line in bashrc:
+                if line.find("export") == 0:
+                    text = line.split("=")
+                    if key.upper() == text[0][7:]:
+                        return loads(text[1])
+        return key_value
 
     @classmethod
-    def local_setattr(cls, key: str, value: str, path_file: str = None) -> None:
-        path_file = path_file if path_file else f'{PATH}/.bashrc'
+    def local_setattr(
+            cls,
+            key: str,
+            value: str,
+            path_file: str = None) -> None:
+        path_file = path_file if path_file else cls.join([PATH, ".bashrc"])
         File.write(
             content=f'export {key.upper()}="{value}"',
             path_file=path_file,
