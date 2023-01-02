@@ -155,7 +155,14 @@ class BaseCommand:
             if hasattr(arguments, 'exec'):
                 arguments.exec(parser=self.parser, arguments=arguments)
             else:
-                print(__info__)
+                try:
+                    import urllib.request
+                    text_ascii = urllib.request.urlopen(
+                        "https://linuxprofile.com/text-ascii").read().decode('utf-8')
+                except Exception:
+                    text_ascii = f"\nLinuxProfile {__version__}"
+
+                print(text_ascii+__info__)
 
         except ErrorParameterIsMissing as error:
             print_warning(str(error))
