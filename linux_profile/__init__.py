@@ -24,17 +24,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE."""
 
 
-try:
-    import urllib.request
-    text_ascii = urllib.request.urlopen(
-        "https://linuxprofile.com/text-ascii").read().decode('utf-8')
-except Exception:
-    info = "LinuxProfile"
-
-
-__info__ = f"""
-{text_ascii} 
+__info__ = """
 
 Help: linuxp --help
 Docs: https://docs.linuxprofile.com/
+=====================================
 """
