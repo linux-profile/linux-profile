@@ -15,8 +15,8 @@ class Validator():
             value = kwargs.get(arg) if kwargs.get(arg) else None
             setattr(self, arg, value)
 
-            if hasattr(self, "validator_"+arg):
-                call = getattr(self, "validator_"+arg)
+            if hasattr(self, "validator_" + arg):
+                call = getattr(self, "validator_" + arg)
                 setattr(self, arg, call(value))
 
     def get_uuid(self):

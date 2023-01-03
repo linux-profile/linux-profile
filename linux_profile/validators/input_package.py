@@ -45,7 +45,7 @@ class InputAddPackage(Validator):
             value = value[1:len(value)]
 
         if value[-1] == " ":
-            value = value[0:len(value)-1]
+            value = value[0:len(value) - 1]
 
         return cleaning_option(value)
 

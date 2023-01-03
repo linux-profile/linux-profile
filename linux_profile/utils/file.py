@@ -1,6 +1,3 @@
-from os import popen
-
-
 def write_file(
         content: str,
         path_file: str,
@@ -59,7 +56,7 @@ def get_content(path_file: str, separator: str):
         for index, value in enumerate(item):
             if value == separator:
                 info_name = item[0:index].lower().replace('|', '')
-                info_value = item[index+1:len(item)] \
+                info_value = item[index + 1:len(item)] \
                     .replace('"', '').replace('|', ' ')
 
                 if info_value[0] == ' ':

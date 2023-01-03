@@ -69,7 +69,7 @@ class File:
             raise ErrorFile
 
     @classmethod
-    def touch(cls, path: str, content = {}):
+    def touch(cls, path: str, content={}):
         try:
             cls.write(content=content, path_file=path)
         except Exception:

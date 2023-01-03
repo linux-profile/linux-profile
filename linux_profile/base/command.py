@@ -62,6 +62,7 @@ class Command():
             else:
                 setattr(self, option, None)
 
+
 class BaseCommand:
 
     list_module = ['package', 'alias', 'script', 'file']
@@ -81,6 +82,15 @@ class BaseCommand:
             version=f'linuxp=={__version__}',
             help="Show program's version number and exit.")
 
+        self.help = {
+            "config": "Configuration of profile files and server connection.",
+            "add": "Parameter used to add a new item to the list in your profile file.",
+            "remove": "Removes items from the profile file.",
+            "install": "This parameter is used to install the modules, package, alias and script.",
+            "uninstall": "Command used to uninstall items. Be very careful when running.",
+            "list": "Lists all modules in the terminal and can also apply filters to find items."
+        }
+
         self.setup_config()
         self.setup_add()
         self.setup_remove()
@@ -91,21 +101,21 @@ class BaseCommand:
 
     def setup_config(self):
         self.cmd_config = self.subparsers.add_parser(
-            'config', help="Configuration of profile files and server connection.")
+            'config', help=self.help.get("config"))
 
         self.cmd_config = self.cmd_config.add_argument_group('Usage: linuxp config [OPTIONS]')
         self.cmd_config.add_argument('--get', help="URL of your profile file to download and sync in the current project.")
 
     def setup_add(self):
         self.cmd_add = self.subparsers.add_parser(
-            'add', help="Parameter used to add a new item to the list in your profile file.")
+            'add', help=self.help.get("add"))
 
         self.cmd_add = self.cmd_add.add_argument_group('Usage: linuxp add [OPTIONS]')
         self.cmd_add.add_argument('-m', '--module', **self.argument_module)
 
     def setup_remove(self):
         self.cmd_remove = self.subparsers.add_parser(
-            'remove', help="Removes items from the profile file.")
+            'remove', help=self.help.get("remove"))
 
         self.cmd_remove = self.cmd_remove.add_argument_group('Usage: linuxp remove [OPTIONS]')
         self.cmd_remove.add_argument('--id', required=True, help="Reference ID of a database item.")
@@ -118,7 +128,7 @@ class BaseCommand:
 
     def setup_install(self):
         self.cmd_install = self.subparsers.add_parser(
-            'install', help="This parameter is used to install the modules, package, alias and script.")
+            'install', help=self.help.get("install"))
 
         self.cmd_install = self.cmd_install.add_argument_group('Usage: linuxp install [OPTIONS]')
         self.cmd_install.add_argument('-m', '--module', **self.argument_module)
@@ -130,7 +140,7 @@ class BaseCommand:
 
     def setup_uninstall(self):
         self.cmd_uninstall = self.subparsers.add_parser(
-            'uninstall', help="Command used to uninstall items. Be very careful when running.")
+            'uninstall', help=self.help.get("uninstall"))
 
         self.cmd_uninstall = self.cmd_uninstall.add_argument_group('Usage: linuxp uninstall [OPTIONS]')
         self.cmd_uninstall.add_argument('-m', '--module', **self.argument_module)
@@ -142,7 +152,7 @@ class BaseCommand:
 
     def setup_list(self):
         self.cmd_list = self.subparsers.add_parser(
-            'list', help="Lists all modules in the terminal and can also apply filters to find items.")
+            'list', help=self.help.get("list"))
 
         self.cmd_list = self.cmd_list.add_argument_group('Usage: linuxp list [OPTIONS]')
         self.cmd_list.add_argument('-m', '--module', **self.argument_module)
@@ -162,7 +172,7 @@ class BaseCommand:
                 except Exception:
                     text_ascii = f"\nLinuxProfile {__version__}"
 
-                print(text_ascii+__info__)
+                print(text_ascii + __info__)
 
         except ErrorParameterIsMissing as error:
             print_warning(str(error))
@@ -180,7 +190,7 @@ class BaseCommand:
             print_error(str(error))
 
         except ErrorFile as error:
-            print_error(str(ErrorFile))
+            print_error(str(error))
 
         except Exception as error:
             print_error(str(error))

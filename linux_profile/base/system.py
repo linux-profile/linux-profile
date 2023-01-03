@@ -32,7 +32,7 @@ class System:
     def system(self, cmd: list):
         cmd = " ".join(cmd).replace("  ", " ")
         if cmd[-1] == " ":
-            cmd = cmd[0:len(cmd)-1]
+            cmd = cmd[0:len(cmd) - 1]
 
         if self.sudo:
             cmd = f"sudo {cmd}"
