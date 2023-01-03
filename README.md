@@ -3,7 +3,7 @@
 <img src="https://github.com/MyLinuxProfile/linux-profile/blob/master/docs/linuxp.png?raw=true">
 
 ![GitHub Org's stars](https://img.shields.io/github/stars/MyLinuxProfile?label=LinuxProfile&style=flat-square)
-![GitHub last commit](https://img.shields.io/github/last-commit/MyLinuxProfile/linux-profile-basic?style=flat-square)
+![GitHub last commit](https://img.shields.io/github/last-commit/MyLinuxProfile/linux-profile?style=flat-square)
 ![GitHub Pipenv locked Python version](https://img.shields.io/github/pipenv/locked/python-version/MyLinuxProfile/linux-profile?style=flat-square)
 ![PyPI](https://img.shields.io/pypi/v/linuxp)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/linuxp?style=flat-square)
