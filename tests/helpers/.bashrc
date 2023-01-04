@@ -1,0 +1,1 @@
+export LINUXP_PATH="/opt/linuxp"

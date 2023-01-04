@@ -32,8 +32,7 @@ def slugify(value: str, slug_type: str = '_'):
 
 
 def cleaning_option(text: str):
-    list_str = ["\t", "\n", "\"", "\'", "'", "\u001b[C", "\u001b[D"]
-
+    list_str = ["\t", "\n", "\"", "\'", "'", "\u001b[C", "\u001b[D", "\\"]
     for item in list_str:
         text = text.replace(item, "")
     return text
@@ -46,7 +45,7 @@ def asterisk():
 def option(
         text: str,
         required: bool = False,
-        body: bool = False, 
+        body: bool = False,
         output: list = None,
         output_list: list = list()):
     option = asterisk() + text if required else text
@@ -63,12 +62,12 @@ def option(
         return input(option)
 
 
-def print_item(module: str, tag: str, item: str, description: str) -> None:
+def print_item(module: str, tag: str, item: str, description: str, id='') -> None:
     description = description if description else 'No description'
 
     print(
-        color(text=f"[{module.center(11)}]", types=['bold', 'dark_gray']),
+        color(text=id, types=['bold', 'dark_gray']),
         color(text=f"Tag: {tag}".ljust(20), types=['bold']),
-        item.ljust(35),
+        item.ljust(25),
         description
     )

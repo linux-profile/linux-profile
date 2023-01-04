@@ -1,18 +1,11 @@
-from os import system
 from linux_profile.base.system import System
 
 
 class HandlerPackage(System):
 
-    def setup_system(
-            self,
-            sudo: bool = True,
-            parameter: list = list()):
-        sudo = "sudo" if sudo else ""
-        parameter = " ".join(parameter)
-
-        command = [sudo, self.type, self.command, self.name, parameter]
-        system(" ".join(command).replace("  ", " "))
+    def setup_system(self, parameter: list = []):
+        command = [self.type, self.command, self.name, " ".join(parameter)]
+        self.system(cmd=command)
 
     def setup_apt_get(self):
         if self.command == 'install':
@@ -48,6 +41,7 @@ class HandlerPackage(System):
     def setup_pacman(self):
         if self.command == 'install':
             self.command = '-S'
+            self.setup_system()
 
         if self.command == 'uninstall':
             self.command = '-R'
@@ -68,27 +62,24 @@ class HandlerPackage(System):
 
     def setup_pip(self):
         if self.command == 'install':
-            self.setup_system(sudo=False)
+            self.setup_system()
 
         if self.command == 'uninstall':
-            self.setup_system(sudo=False, parameter=[" -y"])
+            self.setup_system(parameter=[" -y"])
 
-    def setup_deb(self):
-        path_file = f"{self.temp}/{self.file}"
+    def setup_swupd(self):
+        if self.command == 'install':
+            self.command = 'bundle-add'
 
-        system(f"curl {self.url} --output {path_file}")
-        system(f"sudo dpkg -i {path_file}")
-        system("sudo apt install -f")
+        if self.command == 'uninstall':
+            self.command = 'bundle-remove'
 
-        # Removing the temporary installation file
-        system(f"sudo rm -r {path_file}")
+        self.setup_system()
 
-    def setup_shell(self):
-        path_file = f"{self.temp}/{self.name}"
+    def setup_guix(self):
+        if self.command == 'uninstall':
+            self.command = 'remove'
+        self.setup_system()
 
-        system(f"curl {self.url} --output {path_file}")
-        system(f"chmod +x {path_file}")
-        system(path_file)
-
-        # Removing the temporary installation file
-        system(f"sudo rm -r {path_file}")
+    def setup_flatpak(self):
+        self.setup_system()

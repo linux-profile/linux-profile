@@ -1,6 +1,4 @@
-#!/bin/sh
-
-APP='/opt/linuxp'
+#!/bin/bash
 
 if  [ ! -n "$1" ]
 then 
@@ -9,26 +7,89 @@ else
 	branch=$1
 fi
 
-echo "1 - Installing dependencies"
-sudo apt install git
+DISTRO=$(cat /etc/*-release | grep -w ID | cut -d= -f2 | tr -d '"')
 
-echo "2 - Download Github Repository"
-sudo git clone https://github.com/MyLinuxProfile/linux-profile.git $APP/temp --branch $branch
+LINUXP_PATH="/opt/linuxp"
+APP_TEMP=$LINUXP_PATH/temp
+URL=https://github.com/MyLinuxProfile/linux-profile.git
 
-echo "3 - Creating project structure"
-sudo rm -r $APP/linux_profile
-sudo mv $APP/temp/linux_profile $APP/linux_profile
-sudo mv $APP/temp/linuxp.py $APP/linuxp
 
-echo "4 - Creating executable"
-sudo chmod +x $APP/linuxp
-sudo rm -r $APP/temp/
+update_linux() {
 
-echo "5 - Creating new line in '.bashrc' file with project configuration."
-echo '' >> ~/.bashrc
-echo "# LinuxP" >> ~/.bashrc
+    if [[ $DISTRO == "ubuntu" ]]; then
+        echo "- Update $DISTRO"
+        sudo apt update -y > /dev/null 2>&1
+    fi
+
+    if [[ $DISTRO == "arch" ]]; then
+        echo "- Update $DISTRO"
+        sudo pacman -Sy
+    fi
+
+}
+
+install_dependencies() {
+
+    if [[ $DISTRO == "ubuntu" ]]; then
+        echo "- Installing dependencies [Git]"
+        sudo apt install git -y > /dev/null 2>&1
+    fi
+
+    if [[ $DISTRO == "arch" ]]; then
+        echo "- Installing dependencies [Git]"
+        sudo pacman -S git
+    fi
+
+}
+
+clone_repository() {
+    echo "- Cloning Repository --branch $branch"
+
+    if [ -d "$APP_TEMP" ]; then
+        sudo rm -r $APP_TEMP    
+    fi
+
+    sudo git clone $URL $APP_TEMP --branch $branch > /dev/null 2>&1
+
+}
+
+create_structure() {
+    echo "- Creating project structure"
+
+    if [ -d "$LINUXP_PATH/linux_profile" ]; then
+        sudo rm -r $LINUXP_PATH/linux_profile
+    fi
+
+    sudo mv $APP_TEMP/linux_profile $LINUXP_PATH/linux_profile
+    sudo mv $APP_TEMP/linuxp.py $LINUXP_PATH/linuxp
+}
+
+create_executable() {
+    echo "- Creating executable"
+
+    sudo chmod +x $LINUXP_PATH/linuxp
+
+    if [ -d "$APP_TEMP" ]; then
+        sudo rm -r $APP_TEMP
+    fi
+    
+}
+
+main() {
+    update_linux
+    install_dependencies
+    clone_repository
+    create_structure
+    create_executable
+}
+
+
+main
+
+echo "- Creating configuration in .bashrc file"
 echo 'PATH=$PATH":/opt/linuxp"' >> ~/.bashrc
-echo '' >> ~/.bashrc
 
-echo "6 - Exporting project configuration."
-export PATH=$PATH":/opt/linuxp"
+echo "- Exporting path"
+PATH=$PATH":$LINUXP_PATH"; export PATH
+
+exec $SHELL
