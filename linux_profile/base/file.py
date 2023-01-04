@@ -79,7 +79,7 @@ class File:
         try:
             with open(file=path_file, mode=mode, encoding=encoding) as content:
                 return content.readlines()
-        except FileNotFoundError as error:
+        except FileNotFoundError:
             cls.touch(path=path_file)
             return cls.read_lines(path_file=path_file, mode=mode, encoding=encoding)
 
