@@ -15,8 +15,8 @@ class ErrorLoadSettings(Exception):
 
 class ErrorFile(Exception):
 
-    def __init__(self):
-        message = "File error"
+    def __init__(self, parameter: str = 'Ops'):
+        message = f"File Error: [{parameter}]"
         super(ErrorFile, self).__init__(message)
 
 
