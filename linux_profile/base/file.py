@@ -79,12 +79,16 @@ class File:
         try:
             with open(file=path_file, mode=mode, encoding=encoding) as content:
                 return content.readlines()
+        except FileNotFoundError as error:
+            cls.touch(path=path_file)
+            return cls.read_lines(path_file=path_file, mode=mode, encoding=encoding)
+
         except Exception as error:
             raise ErrorFile(parameter=error)
 
     @classmethod
     def touch(cls, path: str, content={}):
         try:
-            cls.write(content=content, path_file=path)
+            cls.write(path_file=path, content=content)
         except Exception as error:
             raise ErrorFile(parameter=error)
