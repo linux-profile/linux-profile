@@ -1,8 +1,9 @@
 from os import system
 from pathlib import Path
 
+from linux_profile.base.file import File
 from linux_profile.base.system import System
-from linux_profile.utils.file import read_file, write_file, get_content
+from linux_profile.utils.file import write_file, get_content
 
 
 class HandlerAlias(System):
@@ -10,9 +11,8 @@ class HandlerAlias(System):
     def setup_exec(self):
         path_file = str(Path.home()) + '/.bash_aliases'
 
-        file_system = read_file(path_file=path_file)
-        body = get_content(path_file=file_system, separator="=")
-
+        bash_aliases = File.read(path_file=path_file)
+        body = get_content(path_file=bash_aliases, separator="=")
         current_alias = f'alias {self.command}="{self.body}"'
 
         rebase_alias = list()

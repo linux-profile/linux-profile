@@ -66,13 +66,13 @@ class Config:
         try:
             self.profile = loads(File.read(path_file=path_profile))
         except Exception:
-            File.touch(path=path_profile)
+            File.write(path_file=path_profile, content={})
             self._load_storage()
 
         try:
             self.config = loads(File.read(path_file=path_config))
         except Exception:
-            File.touch(path=path_config, content="")
+            File.touch(path=path_config)
             self._load_storage()
 
     @classmethod
