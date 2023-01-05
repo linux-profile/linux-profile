@@ -1,6 +1,6 @@
 # Resume
 
-Configuration of profile files and server connection.
+Settings file management.
 
 ## Usage
 
@@ -11,11 +11,11 @@ linuxp config --help
 
 usage: linuxp config [-h] [--get GET]
 
-optional arguments:
+options:
   -h, --help  show this help message and exit
 
 Usage: linuxp config [OPTIONS]:
-  --get GET   URL of your profile file to download and sync in the current project.
+  --get GET   URL of your settings file to download and sync.
 
 =============== Output ===============
 ```

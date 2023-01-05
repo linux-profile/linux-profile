@@ -32,14 +32,15 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 
 ## Commands
 
-| Command               | Description                                                                              | Wiki page                    |
-|:----------------------|:-----------------------------------------------------------------------------------------| :--------------------------: | 
-| ``linuxp config``     | Configuration of profile files and server connection.                                    | [Link](nav/commands/config/index.md) |
-| ``linuxp add``        | Parameter used to add a new item to the list in your profile file.                       | [Link](nav/commands/add/index.md) |
-| ``linuxp remove``     | Removes items from the profile file.                                                     | [Link](nav/commands/remove/index.md) |
-| ``linuxp install``    | This parameter is used to install the modules, **package**, **alias** and **script**.    | [Link](nav/commands/install/index.md) |
-| ``linuxp uninstall``  | Command used to uninstall items. Be **very careful** when running.                       | [Link](nav/commands/uninstall/index.md) |
-| ``linuxp list``       | Lists all modules in the terminal and can also apply filters to find items.              | [Link](nav/commands/list/index.md) |
+| Command               | Description                                                                           | Docs                                   |
+|:--------------------- |:------------------------------------------------------------------------------------- | :------------------------------------: | 
+| ``linuxp config``     | Settings file management.                                                             | [Link](https://docs.linuxprofile.com/) |
+| ``linuxp profile``    | Profile file management.                                                              | [Link](https://docs.linuxprofile.com/) |
+| ``linuxp add``        | Parameter used to add a new item to the list in your profile file.                    | [Link](https://docs.linuxprofile.com/) |
+| ``linuxp remove``     | Removes items from the profile file.                                                  | [Link](https://docs.linuxprofile.com/) |
+| ``linuxp install``    | This parameter is used to install the modules, **package**, **alias** and **script**. | [Link](https://docs.linuxprofile.com/) |
+| ``linuxp uninstall``  | Command used to uninstall items. Be **very careful** when running.                    | [Link](https://docs.linuxprofile.com/) |
+| ``linuxp list``       | Lists all modules in the terminal and can also apply filters to find items.           | [Link](https://docs.linuxprofile.com/) |
 
 ## Profile File 
 
