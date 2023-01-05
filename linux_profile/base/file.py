@@ -91,8 +91,8 @@ class File:
             raise ErrorFile(parameter=error)
 
     @classmethod
-    def touch(cls, path: str, content={}):
+    def touch(cls, path: str):
         try:
-            cls.write(path_file=path, content=content)
+            cls.write(path_file=path, content="\n", dump=False, jump=False)
         except Exception as error:
             raise ErrorFile(parameter=error)
