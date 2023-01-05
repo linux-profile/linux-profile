@@ -13,12 +13,12 @@ class Search:
     def __init__(self, database: str) -> None:
         self.database = database
         if not exists(self.database):
-            File.touch(path=self.database)
+            File.write(path_file=self.database, content={})
 
         try:
             self.json = loads(File.read(path_file=self.database))
         except Exception:
-            File.touch(path=self.database)
+            File.write(path_file=self.database, content={})
             self.json = loads(File.read(path_file=self.database))
 
     def get(self):
