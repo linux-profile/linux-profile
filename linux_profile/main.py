@@ -6,6 +6,7 @@ from linux_profile.base.command import BaseCommand, Command
 
 from linux_profile.commands.add import Add
 from linux_profile.commands.config import Config
+from linux_profile.commands.profile import Profile
 from linux_profile.commands.execute import Execute
 from linux_profile.commands.install import Install
 from linux_profile.commands.uninstall import Uninstall
@@ -18,6 +19,13 @@ class CommandConfig(Command):
     def execute(self):
         """Start"""
         Config(**self.arguments.__dict__)
+
+
+class CommandProfile(Command):
+
+    def execute(self):
+        """Start"""
+        Profile(**self.arguments.__dict__)
 
 
 class CommandAdd(Command):
@@ -89,6 +97,7 @@ def main():
     command = BaseCommand(parser)
 
     command.cmd_config.set_defaults(exec=CommandConfig)
+    command.cmd_profile.set_defaults(exec=CommandProfile)
     command.cmd_add.set_defaults(exec=CommandAdd)
     command.cmd_remove.set_defaults(exec=CommandRemove)
     command.cmd_execute.set_defaults(exec=CommandExecute)
