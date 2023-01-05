@@ -70,7 +70,7 @@ class Config:
             self._load_storage()
 
         try:
-            self.config = loads(File.read(path_file=path_config))
+            self.config = File.read(path_file=path_config)
         except Exception:
             File.touch(path=path_config)
             self._load_storage()
