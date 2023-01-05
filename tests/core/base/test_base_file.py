@@ -36,21 +36,21 @@ def test_base_file_write_lines_success():
     remove(test_path)
 
 
-def test_base_file_read_error():
+def test_base_file_read_file_does_not_exist_error():
+    test_path = f"{file_path}/xpto.txt"
     text = File()
-    try:
-        text.read(path_file=f"{file_path}/xpto.txt")
-    except Exception as error:
-        assert error.__class__ == ErrorFile
 
+    text.read(path_file=test_path)
+    assert path.exists(test_path) == True
+    remove(test_path)
 
-def test_base_file_read_lines_error():
+def test_base_file_read_lines_file_does_not_exist_error():
+    test_path = f"{file_path}/xpto.txt"
     text = File()
-    try:
-        text.read_lines(path_file=f"{file_path}/xpto.txt")
-    except Exception as error:
-        assert error.__class__ == ErrorFile
 
+    text.read_lines(path_file=test_path)
+    assert path.exists(test_path) == True
+    remove(test_path)
 
 def test_base_file_touch_success():
     test_path = f"{file_path}/touch.json"
