@@ -67,6 +67,10 @@ class File:
         try:
             with open(file=path_file, mode=mode, encoding=encoding) as content:
                 return content.read()
+        except FileNotFoundError:
+            cls.touch(path=path_file)
+            return cls.read(path_file=path_file, mode=mode, encoding=encoding)
+
         except Exception as error:
             raise ErrorFile(parameter=error)
 
