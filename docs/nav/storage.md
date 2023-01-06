@@ -5,7 +5,7 @@ Basically the data is saved in a `.json` file on your machine, without this loca
     <summary>View path</summary>
 
 ```
-cat ~/backup_profile.json
+cat ~/.config/linuxp/linux_profile.json
 ```
 
 </details>
@@ -18,7 +18,7 @@ You can find an example profile file from the link below:
     <summary>View file</summary>
 
 ```
-curl https://linuxprofile.com/exemple.json --output ~/exemple.json
+curl https://linuxprofile.com/linux_profile.json --output ~/linux_profile.json
 ```
 
 </details>

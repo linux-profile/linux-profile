@@ -83,7 +83,8 @@ class BaseCommand:
             help="Show program's version number and exit.")
 
         self.help = {
-            "config": "Configuration of profile files and server connection.",
+            "config": "Settings file management.",
+            "profile": "Profile file management.",
             "add": "Parameter used to add a new item to the list in your profile file.",
             "remove": "Removes items from the profile file.",
             "install": "This parameter is used to install the modules, package, alias and script.",
@@ -92,6 +93,7 @@ class BaseCommand:
         }
 
         self.setup_config()
+        self.setup_profile()
         self.setup_add()
         self.setup_remove()
         self.setup_execute()
@@ -104,7 +106,14 @@ class BaseCommand:
             'config', help=self.help.get("config"))
 
         self.cmd_config = self.cmd_config.add_argument_group('Usage: linuxp config [OPTIONS]')
-        self.cmd_config.add_argument('--get', help="URL of your profile file to download and sync in the current project.")
+        self.cmd_config.add_argument('--get', help="URL of your settings file to download and sync.")
+
+    def setup_profile(self):
+        self.cmd_profile = self.subparsers.add_parser(
+            'profile', help=self.help.get("profile"))
+
+        self.cmd_profile = self.cmd_profile.add_argument_group('Usage: linuxp profile [OPTIONS]')
+        self.cmd_profile.add_argument('--get', help="URL of your profile file to download and sync.")
 
     def setup_add(self):
         self.cmd_add = self.subparsers.add_parser(
