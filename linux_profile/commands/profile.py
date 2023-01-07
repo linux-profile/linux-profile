@@ -1,9 +1,9 @@
 import urllib.request
 
-from linux_profile.base.config import Config
+from linux_profile.base.settings import Settings
 
 
-class Profile(Config):
+class Profile(Settings):
 
     def setup(self):
         """Defines the functions that are executed each
@@ -14,5 +14,5 @@ class Profile(Config):
 
     def setup_get(self):
         urllib.request.urlretrieve(
-            self.get, self.join([self.linuxp_path_config, self.linuxp_file_profile])
+            self.get, self.join([self.path_config, self.file_profile])
         )
