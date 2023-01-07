@@ -1,5 +1,6 @@
 site_name: LinuxProfile
 site_url: http://linuxprofile.com
+repo_name: MyLinuxProfile/linux-profile
 repo_url: https://github.com/MyLinuxProfile/linux-profile
 
 nav:
@@ -35,6 +36,17 @@ theme:
     name: material
     logo: assets/linux-profile-icon.png
     favicon: assets/linux-profile-icon.ico
+    features:
+        - navigation.top
+    palette:
+        - scheme: default
+        - toggle:
+            icon: material/brightness-7 
+            name: Switch to dark mode
+        - scheme: slate
+        - toggle:
+            icon: material/brightness-4
+            name: Switch to light mode
 
 markdown_extensions:
   - admonition
@@ -45,3 +57,11 @@ markdown_extensions:
 
 extra_css:
   - stylesheets/extra.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/github 
+      link: https://github.com/MyLinuxProfile
+
+plugins:
+  - search
