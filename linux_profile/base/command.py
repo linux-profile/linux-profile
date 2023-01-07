@@ -65,13 +65,17 @@ class Command():
 
 class BaseCommand:
 
-    list_module = ['package', 'alias', 'script', 'file']
-
     def __init__(self, parser):
         self.parser = parser
         self.subparsers = self.parser.add_subparsers()
 
-        self.argument_module = {"required": True, "choices": self.list_module}
+        self.argument_module = {
+            "required": True,
+            "choices": ['package', 'alias', 'script', 'file']}
+
+        self.argument_option = {
+            "default": "of",
+            "choices": ['on', 'of']}
 
         self.parser._positionals.title = 'Commands'
         self.parser._optionals.title = 'Default Options'
@@ -105,65 +109,101 @@ class BaseCommand:
         self.cmd_config = self.subparsers.add_parser(
             'config', help=self.help.get("config"))
 
-        self.cmd_config = self.cmd_config.add_argument_group('Usage: linuxp config [OPTIONS]')
-        self.cmd_config.add_argument('--get', help="URL of your settings file to download and sync.")
+        helpers = {
+            "get": "URL of your settings file to download and sync."
+        }
+
+        self.cmd_config = self.cmd_config.add_argument_group(
+            'Usage: linuxp config [OPTIONS]')
+        self.cmd_config.add_argument('--get', help=helpers.get("get"))
 
     def setup_profile(self):
         self.cmd_profile = self.subparsers.add_parser(
             'profile', help=self.help.get("profile"))
 
-        self.cmd_profile = self.cmd_profile.add_argument_group('Usage: linuxp profile [OPTIONS]')
-        self.cmd_profile.add_argument('--get', help="URL of your profile file to download and sync.")
+        helpers = {
+            "get": "URL of your profile file to download and sync."
+        }
+
+        self.cmd_profile = self.cmd_profile.add_argument_group(
+            'Usage: linuxp profile [OPTIONS]')
+        self.cmd_profile.add_argument('--get', help=helpers.get("get"))
 
     def setup_add(self):
         self.cmd_add = self.subparsers.add_parser(
             'add', help=self.help.get("add"))
 
-        self.cmd_add = self.cmd_add.add_argument_group('Usage: linuxp add [OPTIONS]')
+        self.cmd_add = self.cmd_add.add_argument_group(
+            'Usage: linuxp add [OPTIONS]')
         self.cmd_add.add_argument('-m', '--module', **self.argument_module)
 
     def setup_remove(self):
         self.cmd_remove = self.subparsers.add_parser(
             'remove', help=self.help.get("remove"))
 
-        self.cmd_remove = self.cmd_remove.add_argument_group('Usage: linuxp remove [OPTIONS]')
-        self.cmd_remove.add_argument('--id', required=True, help="Reference ID of a database item.")
+        helpers = {
+            "id": "Reference ID of a database item."
+        }
+
+        self.cmd_remove = self.cmd_remove.add_argument_group(
+            'Usage: linuxp remove [OPTIONS]')
+        self.cmd_remove.add_argument('--id', required=True, help=helpers.get("id"))
 
     def setup_execute(self):
         self.cmd_execute = self.subparsers.add_parser('execute')
 
-        self.cmd_execute = self.cmd_execute.add_argument_group('Usage: linuxp execute [OPTIONS]')
-        self.cmd_execute.add_argument('--id', required=True, help="Reference ID of a database item.")
+        helpers = {
+            "id": "Reference ID of a database item."
+        }
+
+        self.cmd_execute = self.cmd_execute.add_argument_group(
+            'Usage: linuxp execute [OPTIONS]')
+        self.cmd_execute.add_argument('--id', required=True, help=helpers.get("id"))
 
     def setup_install(self):
         self.cmd_install = self.subparsers.add_parser(
             'install', help=self.help.get("install"))
 
-        self.cmd_install = self.cmd_install.add_argument_group('Usage: linuxp install [OPTIONS]')
+        helpers = {
+            "sudo": "Run the command with system root permissions.",
+            "debug": "Run a command in test mode. It only shows the command.",
+            "group": "Group items for executing a command.",
+        }
+
+        self.cmd_install = self.cmd_install.add_argument_group(
+            'Usage: linuxp install [OPTIONS]')
         self.cmd_install.add_argument('-m', '--module', **self.argument_module)
         self.cmd_install.add_argument('-t', '--tag')
         self.cmd_install.add_argument('-i', '--item')
-        self.cmd_install.add_argument('--sudo', default='of', help="Run the command with system root permissions.", choices=['on', 'of'])
-        self.cmd_install.add_argument('--debug', default='of', help="Run a command in test mode. It only shows the command.", choices=['on', 'of'])
-        self.cmd_install.add_argument('--group', default='of', help="Group items for executing a command.", choices=['on', 'of'])
+        self.cmd_install.add_argument('--sudo', help=helpers.get("sudo"), **self.argument_option)
+        self.cmd_install.add_argument('--debug', help=helpers.get("debug"), **self.argument_option)
+        self.cmd_install.add_argument('--group', help=helpers.get("group"), **self.argument_option)
 
     def setup_uninstall(self):
         self.cmd_uninstall = self.subparsers.add_parser(
             'uninstall', help=self.help.get("uninstall"))
 
-        self.cmd_uninstall = self.cmd_uninstall.add_argument_group('Usage: linuxp uninstall [OPTIONS]')
+        helpers = {
+            "sudo": "Run the command with system root permissions.",
+            "debug": "Run a command in test mode. It only shows the command.",
+            "group": "Group items for executing a command.",
+        }
+
+        self.cmd_uninstall = self.cmd_uninstall.add_argument_group(
+            'Usage: linuxp uninstall [OPTIONS]')
         self.cmd_uninstall.add_argument('-m', '--module', **self.argument_module)
         self.cmd_uninstall.add_argument('-t', '--tag')
         self.cmd_uninstall.add_argument('-i', '--item')
-        self.cmd_uninstall.add_argument('--sudo', default='of', help="Run the command with system root permissions.", choices=['on', 'of'])
-        self.cmd_uninstall.add_argument('--debug', default='of', help="Run a command in test mode. It only shows the command.", choices=['on', 'of'])
-        self.cmd_uninstall.add_argument('--group', default='of', help="Group items for executing a command.", choices=['on', 'of'])
+        self.cmd_uninstall.add_argument('--sudo', help=helpers.get("sudo"), **self.argument_option)
+        self.cmd_uninstall.add_argument('--debug', help=helpers.get("debug"), **self.argument_option)
+        self.cmd_uninstall.add_argument('--group', help=helpers.get("group"), **self.argument_option)
 
     def setup_list(self):
         self.cmd_list = self.subparsers.add_parser(
             'list', help=self.help.get("list"))
 
-        self.cmd_list = self.cmd_list.add_argument_group('Usage: linuxp list [OPTIONS]')
+        self.cmd_list = self.cmd_list.add_argument_group(
+            'Usage: linuxp list [OPTIONS]')
         self.cmd_list.add_argument('-m', '--module', **self.argument_module)
         self.cmd_list.add_argument('-t', '--tag')
         self.cmd_list.add_argument('-i', '--item')
