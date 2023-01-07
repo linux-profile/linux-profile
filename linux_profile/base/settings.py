@@ -79,7 +79,7 @@ class Settings:
                 data_config.update({attr: getattr(self, attr)})
             File.write(path_file=path_config, content=data_config)
             self._load_config()
- 
+
     def _load_profile(self):
         path_profile = self.join(
             [self.path_config, self.file_profile])
