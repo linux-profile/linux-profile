@@ -162,7 +162,7 @@ class BaseCommand:
 
         help_sudo = "Run the command with system root permissions."
         help_debug = "Run a command in test mode. It only shows the command."
-        # help_group = "Group items for executing a command."
+        help_group = "Group items for executing a command."
 
         self.cmd_install = self.cmd_install.add_argument_group(
             'Usage: linuxp install [OPTIONS]')
@@ -171,7 +171,7 @@ class BaseCommand:
         self.cmd_install.add_argument('-i', '--item')
         self.cmd_install.add_argument('--sudo', help=help_sudo, **self.argument_option)
         self.cmd_install.add_argument('--debug', help=help_debug, **self.argument_option)
-        # self.cmd_install.add_argument('--group', help=help_group, **self.argument_option)
+        self.cmd_install.add_argument('--group', help=help_group, **self.argument_option)
 
     def setup_uninstall(self):
         self.cmd_uninstall = self.subparsers.add_parser(
@@ -179,7 +179,7 @@ class BaseCommand:
 
         help_sudo = "Run the command with system root permissions."
         help_debug = "Run a command in test mode. It only shows the command."
-        # help_group = "Group items for executing a command."
+        help_group = "Group items for executing a command."
 
         self.cmd_uninstall = self.cmd_uninstall.add_argument_group(
             'Usage: linuxp uninstall [OPTIONS]')
@@ -188,7 +188,7 @@ class BaseCommand:
         self.cmd_uninstall.add_argument('-i', '--item')
         self.cmd_uninstall.add_argument('--sudo', help=help_sudo, **self.argument_option)
         self.cmd_uninstall.add_argument('--debug', help=help_debug, **self.argument_option)
-        # self.cmd_uninstall.add_argument('--group', help=help_group, **self.argument_option)
+        self.cmd_uninstall.add_argument('--group', help=help_group, **self.argument_option)
 
     def setup_list(self):
         self.cmd_list = self.subparsers.add_parser(
