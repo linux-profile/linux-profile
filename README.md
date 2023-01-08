@@ -29,7 +29,7 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 ### Quick development URLs
 - Beta -> https://linuxprofile.com/beta.sh
 
-## [Installation](https://docs.linuxprofile.com/)
+## [Installation](https://docs.linuxprofile.com/nav/installation/)
 
 - **Install - Pypi/PIP**
 
@@ -45,15 +45,15 @@ Linux Profile is a Linux profile management tool. With this project it is possib
 
 | Command               | Description                                                                           | Docs                                   |
 |:--------------------- |:------------------------------------------------------------------------------------- | :------------------------------------: | 
-| ``linuxp config``     | Settings file management.                                                             | [Link](https://docs.linuxprofile.com/) |
-| ``linuxp profile``    | Profile file management.                                                              | [Link](https://docs.linuxprofile.com/) |
-| ``linuxp add``        | Parameter used to add a new item to the list in your profile file.                    | [Link](https://docs.linuxprofile.com/) |
-| ``linuxp remove``     | Removes items from the profile file.                                                  | [Link](https://docs.linuxprofile.com/) |
-| ``linuxp install``    | This parameter is used to install the modules, **package**, **alias** and **script**. | [Link](https://docs.linuxprofile.com/) |
-| ``linuxp uninstall``  | Command used to uninstall items. Be **very careful** when running.                    | [Link](https://docs.linuxprofile.com/) |
-| ``linuxp list``       | Lists all modules in the terminal and can also apply filters to find items.           | [Link](https://docs.linuxprofile.com/) |
+| ``linuxp config``     | Settings file management.                                                             | [Link](https://docs.linuxprofile.com/nav/commands/config/) |
+| ``linuxp profile``    | Profile file management.                                                              | [Link](https://docs.linuxprofile.com/nav/commands/profile/) |
+| ``linuxp add``        | Parameter used to add a new item to the list in your profile file.                    | [Link](https://docs.linuxprofile.com/nav/commands/add/) |
+| ``linuxp remove``     | Removes items from the profile file.                                                  | [Link](https://docs.linuxprofile.com/nav/commands/remove/) |
+| ``linuxp install``    | This parameter is used to install the modules, **package**, **alias** and **script**. | [Link](https://docs.linuxprofile.com/nav/commands/install/) |
+| ``linuxp uninstall``  | Command used to uninstall items. Be **very careful** when running.                    | [Link](https://docs.linuxprofile.com/nav/commands/uninstall/) |
+| ``linuxp list``       | Lists all modules in the terminal and can also apply filters to find items.           | [Link](https://docs.linuxprofile.com/nav/commands/list/) |
 
-## [Make a profile backup](https://docs.linuxprofile.com/)
+## [Make a profile backup](https://docs.linuxprofile.com/nav/backup/)
 
 - Saving the profile file:
 
