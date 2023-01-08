@@ -9,7 +9,7 @@ permissions: read-all
 jobs:
   deployment:
     runs-on: ubuntu-latest
-    environment: develop
+    environment: test
 
     steps:
     - uses: actions/checkout@v3
@@ -19,6 +19,6 @@ jobs:
         python-version: "3.10"
     - name: Update Docs
       env:
-        TEST: ${{ secrets.TEST }} 
+        TEST: ${{ secrets.ENV_SECRET }} 
       run: |
         python .github/run.py
