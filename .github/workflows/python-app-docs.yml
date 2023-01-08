@@ -9,7 +9,7 @@ permissions: read-all
 jobs:
   deployment:
     runs-on: ubuntu-latest
-    environment: test
+    environment: develop
 
     steps:
     - uses: actions/checkout@v3
@@ -17,5 +17,8 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: "3.10"
-    - name: Test env vars for python
-      run: python -c 'import os;print(os.environ)'
+    - name: Update Docs
+      env:
+        TEST: ${{ secrets.TEST }} 
+      run: |
+        python .github/run.py
