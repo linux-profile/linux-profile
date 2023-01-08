@@ -110,24 +110,32 @@ class BaseCommand:
             'config', help=self.help.get("config"))
 
         helpers = {
-            "get": "URL of your settings file to download and sync."
+            "url": "URL to download and sync config.".ljust(35, ".") + \
+            " Ex: --url https://linuxprofile.com/linux_config.json",
         }
 
         self.cmd_config = self.cmd_config.add_argument_group(
             'Usage: linuxp config [OPTIONS]')
-        self.cmd_config.add_argument('--get', help=helpers.get("get"))
+        self.cmd_config.add_argument('--url', help=helpers.get("url"))
 
     def setup_profile(self):
         self.cmd_profile = self.subparsers.add_parser(
             'profile', help=self.help.get("profile"))
 
         helpers = {
-            "get": "URL of your profile file to download and sync."
+            "url": "URL to download and sync profile.".ljust(35, ".") + \
+                " Ex: --url https://linuxprofile.com/linux_profile.json",
+            "output": "File name to save.".ljust(35, ".") + \
+                " Ex: --output 'my_linux'",
+            "switch": "File name for profile switching.".ljust(35, ".") + \
+                " Ex: --switch 'my_linux.json'"
         }
 
         self.cmd_profile = self.cmd_profile.add_argument_group(
             'Usage: linuxp profile [OPTIONS]')
-        self.cmd_profile.add_argument('--get', help=helpers.get("get"))
+        self.cmd_profile.add_argument('--url', help=helpers.get("url"))
+        self.cmd_profile.add_argument('--output', help=helpers.get("output"))
+        self.cmd_profile.add_argument('--switch', help=helpers.get("switch"))
 
     def setup_add(self):
         self.cmd_add = self.subparsers.add_parser(

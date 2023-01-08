@@ -1,6 +1,8 @@
 import urllib.request
 
+from linux_profile.validators.input_profile import InputProfile
 from linux_profile.base.settings import Settings
+from linux_profile.base.file import File
 
 
 class Profile(Settings):
@@ -9,10 +11,24 @@ class Profile(Settings):
         """Defines the functions that are executed each
         time the class is instantiated.
         """
-        if self.get:
-            self.setup_get()
-
-    def setup_get(self):
-        urllib.request.urlretrieve(
-            self.get, self.join([self.path_config, self.file_profile])
+        self.fields = InputProfile(**{
+            "url": self.url,
+            "switch": self.switch,
+            "output": self.output
+            }
         )
+
+        if self.fields.url:
+            self.setup_url()
+
+        if self.fields.switch:
+            self.setup_switch()
+
+    def setup_url(self):
+        urllib.request.urlretrieve(self.url, self.fields.output)
+
+    def setup_switch(self):
+        self.config['file_profile'] = self.fields.switch
+        File.write(
+            content=self.config,
+            path_file=self.join(value=[self.path_config, self.file_config]))
