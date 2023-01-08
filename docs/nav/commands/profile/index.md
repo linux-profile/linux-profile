@@ -9,13 +9,15 @@ linuxp profile --help
 
 =============== Output ===============
 
-usage: linuxp profile [-h] [--get GET]
+usage: linuxp profile [-h] [--url URL] [--output OUTPUT] [--switch SWITCH]
 
 options:
-  -h, --help  show this help message and exit
+  -h, --help       show this help message and exit
 
 Usage: linuxp profile [OPTIONS]:
-  --get GET   URL of your profile file to download and sync.
+  --url URL        URL to download and sync profile.
+  --output OUTPUT  File name to save.
+  --switch SWITCH  File name for profile switching.
 
 =============== Output ===============
 ```

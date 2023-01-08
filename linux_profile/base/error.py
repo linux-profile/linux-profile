@@ -48,6 +48,13 @@ class ErrorParameterIsMissing(Exception):
         super(ErrorParameterIsMissing, self).__init__(message)
 
 
+class ErrorArgumentIsInvalid(Exception):
+
+    def __init__(self, argument, error):
+        message = f"Argument [{argument}] invalid! {str(error)}"
+        super(ErrorArgumentIsInvalid, self).__init__(message)
+
+
 def print_warning(parameter):
     print(
         color(

@@ -1,9 +1,9 @@
 # Parameters
 
-## GET
+## URL
 
 - Input:
 
 ```
-linuxp config --get https://linuxprofile.com/linux_profile.conf
+linuxp config --url https://linuxprofile.com/linux_config.json
 ```
