@@ -15,7 +15,7 @@ options:
   -h, --help  show this help message and exit
 
 Usage: linuxp config [OPTIONS]:
-  --url URL   URL to download and sync config.... Ex: --url https://linuxprofile.com/linux_config.json
+  --url URL   URL to download and sync config.
 
 =============== Output ===============
 ```
