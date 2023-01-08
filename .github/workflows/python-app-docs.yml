@@ -2,7 +2,7 @@ name: 📘 Update Docs
 
 on:
   push:
-    branches: [ "ISSUE-113" ]
+    branches: [ "docs" ]
 
 permissions: read-all
 
@@ -29,5 +29,6 @@ jobs:
         FTP_HOST: ${{ secrets.FTP_HOST }}
         FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
         FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        FTP_PATH: ${{ secrets.FTP_PATH }}
       run: |
         python .github/update_docs.py

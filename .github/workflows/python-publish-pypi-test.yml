@@ -2,8 +2,7 @@ name: 📦 Package PyPI-Test
 
 on:
   push:
-    branches:
-    - pypi
+    branches: [ "pypi" ]
 
 permissions:
   contents: read

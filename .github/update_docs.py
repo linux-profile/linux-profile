@@ -5,6 +5,7 @@ import ftplib
 ftp_host = os.environ.get("FTP_HOST")
 ftp_username = os.environ.get("FTP_USERNAME")
 ftp_password = os.environ.get("FTP_PASSWORD")
+ftp_path = os.environ.get("FTP_PATH")
 
 
 def ftp_connect():
@@ -15,12 +16,12 @@ def ftp_connect():
 def ftp_run():
     session = ftp_connect()
     try:
-        session.mkd('site')
+        session.mkd(ftp_path)
     except Exception:
         pass
 
     for currentpath, folders, files in os.walk('site'):
-        # currentpath = currentpath.replace("site", "docs")
+        currentpath = currentpath.replace("site", ftp_path)
 
         for folder in folders:
             path_folder = os.path.join(currentpath, folder)
@@ -40,7 +41,5 @@ def ftp_run():
                 pass
 
 
-# if __name__ == "__main__":
-#     ftp_run()
-
-ftp_run()
+if __name__ == "__main__":
+    ftp_run()
