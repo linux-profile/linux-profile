@@ -19,7 +19,7 @@ from linux_profile.base.error import (
 )
 
 
-class Command():
+class Command:
 
     list_option = ['id', 'module', 'tag', 'item', 'sudo', 'debug', 'group']
 

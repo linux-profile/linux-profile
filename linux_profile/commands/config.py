@@ -1,6 +1,6 @@
 import urllib.request
 
-from linux_profile.validators.input_config import InputConfig
+from linux_profile.validators import InputConfig
 from linux_profile.base.settings import Settings
 
 
