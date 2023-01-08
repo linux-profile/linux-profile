@@ -20,7 +20,7 @@ def ftp_run():
         pass
 
     for currentpath, folders, files in os.walk('site'):
-        currentpath = currentpath.replace("site", "docs")
+        # currentpath = currentpath.replace("site", "docs")
 
         for folder in folders:
             path_folder = os.path.join(currentpath, folder)
