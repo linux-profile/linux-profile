@@ -23,3 +23,20 @@ Usage: linuxp install [OPTIONS]:
 
 =============== Output ===============
 ```
+
+## Flow
+
+<center>
+
+``` mermaid
+graph TD
+    L[linuxp] -->|type command| i(install)
+    i ---> option_i{arguments}
+    option_i --->|add| arg_i_module[module]
+    option_i --->|add| arg_i_tag[tag]
+    option_i --->|add| arg_i_item[item]
+    option_i --->|add| arg_i_sudo[sudo]
+    option_i --->|add| arg_i_debug[debug]
+```
+
+</center>

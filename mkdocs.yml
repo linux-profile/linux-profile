@@ -38,22 +38,20 @@ theme:
     favicon: assets/linux-profile-icon.ico
     features:
         - navigation.top
-    palette:
-        - scheme: default
-        - toggle:
-            icon: material/brightness-7 
-            name: Switch to dark mode
-        - scheme: slate
-        - toggle:
-            icon: material/brightness-4
-            name: Switch to light mode
 
 markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.highlight
+  - codehilite
   - pymdownx.tabbed:
       alternate_style: true 
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
 
 extra_css:
   - stylesheets/extra.css

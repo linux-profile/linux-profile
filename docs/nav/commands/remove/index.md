@@ -19,3 +19,16 @@ Usage: linuxp remove [OPTIONS]:
 
 =============== Output ===============
 ```
+
+## Flow
+
+<center>
+
+``` mermaid
+graph TD
+    L[linuxp] -->|type command| r(remove)
+    r ---> option_r{arguments}
+    option_r --->|add| arg_r_id[id]
+```
+
+</center>
