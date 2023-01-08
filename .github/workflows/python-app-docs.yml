@@ -4,15 +4,13 @@ on:
   push:
     branches: [ "ISSUE-113" ]
 
-env:
-  TEST: ${{ env.TEST }}
-
 permissions: read-all
 
 jobs:
   build:
 
     runs-on: ubuntu-latest
+    environment: develop
 
     steps:
     - uses: actions/checkout@v3
