@@ -40,5 +40,7 @@ def ftp_run():
                 pass
 
 
-if __name__ == "__main__":
-    ftp_run()
+# if __name__ == "__main__":
+#     ftp_run()
+
+ftp_run()
