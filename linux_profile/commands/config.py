@@ -11,8 +11,7 @@ class Config(Settings):
         time the class is instantiated.
         """
         self.fields = InputConfig(**{
-            "url": self.url,
-            }
+            "url": self.url}
         )
 
         if self.fields.url:

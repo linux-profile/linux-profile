@@ -109,33 +109,25 @@ class BaseCommand:
         self.cmd_config = self.subparsers.add_parser(
             'config', help=self.help.get("config"))
 
-        helpers = {
-            "url": "URL to download and sync config.".ljust(35, ".") + \
-            " Ex: --url https://linuxprofile.com/linux_config.json",
-        }
+        help_url = "URL to download and sync config."
 
         self.cmd_config = self.cmd_config.add_argument_group(
             'Usage: linuxp config [OPTIONS]')
-        self.cmd_config.add_argument('--url', help=helpers.get("url"))
+        self.cmd_config.add_argument('--url', help=help_url)
 
     def setup_profile(self):
         self.cmd_profile = self.subparsers.add_parser(
             'profile', help=self.help.get("profile"))
 
-        helpers = {
-            "url": "URL to download and sync profile.".ljust(35, ".") + \
-                " Ex: --url https://linuxprofile.com/linux_profile.json",
-            "output": "File name to save.".ljust(35, ".") + \
-                " Ex: --output 'my_linux'",
-            "switch": "File name for profile switching.".ljust(35, ".") + \
-                " Ex: --switch 'my_linux.json'"
-        }
+        help_url = "URL to download and sync profile."
+        help_output = "File name to save."
+        help_switch = "File name for profile switching."
 
         self.cmd_profile = self.cmd_profile.add_argument_group(
             'Usage: linuxp profile [OPTIONS]')
-        self.cmd_profile.add_argument('--url', help=helpers.get("url"))
-        self.cmd_profile.add_argument('--output', help=helpers.get("output"))
-        self.cmd_profile.add_argument('--switch', help=helpers.get("switch"))
+        self.cmd_profile.add_argument('--url', help=help_url)
+        self.cmd_profile.add_argument('--output', help=help_output)
+        self.cmd_profile.add_argument('--switch', help=help_switch)
 
     def setup_add(self):
         self.cmd_add = self.subparsers.add_parser(
@@ -149,62 +141,54 @@ class BaseCommand:
         self.cmd_remove = self.subparsers.add_parser(
             'remove', help=self.help.get("remove"))
 
-        helpers = {
-            "id": "Reference ID of a database item."
-        }
+        help_id = "Reference ID of a storage item."
 
         self.cmd_remove = self.cmd_remove.add_argument_group(
             'Usage: linuxp remove [OPTIONS]')
-        self.cmd_remove.add_argument('--id', required=True, help=helpers.get("id"))
+        self.cmd_remove.add_argument('--id', required=True, help=help_id)
 
     def setup_execute(self):
         self.cmd_execute = self.subparsers.add_parser('execute')
 
-        helpers = {
-            "id": "Reference ID of a database item."
-        }
+        help_id = "Reference ID of a storage item."
 
         self.cmd_execute = self.cmd_execute.add_argument_group(
             'Usage: linuxp execute [OPTIONS]')
-        self.cmd_execute.add_argument('--id', required=True, help=helpers.get("id"))
+        self.cmd_execute.add_argument('--id', required=True, help=help_id)
 
     def setup_install(self):
         self.cmd_install = self.subparsers.add_parser(
             'install', help=self.help.get("install"))
 
-        helpers = {
-            "sudo": "Run the command with system root permissions.",
-            "debug": "Run a command in test mode. It only shows the command.",
-            "group": "Group items for executing a command.",
-        }
+        help_sudo = "Run the command with system root permissions."
+        help_debug = "Run a command in test mode. It only shows the command."
+        # help_group = "Group items for executing a command."
 
         self.cmd_install = self.cmd_install.add_argument_group(
             'Usage: linuxp install [OPTIONS]')
         self.cmd_install.add_argument('-m', '--module', **self.argument_module)
         self.cmd_install.add_argument('-t', '--tag')
         self.cmd_install.add_argument('-i', '--item')
-        self.cmd_install.add_argument('--sudo', help=helpers.get("sudo"), **self.argument_option)
-        self.cmd_install.add_argument('--debug', help=helpers.get("debug"), **self.argument_option)
-        self.cmd_install.add_argument('--group', help=helpers.get("group"), **self.argument_option)
+        self.cmd_install.add_argument('--sudo', help=help_sudo, **self.argument_option)
+        self.cmd_install.add_argument('--debug', help=help_debug, **self.argument_option)
+        # self.cmd_install.add_argument('--group', help=help_group, **self.argument_option)
 
     def setup_uninstall(self):
         self.cmd_uninstall = self.subparsers.add_parser(
             'uninstall', help=self.help.get("uninstall"))
 
-        helpers = {
-            "sudo": "Run the command with system root permissions.",
-            "debug": "Run a command in test mode. It only shows the command.",
-            "group": "Group items for executing a command.",
-        }
+        help_sudo = "Run the command with system root permissions."
+        help_debug = "Run a command in test mode. It only shows the command."
+        # help_group = "Group items for executing a command."
 
         self.cmd_uninstall = self.cmd_uninstall.add_argument_group(
             'Usage: linuxp uninstall [OPTIONS]')
         self.cmd_uninstall.add_argument('-m', '--module', **self.argument_module)
         self.cmd_uninstall.add_argument('-t', '--tag')
         self.cmd_uninstall.add_argument('-i', '--item')
-        self.cmd_uninstall.add_argument('--sudo', help=helpers.get("sudo"), **self.argument_option)
-        self.cmd_uninstall.add_argument('--debug', help=helpers.get("debug"), **self.argument_option)
-        self.cmd_uninstall.add_argument('--group', help=helpers.get("group"), **self.argument_option)
+        self.cmd_uninstall.add_argument('--sudo', help=help_sudo, **self.argument_option)
+        self.cmd_uninstall.add_argument('--debug', help=help_debug, **self.argument_option)
+        # self.cmd_uninstall.add_argument('--group', help=help_group, **self.argument_option)
 
     def setup_list(self):
         self.cmd_list = self.subparsers.add_parser(

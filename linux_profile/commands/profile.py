@@ -14,8 +14,7 @@ class Profile(Settings):
         self.fields = InputProfile(**{
             "url": self.url,
             "switch": self.switch,
-            "output": self.output
-            }
+            "output": self.output}
         )
 
         if self.fields.url:
