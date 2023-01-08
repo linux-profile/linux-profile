@@ -22,3 +22,18 @@ Usage: linuxp list [OPTIONS]:
 
 =============== Output ===============
 ```
+
+## Flow
+
+<center>
+
+``` mermaid
+graph TD
+    L[linuxp] -->|type command| l(list)
+    l ---> option_l{arguments}
+    option_l --->|add| arg_l_module[module]
+    option_l --->|add| arg_l_tag[tag]
+    option_l --->|add| arg_l_item[item]
+```
+
+</center>

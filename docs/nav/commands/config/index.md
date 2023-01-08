@@ -19,3 +19,16 @@ Usage: linuxp config [OPTIONS]:
 
 =============== Output ===============
 ```
+
+## Flow
+
+<center>
+
+``` mermaid
+graph TD
+    L[linuxp] -->|type command| c(config)
+    c ---> option_c{arguments}
+    option_c --->|add| arg_c_url[url]
+```
+
+</center>

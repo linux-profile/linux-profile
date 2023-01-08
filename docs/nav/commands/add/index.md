@@ -19,3 +19,16 @@ Usage: linuxp add [OPTIONS]:
 
 =============== Output ===============
 ```
+
+## Flow
+
+<center>
+
+``` mermaid
+graph TD
+    L[linuxp] -->|type command| a(add)
+    a ---> option_a{arguments}
+    option_a --->|add| arg_a_module[module]
+```
+
+</center>

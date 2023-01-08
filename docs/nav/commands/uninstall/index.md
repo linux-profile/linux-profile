@@ -21,3 +21,20 @@ Usage: linuxp uninstall [OPTIONS]:
 
 =============== Output ===============
 ```
+
+## Flow
+
+<center>
+
+``` mermaid
+graph TD
+    L[linuxp] -->|type command| u(uninstall)
+    u ---> option_u{arguments}
+    option_u --->|add| arg_u_module[module]
+    option_u --->|add| arg_u_tag[tag]
+    option_u --->|add| arg_u_item[item]
+    option_u --->|add| arg_u_sudo[sudo]
+    option_u --->|add| arg_u_debug[debug]
+```
+
+</center>
