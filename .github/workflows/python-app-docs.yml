@@ -4,6 +4,9 @@ on:
   push:
     branches: [ "ISSUE-113" ]
 
+env:
+  TEST: ${{ env.TEST }}
+
 permissions: read-all
 
 jobs:
