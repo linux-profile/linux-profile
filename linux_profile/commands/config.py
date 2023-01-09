@@ -1,18 +1,23 @@
 import urllib.request
 
-from linux_profile.base.config import Config as _Config
+from linux_profile.validators import InputConfig
+from linux_profile.base.settings import Settings
 
 
-class Config(_Config):
+class Config(Settings):
 
     def setup(self):
         """Defines the functions that are executed each
         time the class is instantiated.
         """
-        if self.get:
-            self.setup_get()
+        self.fields = InputConfig(**{
+            "url": self.url}
+        )
 
-    def setup_get(self):
+        if self.fields.url:
+            self.setup_url()
+
+    def setup_url(self):
         urllib.request.urlretrieve(
-            self.get, self.join([self.linuxp_path_config, self.linuxp_file_config])
+            self.url, self.join([self.path_config, self.file_config])
         )

@@ -3,8 +3,18 @@
 ## Permissions
 
 Run the installation commands with administrator permission.
+
+- Input
+
 ```bash
 linuxp uninstall --module package --sudo on
+```
+
+- Command result
+
+```bash
+sudo apt uninstall python3
+sudo apt uninstall python3-pip
 ```
 
 ## Debug
@@ -12,10 +22,34 @@ linuxp uninstall --module package --sudo on
 Run the installation commands in test mode. In test mode the commands are not
 actually executed on the machine, they are just displayed in the terminal.
 
+- Input
+
 ```bash
 linuxp uninstall --module package --debug on
 ```
 
+- Command result
+
+```bash
+echo 'sudo apt uninstall python3'
+echo 'sudo apt uninstall python3-pip'
+```
+
+## Group
+
+This command groups the items for executing the command.
+
+- Input
+
+```bash
+linuxp uninstall --module package --group on
+```
+
+- Command result
+
+```bash
+sudo apt uninstall python3 python3-pip
+```
 
 ## Uninstall Package
 

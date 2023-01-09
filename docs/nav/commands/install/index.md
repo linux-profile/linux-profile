@@ -9,9 +9,9 @@ linuxp install --help
 
 =============== Output ===============
 
-usage: linuxp install [-h] -m {package,alias,script,file} [-t TAG] [-i ITEM] [--sudo {on,of}] [--debug {on,of}]
+usage: linuxp install [-h] -m {package,alias,script,file} [-t TAG] [-i ITEM] [--sudo {on,of}] [--debug {on,of}] [--group {on,of}]
 
-optional arguments:
+options:
   -h, --help            show this help message and exit
 
 Usage: linuxp install [OPTIONS]:
@@ -20,6 +20,25 @@ Usage: linuxp install [OPTIONS]:
   -i ITEM, --item ITEM
   --sudo {on,of}        Run the command with system root permissions.
   --debug {on,of}       Run a command in test mode. It only shows the command.
+  --group {on,of}       Group items for executing a command.
 
 =============== Output ===============
 ```
+
+## Flow
+
+<center>
+
+``` mermaid
+graph TD
+    L[linuxp] -->|type command| i(install)
+    i ---> option_i{arguments}
+    option_i --->|add| arg_i_module[module]
+    option_i --->|add| arg_i_tag[tag]
+    option_i --->|add| arg_i_item[item]
+    option_i --->|add| arg_i_sudo[sudo]
+    option_i --->|add| arg_i_debug[debug]
+    option_i --->|add| arg_i_group[group]
+```
+
+</center>

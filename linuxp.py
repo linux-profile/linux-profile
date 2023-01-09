@@ -59,7 +59,8 @@ class CommandInstall(Command):
                 debug=self.debug,
                 module=self.module,
                 tag=self.tag,
-                item=self.item
+                item=self.item,
+                group=self.group
             )
         )
 
@@ -74,7 +75,8 @@ class CommandUninstall(Command):
                 debug=self.debug,
                 module=self.module,
                 tag=self.tag,
-                item=self.item
+                item=self.item,
+                group=self.group
             )
         )
 

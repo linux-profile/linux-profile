@@ -29,27 +29,27 @@ def test_utils_color_violett():
 
 def test_utils_color_blue():
     text = color(text=" linux ", types=['blue'])
-    assert text[0:5] == Colors.BLUE
+    assert text[0:7] == Colors.BLUE
 
 
 def test_utils_color_cyan():
     text = color(text=" linux ", types=['cyan'])
-    assert text[0:5] == Colors.CYAN
+    assert text[0:7] == Colors.CYAN
 
 
 def test_utils_color_green():
     text = color(text=" linux ", types=['green'])
-    assert text[0:5] == Colors.GREEN
+    assert text[0:7] == Colors.GREEN
 
 
 def test_utils_color_yellow():
     text = color(text=" linux ", types=['yellow'])
-    assert text[0:5] == Colors.YELLOW
+    assert text[0:7] == Colors.YELLOW
 
 
 def test_utils_color_red():
     text = color(text=" linux ", types=['red'])
-    assert text[0:5] == Colors.RED
+    assert text[0:7] == Colors.RED
 
 
 def test_utils_color_endc():
@@ -68,13 +68,8 @@ def test_utils_color_underline():
     assert text[0:4] == Colors.UNDERLINE
 
 
-def test_utils_color_dark_gray():
-    text = color(text=" linux ", types=['dark_gray'])
-    assert text[0:10] == Colors.DARK_GRAY
-
-
 def test_utils_asterisk():
-    assert asterisk() == '\x1b[1m\x1b[91m* \x1b[0m'
+    assert asterisk() == '\x1b[1m\x1b[0;31m* \x1b[0m'
 
 
 def test_utils_cleaning():

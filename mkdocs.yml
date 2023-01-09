@@ -1,5 +1,6 @@
 site_name: LinuxProfile
 site_url: http://linuxprofile.com
+repo_name: MyLinuxProfile/linux-profile
 repo_url: https://github.com/MyLinuxProfile/linux-profile
 
 nav:
@@ -35,13 +36,30 @@ theme:
     name: material
     logo: assets/linux-profile-icon.png
     favicon: assets/linux-profile-icon.ico
+    features:
+        - navigation.top
 
 markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.highlight
+  - codehilite
   - pymdownx.tabbed:
       alternate_style: true 
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
 
 extra_css:
   - stylesheets/extra.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/github 
+      link: https://github.com/MyLinuxProfile
+
+plugins:
+  - search
