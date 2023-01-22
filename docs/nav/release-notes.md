@@ -1,19 +1,27 @@
 # Release Notes
 
+## v1.0.13
+
+- [📦 PyPI - Build 1.0.13](https://github.com/MyLinuxProfile/linux-profile/releases/tag/v1.0.13)
+- [📌 ISSUE-122 - Improved profile management](https://github.com/MyLinuxProfile/linux-profile/issues/122)
+
 ## v1.0.12
 
+- [📦 PyPI - Build 1.0.12](https://github.com/MyLinuxProfile/linux-profile/releases/tag/v1.0.12)
 - [📌 ISSUE-114 - Additional arguments in 'config' and 'profile'](https://github.com/MyLinuxProfile/linux-profile/issues/114)
 - [📌 ISSUE-113 - Documentation update Automation](https://github.com/MyLinuxProfile/linux-profile/issues/113)
 - [📌 ISSUE-103 - Make option to install packages in group](https://github.com/MyLinuxProfile/linux-profile/issues/103)
 
 ## v1.0.11
 
+- [📦 PyPI - Build 1.0.11](https://github.com/MyLinuxProfile/linux-profile/releases/tag/v1.0.11)
 - [📌 ISSUE-102 - Include data import by '--config' and '--profile' commands](https://github.com/MyLinuxProfile/linux-profile/issues/102)
 - [📌 ISSUE-101 - Error creating directory without root permission using PIP](https://github.com/MyLinuxProfile/linux-profile/issues/101)
 - [📌 ISSUE-99 - Documentation Update](https://github.com/MyLinuxProfile/linux-profile/issues/99)
 
 ## v1.0.10
 
+- [📦 PyPI - Build 1.0.10](https://github.com/MyLinuxProfile/linux-profile/releases/tag/v1.0.10)
 - [📌 ISSUE-93 - Create execution command for reading and writing files](https://github.com/MyLinuxProfile/linux-profile/issues/93)
 - [📌 ISSUE-91 - Remove useless code from implementation of 'terminal'](https://github.com/MyLinuxProfile/linux-profile/issues/91)
 - [📌 ISSUE-89 - Parameterize the installation and removal command with 'root' permission](https://github.com/MyLinuxProfile/linux-profile/issues/89)
@@ -56,10 +64,12 @@
 
 ## v1.0.1
 
+- [📦 PyPI - Build 1.0.1](https://github.com/MyLinuxProfile/linux-profile/releases/tag/v1.0.1)
 - [📌 ISSUE-42 - Change parameter name from 'value' to item](https://github.com/MyLinuxProfile/linux-profile/issues/42)
 
 ## v1.0.0
 
+- [📦 PyPI - Build 1.0.0](https://github.com/MyLinuxProfile/linux-profile/releases/tag/v1.0.0)
 - [📌 ISSUE-33 - Improved search functions](https://github.com/MyLinuxProfile/linux-profile/issues/33)
 - [📌 ISSUE-29 - Creating install operation for scripts](https://github.com/MyLinuxProfile/linux-profile/issues/29)
 - [📌 ISSUE-26 - Bug in the first project launch when getting information from the system](https://github.com/MyLinuxProfile/linux-profile/issues/26)
