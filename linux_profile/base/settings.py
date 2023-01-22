@@ -2,31 +2,33 @@
 Module Settings
 """
 
-
-from os import makedirs
 from json import loads
+from os import makedirs
 from pathlib import Path
 
 from linux_profile.base.file import File
 
 
-def config_path(value: str) -> str:
-    home = str(Path.home())
-    return "/".join([home, value])
+def path(value: str) -> str:
+    return Path.home().joinpath(value)
 
 
 class Settings:
 
-    attributes = []
+    attr_base = []
+    attr_variable = []
 
     class Base:
-        path_install = "/opt/linuxp"
-        path_temp = "/tmp/linuxp"
-        path_config = config_path(".config/linuxp")
-        file_aliases = config_path(".bash_aliases")
-        file_bashrc = config_path(".bashrc")
-        file_profile = "linux_profile.json"
+        path_install = path("/opt/linuxp")
+        path_temp = path("/tmp/linuxp")
+        path_config = path(".config/linuxp")
+        path_profile = path(".config/linuxp/profile")
+        file_aliases = path(".bash_aliases")
+        file_bashrc = path(".bashrc")
         file_config = "linux_config.json"
+
+    class Variable:
+        file_profile = "linux_profile.json"
 
     def __init__(self, **kwargs) -> None:
         self.profile = {}
@@ -46,26 +48,24 @@ class Settings:
         return "Method not Implemented"
 
     def _load_attributes(self) -> None:
-        for attr_name, attr_content in self.Base.__dict__.items():
-            if not (attr_name.startswith('_') or attr_name.endswith('_')):
-                setattr(self, attr_name, attr_content)
-                self.attributes.append(attr_name)
+        for attribute in ['Base','Variable']:
+            for attr_name, attr_content in getattr(self, attribute).__dict__.items():
+                if not (attr_name.startswith('_') or attr_name.endswith('_')):
+                    setattr(self, attr_name, attr_content)
+                    getattr(self, f"attr_{attribute.lower()}").append(attr_name)
 
     def _load_structure(self) -> None:
-        for item in self.attributes:
-            if item.find("path") == 0:
-                try:
-                    makedirs(getattr(self, item))
-                except Exception:
-                    pass
+        for attribute in self.attr_base + self.attr_variable:
+            try:
+                makedirs(str(getattr(self, attribute)))
+            except Exception:
+                pass
 
     def _load_config(self):
-        path_config = self.join(
-            [self.path_config, self.file_config])
-
+        path_config = str(self.path_config.joinpath(self.file_config))
         try:
             self.config = loads(File.read(path_file=path_config))
-            for attr in self.attributes:
+            for attr in self.attr_variable:
                 value = self.config.get(attr)
                 if not value:
                     value = getattr(self, attr)
@@ -75,15 +75,13 @@ class Settings:
 
         except Exception:
             data_config = {}
-            for attr in self.attributes:
+            for attr in self.attr_variable:
                 data_config.update({attr: getattr(self, attr)})
             File.write(path_file=path_config, content=data_config)
             self._load_config()
 
     def _load_profile(self):
-        path_profile = self.join(
-            [self.path_config, self.file_profile])
-
+        path_profile = str(self.path_profile.joinpath(self.file_profile))
         try:
             self.profile = loads(File.read(path_file=path_profile))
         except Exception:
