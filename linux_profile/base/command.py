@@ -176,9 +176,9 @@ class BaseCommand:
         self.cmd_install.add_argument('-m', '--module', **self.argument_module)
         self.cmd_install.add_argument('-t', '--tag')
         self.cmd_install.add_argument('-i', '--item')
-        self.cmd_install.add_argument('--sudo', help=help_sudo, **self.argument_option)
-        self.cmd_install.add_argument('--debug', help=help_debug, **self.argument_option)
-        self.cmd_install.add_argument('--group', help=help_group, **self.argument_option)
+        self.cmd_install.add_argument('--sudo', action='store_true', help=help_sudo)
+        self.cmd_install.add_argument('--debug', action='store_true', help=help_debug)
+        self.cmd_install.add_argument('--group', action='store_true', help=help_group)
 
     def setup_uninstall(self):
         self.cmd_uninstall = self.subparsers.add_parser(
@@ -193,9 +193,9 @@ class BaseCommand:
         self.cmd_uninstall.add_argument('-m', '--module', **self.argument_module)
         self.cmd_uninstall.add_argument('-t', '--tag')
         self.cmd_uninstall.add_argument('-i', '--item')
-        self.cmd_uninstall.add_argument('--sudo', help=help_sudo, **self.argument_option)
-        self.cmd_uninstall.add_argument('--debug', help=help_debug, **self.argument_option)
-        self.cmd_uninstall.add_argument('--group', help=help_group, **self.argument_option)
+        self.cmd_uninstall.add_argument('--sudo', action='store_true', help=help_sudo)
+        self.cmd_uninstall.add_argument('--debug', action='store_true', help=help_debug)
+        self.cmd_uninstall.add_argument('--group', action='store_true', help=help_group)
 
     def setup_list(self):
         self.cmd_list = self.subparsers.add_parser(
