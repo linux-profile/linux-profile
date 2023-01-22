@@ -7,7 +7,7 @@ linuxp uninstall --help
 
 =============== Output ===============
 
-usage: linuxp uninstall [-h] -m {package,alias,script,file} [-t TAG] [-i ITEM] [--sudo {on,of}] [--debug {on,of}] [--group {on,of}]
+usage: linuxp uninstall [-h] -m {package,alias,script,file} [-t TAG] [-i ITEM] [--sudo] [--debug] [--group]
 
 options:
   -h, --help            show this help message and exit
@@ -16,9 +16,9 @@ Usage: linuxp uninstall [OPTIONS]:
   -m {package,alias,script,file}, --module {package,alias,script,file}
   -t TAG, --tag TAG
   -i ITEM, --item ITEM
-  --sudo {on,of}        Run the command with system root permissions.
-  --debug {on,of}       Run a command in test mode. It only shows the command.
-  --group {on,of}       Group items for executing a command.
+  --sudo                Run the command with system root permissions.
+  --debug               Run a command in test mode. It only shows the command.
+  --group               Group items for executing a command.
 
 =============== Output ===============
 ```
