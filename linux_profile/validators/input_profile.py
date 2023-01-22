@@ -26,7 +26,7 @@ class InputProfile(Validator):
     def validator_output(self, value=None):
         file_profile = value if value else Settings.Variable.file_profile
 
-        if not file_profile[len(file_profile)-5:] == ".json":
+        if not file_profile[len(file_profile) - 5:] == ".json":
             raise ErrorArgumentIsInvalid(
                 argument='--output',
                 error="File name is invalid. It is necessary to put the .json extension.")
