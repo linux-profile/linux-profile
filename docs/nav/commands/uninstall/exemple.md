@@ -7,7 +7,7 @@ Run the installation commands with administrator permission.
 - Input
 
 ```bash
-linuxp uninstall --module package --sudo on
+linuxp uninstall --module package --sudo
 ```
 
 - Command result
@@ -25,7 +25,7 @@ actually executed on the machine, they are just displayed in the terminal.
 - Input
 
 ```bash
-linuxp uninstall --module package --debug on
+linuxp uninstall --module package --debug
 ```
 
 - Command result
@@ -42,7 +42,7 @@ This command groups the items for executing the command.
 - Input
 
 ```bash
-linuxp uninstall --module package --group on
+linuxp uninstall --module package --group
 ```
 
 - Command result
