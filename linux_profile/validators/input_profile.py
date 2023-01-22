@@ -3,7 +3,6 @@ from urllib.parse import urlsplit
 from linux_profile.base.settings import Settings
 from linux_profile.base.validator import Validator
 from linux_profile.base.error import ErrorArgumentIsInvalid
-from linux_profile.utils.text import slugify
 
 
 class InputProfile(Validator):
@@ -25,9 +24,17 @@ class InputProfile(Validator):
         return value
 
     def validator_output(self, value=None):
-        file_profile = Settings.join(
-            value=[slugify(value), "json"],
-            separator=".") if value else Settings.Variable.file_profile
+        file_profile = value if value else Settings.Variable.file_profile
+
+        if not file_profile[len(file_profile)-5:] == ".json":
+            raise ErrorArgumentIsInvalid(
+                argument='--output',
+                error="File name is invalid. It is necessary to put the .json extension.")
+
+        if not len(file_profile) > 5:
+            raise ErrorArgumentIsInvalid(
+                argument='--output',
+                error="File name is invalid. Must be more than five (5) characters.")
 
         return str(Settings.Base.path_profile.joinpath(file_profile))
 

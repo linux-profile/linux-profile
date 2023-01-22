@@ -13,7 +13,7 @@ linuxp profile --url https://linuxprofile.com/linux_profile.json
 - Input:
 
 ```
-linuxp profile --url https://linuxprofile.com/linux_profile.json --output 'my_linux'
+linuxp profile --url https://linuxprofile.com/linux_profile.json --output 'my_linux.json'
 ```
 
 ## SWITCH
