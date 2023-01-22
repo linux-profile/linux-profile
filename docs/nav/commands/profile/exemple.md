@@ -23,3 +23,11 @@ linuxp profile --url https://linuxprofile.com/linux_profile.json --output 'my_li
 ```
 linuxp profile --switch 'my_linux.json'
 ```
+
+## LIST
+
+- Input:
+
+```
+linuxp profile --list
+```
