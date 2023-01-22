@@ -9,7 +9,8 @@ class Remove(Settings):
         time the class is instantiated.
         """
         action = Action(
-            self.join([self.path_config, self.file_profile]))
+            str(self.path_profile.joinpath(self.file_profile)))
+
         status = action._delete_item(value=self.id)
         if status:
             print("ID:", self.id)
