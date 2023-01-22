@@ -15,6 +15,8 @@ class Profile(Settings):
             "url": self.url,
             "switch": self.switch,
             "output": self.output,
+            "new": self.new,
+            "delete": self.delete,
             "list": self.list}
         )
 
@@ -23,6 +25,12 @@ class Profile(Settings):
 
         if self.fields.switch:
             self.setup_switch()
+
+        if self.fields.new:
+            self.setup_new()
+
+        if self.fields.delete:
+            self.setup_delete()
 
         if self.fields.list:
             self.setup_list()
@@ -35,6 +43,12 @@ class Profile(Settings):
         File.write(
             content=self.config,
             path_file=str(self.path_config.joinpath(self.file_config)))
+
+    def setup_new(self):
+        File.write(content={}, path_file=str(self.fields.new))
+
+    def setup_delete(self):
+        self.fields.delete.unlink()
 
     def setup_list(self):
         for profile in list(self.path_profile.glob("*.json")):

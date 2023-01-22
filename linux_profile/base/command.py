@@ -13,6 +13,7 @@ from linux_profile.base.error import (
     ErrorLoadSettings,
     ErrorOptionIsMissing,
     ErrorOptionIsInvalid,
+    ErrorArgumentIsInvalid,
     ErrorFile,
     print_warning,
     print_error
@@ -122,6 +123,8 @@ class BaseCommand:
         help_url = "URL to download and sync profile."
         help_output = "File name to save."
         help_switch = "File name for profile switching."
+        help_new = " Creates a new profile."
+        help_delete = "Deletes a profile."
         help_list = "Argument to list existing profiles"
 
         self.cmd_profile = self.cmd_profile.add_argument_group(
@@ -129,6 +132,8 @@ class BaseCommand:
         self.cmd_profile.add_argument('--url', help=help_url)
         self.cmd_profile.add_argument('--output', help=help_output)
         self.cmd_profile.add_argument('--switch', help=help_switch)
+        self.cmd_profile.add_argument('--new', help=help_new)
+        self.cmd_profile.add_argument('--delete', help=help_delete)
         self.cmd_profile.add_argument('--list', action='store_true', help=help_list)
 
     def setup_add(self):
@@ -227,6 +232,9 @@ class BaseCommand:
             print_warning(str(error))
 
         except ErrorInvalidValue as error:
+            print_warning(str(error))
+
+        except ErrorArgumentIsInvalid as error:
             print_warning(str(error))
 
         except ErrorLoadSettings as error:
