@@ -1,4 +1,3 @@
-from os.path import exists
 from urllib.parse import urlsplit
 
 from linux_profile.base.settings import Settings
@@ -19,7 +18,7 @@ class InputProfile(Validator):
 
     def validator_switch(self, value=None):
         if value:
-            if not exists(Settings.join(value=[Settings.Base.path_config, value])):
+            if not Settings.Base.path_profile.joinpath(value).exists():
                 raise ErrorArgumentIsInvalid(
                     argument='--switch',
                     error="Profile file does not exist.")
@@ -28,7 +27,9 @@ class InputProfile(Validator):
     def validator_output(self, value=None):
         file_profile = Settings.join(
             value=[slugify(value), "json"],
-            separator=".") if value else Settings.Base.file_profile
+            separator=".") if value else Settings.Variable.file_profile
 
-        value = Settings.join(value=[Settings.Base.path_config, file_profile])
+        return str(Settings.Base.path_profile.joinpath(file_profile))
+
+    def validator_list(self, value=False):
         return value
