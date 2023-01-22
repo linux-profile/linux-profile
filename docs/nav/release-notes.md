@@ -3,6 +3,7 @@
 ## v1.0.13
 
 - [📦 PyPI - Build 1.0.13](https://github.com/MyLinuxProfile/linux-profile/releases/tag/v1.0.13)
+- [📌 ISSUE-126 - Improve additional commands for installing and uninstalling packages](https://github.com/MyLinuxProfile/linux-profile/issues/126)
 - [📌 ISSUE-122 - Improved profile management](https://github.com/MyLinuxProfile/linux-profile/issues/122)
 
 ## v1.0.12
