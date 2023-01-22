@@ -9,7 +9,7 @@ linuxp profile --help
 
 =============== Output ===============
 
-usage: linuxp profile [-h] [--url URL] [--output OUTPUT] [--switch SWITCH]
+usage: linuxp profile [-h] [--url URL] [--output OUTPUT] [--switch SWITCH] [--list]
 
 options:
   -h, --help       show this help message and exit
@@ -18,6 +18,7 @@ Usage: linuxp profile [OPTIONS]:
   --url URL        URL to download and sync profile.
   --output OUTPUT  File name to save.
   --switch SWITCH  File name for profile switching.
+  --list           Argument to list existing profiles
 
 =============== Output ===============
 ```
@@ -33,6 +34,7 @@ graph TD
     option_p --->|add| arg_p_url[url]
     option_p --->|add| arg_p_output[output]
     option_p --->|add| arg_p_switch[switch]
+    option_p --->|add| arg_p_list[list]
 ```
 
 </center>

@@ -122,13 +122,14 @@ class BaseCommand:
         help_url = "URL to download and sync profile."
         help_output = "File name to save."
         help_switch = "File name for profile switching."
+        help_list = "Argument to list existing profiles"
 
         self.cmd_profile = self.cmd_profile.add_argument_group(
             'Usage: linuxp profile [OPTIONS]')
         self.cmd_profile.add_argument('--url', help=help_url)
         self.cmd_profile.add_argument('--output', help=help_output)
         self.cmd_profile.add_argument('--switch', help=help_switch)
-        self.cmd_profile.add_argument('--list', action='store_true')
+        self.cmd_profile.add_argument('--list', action='store_true', help=help_list)
 
     def setup_add(self):
         self.cmd_add = self.subparsers.add_parser(
