@@ -19,5 +19,4 @@ class Config(Settings):
 
     def setup_url(self):
         urllib.request.urlretrieve(
-            self.url, self.join([self.path_config, self.file_config])
-        )
+            self.url, str(self.path_config.joinpath(self.file_config)))

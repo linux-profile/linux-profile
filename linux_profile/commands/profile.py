@@ -14,7 +14,8 @@ class Profile(Settings):
         self.fields = InputProfile(**{
             "url": self.url,
             "switch": self.switch,
-            "output": self.output}
+            "output": self.output,
+            "list": self.list}
         )
 
         if self.fields.url:
@@ -23,6 +24,9 @@ class Profile(Settings):
         if self.fields.switch:
             self.setup_switch()
 
+        if self.fields.list:
+            self.setup_list()
+
     def setup_url(self):
         urllib.request.urlretrieve(self.url, self.fields.output)
 
@@ -30,4 +34,8 @@ class Profile(Settings):
         self.config['file_profile'] = self.fields.switch
         File.write(
             content=self.config,
-            path_file=self.join(value=[self.path_config, self.file_config]))
+            path_file=str(self.path_config.joinpath(self.file_config)))
+
+    def setup_list(self):
+        for profile in list(self.path_profile.glob("*.json")):
+            print(profile.name)

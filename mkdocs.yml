@@ -42,8 +42,6 @@ theme:
 markdown_extensions:
   - admonition
   - pymdownx.details
-  - pymdownx.superfences
-  - pymdownx.details
   - pymdownx.highlight
   - codehilite
   - pymdownx.tabbed:
@@ -60,6 +58,3 @@ extra:
   social:
     - icon: fontawesome/brands/github 
       link: https://github.com/MyLinuxProfile
-
-plugins:
-  - search

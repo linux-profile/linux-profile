@@ -1,28 +1,29 @@
 from shutil import rmtree
 from os import getcwd, path
+from pathlib import Path
 from linux_profile.base.settings import Settings
 
 
-PATH = getcwd()
-
-
-def config_path(value: str) -> str:
-    home = f"{PATH}/tests/helpers"
-    return "/".join([home, value])
+def path(value: str) -> str:
+    return Path(getcwd()).joinpath("tests/helpers/"+value)
 
 
 class ConfigTest(Settings):
 
-    attributes = []
+    attr_base = []
+    attr_variable = []
 
     class Base:
-        path_install = config_path("opt/linuxp")
-        path_temp = config_path("tmp/linuxp")
-        path_config = config_path(".config/linuxp")
-        file_aliases = config_path(".bash_aliases")
-        file_bashrc = config_path(".bashrc")
-        file_profile = "linux_profile.json"
+        path_install = path("/opt/linuxp")
+        path_temp = path("/tmp/linuxp")
+        path_config = path(".config/linuxp")
+        path_profile = path(".config/linuxp/profile")
+        file_aliases = path(".bash_aliases")
+        file_bashrc = path(".bashrc")
         file_config = "linux_config.json"
+
+    class Variable:
+        file_profile = "linux_profile.json"
 
     def __init__(self, **kwargs) -> None:
         self.profile = {}
@@ -35,40 +36,44 @@ class ConfigTest(Settings):
         self.setup()
 
 
-def test_base_config_load_attributes():
+def test_base_config_load_base():
+    home = getcwd()
     config = ConfigTest()
     attributes = [
         'path_install',
         'path_temp',
         'path_config',
+        'path_profile',
         'file_aliases',
         'file_bashrc',
-        'file_profile',
-        'file_config'
+        'file_config',
+        'file_profile'
     ]
 
     assert config.profile ==  {}
     assert config.config ==  {}
 
-    assert config.path_install == f"{PATH}/tests/helpers/opt/linuxp"
-    assert config.path_temp == f"{PATH}/tests/helpers/tmp/linuxp"
-    assert config.path_config == f"{PATH}/tests/helpers/.config/linuxp"
-    assert config.file_aliases == f"{PATH}/tests/helpers/.bash_aliases"
-    assert config.file_bashrc == f"{PATH}/tests/helpers/.bashrc"
-    assert config.file_profile == "linux_profile.json"
-    assert config.file_config == "linux_config.json"
+    assert str(config.path_install) == f"{home}/tests/helpers/opt/linuxp"
+    assert str(config.path_temp) == f"{home}/tests/helpers/tmp/linuxp"
+    assert str(config.path_config) == f"{home}/tests/helpers/.config/linuxp"
+    assert str(config.file_aliases) == f"{home}/tests/helpers/.bash_aliases"
+    assert str(config.file_bashrc) == f"{home}/tests/helpers/.bashrc"
+    assert str(config.file_profile) == "linux_profile.json"
+    assert str(config.file_config) == "linux_config.json"
 
-    assert config.attributes == attributes
+    assert config.attr_base + config.attr_variable == attributes
 
 
-def test_base_config_load_structure():
+def test_base_config_load_path():
+    home = getcwd()
     config = ConfigTest()
     config._load_structure()
 
-    assert path.exists(config.path_install) == True
-    assert path.exists(config.path_temp) == True
-    assert path.exists(config.path_config) == True
+    assert config.path_profile.exists() == True
+    assert config.path_config.exists() == True
+    assert config.path_install.exists() == True
+    assert config.path_temp.exists() == True
 
-    rmtree(f"{PATH}/tests/helpers/opt")
-    rmtree(f"{PATH}/tests/helpers/.config")
-    rmtree(f"{PATH}/tests/helpers/tmp/")
+    rmtree(f"{home}/tests/helpers/opt")
+    rmtree(f"{home}/tests/helpers/.config")
+    rmtree(f"{home}/tests/helpers/tmp/")

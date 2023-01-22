@@ -11,7 +11,7 @@ class List(Settings):
         """
         self.command = self.__class__.__name__.lower()
         self.action = Action(
-            self.join([self.path_config, self.file_profile]))
+            str(self.path_profile.joinpath(self.file_profile)))
 
         func = self.join(value=[self.command, self.module], separator="_")
         getattr(self, func, self)()
