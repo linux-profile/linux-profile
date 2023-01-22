@@ -48,7 +48,7 @@ class Settings:
         return "Method not Implemented"
 
     def _load_attributes(self) -> None:
-        for attribute in ['Base','Variable']:
+        for attribute in ['Base', 'Variable']:
             for attr_name, attr_content in getattr(self, attribute).__dict__.items():
                 if not (attr_name.startswith('_') or attr_name.endswith('_')):
                     setattr(self, attr_name, attr_content)
