@@ -57,7 +57,8 @@ class Settings:
     def _load_structure(self) -> None:
         for attribute in self.attr_base + self.attr_variable:
             try:
-                makedirs(str(getattr(self, attribute)))
+                if attribute.find("path") == 0:
+                    makedirs(str(getattr(self, attribute)))
             except Exception:
                 pass
 
