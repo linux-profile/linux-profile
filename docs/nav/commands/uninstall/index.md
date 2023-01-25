@@ -37,6 +37,13 @@ graph TD
     option_u --->|add| arg_u_sudo[sudo]
     option_u --->|add| arg_u_debug[debug]
     option_u --->|add| arg_u_group[group]
+
+    style arg_u_module fill:#BFD7ED,stroke:#333
+    style arg_u_tag fill:#BFD7ED,stroke:#333
+    style arg_u_item fill:#BFD7ED,stroke:#333
+    style arg_u_sudo fill:#B1D8B7,stroke:#333
+    style arg_u_debug fill:#B1D8B7,stroke:#333
+    style arg_u_group fill:#B1D8B7,stroke:#333
 ```
 
 </center>

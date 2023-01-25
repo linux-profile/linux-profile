@@ -24,6 +24,22 @@ linuxp profile --url https://linuxprofile.com/linux_profile.json --output 'my_li
 linuxp profile --switch 'my_linux.json'
 ```
 
+## NEW
+
+- Input:
+
+```
+linuxp profile --new 'my_linux.json'
+```
+
+## DELETE
+
+- Input:
+
+```
+linuxp profile --delete 'my_linux.json'
+```
+
 ## LIST
 
 - Input:
