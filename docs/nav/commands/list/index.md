@@ -34,6 +34,14 @@ graph TD
     option_l --->|add| arg_l_module[module]
     option_l --->|add| arg_l_tag[tag]
     option_l --->|add| arg_l_item[item]
+
+    style arg_l_module fill:#BFD7ED,stroke:#333
+    style arg_l_tag fill:#BFD7ED,stroke:#333
+    style arg_l_item fill:#BFD7ED,stroke:#333
+
+    style L fill:#ededed,stroke:#333
+    style l fill:#ededed,stroke:#333
+    style option_l fill:#ededed,stroke:#333
 ```
 
 </center>

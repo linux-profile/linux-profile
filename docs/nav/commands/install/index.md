@@ -47,6 +47,9 @@ graph TD
     style arg_i_debug fill:#B1D8B7,stroke:#333
     style arg_i_group fill:#B1D8B7,stroke:#333
 
+    style L fill:#ededed,stroke:#333
+    style i fill:#ededed,stroke:#333
+    style option_i fill:#ededed,stroke:#333
 ```
 
 </center>

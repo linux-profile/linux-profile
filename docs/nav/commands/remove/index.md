@@ -29,6 +29,12 @@ graph TD
     L[linuxp] -->|type command| r(remove)
     r ---> option_r{arguments}
     option_r --->|add| arg_r_id[id]
+
+    style arg_r_id fill:#BFD7ED,stroke:#333
+  
+    style L fill:#ededed,stroke:#333
+    style r fill:#ededed,stroke:#333
+    style option_r fill:#ededed,stroke:#333
 ```
 
 </center>

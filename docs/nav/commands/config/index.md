@@ -29,6 +29,12 @@ graph TD
     L[linuxp] -->|type command| c(config)
     c ---> option_c{arguments}
     option_c --->|add| arg_c_url[url]
+
+    style arg_c_url fill:#BFD7ED,stroke:#333
+
+    style L fill:#ededed,stroke:#333
+    style c fill:#ededed,stroke:#333
+    style option_c fill:#ededed,stroke:#333
 ```
 
 </center>

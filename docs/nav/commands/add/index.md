@@ -29,6 +29,12 @@ graph TD
     L[linuxp] -->|type command| a(add)
     a ---> option_a{arguments}
     option_a --->|add| arg_a_module[module]
+
+    style arg_a_module fill:#BFD7ED,stroke:#333
+
+    style L fill:#ededed,stroke:#333
+    style a fill:#ededed,stroke:#333
+    style option_a fill:#ededed,stroke:#333
 ```
 
 </center>

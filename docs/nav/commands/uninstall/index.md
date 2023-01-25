@@ -44,6 +44,10 @@ graph TD
     style arg_u_sudo fill:#B1D8B7,stroke:#333
     style arg_u_debug fill:#B1D8B7,stroke:#333
     style arg_u_group fill:#B1D8B7,stroke:#333
+
+    style L fill:#ededed,stroke:#333
+    style u fill:#ededed,stroke:#333
+    style option_u fill:#ededed,stroke:#333
 ```
 
 </center>
