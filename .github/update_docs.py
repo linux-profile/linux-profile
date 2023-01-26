@@ -25,6 +25,12 @@ def ftp_run():
     except Exception:
         pass
 
+    file_text_ascii = open('text-ascii','rb')
+    session.storbinary(f'STOR text-ascii', file_text_ascii)
+
+    file_last_version = open('LAST_VERSION','rb')
+    session.storbinary(f'STOR LAST_VERSION', file_last_version)
+
     for currentpath, folders, files in os.walk('site'):
         host_path = currentpath.replace("site", ftp_path)
 
