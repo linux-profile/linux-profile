@@ -1,6 +1,11 @@
 import os
 import ftplib
 
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except:
+    pass
 
 ftp_host = os.environ.get("FTP_HOST")
 ftp_username = os.environ.get("FTP_USERNAME")
@@ -21,10 +26,10 @@ def ftp_run():
         pass
 
     for currentpath, folders, files in os.walk('site'):
-        currentpath = currentpath.replace("site", ftp_path)
+        host_path = currentpath.replace("site", ftp_path)
 
         for folder in folders:
-            path_folder = os.path.join(currentpath, folder)
+            path_folder = os.path.join(host_path, folder)
             print(f"---{path_folder}")
             try:
                 session.mkd(path_folder)
@@ -33,10 +38,11 @@ def ftp_run():
 
         for file in files:
             path_file = os.path.join(currentpath, file)
-            print(f"   |___{path_file}")
+            host_file = os.path.join(host_path, file)
+            print(f"   |___{host_file}")
             try:
                 file = open(path_file,'rb')
-                session.storbinary(f'STOR {path_file}', file)
+                session.storbinary(f'STOR {host_file}', file)
             except Exception:
                 pass
 
