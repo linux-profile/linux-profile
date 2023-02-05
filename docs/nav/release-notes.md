@@ -1,5 +1,10 @@
 # Release Notes
 
+## v1.0.14
+
+- [📦 PyPI - Build 1.0.14](https://github.com/MyLinuxProfile/linux-profile/releases/tag/v1.0.14)
+- [📌 ISSUE-131 - Create command to connect file sync account](https://github.com/MyLinuxProfile/linux-profile/issues/131)
+
 ## v1.0.13
 
 - [📦 PyPI - Build 1.0.13](https://github.com/MyLinuxProfile/linux-profile/releases/tag/v1.0.13)
