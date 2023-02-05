@@ -4,6 +4,7 @@ import argparse
 
 from linux_profile.base.command import BaseCommand, Command
 
+from linux_profile.commands.account import Account
 from linux_profile.commands.add import Add
 from linux_profile.commands.config import Config
 from linux_profile.commands.profile import Profile
@@ -94,6 +95,13 @@ class CommandList(Command):
         )
 
 
+class CommandAccount(Command):
+
+    def execute(self):
+        """Start"""
+        Account(**self.arguments.__dict__)
+
+
 def main():
     parser = argparse.ArgumentParser(description='Linux profile management tool')
     command = BaseCommand(parser)
@@ -106,6 +114,7 @@ def main():
     command.cmd_install.set_defaults(exec=CommandInstall)
     command.cmd_uninstall.set_defaults(exec=CommandUninstall)
     command.cmd_list.set_defaults(exec=CommandList)
+    command.cmd_account.set_defaults(exec=CommandAccount)
 
     command.run()
 

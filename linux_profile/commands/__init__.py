@@ -1,4 +1,5 @@
 __all__ = [
+    'Account',
     'Add',
     'Config',
     'Execute',
@@ -9,6 +10,8 @@ __all__ = [
     'Uninstall'
 ]
 
+
+from linux_profile.commands.account import Account
 from linux_profile.commands.add import Add
 from linux_profile.commands.config import Config
 from linux_profile.commands.execute import Execute
