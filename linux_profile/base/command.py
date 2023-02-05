@@ -88,6 +88,7 @@ class BaseCommand:
             help="Show program's version number and exit.")
 
         self.help = {
+            "account": "Configuration for LinuxProfile account.",
             "config": "Settings file management.",
             "profile": "Profile file management.",
             "add": "Parameter used to add a new item to the list in your profile file.",
@@ -97,6 +98,7 @@ class BaseCommand:
             "list": "Lists all modules in the terminal and can also apply filters to find items."
         }
 
+        self.setup_account()
         self.setup_config()
         self.setup_profile()
         self.setup_add()
@@ -105,6 +107,13 @@ class BaseCommand:
         self.setup_install()
         self.setup_uninstall()
         self.setup_list()
+
+    def setup_account(self):
+        self.cmd_account = self.subparsers.add_parser(
+            'account', help=self.help.get("account"))
+
+        self.cmd_account = self.cmd_account.add_argument_group(
+            'Usage: linuxp account [OPTIONS]')
 
     def setup_config(self):
         self.cmd_config = self.subparsers.add_parser(
