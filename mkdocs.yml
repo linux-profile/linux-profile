@@ -7,6 +7,9 @@ nav:
     - Home: index.md
     - Installation: nav/installation.md
     - Commands:
+        - Account:
+            - nav/commands/account/index.md
+            - nav/commands/account/exemple.md
         - Config:
             - nav/commands/config/index.md
             - nav/commands/config/exemple.md
