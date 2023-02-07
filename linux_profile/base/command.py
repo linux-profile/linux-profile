@@ -114,6 +114,8 @@ class BaseCommand:
 
         self.cmd_account = self.cmd_account.add_argument_group(
             'Usage: linuxp account [OPTIONS]')
+        self.cmd_account.add_argument('--signup', action='store_true')
+        self.cmd_account.add_argument('--login', action='store_true')
 
     def setup_config(self):
         self.cmd_config = self.subparsers.add_parser(
