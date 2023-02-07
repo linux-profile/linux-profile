@@ -1,4 +1,6 @@
 import re
+import getpass
+
 from functools import reduce
 
 
@@ -62,7 +64,8 @@ def option(
         required: bool = False,
         body: bool = False,
         output: list = None,
-        output_list: list = list()):
+        output_list: list = list(),
+        password: bool = False):
     option = asterisk() + text if required else text
 
     if body:
@@ -74,6 +77,8 @@ def option(
         return output_list
 
     else:
+        if password:
+            return getpass.getpass(option)
         return input(option)
 
 

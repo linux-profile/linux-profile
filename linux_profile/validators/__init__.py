@@ -1,4 +1,5 @@
 __all__ = [
+    'InputAccount',
     'InputAddAlias',
     'InputConfig',
     'InputAddFile',
@@ -8,6 +9,7 @@ __all__ = [
 ]
 
 
+from linux_profile.validators.input_account import InputAccount
 from linux_profile.validators.input_alias import InputAddAlias
 from linux_profile.validators.input_config import InputConfig
 from linux_profile.validators.input_file import InputAddFile
