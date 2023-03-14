@@ -3,6 +3,7 @@
 ## v1.0.14
 
 - [📦 PyPI - Build 1.0.14](https://github.com/MyLinuxProfile/linux-profile/releases/tag/v1.0.14)
+- [📌 ISSUE-138 - Create any text store](https://github.com/MyLinuxProfile/linux-profile/issues/138)
 - [📌 ISSUE-134 - Create commands for signup and login](https://github.com/MyLinuxProfile/linux-profile/issues/134)
 - [📌 ISSUE-131 - Create command to connect file sync account](https://github.com/MyLinuxProfile/linux-profile/issues/131)
 
