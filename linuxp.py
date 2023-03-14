@@ -102,21 +102,31 @@ class CommandAccount(Command):
         Account(**self.arguments.__dict__)
 
 
+class BuildCommand:
+
+    def __init__(self) -> None:
+        parser = argparse.ArgumentParser(description='🐧 Linux Profile Management CLI Tool')
+        self.command = BaseCommand(parser)
+        self.core_commands()
+        self.command.run()
+
+    def core_commands(self):
+        self.command.cmd_config.set_defaults(exec=CommandConfig)
+        self.command.cmd_profile.set_defaults(exec=CommandProfile)
+        self.command.cmd_add.set_defaults(exec=CommandAdd)
+        self.command.cmd_remove.set_defaults(exec=CommandRemove)
+        self.command.cmd_execute.set_defaults(exec=CommandExecute)
+        self.command.cmd_install.set_defaults(exec=CommandInstall)
+        self.command.cmd_uninstall.set_defaults(exec=CommandUninstall)
+        self.command.cmd_list.set_defaults(exec=CommandList)
+        self.setup()
+
+    def setup(self) -> str:
+        return "Method not Implemented"
+
+
 def main():
-    parser = argparse.ArgumentParser(description='Linux profile management tool')
-    command = BaseCommand(parser)
-
-    command.cmd_config.set_defaults(exec=CommandConfig)
-    command.cmd_profile.set_defaults(exec=CommandProfile)
-    command.cmd_add.set_defaults(exec=CommandAdd)
-    command.cmd_remove.set_defaults(exec=CommandRemove)
-    command.cmd_execute.set_defaults(exec=CommandExecute)
-    command.cmd_install.set_defaults(exec=CommandInstall)
-    command.cmd_uninstall.set_defaults(exec=CommandUninstall)
-    command.cmd_list.set_defaults(exec=CommandList)
-    command.cmd_account.set_defaults(exec=CommandAccount)
-
-    command.run()
+    BuildCommand()
 
 
 if __name__ == '__main__':
