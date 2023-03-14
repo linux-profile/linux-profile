@@ -74,10 +74,6 @@ class BaseCommand:
             "required": True,
             "choices": ['package', 'alias', 'script', 'text']}
 
-        self.argument_option = {
-            "default": "of",
-            "choices": ['on', 'of']}
-
         self.parser._positionals.title = 'Commands'
         self.parser._optionals.title = 'Default Options'
         self.parser.add_argument(
