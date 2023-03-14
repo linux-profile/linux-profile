@@ -10,13 +10,13 @@ linuxp list --help
 
 =============== Output ===============
 
-usage: linuxp list [-h] -m {package,alias,script,file} [-t TAG] [-i ITEM]
+usage: linuxp list [-h] -m {package,alias,script,text} [-t TAG] [-i ITEM]
 
-optional arguments:
+options:
   -h, --help            show this help message and exit
 
 Usage: linuxp list [OPTIONS]:
-  -m {package,alias,script,file}, --module {package,alias,script,file}
+  -m {package,alias,script,text}, --module {package,alias,script,text}
   -t TAG, --tag TAG
   -i ITEM, --item ITEM
 

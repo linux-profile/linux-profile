@@ -7,13 +7,13 @@ linuxp uninstall --help
 
 =============== Output ===============
 
-usage: linuxp uninstall [-h] -m {package,alias,script,file} [-t TAG] [-i ITEM] [--sudo] [--debug] [--group]
+usage: linuxp uninstall [-h] -m {package,alias,script} [-t TAG] [-i ITEM] [--sudo] [--debug] [--group]
 
 options:
   -h, --help            show this help message and exit
 
 Usage: linuxp uninstall [OPTIONS]:
-  -m {package,alias,script,file}, --module {package,alias,script,file}
+  -m {package,alias,script}, --module {package,alias,script}
   -t TAG, --tag TAG
   -i ITEM, --item ITEM
   --sudo                Run the command with system root permissions.
