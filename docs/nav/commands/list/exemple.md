@@ -49,5 +49,5 @@ linuxp list --module text --tag urls --item video
 linuxp list -m package -t music -i spotify
 linuxp list -m alias -t system -i clean_my_linux
 linuxp list -m script -t music -i play_music
-linuxp list -m text -t urls -i video
+linuxp list -m text -t urls -i linux_profile
 ```
