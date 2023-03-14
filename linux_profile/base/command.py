@@ -72,7 +72,7 @@ class BaseCommand:
 
         self.argument_module = {
             "required": True,
-            "choices": ['package', 'alias', 'script', 'file', 'text']}
+            "choices": ['package', 'alias', 'script', 'text']}
 
         self.argument_option = {
             "default": "of",
@@ -184,7 +184,7 @@ class BaseCommand:
 
         self.cmd_install = self.cmd_install.add_argument_group(
             'Usage: linuxp install [OPTIONS]')
-        self.cmd_install.add_argument('-m', '--module', **self.argument_module)
+        self.cmd_install.add_argument('-m', '--module', required=True, choices=['package', 'alias', 'script'])
         self.cmd_install.add_argument('-t', '--tag')
         self.cmd_install.add_argument('-i', '--item')
         self.cmd_install.add_argument('--sudo', action='store_true', help=help_sudo)
@@ -201,7 +201,7 @@ class BaseCommand:
 
         self.cmd_uninstall = self.cmd_uninstall.add_argument_group(
             'Usage: linuxp uninstall [OPTIONS]')
-        self.cmd_uninstall.add_argument('-m', '--module', **self.argument_module)
+        self.cmd_uninstall.add_argument('-m', '--module', required=True, choices=['package', 'alias', 'script'])
         self.cmd_uninstall.add_argument('-t', '--tag')
         self.cmd_uninstall.add_argument('-i', '--item')
         self.cmd_uninstall.add_argument('--sudo', action='store_true', help=help_sudo)
