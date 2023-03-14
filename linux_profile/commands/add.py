@@ -5,7 +5,8 @@ from linux_profile.validators import (
     InputAddPackage,
     InputAddAlias,
     InputAddScript,
-    InputAddFile
+    InputAddFile,
+    InputAddText
 )
 
 
@@ -76,6 +77,19 @@ class Add(Settings):
             "file_path": option(text="File Path: ", required=True),
             "line_operation": option(text="Line Operation: "),
             "body": option(text="Content Body: ")}
+        )
+        self.action._create_item(
+            content=fields.__dict__,
+            module=self.module,
+            tag=fields.tag
+        )
+
+    def add_text(self):
+        fields = InputAddText(**{
+            "tag": option(text="Tag [default]: "),
+            "name": option(text="Name: ", required=True),
+            "text": option(text="Text: ", required=True),
+            "label": option(text="Label: ")}
         )
         self.action._create_item(
             content=fields.__dict__,

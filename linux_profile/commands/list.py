@@ -18,7 +18,6 @@ class List(Settings):
 
     def list_package(self):
         data = self.action.deep_search(
-            module=self.module,
             tag=self.tag,
             key='name',
             value=self.item
@@ -34,7 +33,6 @@ class List(Settings):
 
     def list_alias(self):
         data = self.action.deep_search(
-            module=self.module,
             tag=self.tag,
             key='name',
             value=self.item
@@ -50,7 +48,6 @@ class List(Settings):
 
     def list_script(self):
         data = self.action.deep_search(
-            module=self.module,
             tag=self.tag,
             key='name',
             value=self.item
@@ -66,7 +63,6 @@ class List(Settings):
 
     def list_file(self):
         data = self.action.deep_search(
-            module=self.module,
             tag=self.tag,
             key='name',
             value=self.item
@@ -78,4 +74,19 @@ class List(Settings):
                 tag=item.get("tag", "Null"),
                 item=item.get("name", "Null"),
                 description=item.get("description", "No description")
+            )
+
+    def list_text(self):
+        data = self.action.deep_search(
+            module=self.module,
+            tag=self.tag,
+            key='name',
+            value=self.item
+        )
+        for item in data:
+            print_item(
+                id=item.get("id", "Null"),
+                tag=item.get("tag", "Null"),
+                item=item.get("text", "Null"),
+                description=item.get("description", "")
             )

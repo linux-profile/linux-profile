@@ -5,7 +5,8 @@ __all__ = [
     'InputAddFile',
     'InputAddPackage',
     'InputProfile',
-    'InputAddScript'
+    'InputAddScript',
+    'InputAddText'
 ]
 
 
@@ -16,3 +17,4 @@ from linux_profile.validators.input_file import InputAddFile
 from linux_profile.validators.input_package import InputAddPackage
 from linux_profile.validators.input_profile import InputProfile
 from linux_profile.validators.input_script import InputAddScript
+from linux_profile.validators.input_text import InputAddText

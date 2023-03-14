@@ -72,7 +72,7 @@ class BaseCommand:
 
         self.argument_module = {
             "required": True,
-            "choices": ['package', 'alias', 'script', 'file']}
+            "choices": ['package', 'alias', 'script', 'file', 'text']}
 
         self.argument_option = {
             "default": "of",
