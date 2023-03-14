@@ -3,6 +3,7 @@
 ## v1.0.14
 
 - [📦 PyPI - Build 1.0.14](https://github.com/MyLinuxProfile/linux-profile/releases/tag/v1.0.14)
+- [📌 ISSUE-142 - Removing unnecessary function 'is_bool'](https://github.com/MyLinuxProfile/linux-profile/issues/142)
 - [📌 ISSUE-141 - Create a command builder to enable plugin integration](https://github.com/MyLinuxProfile/linux-profile/issues/141)
 - [📌 ISSUE-138 - Create any text store](https://github.com/MyLinuxProfile/linux-profile/issues/138)
 - [📌 ISSUE-134 - Create commands for signup and login](https://github.com/MyLinuxProfile/linux-profile/issues/134)
