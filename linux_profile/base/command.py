@@ -47,7 +47,7 @@ class BaseCommand:
 
         self.argument_module = {
             "required": True,
-            "choices": ['package', 'alias', 'script', 'text']}
+            "choices": ['package', 'alias', 'script', 'text', 'file']}
 
         self.parser._positionals.title = 'Commands'
         self.parser._optionals.title = 'Default Options'
@@ -83,8 +83,7 @@ class BaseCommand:
         self.cmd_account = self.subparsers.add_parser(
             'account', help=self.help.get("account"))
 
-        self.cmd_account = self.cmd_account.add_argument_group(
-            'Usage: linuxp account [OPTIONS]')
+        self.cmd_account = self.cmd_account.add_argument_group('Usage: linuxp account [OPTIONS]')
         self.cmd_account.add_argument('--signup', action='store_true')
         self.cmd_account.add_argument('--login', action='store_true')
 
@@ -94,8 +93,7 @@ class BaseCommand:
 
         help_url = "URL to download and sync config."
 
-        self.cmd_config = self.cmd_config.add_argument_group(
-            'Usage: linuxp config [OPTIONS]')
+        self.cmd_config = self.cmd_config.add_argument_group('Usage: linuxp config [OPTIONS]')
         self.cmd_config.add_argument('--url', help=help_url)
 
     def setup_profile(self):
@@ -109,8 +107,7 @@ class BaseCommand:
         help_delete = "Deletes a profile."
         help_list = "Argument to list existing profiles"
 
-        self.cmd_profile = self.cmd_profile.add_argument_group(
-            'Usage: linuxp profile [OPTIONS]')
+        self.cmd_profile = self.cmd_profile.add_argument_group('Usage: linuxp profile [OPTIONS]')
         self.cmd_profile.add_argument('--url', help=help_url)
         self.cmd_profile.add_argument('--output', help=help_output)
         self.cmd_profile.add_argument('--switch', help=help_switch)
@@ -122,8 +119,7 @@ class BaseCommand:
         self.cmd_add = self.subparsers.add_parser(
             'add', help=self.help.get("add"))
 
-        self.cmd_add = self.cmd_add.add_argument_group(
-            'Usage: linuxp add [OPTIONS]')
+        self.cmd_add = self.cmd_add.add_argument_group('Usage: linuxp add [OPTIONS]')
         self.cmd_add.add_argument('-m', '--module', **self.argument_module)
 
     def setup_remove(self):
@@ -132,8 +128,7 @@ class BaseCommand:
 
         help_id = "Reference ID of a storage item."
 
-        self.cmd_remove = self.cmd_remove.add_argument_group(
-            'Usage: linuxp remove [OPTIONS]')
+        self.cmd_remove = self.cmd_remove.add_argument_group('Usage: linuxp remove [OPTIONS]')
         self.cmd_remove.add_argument('--id', required=True, help=help_id)
 
     def setup_execute(self):
@@ -141,8 +136,7 @@ class BaseCommand:
 
         help_id = "Reference ID of a storage item."
 
-        self.cmd_execute = self.cmd_execute.add_argument_group(
-            'Usage: linuxp execute [OPTIONS]')
+        self.cmd_execute = self.cmd_execute.add_argument_group('Usage: linuxp execute [OPTIONS]')
         self.cmd_execute.add_argument('--id', required=True, help=help_id)
 
     def setup_install(self):
@@ -153,8 +147,7 @@ class BaseCommand:
         help_debug = "Run a command in test mode. It only shows the command."
         help_group = "Group items for executing a command."
 
-        self.cmd_install = self.cmd_install.add_argument_group(
-            'Usage: linuxp install [OPTIONS]')
+        self.cmd_install = self.cmd_install.add_argument_group('Usage: linuxp install [OPTIONS]')
         self.cmd_install.add_argument('-m', '--module', required=True, choices=['package', 'alias', 'script'])
         self.cmd_install.add_argument('-t', '--tag')
         self.cmd_install.add_argument('-i', '--item')
@@ -170,8 +163,7 @@ class BaseCommand:
         help_debug = "Run a command in test mode. It only shows the command."
         help_group = "Group items for executing a command."
 
-        self.cmd_uninstall = self.cmd_uninstall.add_argument_group(
-            'Usage: linuxp uninstall [OPTIONS]')
+        self.cmd_uninstall = self.cmd_uninstall.add_argument_group('Usage: linuxp uninstall [OPTIONS]')
         self.cmd_uninstall.add_argument('-m', '--module', required=True, choices=['package', 'alias', 'script'])
         self.cmd_uninstall.add_argument('-t', '--tag')
         self.cmd_uninstall.add_argument('-i', '--item')
@@ -183,8 +175,7 @@ class BaseCommand:
         self.cmd_list = self.subparsers.add_parser(
             'list', help=self.help.get("list"))
 
-        self.cmd_list = self.cmd_list.add_argument_group(
-            'Usage: linuxp list [OPTIONS]')
+        self.cmd_list = self.cmd_list.add_argument_group('Usage: linuxp list [OPTIONS]')
         self.cmd_list.add_argument('-m', '--module', **self.argument_module)
         self.cmd_list.add_argument('-t', '--tag')
         self.cmd_list.add_argument('-i', '--item')

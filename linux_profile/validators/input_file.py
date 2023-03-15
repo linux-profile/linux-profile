@@ -1,28 +1,19 @@
 from linux_profile.base.validator import Validator
-from linux_profile.utils.text import slugify, cleaning_option
-from linux_profile.base.error import (
-    ErrorOptionIsMissing,
-    ErrorOptionIsInvalid
-)
+from linux_profile.utils.text import slugify
+from linux_profile.base.error import ErrorOptionIsMissing
 
 
 class InputAddFile(Validator):
 
-    types = [
-        "create",
-        "read",
-        "update",
-        "delete"
-    ]
-
     def validator_tag(self, value=None):
         return slugify(value) if value else 'default'
 
-    def validator_type(self, value=None):
+    def validator_name(self, value=None):
         if not value:
-            raise ErrorOptionIsMissing('File Operation Type ')
+            raise ErrorOptionIsMissing('File Name')
+        return value
 
-        if value not in self.types:
-            raise ErrorOptionIsInvalid('File Operation Type ', self.types)
-
-        return cleaning_option(value)
+    def validator_file_path(self, value=None):
+        if not value:
+            raise ErrorOptionIsMissing('File Path')
+        return value
