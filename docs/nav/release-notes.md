@@ -1,5 +1,10 @@
 # Release Notes
 
+## v1.0.15
+
+- [📦 PyPI - Build 1.0.15](https://github.com/MyLinuxProfile/linux-profile/releases/tag/v1.0.15)
+- [🪲 BUG-146 - ERROR: deep_search() missing 1 required positional argument: 'module'](https://github.com/MyLinuxProfile/linux-profile/issues/146)
+
 ## v1.0.14
 
 - [📦 PyPI - Build 1.0.14](https://github.com/MyLinuxProfile/linux-profile/releases/tag/v1.0.14)
@@ -26,7 +31,7 @@
 
 - [📦 PyPI - Build 1.0.11](https://github.com/MyLinuxProfile/linux-profile/releases/tag/v1.0.11)
 - [📌 ISSUE-102 - Include data import by '--config' and '--profile' commands](https://github.com/MyLinuxProfile/linux-profile/issues/102)
-- [📌 ISSUE-101 - Error creating directory without root permission using PIP](https://github.com/MyLinuxProfile/linux-profile/issues/101)
+- [🪲 BUG-101 - Error creating directory without root permission using PIP](https://github.com/MyLinuxProfile/linux-profile/issues/101)
 - [📌 ISSUE-99 - Documentation Update](https://github.com/MyLinuxProfile/linux-profile/issues/99)
 
 ## v1.0.10
