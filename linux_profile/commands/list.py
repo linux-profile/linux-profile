@@ -25,7 +25,6 @@ class List(Settings):
         )
         for item in data:
             print_item(
-                module=self.module,
                 id=item.get("id", "Null"),
                 tag=item.get("tag", "Null"),
                 item=item.get("name", "Null"),
@@ -41,7 +40,6 @@ class List(Settings):
         )
         for item in data:
             print_item(
-                module=self.module,
                 id=item.get("id", "Null"),
                 tag=item.get("tag", "Null"),
                 item=item.get("name", "Null"),
@@ -57,7 +55,6 @@ class List(Settings):
         )
         for item in data:
             print_item(
-                module=self.module,
                 id=item.get("id", "Null"),
                 tag=item.get("tag", "Null"),
                 item=item.get("name", "Null"),
