@@ -104,9 +104,11 @@ class CommandAccount(Command):
 
 class BuildCommand:
 
+    base_command = BaseCommand
+
     def __init__(self) -> None:
         parser = argparse.ArgumentParser(description='🐧 Linux Profile Management CLI Tool')
-        self.command = BaseCommand(parser)
+        self.command = self.base_command(parser)
         self.core_commands()
         self.command.run()
 
