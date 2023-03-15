@@ -1,9 +1,6 @@
 from linux_profile.base.validator import Validator
-from linux_profile.utils.text import slugify, cleaning_option
-from linux_profile.base.error import (
-    ErrorOptionIsMissing,
-    ErrorOptionIsInvalid
-)
+from linux_profile.utils.text import slugify
+from linux_profile.base.error import ErrorOptionIsMissing
 
 
 class InputAddFile(Validator):
