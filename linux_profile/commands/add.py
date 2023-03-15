@@ -72,11 +72,9 @@ class Add(Settings):
     def add_file(self):
         fields = InputAddFile(**{
             "tag": option(text="File Tag [default]: "),
-            "type": option(text="File Operation Type [create, read, update, delete]: ", required=True),
             "name": option(text="File Name: ", required=True),
             "file_path": option(text="File Path: ", required=True),
-            "line_operation": option(text="Line Operation: "),
-            "body": option(text="Content Body: ")}
+            "body": option(text="File Body: ", body=True)}
         )
         self.action._create_item(
             content=fields.__dict__,
