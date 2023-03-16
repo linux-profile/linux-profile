@@ -24,12 +24,16 @@ class List(Settings):
             value=self.item
         )
         for item in data:
-            print_item(
-                id=item.get("id", "Null"),
-                tag=item.get("tag", "Null"),
-                item=item.get("name", "Null"),
-                description=item.get("description", "No description")
-            )
+            if self.print:
+                content = item.get(self.field) if self.field else item
+                print(content)
+            else:
+                print_item(
+                    id=item.get("id", "Null"),
+                    tag=item.get("tag", "Null"),
+                    item=item.get("name", "Null"),
+                    description=item.get("description", "No description")
+                )
 
     def list_alias(self):
         data = self.action.deep_search(
@@ -39,12 +43,16 @@ class List(Settings):
             value=self.item
         )
         for item in data:
-            print_item(
-                id=item.get("id", "Null"),
-                tag=item.get("tag", "Null"),
-                item=item.get("name", "Null"),
-                description=item.get("description", "No description")
-            )
+            if self.print:
+                content = item.get(self.field) if self.field else item
+                print(content)
+            else:
+                print_item(
+                    id=item.get("id", "Null"),
+                    tag=item.get("tag", "Null"),
+                    item=item.get("name", "Null"),
+                    description=item.get("description", "No description")
+                )
 
     def list_script(self):
         data = self.action.deep_search(
@@ -54,12 +62,16 @@ class List(Settings):
             value=self.item
         )
         for item in data:
-            print_item(
-                id=item.get("id", "Null"),
-                tag=item.get("tag", "Null"),
-                item=item.get("name", "Null"),
-                description=item.get("description", "No description")
-            )
+            if self.print:
+                content = item.get(self.field) if self.field else item
+                print(content)
+            else:
+                print_item(
+                    id=item.get("id", "Null"),
+                    tag=item.get("tag", "Null"),
+                    item=item.get("name", "Null"),
+                    description=item.get("description", "No description")
+                )
 
     def list_file(self):
         data = self.action.deep_search(
@@ -69,12 +81,16 @@ class List(Settings):
             value=self.item
         )
         for item in data:
-            print_item(
-                id=item.get("id", "Null"),
-                tag=item.get("tag", "Null"),
-                item=item.get("name", "Null"),
-                description=item.get("description", "No description")
-            )
+            if self.print:
+                content = item.get(self.field) if self.field else item
+                print(content)
+            else:
+                print_item(
+                    id=item.get("id", "Null"),
+                    tag=item.get("tag", "Null"),
+                    item=item.get("name", "Null"),
+                    description=item.get("description", "No description")
+                )
 
     def list_text(self):
         data = self.action.deep_search(
@@ -84,9 +100,13 @@ class List(Settings):
             value=self.item
         )
         for item in data:
-            print_item(
-                id=item.get("id", "Null"),
-                tag=item.get("tag", "Null"),
-                item=item.get("text", "Null"),
-                description=item.get("description", "")
-            )
+            if self.print:
+                content = item.get(self.field) if self.field else item
+                print(content)
+            else:
+                print_item(
+                    id=item.get("id", "Null"),
+                    tag=item.get("tag", "Null"),
+                    item=item.get("text", "Null"),
+                    description=item.get("description", "")
+                )

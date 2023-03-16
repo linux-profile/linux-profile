@@ -1,3 +1,5 @@
+from linux_profile.base.file import File
+from linux_profile.base.system import System
 from linux_profile.base.action import Action
 from linux_profile.base.settings import Settings
 from linux_profile.utils.text import option
@@ -70,11 +72,24 @@ class Add(Settings):
         )
 
     def add_file(self):
+
+        def option_body():
+            path = self.Base.path_temp.joinpath("temp")
+            editor = input("Enter text editor [vim]: ") or "vim"
+
+            System().system(cmd=[editor, str(path)])
+
+            if path.exists():
+                body = File.read(path_file=path)
+                path.unlink()
+                return body
+            return None
+
         fields = InputAddFile(**{
             "tag": option(text="File Tag [default]: "),
             "name": option(text="File Name: ", required=True),
             "file_path": option(text="File Path: ", required=True),
-            "body": option(text="File Body: ", body=True)}
+            "body": option_body()}
         )
         self.action._create_item(
             content=fields.__dict__,
