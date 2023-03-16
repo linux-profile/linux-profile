@@ -22,7 +22,16 @@ from linux_profile.base.error import (
 
 class Command:
 
-    list_option = ['id', 'module', 'tag', 'item', 'sudo', 'debug', 'group']
+    list_option = [
+        'id',
+        'module',
+        'tag',
+        'item',
+        'sudo',
+        'debug',
+        'group',
+        'field',
+        'print']
 
     def __init__(self, parser, arguments) -> None:
         self.parser = parser
@@ -177,8 +186,10 @@ class BaseCommand:
 
         self.cmd_list = self.cmd_list.add_argument_group('Usage: linuxp list [OPTIONS]')
         self.cmd_list.add_argument('-m', '--module', **self.argument_module)
-        self.cmd_list.add_argument('-t', '--tag')
-        self.cmd_list.add_argument('-i', '--item')
+        self.cmd_list.add_argument('-t', '--tag',)
+        self.cmd_list.add_argument('-i', '--item',)
+        self.cmd_list.add_argument('-f', '--field',)
+        self.cmd_list.add_argument('--print', action='store_true')
 
     def run(self):
         try:

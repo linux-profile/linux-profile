@@ -90,7 +90,9 @@ class CommandList(Command):
             **dict(
                 module=self.module,
                 tag=self.tag,
-                item=self.item
+                item=self.item,
+                field=self.field,
+                print=self.print
             )
         )
 
