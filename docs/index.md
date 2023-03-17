@@ -38,7 +38,28 @@
 ### Quick development URLs
 - Beta -> [https://linuxprofile.com/beta.shz](https://linuxprofile.com/beta.shz)
 
-## Commands
+## [Installation](https://docs.linuxprofile.com/nav/installation/)
+
+- **Install - Pypi/PIP**
+
+```
+pip install -U linuxp
+```
+
+- **Install - Shell/Curl** - **STABLE**
+
+```
+/bin/bash -c "$(curl -fsSL https://linuxprofile.com/install.sh)"
+```
+
+- **Install - Shell/Curl - BETA**
+
+```
+/bin/bash -c "$(curl -fsSL https://linuxprofile.com/beta.sh)"
+```
+
+## [Commands](https://docs.linuxprofile.com/)
+
 
 | Command               | Description                                                                           | Docs                                   |
 |:--------------------- |:------------------------------------------------------------------------------------- | :------------------------------------: | 
