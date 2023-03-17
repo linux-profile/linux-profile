@@ -11,11 +11,11 @@ linuxp remove --help
 
 usage: linuxp remove [-h] --id ID
 
-optional arguments:
+options:
   -h, --help  show this help message and exit
 
 Usage: linuxp remove [OPTIONS]:
-  --id ID     Reference ID of a database item.
+  --id ID     Reference ID of a storage item.
 
 =============== Output ===============
 ```

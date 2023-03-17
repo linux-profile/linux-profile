@@ -9,13 +9,13 @@ linuxp add --help
 
 =============== Output ===============
 
-usage: linuxp add [-h] -m {package,alias,script,text}
+usage: linuxp add [-h] -m {package,alias,script,text,file}
 
 options:
   -h, --help            show this help message and exit
 
 Usage: linuxp add [OPTIONS]:
-  -m {package,alias,script,text}, --module {package,alias,script,text}
+  -m {package,alias,script,text,file}, --module {package,alias,script,text,file}
 
 =============== Output ===============
 ```
