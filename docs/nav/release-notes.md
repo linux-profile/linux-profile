@@ -3,7 +3,7 @@
 ### v1.0.16
 
 - [📦 PyPI - Build 1.0.16](https://github.com/MyLinuxProfile/linux-profile/releases/tag/v1.0.16)
-- [📌 ISSUE--149 - Cconfiguration for adding file content ](https://github.com/MyLinuxProfile/linux-profile/issues/149)
+- [📌 ISSUE--149 - Configuration for adding file content ](https://github.com/MyLinuxProfile/linux-profile/issues/149)
 
 ### v1.0.15
 
