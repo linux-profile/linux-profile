@@ -21,15 +21,15 @@
 
 ## [Introduction](https://docs.linuxprofile.com/)
 
-**English**: Linux Profile is a CLI tool for Linux profile management. With this project it is possible, from commands executed in the console, to create a 'json' file to store the backup configurations. For example, information about packages, aliases, scripts, texts and files. It also allows with a single command to restore the saved settings.
+**English**: **Linuxp** is a CLI tool for Linux profile management. With this project it is possible, from commands executed in the console, to create a file in **json** format to store the backup settings. For example, information about packages, aliases, scripts, texts and files. It also allows with a single command to restore the saved settings.
 
-> **Português**: Linux Profile é uma ferramenta de CLI para gerenciamento de perfil do Linux. Com este projeto é possível, a partir de comandos executados no console, criar um arquivo 'json' para armazenar as configurações de backup. Como por exemplo,  informações sobre pacotes, alias, scripts, textos e arquivos. Também permite com um único comando restaurar as configurações salvas.
+> **Português**: **Linuxp** é uma ferramenta de CLI para gerenciamento de perfil do Linux. Com este projeto é possível, a partir de comandos executados no console, criar um arquivo no formato **json** para armazenar as configurações de backup. Como por exemplo, informações sobre pacotes, alias, scripts, textos e arquivos. Também permite com um único comando restaurar as configurações salvas.
 
 ## [How and why?](https://docs.linuxprofile.com/)
 
-**English**: With the need to automate processes and execution of scripts, **LinuxProfile** emerged, a project developed in python that aims to create a standard in the chaos of storing information about scripts, aliases, packages, texts and files in a single place, fully customizable from according to the user.
+**English**: With the need to automate processes and execution of scripts, **Linuxp** emerged, a project developed in python that aims to create a standard in the chaos of storing information about packages, aliases, scripts, texts and files in a single place, fully customizable from according to the user.
 
-> **Português**: Com a necessidade de automatizar os processos e execução de scripts, surgiu **LinuxProfile**, projeto desenvolvido em python que tem como objetivo criar um padrão no caos do armazenamento de informações de scripts, alias, packages, textos e arquivos em um único local, totalmente personalizável de acordo com o usuário.
+> **Português**: Com a necessidade de automatizar os processos e execução de scripts, surgiu **Linuxp**, projeto desenvolvido em python que tem como objetivo criar um padrão no caos do armazenamento de informações de pacotes, alias, scripts, textos e arquivos em um único local, totalmente personalizável de acordo com o usuário.
 
 ### Quick URLs
 - Last Version -> [https://linuxprofile.com/LAST_VERSION](https://linuxprofile.com/LAST_VERSION)
