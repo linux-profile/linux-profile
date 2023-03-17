@@ -98,8 +98,16 @@ linuxp install -m script -i play_music
 
 - [**Storing my profile file elsewhere**](https://docs.linuxprofile.com/nav/backup/)
 
+> Latest versions, use like this::
+
 ```bash
-cat ~/.config/linuxp/profile/my_linux.json > ~/backup_profile.json
+cat ~/.config/linuxp/profile/linux_profile.json > ~/backup_profile.json
+```
+
+> If you have a version equal to or lower than **1.0.12**, use it like this:
+
+```bash
+cat ~/.config/linuxp/linux_profile.json > ~/backup_profile.json
 ```
 
 - [**Opening file I saved elsewhere**](https://docs.linuxprofile.com/nav/backup/)

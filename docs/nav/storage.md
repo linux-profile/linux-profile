@@ -4,8 +4,18 @@ Basically the data is saved in a `.json` file on your machine, without this loca
 <details>
     <summary>View path</summary>
 
+<br>
+
+Latest versions, use like this::
+
+```bash
+cat ~/.config/linuxp/profile/linux_profile.json > ~/backup_profile.json
 ```
-cat ~/.config/linuxp/profile/linux_profile.json
+
+If you have a version equal to or lower than 1.0.12, use it like this:
+
+```bash
+cat ~/.config/linuxp/linux_profile.json > ~/backup_profile.json
 ```
 
 </details>
