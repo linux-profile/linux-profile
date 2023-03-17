@@ -20,9 +20,9 @@ linuxp add -m package
 ```bash
 =============== Input ===============
 
-Package Tag [default]: music
+Package Tag [default]: util
 * Package Manager: snap
-* Package Name: spotify
+* Package Name: vim
 Package URL: 
 Package File: 
 Package Description [limit 85]:
@@ -36,7 +36,7 @@ Package Description [limit 85]:
 
     | Fixed Text  | Required | Example   | Description    |
     | :---------: | :------: | :-------: |:-------------: |
-    |   ◻️ No      |  ◻️ No    | ``music``	| Tag group name |
+    |   ◻️ No      |  ◻️ No    | ``util``	| Tag group name |
 
 === "Manager"
 
@@ -60,7 +60,7 @@ Package Description [limit 85]:
 
     | Fixed Text |   Required   | Example            | Description             |
     | :--------: | :----------: | :----------------: |:----------------------: |
-    |   ◻️ No     |    ✅ Yes    | ``spotify``  	     | Package name to install |
+    |   ◻️ No     |    ✅ Yes    | ``vim``  	     | Package name to install |
 
 
 === "Package URL"
@@ -73,14 +73,14 @@ Package Description [limit 85]:
 
     | Fixed Text  | Required | Example                | Description    |
     | :---------: | :------: | :--------------------: |:-------------: |
-    |   ◻️ No      |  ◻️ No    | `spotify.txt`          |                |
+    |   ◻️ No      |  ◻️ No    | `vim.txt`          |                |
 
 
 === "Description"
 
     | Fixed Text  | Required | Example                | Description    |
     | :---------: | :------: | :--------------------: |:-------------: |
-    |   ◻️ No      |  ◻️ No    | `Music application`    |                |
+    |   ◻️ No      |  ◻️ No    | `Text application`    |                |
 
 ## Alias
 
@@ -101,7 +101,7 @@ linuxp add -m alias
 ```bash
 =============== Input ===============
 
-Alias Tag [default]: music
+Alias Tag [default]: util
 * Alias Name: play_music
 * Alias Command: play_music
 * Alias Body: mplayer linuxprofile.mp3
@@ -116,7 +116,7 @@ Package Description [limit 85]: This command will play my favorite song.
 
     | Fixed Text  | Required | Example   | Description    |
     | :---------: | :------: | :-------: |:-------------: |
-    |   ◻️ No      |  ◻️ No    | ``music``	| Tag group name |
+    |   ◻️ No      |  ◻️ No    | ``util``	| Tag group name |
 
 === "Name"
 
@@ -274,3 +274,58 @@ Label: linux,shell,python,dev,tech
     | Fixed Text  | Required | Example                          | Description    |
     | :---------: | :------: | :------------------------------: |:-------------: |
     |   ◻️ No      |  ◻️ No    | `linux,shell,python,dev,tech`    |                |
+
+
+## File
+
+- **Full Command**
+
+```bash
+linuxp add --module file
+```
+
+- **Short Command**
+
+```bash
+linuxp add -m file
+```
+
+### Input
+
+```bash
+=============== Input ===============
+
+File Tag [default]: configs
+* File Name: licence
+* File Path: ~/LICENCE/
+Enter text editor [vim]: vim
+
+=============== Input ===============
+```
+
+### Fields
+
+=== "Tag"
+
+    | Fixed Text  | Required | Example       | Description    |
+    | :---------: | :------: | :-----------: |:-------------: |
+    |   ◻️ No      |  ◻️ No    | ``configs``   | Tag group name |
+
+=== "Name"
+
+    | Fixed Text  | Required | Example       | Description      |
+    | :---------: | :------: | :-----------: |:---------------: |
+    |   ◻️ No      |  ✅ Yes  | ``licence``   | Your text name   |
+
+
+=== "file_path"
+
+    | Fixed Text  | Required | Example         | Description    |
+    | :---------: | :------: | :-------------: |:-------------: |
+    |   ◻️ No      |  ✅ Yes  | `~/LICENCE/`    |                |
+
+=== "body"
+
+    | Fixed Text  | Required | Example                                                | Description    |
+    | :---------: | :------: | :----------------------------------------------------: |:-------------: |
+    |   ◻️ No      |  ◻️ No    | `MIT License\n\nCopyright (c) 2023 Linux Profile\n...` |                |

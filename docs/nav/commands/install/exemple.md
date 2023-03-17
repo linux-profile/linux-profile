@@ -69,23 +69,23 @@ linuxp install -m package
 
 **Full Command**
 ```bash
-linuxp install --module package --tag music
+linuxp install --module package --tag util
 ```
 **Short Command**
 ```bash
-linuxp install -m package -t music
+linuxp install -m package -t util
 ```
 
 ### Item
 
 **Full Command**
 ```bash
-linuxp install --module package --tag music --item spotify
+linuxp install --module package --tag util --item vim
 ```
 
 **Short Command**
 ```bash
-linuxp install -m package -t music -i spotify
+linuxp install -m package -t util -i vim
 ```
 
 ## Install Script
@@ -142,21 +142,21 @@ linuxp install -m alias
 
 **Full Command**
 ```bash
-linuxp install --module alias --tag music
+linuxp install --module alias --tag util
 ```
 **Short Command**
 ```bash
-linuxp install -m alias -t music
+linuxp install -m alias -t util
 ```
 
 ### Item
 
 **Full Command**
 ```bash
-linuxp install --module alias --tag music --item play_music
+linuxp install --module alias --tag util --item play_music
 ```
 
 **Short Command**
 ```bash
-linuxp install -m alias -t music -i play_music
+linuxp install -m alias -t util -i play_music
 ```

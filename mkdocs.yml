@@ -34,6 +34,7 @@ nav:
     - Storage: nav/storage.md
     - Backup: nav/backup.md
     - Release Notes: nav/release-notes.md
+    - Quick Starter: nav/quick-starter.md
 
 theme: 
     name: material

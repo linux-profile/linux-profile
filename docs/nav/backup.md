@@ -1,7 +1,7 @@
 - Saving the profile file:
 
 ```
-cat ~/.config/linuxp/linux_profile.json > ~/backup_profile.json
+cat ~/.config/linuxp/profile/linux_profile.json > ~/backup_profile.json
 ```
 
 - Open in a text editor:

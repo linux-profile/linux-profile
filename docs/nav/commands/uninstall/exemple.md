@@ -68,23 +68,23 @@ linuxp uninstall -m package
 
 **Full Command**
 ```bash
-linuxp uninstall --module package --tag music
+linuxp uninstall --module package --tag util
 ```
 **Short Command**
 ```bash
-linuxp uninstall -m package -t music
+linuxp uninstall -m package -t util
 ```
 
 ### Item
 
 **Full Command**
 ```bash
-linuxp uninstall --module package --tag music --item spotify
+linuxp uninstall --module package --tag util --item vim
 ```
 
 **Short Command**
 ```bash
-linuxp uninstall -m package -t music -i spotify
+linuxp uninstall -m package -t util -i vim
 ```
 
 ## Uninstall Script
@@ -141,21 +141,21 @@ linuxp uninstall -m alias
 
 **Full Command**
 ```bash
-linuxp uninstall --module alias --tag music
+linuxp uninstall --module alias --tag util
 ```
 **Short Command**
 ```bash
-linuxp uninstall -m alias -t music
+linuxp uninstall -m alias -t util
 ```
 
 ### Item
 
 **Full Command**
 ```bash
-linuxp uninstall --module alias --tag music --item play_music
+linuxp uninstall --module alias --tag util --item play_music
 ```
 
 **Short Command**
 ```bash
-linuxp uninstall -m alias -t music -i play_music
+linuxp uninstall -m alias -t util -i play_music
 ```

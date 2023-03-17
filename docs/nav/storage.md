@@ -5,7 +5,7 @@ Basically the data is saved in a `.json` file on your machine, without this loca
     <summary>View path</summary>
 
 ```
-cat ~/.config/linuxp/linux_profile.json
+cat ~/.config/linuxp/profile/linux_profile.json
 ```
 
 </details>

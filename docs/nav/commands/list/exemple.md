@@ -23,17 +23,17 @@ linuxp list -m file
 
 **Full Command**
 ```bash
-linuxp list --module package --tag music
+linuxp list --module package --tag util
 linuxp list --module alias --tag system
-linuxp list --module script --tag music
+linuxp list --module script --tag util
 linuxp list --module text --tag urls
 linuxp list --module file --tag configs
 ```
 **Short Command**
 ```bash
-linuxp list -m package -t music
+linuxp list -m package -t util
 linuxp list -m alias -t system
-linuxp list -m script -t music
+linuxp list -m script -t util
 linuxp list -m text -t urls
 linuxp list -m file -t configs
 ```
@@ -42,18 +42,18 @@ linuxp list -m file -t configs
 
 **Full Command**
 ```bash
-linuxp list --module package --tag music --item spotify
+linuxp list --module package --tag util --item vim
 linuxp list --module alias --tag system --item clean_my_linux
-linuxp list --module script --tag music --item play_music
+linuxp list --module script --tag util --item play_music
 linuxp list --module text --tag urls --item github
 linuxp list --module file --tag configs --item licence
 ```
 
 **Short Command**
 ```bash
-linuxp list -m package -t music -i spotify
+linuxp list -m package -t util -i vim
 linuxp list -m alias -t system -i clean_my_linux
-linuxp list -m script -t music -i play_music
+linuxp list -m script -t util -i play_music
 linuxp list -m text -t urls -i github
 linuxp list -m file -t configs -i licence
 ```
