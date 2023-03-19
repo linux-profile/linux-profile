@@ -71,7 +71,7 @@
 
 ## Commit Style
 
-- ⚙️ NO-TASK
+- ⚙️ FEATURE
 - 📝 PEP8
 - 📌 ISSUE
 - 🪲 BUG
@@ -80,6 +80,7 @@
 - ❤️️ TEST
 - ⬆️ CI/CD
 - ⚠️ SECURITY
+
 ## License
 
 This project is licensed under the terms of the MIT license.
