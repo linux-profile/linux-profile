@@ -77,6 +77,7 @@ pip install -U linuxp
 - Link - [linux_profile.json](https://linuxprofile.com/linux_profile.json)
 
 ## Commit Style
+
 - ⚙️ NO-TASK
 - 📝 PEP8
 - 📌 ISSUE
@@ -84,6 +85,8 @@ pip install -U linuxp
 - 📘 DOCS
 - 📦 PyPI
 - ❤️️ TEST
+- ⬆️ CI/CD
+- ⚠️ SECURITY
 
 ## License
 

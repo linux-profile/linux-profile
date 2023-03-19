@@ -70,6 +70,7 @@
 - Link - [linux_profile.json](https://linuxprofile.com/linux_profile.json)
 
 ## Commit Style
+
 - ⚙️ NO-TASK
 - 📝 PEP8
 - 📌 ISSUE
@@ -77,7 +78,8 @@
 - 📘 DOCS
 - 📦 PyPI
 - ❤️️ TEST
-
+- ⬆️ CI/CD
+- ⚠️ SECURITY
 ## License
 
 This project is licensed under the terms of the MIT license.
