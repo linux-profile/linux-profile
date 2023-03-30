@@ -1,19 +1,19 @@
-<img src="https://github.com/MyLinuxProfile/linux-profile/blob/master/docs/linuxp.png?raw=true">
+<img src="https://github.com/linux-profile/linux-profile/blob/master/docs/linuxp.png?raw=true">
 
-![GitHub Org's stars](https://img.shields.io/github/stars/MyLinuxProfile?label=LinuxProfile&style=flat-square)
-![GitHub last commit](https://img.shields.io/github/last-commit/MyLinuxProfile/linux-profile?style=flat-square)
-![GitHub Pipenv locked Python version](https://img.shields.io/github/pipenv/locked/python-version/MyLinuxProfile/linux-profile?style=flat-square)
+![GitHub Org's stars](https://img.shields.io/github/stars/linux-profile?label=LinuxProfile&style=flat-square)
+![GitHub last commit](https://img.shields.io/github/last-commit/linux-profile/linux-profile?style=flat-square)
+![GitHub Pipenv locked Python version](https://img.shields.io/github/pipenv/locked/python-version/linux-profile/linux-profile?style=flat-square)
 ![PyPI](https://img.shields.io/pypi/v/linuxp)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/linuxp?style=flat-square)
 
-[![check](https://github.com/MyLinuxProfile/linux-profile/actions/workflows/python-publish-pypi.yml/badge.svg)](https://github.com/MyLinuxProfile/linux-profile/actions/workflows/python-publish-pypi.yml)
-[![check](https://github.com/MyLinuxProfile/linux-profile/actions/workflows/python-publish-pypi-test.yml/badge.svg)](https://github.com/MyLinuxProfile/linux-profile/actions/workflows/python-publish-pypi-test.yml)
-[![check](https://github.com/MyLinuxProfile/linux-profile/actions/workflows/python-app-test.yml/badge.svg)](https://github.com/MyLinuxProfile/linux-profile/actions/workflows/python-app-test.yml)
+[![check](https://github.com/linux-profile/linux-profile/actions/workflows/python-publish-pypi.yml/badge.svg)](https://github.com/linux-profile/linux-profile/actions/workflows/python-publish-pypi.yml)
+[![check](https://github.com/linux-profile/linux-profile/actions/workflows/python-publish-pypi-test.yml/badge.svg)](https://github.com/linux-profile/linux-profile/actions/workflows/python-publish-pypi-test.yml)
+[![check](https://github.com/linux-profile/linux-profile/actions/workflows/python-app-test.yml/badge.svg)](https://github.com/linux-profile/linux-profile/actions/workflows/python-app-test.yml)
 
 ---
 
 - **Documentation**: [https://docs.linuxprofile.com](https://docs.linuxprofile.com)
-- **Source Code**: [https://github.com/MyLinuxProfile/linux-profile](https://github.com/MyLinuxProfile/linux-profile)
+- **Source Code**: [https://github.com/linux-profile/linux-profile](https://github.com/linux-profile/linux-profile)
 
 ---
 

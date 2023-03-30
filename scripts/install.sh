@@ -11,7 +11,7 @@ DISTRO=$(cat /etc/*-release | grep -w ID | cut -d= -f2 | tr -d '"')
 
 LINUXP_PATH="/opt/linuxp"
 APP_TEMP=$LINUXP_PATH/temp
-URL=https://github.com/MyLinuxProfile/linux-profile.git
+URL=https://github.com/linux-profile/linux-profile.git
 
 
 update_linux() {
