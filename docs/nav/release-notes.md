@@ -1,5 +1,9 @@
 # Release Notes
 
+### v1.0.17
+
+- [📦 PyPI - Build 1.0.17](https://github.com/linux-profile/linux-profile/releases/tag/v1.0.17)
+
 ### v1.0.16
 
 - [📦 PyPI - Build 1.0.16](https://github.com/linux-profile/linux-profile/releases/tag/v1.0.16)
