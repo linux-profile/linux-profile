@@ -1,15 +1,12 @@
 site_name: LinuxProfile
 site_url: http://linuxprofile.com
-repo_name: MyLinuxProfile/linux-profile
-repo_url: https://github.com/MyLinuxProfile/linux-profile
+repo_name: linux-profile/linux-profile
+repo_url: https://github.com/linux-profile/linux-profile
 
 nav:
     - Home: index.md
     - Installation: nav/installation.md
     - Commands:
-        # - Account:
-        #     - nav/commands/account/index.md
-        #     - nav/commands/account/exemple.md
         - Config:
             - nav/commands/config/index.md
             - nav/commands/config/exemple.md
@@ -61,4 +58,4 @@ extra_css:
 extra:
   social:
     - icon: fontawesome/brands/github 
-      link: https://github.com/MyLinuxProfile
+      link: https://github.com/linux-profile
