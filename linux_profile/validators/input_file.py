@@ -5,6 +5,7 @@ from linux_profile.base.error import (
     ErrorInvalidValue
 )
 
+
 class InputAddFile(Validator):
 
     def validator_tag(self, value=None):
@@ -25,4 +26,3 @@ class InputAddFile(Validator):
         if len(value) > 85:
             raise ErrorInvalidValue("File Description")
         return cleaning_option(value)
-
