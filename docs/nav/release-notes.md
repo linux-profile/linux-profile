@@ -1,5 +1,10 @@
 # Release Notes
 
+### v1.0.18
+
+- [📦 PyPI - Build 1.0.18](https://github.com/linux-profile/linux-profile/releases/tag/v1.0.18)
+- [📌 ISSUE-154 - Include description field in file module](https://github.com/linux-profile/linux-profile/issues/154)
+
 ### v1.0.17
 
 - [📦 PyPI - Build 1.0.17](https://github.com/linux-profile/linux-profile/releases/tag/v1.0.17)
