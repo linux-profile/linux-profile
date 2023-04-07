@@ -89,7 +89,8 @@ class Add(Settings):
             "tag": option(text="File Tag [default]: "),
             "name": option(text="File Name: ", required=True),
             "file_path": option(text="File Path: ", required=True),
-            "body": option_body()}
+            "body": option_body(),
+            "description": option(text="File Description [limit 85]: ")}
         )
         self.action._create_item(
             content=fields.__dict__,

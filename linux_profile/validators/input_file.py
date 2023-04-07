@@ -1,7 +1,9 @@
 from linux_profile.base.validator import Validator
-from linux_profile.utils.text import slugify
-from linux_profile.base.error import ErrorOptionIsMissing
-
+from linux_profile.utils.text import slugify, cleaning_option
+from linux_profile.base.error import (
+    ErrorOptionIsMissing,
+    ErrorInvalidValue
+)
 
 class InputAddFile(Validator):
 
@@ -17,3 +19,10 @@ class InputAddFile(Validator):
         if not value:
             raise ErrorOptionIsMissing('File Path')
         return value
+
+    def validator_description(self, value=None):
+        value = value if value else 'No description'
+        if len(value) > 85:
+            raise ErrorInvalidValue("File Description")
+        return cleaning_option(value)
+
