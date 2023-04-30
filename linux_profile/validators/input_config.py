@@ -6,6 +6,7 @@ from linux_profile.base.error import (
     ErrorOptionIsMissing
 )
 
+
 class InputConfig(Validator):
 
     def validator_url(self, value=None):
