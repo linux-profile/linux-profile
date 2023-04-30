@@ -4,13 +4,14 @@
 
 ![GitHub Org's stars](https://img.shields.io/github/stars/linux-profile?label=LinuxProfile&style=flat-square)
 ![GitHub last commit](https://img.shields.io/github/last-commit/linux-profile/linux-profile?style=flat-square)
-![GitHub Pipenv locked Python version](https://img.shields.io/github/pipenv/locked/python-version/linux-profile/linux-profile?style=flat-square)
-![PyPI](https://img.shields.io/pypi/v/linuxp)
+![PyPI](https://img.shields.io/pypi/v/linuxp?style=flat-square)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/linuxp?style=flat-square)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/linuxp?style=flat-square)
 
 [![check](https://github.com/linux-profile/linux-profile/actions/workflows/python-publish-pypi.yml/badge.svg)](https://github.com/linux-profile/linux-profile/actions/workflows/python-publish-pypi.yml)
 [![check](https://github.com/linux-profile/linux-profile/actions/workflows/python-publish-pypi-test.yml/badge.svg)](https://github.com/linux-profile/linux-profile/actions/workflows/python-publish-pypi-test.yml)
 [![check](https://github.com/linux-profile/linux-profile/actions/workflows/python-app-test.yml/badge.svg)](https://github.com/linux-profile/linux-profile/actions/workflows/python-app-test.yml)
+![](/docs/coverage.svg)
 
 ---
 
