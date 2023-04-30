@@ -13,12 +13,14 @@ def test_base_validator_uuid_sucess():
     assert len(fields.id) == 32
     assert type(int(fields.id, 32)) == int
 
+
 def test_base_validator_generate_uuid_sucess():
     operation = ValidatorTest()
     uuid = operation.get_uuid()
 
     assert len(uuid) == 32
-    assert type(int(uuid, 32)) == int    
+    assert type(int(uuid, 32)) == int
+
 
 def test_base_validator_generate_all_sucess():
     operation = ValidatorTest()

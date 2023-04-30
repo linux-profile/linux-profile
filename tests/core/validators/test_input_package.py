@@ -83,7 +83,7 @@ def test_validator_input_package_description_default_success():
 
 def test_validator_input_package_description_character_limit_error():
     try:
-        InputAddPackage(**{"description": 42*"Linux"})
+        InputAddPackage(**{"description": 42 * "Linux"})
     except Exception as error:
         assert error.__class__ == ErrorInvalidValue
         assert error.args[0] == 'Option [Package Description] invalid value!'
@@ -92,13 +92,12 @@ def test_validator_input_package_description_character_limit_error():
 def test_validator_input_package_generate_all_success():
     names = "linuxp,linuxprofile,linux"
     fields = InputAddPackage(**{
-            "tag": None,
-            "name": names,
-            "type": "pacman",
-            "url": None,
-            "file": None,
-            "description": None
-        }
+        "tag": None,
+        "name": names,
+        "type": "pacman",
+        "url": None,
+        "file": None,
+        "description": None}
     )
     content = fields.generate_all()
     assert len(content) == 3

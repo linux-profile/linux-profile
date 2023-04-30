@@ -1,11 +1,11 @@
-from shutil import rmtree
-from os import getcwd, path
+from os import getcwd
 from pathlib import Path
+from shutil import rmtree
 from linux_profile.base.settings import Settings
 
 
 def path(value: str) -> str:
-    return Path(getcwd()).joinpath("tests/helpers/"+value)
+    return Path(getcwd()).joinpath("tests/helpers/" + value)
 
 
 class ConfigTest(Settings):
@@ -24,6 +24,7 @@ class ConfigTest(Settings):
 
     class Variable:
         file_profile = "linux_profile.json"
+        text_editor = "vim"
 
     def __init__(self, **kwargs) -> None:
         self.profile = {}
@@ -47,11 +48,12 @@ def test_base_config_load_base():
         'file_aliases',
         'file_bashrc',
         'file_config',
-        'file_profile'
+        'file_profile',
+        'text_editor'
     ]
 
-    assert config.profile ==  {}
-    assert config.config ==  {}
+    assert config.profile == {}
+    assert config.config == {}
 
     assert str(config.path_install) == f"{home}/tests/helpers/opt/linuxp"
     assert str(config.path_temp) == f"{home}/tests/helpers/tmp/linuxp"
@@ -60,6 +62,7 @@ def test_base_config_load_base():
     assert str(config.file_bashrc) == f"{home}/tests/helpers/.bashrc"
     assert str(config.file_profile) == "linux_profile.json"
     assert str(config.file_config) == "linux_config.json"
+    assert str(config.text_editor) == "vim"
 
     assert config.attr_base + config.attr_variable == attributes
 

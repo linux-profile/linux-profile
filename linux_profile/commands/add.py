@@ -75,7 +75,7 @@ class Add(Settings):
 
         def option_body():
             path = self.Base.path_temp.joinpath("temp")
-            editor = input("Enter text editor [vim]: ") or "vim"
+            editor = input(f"Enter text editor [{self.text_editor}]: ") or self.text_editor
 
             System().system(cmd=[editor, str(path)])
 
