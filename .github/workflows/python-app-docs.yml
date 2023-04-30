@@ -1,8 +1,8 @@
 name: 📘 Update Docs
 
 on:
-  push:
-    branches: [ "docs" ]
+  pull_request:
+    branches: [ "develop" ]
 
 permissions: read-all
 
