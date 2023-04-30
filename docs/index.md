@@ -11,7 +11,7 @@
 [![check](https://github.com/linux-profile/linux-profile/actions/workflows/python-publish-pypi.yml/badge.svg)](https://github.com/linux-profile/linux-profile/actions/workflows/python-publish-pypi.yml)
 [![check](https://github.com/linux-profile/linux-profile/actions/workflows/python-publish-pypi-test.yml/badge.svg)](https://github.com/linux-profile/linux-profile/actions/workflows/python-publish-pypi-test.yml)
 [![check](https://github.com/linux-profile/linux-profile/actions/workflows/python-app-test.yml/badge.svg)](https://github.com/linux-profile/linux-profile/actions/workflows/python-app-test.yml)
-![](/docs/coverage.svg)
+![](coverage.svg)
 
 ---
 
