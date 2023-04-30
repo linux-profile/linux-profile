@@ -1,6 +1,6 @@
-from shutil import rmtree
-from os import getcwd, path
+from os import getcwd
 from pathlib import Path
+from shutil import rmtree
 from linux_profile.base.settings import Settings
 
 
@@ -52,8 +52,8 @@ def test_base_config_load_base():
         'text_editor'
     ]
 
-    assert config.profile ==  {}
-    assert config.config ==  {}
+    assert config.profile == {}
+    assert config.config == {}
 
     assert str(config.path_install) == f"{home}/tests/helpers/opt/linuxp"
     assert str(config.path_temp) == f"{home}/tests/helpers/tmp/linuxp"

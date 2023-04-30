@@ -96,7 +96,7 @@ def test_validator_input_profile_new_file_already_exist_error():
     except ErrorArgumentIsInvalid as error:
         error.__class__ == ErrorArgumentIsInvalid
         assert str(error) == 'Argument [--new] invalid! Profile file already exists.'
-    
+
     Settings.Base.path_profile.joinpath(new_file).unlink()
 
 

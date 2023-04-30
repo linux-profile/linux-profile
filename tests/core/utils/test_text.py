@@ -55,7 +55,7 @@ def test_utils_color_red():
 def test_utils_color_endc():
     text = color(text=" linux ", types=['yellow'])
     total = len(text)
-    assert text[total-4:total] == Colors.ENDC
+    assert text[total - 4:total] == Colors.ENDC
 
 
 def test_utils_color_bold():
