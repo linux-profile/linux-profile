@@ -25,12 +25,15 @@ jobs:
     - name: ❤️️ Test with Coverage
       run: |
         coverage run -m pytest
-    - name: ⚙️ Settings
+    - name: ⚙️ Github
       run: |
         git config --global user.email "email@fernandocelmer.com"
         git config --global user.name "FernandoCelmer"
+    - name: ⚙️ Settings 
+      run: |
         rm -r coverage.svg
         coverage-badge -o coverage.svg
         git add coverage.svg
         git commit -m "⬆️ CI/CD - Update Badge"
         git push
+      continue-on-error: true
