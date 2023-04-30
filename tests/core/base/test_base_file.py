@@ -1,6 +1,5 @@
 from os import path, remove
 from linux_profile.base.file import File
-from linux_profile.base.error import ErrorFile
 
 
 file_path = "./tests/helpers"
@@ -44,6 +43,7 @@ def test_base_file_read_file_does_not_exist_error():
     assert path.exists(test_path) == True
     remove(test_path)
 
+
 def test_base_file_read_lines_file_does_not_exist_error():
     test_path = f"{file_path}/xpto.txt"
     text = File()
@@ -51,6 +51,7 @@ def test_base_file_read_lines_file_does_not_exist_error():
     text.read_lines(path_file=test_path)
     assert path.exists(test_path) == True
     remove(test_path)
+
 
 def test_base_file_touch_success():
     test_path = f"{file_path}/touch.json"

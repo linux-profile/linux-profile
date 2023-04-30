@@ -62,7 +62,7 @@ def test_validator_input_script_description_default_success():
 
 def test_validator_input_script_description_character_limit_error():
     try:
-        InputAddScript(**{"description": 42*"Linux"})
+        InputAddScript(**{"description": 42 * "Linux"})
     except Exception as error:
         assert error.__class__ == ErrorInvalidValue
         assert error.args[0] == 'Option [Script Description] invalid value!'

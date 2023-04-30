@@ -4,14 +4,14 @@ from linux_profile.handlers.package import HandlerPackage
 item_install = {
     "debug": True,
     "sudo": False,
-    "command": "install", 
+    "command": "install",
     "name": "konsole"
 }
 
 item_install_group = {
     "debug": True,
     "sudo": False,
-    "command": "install", 
+    "command": "install",
     "name": "konsole python3 python3-pip"
 }
 
@@ -19,14 +19,14 @@ item_install_group = {
 item_uninstall = {
     "debug": True,
     "sudo": False,
-    "command": "uninstall", 
+    "command": "uninstall",
     "name": "konsole"
 }
 
 item_uninstall_group = {
     "debug": True,
     "sudo": False,
-    "command": "uninstall", 
+    "command": "uninstall",
     "name": "konsole python3 python3-pip"
 }
 
@@ -34,7 +34,7 @@ item_uninstall_group = {
 def test_handlers_package_install_sudo_on():
     item = {
         "debug": True,
-        "command": "install", 
+        "command": "install",
         "name": "konsole"
     }
     output = HandlerPackage(sudo=True, type="apt", **item)
@@ -44,7 +44,7 @@ def test_handlers_package_install_sudo_on():
 def test_handlers_package_install_sudo_of():
     item = {
         "debug": True,
-        "command": "install", 
+        "command": "install",
         "name": "konsole"
     }
     output = HandlerPackage(sudo=False, type="apt", **item)
@@ -54,7 +54,7 @@ def test_handlers_package_install_sudo_of():
 def test_handlers_package_uninstall_sudo_on():
     item = {
         "debug": True,
-        "command": "uninstall", 
+        "command": "uninstall",
         "name": "konsole"
     }
     output = HandlerPackage(sudo=True, type="apt", **item)
@@ -64,7 +64,7 @@ def test_handlers_package_uninstall_sudo_on():
 def test_handlers_package_uninstall_sudo_of():
     item = {
         "debug": True,
-        "command": "uninstall", 
+        "command": "uninstall",
         "name": "konsole"
     }
     output = HandlerPackage(sudo=False, type="apt", **item)

@@ -2,6 +2,7 @@
 Module Settings
 """
 
+
 from json import loads
 from os import makedirs
 from pathlib import Path
@@ -29,6 +30,7 @@ class Settings:
 
     class Variable:
         file_profile = "linux_profile.json"
+        text_editor = "vim"
 
     def __init__(self, **kwargs) -> None:
         self.profile = {}

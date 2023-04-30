@@ -25,6 +25,7 @@ jobs:
     - name: 📝️ Code Scan
       run: |
         flake8 linux_profile/ --count --show-source --statistics --ignore=E501
+        flake8 tests/ --count --show-source --statistics --ignore=E501,E712
     - name: ❤️️ Test with pytest
       run: |
         pytest
