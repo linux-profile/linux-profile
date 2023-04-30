@@ -5,6 +5,7 @@
 - [📦 PyPI - Build 1.0.18](https://github.com/linux-profile/linux-profile/releases/tag/v1.0.18)
 - [📌 ISSUE-158 - Run unit tests with Tox](https://github.com/linux-profile/linux-profile/issues/158)
 - [📌 ISSUE-154 - Include description field in file module](https://github.com/linux-profile/linux-profile/issues/154)
+- [📌 ISSUE-152 - Include option to save default text editor information](https://github.com/linux-profile/linux-profile/issues/152)
 - [📌 ISSUE-135 - Workflow implementation with coverage](https://github.com/linux-profile/linux-profile/issues/135)
 
 ### v1.0.17
