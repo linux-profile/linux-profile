@@ -64,7 +64,7 @@ class BaseCommand:
             '-v',
             '--version',
             action='version',
-            version=f'linuxp=={__version__}',
+            version=f"linuxp=={__version__}",
             help="Show program's version number and exit.")
 
         self.help = {
