@@ -27,6 +27,8 @@ jobs:
         coverage run -m pytest
     - name: ⚙️ Settings
       run: |
+        git config --global user.email "email@fernandocelmer.com"
+        git config --global user.name "FernandoCelmer"
         rm -r coverage.svg
         git add coverage.svg
         git commit -m "⬆️ CI/CD - Update Badge"
