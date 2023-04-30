@@ -30,6 +30,7 @@ jobs:
         git config --global user.email "email@fernandocelmer.com"
         git config --global user.name "FernandoCelmer"
         rm -r coverage.svg
+        coverage-badge -o coverage.svg
         git add coverage.svg
         git commit -m "⬆️ CI/CD - Update Badge"
         git push
