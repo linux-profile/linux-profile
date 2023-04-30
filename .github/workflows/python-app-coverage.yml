@@ -1,8 +1,8 @@
 name: 📦 Package Coverage-Test
 
 on:
-  push:
-    branches: [ "ISSUE-135" ]
+  pull_request:
+    branches: [ "develop" ]
 
 permissions:
   contents: write
@@ -32,8 +32,8 @@ jobs:
     - name: ⚙️ Settings 
       run: |
         rm -r coverage.svg
-        coverage-badge -o coverage.svg
-        git add coverage.svg
-        git commit -m "⬆️ CI/CD - Update Badge"
+        coverage-badge -o docs/coverage.svg
+        git add docs/coverage.svg
+        git commit -m "📘 DOCS - Update Badge"
         git push
       continue-on-error: true
