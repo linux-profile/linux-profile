@@ -5,6 +5,7 @@
 ![GitHub Pipenv locked Python version](https://img.shields.io/github/pipenv/locked/python-version/linux-profile/linux-profile?style=flat-square)
 ![PyPI](https://img.shields.io/pypi/v/linuxp)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/linuxp?style=flat-square)
+![](/coverage.svg)
 
 [![check](https://github.com/linux-profile/linux-profile/actions/workflows/python-publish-pypi.yml/badge.svg)](https://github.com/linux-profile/linux-profile/actions/workflows/python-publish-pypi.yml)
 [![check](https://github.com/linux-profile/linux-profile/actions/workflows/python-publish-pypi-test.yml/badge.svg)](https://github.com/linux-profile/linux-profile/actions/workflows/python-publish-pypi-test.yml)
