@@ -1,10 +1,7 @@
 from urllib.parse import urlsplit
 
 from linux_profile.base.validator import Validator
-from linux_profile.base.error import (
-    ErrorArgumentIsInvalid,
-    ErrorOptionIsMissing
-)
+from linux_profile.base.error import ErrorArgumentIsInvalid
 
 
 class InputConfig(Validator):
@@ -18,6 +15,7 @@ class InputConfig(Validator):
         return value
 
     def validator_editor(self, value=None):
-        if not value:
-            raise ErrorOptionIsMissing('Editor Name')
+        return value
+
+    def validator_shell(self, value=None):
         return value

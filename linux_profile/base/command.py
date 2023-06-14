@@ -102,10 +102,12 @@ class BaseCommand:
 
         help_url = "URL to download and sync config."
         help_text_editor = "Default text editor"
+        help_shell = "Default terminal"
 
         self.cmd_config = self.cmd_config.add_argument_group('Usage: linuxp config [OPTIONS]')
         self.cmd_config.add_argument('--url', help=help_url)
         self.cmd_config.add_argument('--editor', help=help_text_editor)
+        self.cmd_config.add_argument('--shell', help=help_shell)
 
     def setup_profile(self):
         self.cmd_profile = self.subparsers.add_parser(
