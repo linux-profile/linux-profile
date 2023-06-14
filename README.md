@@ -24,7 +24,7 @@
 
 > **Português**: **Linuxp** é uma ferramenta de CLI para gerenciamento de perfil do Linux. Com este projeto é possível, a partir de comandos executados no console, criar um arquivo no formato **json** para armazenar as configurações de backup. Como por exemplo, informações sobre pacotes, alias, scripts, textos e arquivos. Também permite com um único comando restaurar as configurações salvas.
 
-## [How and why?](https://docs.linuxprofile.com/)
+## [Why?](https://docs.linuxprofile.com/)
 
 **English**: With the need to automate processes and execution of scripts, **Linuxp** emerged, a project developed in python that aims to create a standard in the chaos of storing information about packages, aliases, scripts, texts and files in a single place, fully customizable from according to the user.
 
