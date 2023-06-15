@@ -31,6 +31,7 @@ class Settings:
     class Variable:
         file_profile = "linux_profile.json"
         text_editor = "vim"
+        default_shell = "bash"
 
     def __init__(self, **kwargs) -> None:
         self.profile = {}

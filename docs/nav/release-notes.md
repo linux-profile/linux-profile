@@ -1,5 +1,10 @@
 # Release Notes
 
+### v1.0.19
+
+- [📦 PyPI - Build 1.0.19](https://github.com/linux-profile/linux-profile/releases/tag/v1.0.19)
+- [📌 ISSUE-163 - Support for more terminal types for running scripts](https://github.com/linux-profile/linux-profile/issues/163)
+
 ### v1.0.18
 
 - [📦 PyPI - Build 1.0.18](https://github.com/linux-profile/linux-profile/releases/tag/v1.0.18)

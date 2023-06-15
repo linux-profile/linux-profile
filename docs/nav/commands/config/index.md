@@ -9,7 +9,7 @@ linuxp config --help
 
 =============== Output ===============
 
-usage: linuxp config [-h] [--url URL] [--editor EDITOR]
+usage: linuxp config [-h] [--url URL] [--editor EDITOR] [--shell SHELL]
 
 options:
   -h, --help       show this help message and exit
@@ -17,6 +17,7 @@ options:
 Usage: linuxp config [OPTIONS]:
   --url URL        URL to download and sync config.
   --editor EDITOR  Default text editor
+  --shell SHELL    Default terminal
 
 =============== Output ===============
 ```
@@ -31,9 +32,11 @@ graph TD
     c ---> option_c{arguments}
     option_c --->|add| arg_c_url[url]
     option_c --->|add| arg_c_editor[editor]
+    option_c --->|add| arg_c_shell[shell]
 
     style arg_c_url fill:#BFD7ED,stroke:#333
     style arg_c_editor fill:#BFD7ED,stroke:#333
+    style arg_c_shell fill:#BFD7ED,stroke:#333
 
     style L fill:#ededed,stroke:#333
     style c fill:#ededed,stroke:#333

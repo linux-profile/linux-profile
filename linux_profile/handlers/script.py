@@ -14,7 +14,7 @@ class HandlerScript(System):
         self.system(cmd=[path_file])
 
     def setup_shell(self):
-        shebang = self.shebang if hasattr(self, "shebang") else "#!/bin/bash"
+        shebang = self.shebang if hasattr(self, "shebang") else f"#!/bin/{self.default_shell}"
         self.setup_system(shebang=shebang)
 
     def setup_python(self):

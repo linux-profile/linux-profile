@@ -5,6 +5,7 @@ repo_url: https://github.com/linux-profile/linux-profile
 
 nav:
     - Home: index.md
+    - Details: nav/details.md
     - Installation: nav/installation.md
     - Commands:
         - Config:
