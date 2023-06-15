@@ -80,4 +80,5 @@ class Install(Settings):
                 sudo=self.sudo,
                 debug=self.debug,
                 **item,
-                **dict(temp=self.path_temp))
+                **dict(temp=self.path_temp),
+                **self.config)
