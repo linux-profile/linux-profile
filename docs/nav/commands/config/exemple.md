@@ -8,7 +8,7 @@
 linuxp config --url https://linuxprofile.com/linux_config.json
 ```
 
-## EDITOR
+## TEXT EDITOR
 
 - Input:
 
