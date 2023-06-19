@@ -55,6 +55,13 @@ Package Description [limit 85]:
     |   ✅ Yes   |    ✅ Yes    | ``guix``	         | Linux Package Manager  |
     |   ✅ Yes   |    ✅ Yes    | ``flatpak``	     | Linux Package Manager  |
     |   ✅ Yes   |    ✅ Yes    | ``pip``	         | Python Package Manager |
+    |   ✅ Yes   |    ✅ Yes    | ``poetry``	     | Python Package Manager  |
+    |   ✅ Yes   |    ✅ Yes    | ``conda``	     | Python Package Manager  |
+    |   ✅ Yes   |    ✅ Yes    | ``gem``	     | Ruby Package Manager  |
+    |   ✅ Yes   |    ✅ Yes    | ``npm``	     | Node.js and JavaScript Package Manager  |
+    |   ✅ Yes   |    ✅ Yes    | ``yarn``	     | Node.js and JavaScript Package Manager  |
+    |   ✅ Yes   |    ✅ Yes    | ``port``	     | MacOS Package Manager  |
+    |   ✅ Yes   |    ✅ Yes    | ``fink``	     | MacOS Package Manager  |
 
 === "Name"
 
