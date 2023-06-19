@@ -112,3 +112,11 @@ class HandlerPackage(System):
             self.command = 'remove'
 
         self.setup_system()
+
+    def setup_port(self):
+        self.setup_system()
+
+    def setup_fink(self):
+        if self.command == 'uninstall':
+            self.command = 'dpkg --remove'
+        self.setup_system()
