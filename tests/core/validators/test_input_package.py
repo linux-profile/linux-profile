@@ -18,7 +18,12 @@ types = [
     'pip',
     'swupd',
     'guix',
-    'flatpak'
+    'flatpak',
+    'poetry',
+    'conda',
+    'gem',
+    'npm'
+    'yarn'
 ]
 
 
