@@ -83,3 +83,32 @@ class HandlerPackage(System):
 
     def setup_flatpak(self):
         self.setup_system()
+
+    def setup_poetry(self):
+        if self.command == 'install':
+            self.command = 'add'
+
+        if self.command == 'uninstall':
+            self.command = 'remove'
+
+        self.setup_system()
+
+    def setup_conda(self):
+        if self.command == 'uninstall':
+            self.command = 'remove'
+        self.setup_system()
+
+    def setup_gem(self):
+        self.setup_system()
+
+    def setup_npm(self):
+        self.setup_system()
+
+    def setup_yarn(self):
+        if self.command == 'install':
+            self.command = 'add'
+
+        if self.command == 'uninstall':
+            self.command = 'remove'
+
+        self.setup_system()

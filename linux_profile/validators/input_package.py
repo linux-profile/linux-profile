@@ -22,7 +22,12 @@ class InputAddPackage(Validator):
         'pip',
         'swupd',
         'guix',
-        'flatpak'
+        'flatpak',
+        'poetry',
+        'conda',
+        'gem',
+        'npm'
+        'yarn'
     ]
 
     def validator_tag(self, value=None):
