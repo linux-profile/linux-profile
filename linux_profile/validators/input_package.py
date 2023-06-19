@@ -27,7 +27,9 @@ class InputAddPackage(Validator):
         'conda',
         'gem',
         'npm'
-        'yarn'
+        'yarn',
+        'port',
+        'fink'
     ]
 
     def validator_tag(self, value=None):
