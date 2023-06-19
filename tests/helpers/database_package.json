@@ -1,0 +1,168 @@
+{
+    "package": {
+        "test": [
+            {
+                "id": "448127441AE44ADF8B44F6BFC439910D",
+                "tag": "test",
+                "type": "apt-get",
+                "name": "apt-get",
+                "url": "https://ubuntu.com/server/docs/package-management",
+                "file": null,
+                "description": "No description"
+            },
+            {
+                "id": "448127441AE44ADF8B44F6BFC439910D",
+                "tag": "test",
+                "type": "apt",
+                "name": "apt",
+                "url": "https://ubuntu.com/server/docs/package-management",
+                "file": null,
+                "description": "No description"
+            },
+            {
+                "id": "448127441AE44ADF8B44F6BFC439910D",
+                "tag": "test",
+                "type": "snap",
+                "name": "snap",
+                "url": "https://snapcraft.io/",
+                "file": null,
+                "description": "No description"
+            },
+            {
+                "id": "448127441AE44ADF8B44F6BFC439910D",
+                "tag": "test",
+                "type": "yum",
+                "name": "yum",
+                "url": "http://yum.baseurl.org/",
+                "file": null,
+                "description": "No description"
+            },
+            {
+                "id": "448127441AE44ADF8B44F6BFC439910D",
+                "tag": "test",
+                "type": "dnf",
+                "name": "dnf",
+                "url": "https://docs.fedoraproject.org/en-US/quick-docs/dnf/",
+                "file": null,
+                "description": "No description"
+            },
+            {
+                "id": "448127441AE44ADF8B44F6BFC439910D",
+                "tag": "test",
+                "type": "pacman",
+                "name": "pacman",
+                "url": "https://wiki.archlinux.org/title/Pacman",
+                "file": null,
+                "description": "No description"
+            },
+            {
+                "id": "448127441AE44ADF8B44F6BFC439910D",
+                "tag": "test",
+                "type": "zypper",
+                "name": "zypper",
+                "url": "https://en.opensuse.org/Portal:Zypper",
+                "file": null,
+                "description": "No description"
+            },
+            {
+                "id": "448127441AE44ADF8B44F6BFC439910D",
+                "tag": "test",
+                "type": "spack",
+                "name": "spack",
+                "url": "https://spack.io/",
+                "file": null,
+                "description": "No description"
+            },
+            {
+                "id": "448127441AE44ADF8B44F6BFC439910D",
+                "tag": "test",
+                "type": "brew",
+                "name": "brew",
+                "url": "https://brew.sh/",
+                "file": null,
+                "description": "No description"
+            },
+            {
+                "id": "448127441AE44ADF8B44F6BFC439910D",
+                "tag": "test",
+                "type": "pip",
+                "name": "pip",
+                "url": "https://pypi.org/",
+                "file": null,
+                "description": "No description"
+            },
+            {
+                "id": "448127441AE44ADF8B44F6BFC439910D",
+                "tag": "test",
+                "type": "swupd",
+                "name": "swupd",
+                "url": "https://clearlinux.github.io/clear-linux-documentation/guides/clear/swupd.html",
+                "file": null,
+                "description": "No description"
+            },
+            {
+                "id": "448127441AE44ADF8B44F6BFC439910D",
+                "tag": "test",
+                "type": "guix",
+                "name": "guix",
+                "url": "https://guix.gnu.org/",
+                "file": null,
+                "description": "No description"
+            },
+            {
+                "id": "448127441AE44ADF8B44F6BFC439910D",
+                "tag": "test",
+                "type": "flatpak",
+                "name": "flatpak",
+                "url": "https://www.flatpak.org/",
+                "file": null,
+                "description": "No description"
+            },
+            {
+                "id": "448127441AE44ADF8B44F6BFC439910D",
+                "tag": "test",
+                "type": "poetry",
+                "name": "poetry",
+                "url": "https://python-poetry.org/",
+                "file": null,
+                "description": "No description"
+            },
+            {
+                "id": "448127441AE44ADF8B44F6BFC439910D",
+                "tag": "test",
+                "type": "conda",
+                "name": "conda",
+                "url": "https://docs.conda.io/en/latest/",
+                "file": null,
+                "description": "No description"
+            },
+            {
+                "id": "448127441AE44ADF8B44F6BFC439910D",
+                "tag": "test",
+                "type": "gem",
+                "name": "gem",
+                "url": "https://rubygems.org/",
+                "file": null,
+                "description": "No description"
+            },
+            {
+                "id": "448127441AE44ADF8B44F6BFC439910D",
+                "tag": "test",
+                "type": "npm",
+                "name": "npm",
+                "url": "https://www.npmjs.com/",
+                "file": null,
+                "description": "No description"
+            },
+            {
+                "id": "448127441AE44ADF8B44F6BFC439910D",
+                "tag": "test",
+                "type": "yarn",
+                "name": "yarn",
+                "url": "https://yarnpkg.com/",
+                "file": null,
+                "description": "No description"
+            }
+        ]
+    }
+}
