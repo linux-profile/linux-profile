@@ -23,7 +23,9 @@ types = [
     'conda',
     'gem',
     'npm'
-    'yarn'
+    'yarn',
+    'port',
+    'fink'
 ]
 
 

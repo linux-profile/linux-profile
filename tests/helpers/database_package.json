@@ -162,6 +162,24 @@
                 "url": "https://yarnpkg.com/",
                 "file": null,
                 "description": "No description"
+            },
+            {
+                "id": "448127441AE44ADF8B44F6BFC439910D",
+                "tag": "test",
+                "type": "port",
+                "name": "port",
+                "url": "https://www.macports.org/",
+                "file": null,
+                "description": "No description"
+            },
+            {
+                "id": "448127441AE44ADF8B44F6BFC439910D",
+                "tag": "test",
+                "type": "fink",
+                "name": "fink",
+                "url": "https://www.finkproject.org",
+                "file": null,
+                "description": "No description"
             }
         ]
     }
