@@ -32,10 +32,11 @@
 
 ### Quick URLs
 - Last Version -> [https://linuxprofile.com/LAST_VERSION](https://linuxprofile.com/LAST_VERSION)
-- Stable -> [https://linuxprofile.com/install.sh](https://linuxprofile.com/install.sh)
+- Install -> [https://linuxprofile.com/install.sh](https://linuxprofile.com/install.sh)
+- Uninstall -> [https://linuxprofile.com/uninstall.sh](https://linuxprofile.com/uninstall.sh)
 
 ### Quick development URLs
-- Beta -> [https://linuxprofile.com/beta.shz](https://linuxprofile.com/beta.shz)
+- Beta -> [https://linuxprofile.com/beta.sh](https://linuxprofile.com/beta.sh)
 
 ## [Installation](https://docs.linuxprofile.com/nav/installation/)
 
