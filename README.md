@@ -40,18 +40,25 @@
 
 ## [Installation](https://docs.linuxprofile.com/nav/installation/)
 
-- **Install - Pypi/PIP**
+- **Install - PIP**
 
-      pip install -U linuxp
+      pip install linuxp
 
-- **Install - Shell/Curl** - **STABLE**
+- **Install - Poetry**
+
+      poetry add linuxp
+
+- **Install - Bash/Curl** - **STABLE**
 
       /bin/bash -c "$(curl -fsSL https://linuxprofile.com/install.sh)"
 
-
-- **Install - Shell/Curl - BETA**
+- **Install - Bash/Curl - BETA**
 
       /bin/bash -c "$(curl -fsSL https://linuxprofile.com/beta.sh)"
+
+- **Uninstall - Bash/Curl**
+
+      /bin/bash -c "$(curl -fsSL https://linuxprofile.com/uninstall.sh)"
 
 ## [Commands](https://docs.linuxprofile.com/)
 
