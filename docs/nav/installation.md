@@ -1,17 +1,29 @@
-### Install - Pypi/PIP
+### Install - PIP
 
 ```bash
-pip install -U linuxp
+pip install linuxp
 ```
 
-### Install - Shell/Curl - STABLE
+### Install - Poetry
+
+```bash
+poetry add linuxp
+```
+
+### Install - Bash/Curl - STABLE
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://linuxprofile.com/install.sh)"
 ```
 
-### Install - Shell/Curl - BETA
+### Install - Bash/Curl - BETA
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://linuxprofile.com/beta.sh)"
+```
+
+### Uninstall - Bash/Curl
+
+```bash
+/bin/bash -c "$(curl -fsSL https://linuxprofile.com/uninstall.sh)"
 ```
