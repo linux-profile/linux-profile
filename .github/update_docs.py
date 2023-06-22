@@ -4,7 +4,7 @@ import ftplib
 try:
     from dotenv import load_dotenv
     load_dotenv()
-except:
+except Exception:
     pass
 
 ftp_host = os.environ.get("FTP_HOST")
@@ -25,13 +25,19 @@ def ftp_run():
     except Exception:
         pass
 
-    file_text_ascii = open('text-ascii','rb')
-    session.storbinary(f'STOR text-ascii', file_text_ascii)
+    file_text_ascii = open("text-ascii", "rb")
+    session.storbinary("STOR text-ascii", file_text_ascii)
 
-    file_last_version = open('LAST_VERSION','rb')
-    session.storbinary(f'STOR LAST_VERSION', file_last_version)
+    file_last_version = open("LAST_VERSION", "rb")
+    session.storbinary("STOR LAST_VERSION", file_last_version)
 
-    for currentpath, folders, files in os.walk('site'):
+    file_install = open("scripts/install.sh", "rb")
+    session.storbinary("STOR install.sh", file_install)
+
+    file_beta = open("scripts/beta.sh", "rb")
+    session.storbinary("STOR beta.sh", file_beta)
+
+    for currentpath, folders, files in os.walk("site"):
         host_path = currentpath.replace("site", ftp_path)
 
         for folder in folders:
@@ -47,8 +53,8 @@ def ftp_run():
             host_file = os.path.join(host_path, file)
             print(f"   |___{host_file}")
             try:
-                file = open(path_file,'rb')
-                session.storbinary(f'STOR {host_file}', file)
+                file = open(path_file, "rb")
+                session.storbinary(f"STOR {host_file}", file)
             except Exception:
                 pass
 
