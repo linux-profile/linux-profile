@@ -8,7 +8,7 @@ arch=('any')
 url="https://github.com/linux-profile/linux-profile"
 license=('MIT')
 depends=('python')
-makedepends=('git' 'python-docutils' 'python-setuptools')
+makedepends=('git' 'python-docutils' 'python-setuptools' 'python-packaging')
 source=("$pkgname::https://github.com/linux-profile/$pkgname/archive/refs/tags/v$pkgver.tar.gz")
 md5sums=('SKIP')
 
