@@ -31,10 +31,10 @@
 > **Português**: Com a necessidade de automatizar os processos e execução de scripts, surgiu **Linuxp**, projeto desenvolvido em python que tem como objetivo criar um padrão no caos do armazenamento de informações de pacotes, alias, scripts, textos e arquivos em um único local, totalmente personalizável de acordo com o usuário.
 
 ### Quick URLs
+
 - Last Version -> [https://linuxprofile.com/LAST_VERSION](https://linuxprofile.com/LAST_VERSION)
 - Installation -> [https://linuxprofile.com/install.sh](https://linuxprofile.com/install.sh)
 - Uninstallation -> [https://linuxprofile.com/uninstall.sh](https://linuxprofile.com/uninstall.sh)
-
 
 ## [Installation](https://docs.linuxprofile.com/nav/installation/)
 
