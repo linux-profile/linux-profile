@@ -32,33 +32,49 @@
 
 ### Quick URLs
 - Last Version -> [https://linuxprofile.com/LAST_VERSION](https://linuxprofile.com/LAST_VERSION)
-- Install -> [https://linuxprofile.com/install.sh](https://linuxprofile.com/install.sh)
-- Uninstall -> [https://linuxprofile.com/uninstall.sh](https://linuxprofile.com/uninstall.sh)
+- Installation -> [https://linuxprofile.com/install.sh](https://linuxprofile.com/install.sh)
+- Uninstallation -> [https://linuxprofile.com/uninstall.sh](https://linuxprofile.com/uninstall.sh)
 
-### Quick development URLs
-- Beta -> [https://linuxprofile.com/beta.sh](https://linuxprofile.com/beta.sh)
 
 ## [Installation](https://docs.linuxprofile.com/nav/installation/)
 
-- **Install - PIP**
+- **PIP**
 
       pip install linuxp
 
-- **Install - Poetry**
+- **Poetry**
 
       poetry add linuxp
 
-- **Install - Bash/Curl** - **STABLE**
+- **Bash/Curl**
 
       /bin/bash -c "$(curl -fsSL https://linuxprofile.com/install.sh)"
 
-- **Install - Bash/Curl - BETA**
+- **Pacman**
 
-      /bin/bash -c "$(curl -fsSL https://linuxprofile.com/beta.sh)"
+      git clone https://github.com/linux-profile/linux-profile.git
+      cd linux-profile
+      makepkg
+      sudo pacman -U linux-profile-1.0.19-1-any.pkg.tar.zst
 
-- **Uninstall - Bash/Curl**
+
+## [Uninstallation](https://docs.linuxprofile.com/nav/uninstallation/)
+
+- **PIP**
+
+      pip uninstall linuxp
+
+- **Poetry**
+
+      poetry remove linuxp
+
+- **Bash/Curl**
 
       /bin/bash -c "$(curl -fsSL https://linuxprofile.com/uninstall.sh)"
+
+- **Pacman**
+
+      sudo pacman -R linux-profile
 
 ## [Commands](https://docs.linuxprofile.com/)
 

@@ -7,6 +7,7 @@ nav:
     - Home: index.md
     - Details: nav/details.md
     - Installation: nav/installation.md
+    - Uninstallation: nav/uninstallation.md
     - Commands:
         - Config:
             - nav/commands/config/index.md
@@ -40,11 +41,14 @@ theme:
     favicon: assets/linux-profile-icon.ico
     features:
         - navigation.top
+        - content.tabs.link
+        - content.code.copy
 
 markdown_extensions:
   - admonition
   - pymdownx.details
-  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
   - codehilite
   - pymdownx.tabbed:
       alternate_style: true 
@@ -52,6 +56,11 @@ markdown_extensions:
       custom_fences:
         - name: mermaid
           class: mermaid
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+
 
 extra_css:
   - stylesheets/extra.css

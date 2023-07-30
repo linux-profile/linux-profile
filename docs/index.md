@@ -43,35 +43,58 @@
 
 ## [Installation](https://docs.linuxprofile.com/nav/installation/)
 
-### Install - PIP
+=== "PIP"
 
-```bash
-pip install linuxp
-```
+    ```bash
+    pip install linuxp
+    ```
 
-### Install - Poetry
+=== "Poetry"
 
-```bash
-poetry add linuxp
-```
+    ```bash
+    poetry add linuxp
+    ```
 
-### Install - Bash/Curl - STABLE
+=== "Bash/Curl"
 
-```bash
-/bin/bash -c "$(curl -fsSL https://linuxprofile.com/install.sh)"
-```
+    ```bash
+    /bin/bash -c "$(curl -fsSL https://linuxprofile.com/install.sh)"
+    ```
 
-### Install - Bash/Curl - BETA
+=== "Pacman"
 
-```bash
-/bin/bash -c "$(curl -fsSL https://linuxprofile.com/beta.sh)"
-```
+    ```bash
+    git clone https://github.com/linux-profile/linux-profile.git
+    cd linux-profile
+    makepkg
+    sudo pacman -U linux-profile-1.0.19-1-any.pkg.tar.zst
+    ```
 
-### Uninstall - Bash/Curl
+## [Uninstallation](https://docs.linuxprofile.com/nav/uninstallation/)
 
-```bash
-/bin/bash -c "$(curl -fsSL https://linuxprofile.com/uninstall.sh)"
-```
+=== "PIP"
+
+    ```bash
+    pip uninstall linuxp
+    ```
+
+=== "Poetry"
+
+    ```bash
+    poetry remove linuxp
+    ```
+
+=== "Bash/Curl"
+
+    ```bash
+    /bin/bash -c "$(curl -fsSL https://linuxprofile.com/uninstall.sh)"
+    ```
+
+=== "Pacman"
+
+    ```bash
+    sudo pacman -R linux-profile
+    ```
 
 ## [Commands](https://docs.linuxprofile.com/)
 
