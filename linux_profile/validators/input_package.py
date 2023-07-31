@@ -58,10 +58,10 @@ class InputAddPackage(Validator):
 
     def validator_version(self, value=None):
         return value
-    
+
     def validator_url(self, value=None):
         return value
-    
+
     def validator_file(self, value=None):
         return value
 
