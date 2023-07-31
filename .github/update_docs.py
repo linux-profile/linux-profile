@@ -34,6 +34,9 @@ def ftp_run():
     file_install = open("scripts/install.sh", "rb")
     session.storbinary("STOR install.sh", file_install)
 
+    file_uninstall = open("scripts/uninstall.sh", "rb")
+    session.storbinary("STOR uninstall.sh", file_uninstall)
+
     file_beta = open("scripts/beta.sh", "rb")
     session.storbinary("STOR beta.sh", file_beta)
 
