@@ -57,13 +57,13 @@ class InputAddPackage(Validator):
         return cleaning_option(value)
 
     def validator_version(self, value=None):
-        return  value
+        return value
     
     def validator_url(self, value=None):
-        return  value
+        return value
     
     def validator_file(self, value=None):
-        return  value
+        return value
 
     def validator_description(self, value=None):
         value = value if value else 'No description'
