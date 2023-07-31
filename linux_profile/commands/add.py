@@ -30,6 +30,7 @@ class Add(Settings):
             "tag": option(text="Package Tag [default]: "),
             "type": option(text="Package Manager: ", required=True),
             "name": option(text="Package Name: ", required=True),
+            "version": option(text="Package Version: "),
             "url": option(text="Package URL: "),
             "file": option(text="Package File: "),
             "description": option(text="Package Description [limit 85]: ")}

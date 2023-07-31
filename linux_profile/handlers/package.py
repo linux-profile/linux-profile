@@ -61,6 +61,9 @@ class HandlerPackage(System):
         self.setup_system()
 
     def setup_pip(self):
+        if hasattr(self, 'version'):
+            self.name = f"{self.name}=={self.version}"
+
         if self.command == 'install':
             self.setup_system()
 
