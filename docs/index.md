@@ -98,7 +98,6 @@
 
 ## [Commands](https://docs.linuxprofile.com/)
 
-
 | Command               | Description                                                                           | Docs                                   |
 |:--------------------- |:------------------------------------------------------------------------------------- | :------------------------------------: | 
 | ``linuxp config``     | Settings file management.                                                             | [Link](https://docs.linuxprofile.com/nav/commands/config/) |
@@ -108,7 +107,6 @@
 | ``linuxp install``    | This parameter is used to install the modules, **package**, **alias** and **script**. | [Link](https://docs.linuxprofile.com/nav/commands/install/) |
 | ``linuxp uninstall``  | Command used to uninstall items. Be **very careful** when running.                    | [Link](https://docs.linuxprofile.com/nav/commands/uninstall/) |
 | ``linuxp list``       | Lists all modules in the terminal and can also apply filters to find items.           | [Link](https://docs.linuxprofile.com/nav/commands/list/) |
-
 
 ## Example Profile File
 
