@@ -17,7 +17,12 @@ nav:
             - nav/commands/profile/exemple.md
         - Add:
             - nav/commands/add/index.md
-            - nav/commands/add/exemple.md
+            - Exempple:
+                - nav/commands/add/package.md
+                - nav/commands/add/alias.md
+                - nav/commands/add/script.md
+                - nav/commands/add/text.md
+                - nav/commands/add/file.md
         - Remove:
             - nav/commands/remove/index.md
             - nav/commands/remove/exemple.md
