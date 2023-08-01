@@ -14,6 +14,7 @@ class System:
         self.debug_command = None
         self.command = 'exec'
         self.type = 'default'
+        self.args = ''
 
         for arg in kwargs:
             value = kwargs.get(arg)

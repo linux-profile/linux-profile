@@ -28,8 +28,10 @@ class Install(Settings):
 
         if self.group:
             type_packages = {}
+
             for item in data:
                 item_type = item["type"]
+
                 if not type_packages.get(item_type):
                     item_name = []
                     type_packages[item_type] = dict(
@@ -42,18 +44,24 @@ class Install(Settings):
             for package in type_packages:
                 data_package = type_packages.get(package)
                 data_package["name"] = " ".join(data_package.get("name"))
+
                 HandlerPackage(
                     sudo=self.sudo,
                     debug=self.debug,
-                    **data_package)
+                    args=self.args,
+                    **data_package
+                )
 
         else:
             for item in data:
                 item["command"] = self.command
+
                 HandlerPackage(
                     sudo=self.sudo,
                     debug=self.debug,
-                    **item)
+                    args=self.args,
+                    **item
+                )
 
     def install_alias(self):
         data = self.action.deep_search(
@@ -66,7 +74,8 @@ class Install(Settings):
             HandlerAlias(
                 sudo=self.sudo,
                 debug=self.debug,
-                **item)
+                **item
+            )
 
     def install_script(self):
         data = self.action.deep_search(
@@ -81,4 +90,5 @@ class Install(Settings):
                 debug=self.debug,
                 **item,
                 **dict(temp=self.path_temp),
-                **self.config)
+                **self.config
+            )

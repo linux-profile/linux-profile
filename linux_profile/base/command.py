@@ -31,7 +31,9 @@ class Command:
         'debug',
         'group',
         'field',
-        'print']
+        'print',
+        'args'
+    ]
 
     def __init__(self, parser, arguments) -> None:
         self.parser = parser
@@ -167,6 +169,7 @@ class BaseCommand:
         self.cmd_install.add_argument('--sudo', action='store_true', help=help_sudo)
         self.cmd_install.add_argument('--debug', action='store_true', help=help_debug)
         self.cmd_install.add_argument('--group', action='store_true', help=help_group)
+        self.cmd_install.add_argument('-a', '--args')
 
     def setup_uninstall(self):
         self.cmd_uninstall = self.subparsers.add_parser(
@@ -183,6 +186,7 @@ class BaseCommand:
         self.cmd_uninstall.add_argument('--sudo', action='store_true', help=help_sudo)
         self.cmd_uninstall.add_argument('--debug', action='store_true', help=help_debug)
         self.cmd_uninstall.add_argument('--group', action='store_true', help=help_group)
+        self.cmd_uninstall.add_argument('-a', '--args')
 
     def setup_list(self):
         self.cmd_list = self.subparsers.add_parser(

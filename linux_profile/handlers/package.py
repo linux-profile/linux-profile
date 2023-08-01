@@ -4,7 +4,16 @@ from linux_profile.base.system import System
 class HandlerPackage(System):
 
     def setup_system(self, parameter: list = []):
-        command = [self.type, self.command, self.name, " ".join(parameter)]
+        if self.args:
+            self.args = f"--{self.args}"
+
+        command = [
+            self.type,
+            self.command,
+            self.name,
+            " ".join(parameter),
+            self.args
+        ]
         self.system(cmd=command)
 
     def setup_apt_get(self):
