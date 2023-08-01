@@ -9,7 +9,7 @@ linuxp install --help
 
 =============== Output ===============
 
-usage: linuxp install [-h] -m {package,alias,script} [-t TAG] [-i ITEM] [--sudo] [--debug] [--group]
+usage: linuxp install [-h] -m {package,alias,script} [-t TAG] [-i ITEM] [--sudo] [--debug] [--group] [-a ARGS]
 
 options:
   -h, --help            show this help message and exit
@@ -21,6 +21,7 @@ Usage: linuxp install [OPTIONS]:
   --sudo                Run the command with system root permissions.
   --debug               Run a command in test mode. It only shows the command.
   --group               Group items for executing a command.
+  -a ARGS, --args ARGS
 
 =============== Output ===============
 ```
@@ -39,6 +40,7 @@ graph TD
     option_i --->|add| arg_i_sudo[sudo]
     option_i --->|add| arg_i_debug[debug]
     option_i --->|add| arg_i_group[group]
+    option_i --->|add| arg_i_args[args]
 
     style arg_i_module fill:#BFD7ED,stroke:#333
     style arg_i_tag fill:#BFD7ED,stroke:#333
@@ -46,6 +48,7 @@ graph TD
     style arg_i_sudo fill:#B1D8B7,stroke:#333
     style arg_i_debug fill:#B1D8B7,stroke:#333
     style arg_i_group fill:#B1D8B7,stroke:#333
+    style arg_i_args fill:#BFD7ED,stroke:#333
 
     style L fill:#ededed,stroke:#333
     style i fill:#ededed,stroke:#333
