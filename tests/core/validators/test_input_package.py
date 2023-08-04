@@ -102,6 +102,7 @@ def test_validator_input_package_generate_all_success():
         "tag": None,
         "name": names,
         "type": "pacman",
+        "version": None,
         "url": None,
         "file": None,
         "description": None}

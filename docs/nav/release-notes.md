@@ -1,5 +1,10 @@
 # Release Notes
 
+### v1.0.20
+
+- [📦 PyPI - Build 1.0.20](https://github.com/linux-profile/linux-profile/releases/tag/v1.0.20)
+- [📌 ISSUE-174 - Building PKGBUILD](https://github.com/linux-profile/linux-profile/issues/174)
+
 ### v1.0.19
 
 - [📦 PyPI - Build 1.0.19](https://github.com/linux-profile/linux-profile/releases/tag/v1.0.19)

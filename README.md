@@ -31,29 +31,51 @@
 > **Português**: Com a necessidade de automatizar os processos e execução de scripts, surgiu **Linuxp**, projeto desenvolvido em python que tem como objetivo criar um padrão no caos do armazenamento de informações de pacotes, alias, scripts, textos e arquivos em um único local, totalmente personalizável de acordo com o usuário.
 
 ### Quick URLs
-- Last Version -> [https://linuxprofile.com/LAST_VERSION](https://linuxprofile.com/LAST_VERSION)
-- Stable -> [https://linuxprofile.com/install.sh](https://linuxprofile.com/install.sh)
 
-### Quick development URLs
-- Beta -> [https://linuxprofile.com/beta.shz](https://linuxprofile.com/beta.shz)
+- Last Version -> [https://linuxprofile.com/LAST_VERSION](https://linuxprofile.com/LAST_VERSION)
+- Installation -> [https://linuxprofile.com/install.sh](https://linuxprofile.com/install.sh)
+- Uninstallation -> [https://linuxprofile.com/uninstall.sh](https://linuxprofile.com/uninstall.sh)
 
 ## [Installation](https://docs.linuxprofile.com/nav/installation/)
 
-- **Install - Pypi/PIP**
+- **PIP**
 
-      pip install -U linuxp
+      pip install linuxp
 
-- **Install - Shell/Curl** - **STABLE**
+- **Poetry**
+
+      poetry add linuxp
+
+- **Bash/Curl**
 
       /bin/bash -c "$(curl -fsSL https://linuxprofile.com/install.sh)"
 
+- **Pacman**
 
-- **Install - Shell/Curl - BETA**
+      git clone https://github.com/linux-profile/linux-profile.git
+      cd linux-profile
+      makepkg
+      sudo pacman -U linux-profile-1.0.19-1-any.pkg.tar.zst
 
-      /bin/bash -c "$(curl -fsSL https://linuxprofile.com/beta.sh)"
+## [Uninstallation](https://docs.linuxprofile.com/nav/uninstallation/)
+
+- **PIP**
+
+      pip uninstall linuxp
+
+- **Poetry**
+
+      poetry remove linuxp
+
+- **Bash/Curl**
+
+      /bin/bash -c "$(curl -fsSL https://linuxprofile.com/uninstall.sh)"
+
+- **Pacman**
+
+      sudo pacman -R linux-profile
 
 ## [Commands](https://docs.linuxprofile.com/)
-
 
 | Command               | Description                                                                           | Docs                                   |
 |:--------------------- |:------------------------------------------------------------------------------------- | :------------------------------------: | 
@@ -64,7 +86,6 @@
 | ``linuxp install``    | This parameter is used to install the modules, **package**, **alias** and **script**. | [Link](https://docs.linuxprofile.com/nav/commands/install/) |
 | ``linuxp uninstall``  | Command used to uninstall items. Be **very careful** when running.                    | [Link](https://docs.linuxprofile.com/nav/commands/uninstall/) |
 | ``linuxp list``       | Lists all modules in the terminal and can also apply filters to find items.           | [Link](https://docs.linuxprofile.com/nav/commands/list/) |
-
 
 ## Example Profile File
 

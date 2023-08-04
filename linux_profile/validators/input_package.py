@@ -56,6 +56,15 @@ class InputAddPackage(Validator):
 
         return cleaning_option(value)
 
+    def validator_version(self, value=None):
+        return value
+
+    def validator_url(self, value=None):
+        return value
+
+    def validator_file(self, value=None):
+        return value
+
     def validator_description(self, value=None):
         value = value if value else 'No description'
         if len(value) > 85:
@@ -74,6 +83,7 @@ class InputAddPackage(Validator):
                 tag=self.tag,
                 type=self.type,
                 name=self.validator_name(field),
+                version=self.version,
                 url=self.url,
                 file=self.file,
                 description=self.description

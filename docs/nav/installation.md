@@ -1,17 +1,26 @@
-### Install - Pypi/PIP
+### PIP
 
 ```bash
-pip install -U linuxp
+pip install linuxp
 ```
 
-### Install - Shell/Curl - STABLE
+### Poetry
+
+```bash
+poetry add linuxp
+```
+
+### Bash/Curl
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://linuxprofile.com/install.sh)"
 ```
 
-### Install - Shell/Curl - BETA
+### Pacman
 
 ```bash
-/bin/bash -c "$(curl -fsSL https://linuxprofile.com/beta.sh)"
+git clone https://github.com/linux-profile/linux-profile.git
+cd linux-profile
+makepkg
+sudo pacman -U linux-profile-1.0.19-1-any.pkg.tar.zst
 ```

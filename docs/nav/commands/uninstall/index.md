@@ -7,7 +7,7 @@ linuxp uninstall --help
 
 =============== Output ===============
 
-usage: linuxp uninstall [-h] -m {package,alias,script} [-t TAG] [-i ITEM] [--sudo] [--debug] [--group]
+usage: linuxp uninstall [-h] -m {package,alias,script} [-t TAG] [-i ITEM] [--sudo] [--debug] [--group] [-a ARGS]
 
 options:
   -h, --help            show this help message and exit
@@ -19,6 +19,7 @@ Usage: linuxp uninstall [OPTIONS]:
   --sudo                Run the command with system root permissions.
   --debug               Run a command in test mode. It only shows the command.
   --group               Group items for executing a command.
+  -a ARGS, --args ARGS
 
 =============== Output ===============
 ```
@@ -37,6 +38,7 @@ graph TD
     option_u --->|add| arg_u_sudo[sudo]
     option_u --->|add| arg_u_debug[debug]
     option_u --->|add| arg_u_group[group]
+    option_u --->|add| arg_u_args[args]
 
     style arg_u_module fill:#BFD7ED,stroke:#333
     style arg_u_tag fill:#BFD7ED,stroke:#333
@@ -44,6 +46,7 @@ graph TD
     style arg_u_sudo fill:#B1D8B7,stroke:#333
     style arg_u_debug fill:#B1D8B7,stroke:#333
     style arg_u_group fill:#B1D8B7,stroke:#333
+    style arg_u_args fill:#BFD7ED,stroke:#333
 
     style L fill:#ededed,stroke:#333
     style u fill:#ededed,stroke:#333
