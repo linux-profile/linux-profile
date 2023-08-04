@@ -4,6 +4,7 @@
 
 - [📦 PyPI - Build 1.0.20](https://github.com/linux-profile/linux-profile/releases/tag/v1.0.20)
 - [📌 ISSUE-174 - Building PKGBUILD](https://github.com/linux-profile/linux-profile/issues/174)
+- [📌 ISSUE-173 - Include package versioning in the profile structure](https://github.com/linux-profile/linux-profile/issues/173)
 
 ### v1.0.19
 
