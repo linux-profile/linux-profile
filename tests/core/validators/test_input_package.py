@@ -22,7 +22,7 @@ types = [
     'poetry',
     'conda',
     'gem',
-    'npm'
+    'npm',
     'yarn',
     'port',
     'fink'
