@@ -63,7 +63,10 @@ class Add(Settings):
             path = self.Base.path_temp.joinpath("temp_script")
             editor = input(f"Enter text editor [{self.text_editor}]: ") or self.text_editor
 
-            System().system(cmd=[editor, str(path)])
+            exit_code = System().system(cmd=[editor, str(path)])
+            if exit_code != 0:
+                raise RuntimeError(
+                    f"Editor '{editor}' exited with code {exit_code}. Script not saved.")
 
             if path.exists():
                 body = File.read(path_file=path).splitlines()
