@@ -58,11 +58,24 @@ class Add(Settings):
         )
 
     def add_script(self):
+
+        def option_body():
+            path = self.Base.path_temp.joinpath("temp_script")
+            editor = input(f"Enter text editor [{self.text_editor}]: ") or self.text_editor
+
+            System().system(cmd=[editor, str(path)])
+
+            if path.exists():
+                body = File.read(path_file=path).splitlines()
+                path.unlink()
+                return body
+            return []
+
         fields = InputAddScript(**{
             "tag": option(text="Script Tag [default]: "),
             "type": option(text="Script Type: ", required=True),
             "name": option(text="Script Name: ", required=True),
-            "body": option(text="Script Body: ", required=True, body=True),
+            "body": option_body(),
             "shebang": option(text="Script Shebang: "),
             "description": option(text="Package Description [limit 85]: ")}
         )
