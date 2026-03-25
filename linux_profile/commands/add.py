@@ -1,3 +1,7 @@
+import os
+import tempfile
+from pathlib import Path
+
 from linux_profile.base.file import File
 from linux_profile.base.system import System
 from linux_profile.base.action import Action
@@ -60,7 +64,10 @@ class Add(Settings):
     def add_script(self):
 
         def option_body():
-            path = self.Base.path_temp.joinpath("temp_script")
+            fd, tmp = tempfile.mkstemp(
+                prefix="linuxp_script_", dir=self.Base.path_temp)
+            os.close(fd)
+            path = Path(tmp)
             editor = input(f"Enter text editor [{self.text_editor}]: ") or self.text_editor
 
             exit_code = System().system(cmd=[editor, str(path)])
