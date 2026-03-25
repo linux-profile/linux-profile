@@ -41,8 +41,9 @@ class System:
         if self.debug:
             self.debug_command = cmd
             print(cmd)
+            return 0
         else:
-            _system(cmd)
+            return _system(cmd)
 
     def setup_default(self):
         return "Method not Implemented"
