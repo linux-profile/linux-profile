@@ -69,8 +69,10 @@ class Add(Settings):
                     f"Editor '{editor}' exited with code {exit_code}. Script not saved.")
 
             if path.exists():
-                body = File.read(path_file=path).splitlines()
-                path.unlink()
+                try:
+                    body = File.read(path_file=path).splitlines()
+                finally:
+                    path.unlink(missing_ok=True)
                 return body
             return []
 
