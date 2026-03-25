@@ -74,7 +74,7 @@ class Add(Settings):
                 finally:
                     path.unlink(missing_ok=True)
                 return body
-            return []
+            raise ValueError("No script body provided — editor exited without saving.")
 
         fields = InputAddScript(**{
             "tag": option(text="Script Tag [default]: "),
