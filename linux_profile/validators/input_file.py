@@ -2,7 +2,8 @@ from linux_profile.base.validator import Validator
 from linux_profile.utils.text import slugify, cleaning_option
 from linux_profile.base.error import (
     ErrorOptionIsMissing,
-    ErrorInvalidValue
+    ErrorInvalidValue,
+    ErrorArgumentIsInvalid,
 )
 
 
@@ -14,6 +15,13 @@ class InputAddFile(Validator):
     def validator_name(self, value=None):
         if not value:
             raise ErrorOptionIsMissing('File Name')
+
+        # Security: reject path traversal and directory components
+        if '..' in value or '/' in value or '\\' in value:
+            raise ErrorArgumentIsInvalid(
+                argument='--name',
+                error="File name must not contain path separators or '..'.")
+
         return value
 
     def validator_file_path(self, value=None):
