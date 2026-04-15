@@ -29,7 +29,12 @@ jobs:
               owner,
               repo,
               issue_number: pr.number,
-              body: `⚠️ **Base branch changed to \\`develop\\`**\n\nThis PR was targeting \\`${pr.base.ref}\\`. All PRs must target \\`develop\\` — the base branch has been updated automatically.`,
+              body: [
+                '⚠️ **Base branch changed to `develop`**',
+                '',
+                `This PR was targeting \`${pr.base.ref}\`.`,
+                'All PRs must target `develop` — the base branch has been updated automatically.',
+              ].join('\n'),
             });
 
             console.log(`PR #${pr.number}: base changed from '${pr.base.ref}' to 'develop'`);
