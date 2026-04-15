@@ -14,7 +14,7 @@ class HandlerPackage(System):
             " ".join(parameter),
             self.args
         ]
-        self.system(cmd=command)
+        self.system(cmd=[c for c in command if c and c.strip()])
 
     def setup_apt_get(self):
         if self.command == 'install':
