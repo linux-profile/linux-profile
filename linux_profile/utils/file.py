@@ -3,7 +3,7 @@ def write_file(
         path_file: str,
         type_file: str = '',
         mode: str = 'w') -> str:
-    with open(path_file + type_file, mode) as outfile:
+    with open(path_file + type_file, mode, encoding='utf-8') as outfile:
         outfile.write(content)
 
 
@@ -26,7 +26,7 @@ def write_lines_file(
         path_file: str,
         type_file: str = '',
         mode: str = 'w') -> list:
-    with open(path_file + type_file, mode) as outfile:
+    with open(path_file + type_file, mode, encoding='utf-8') as outfile:
         outfile.writelines(content)
 
 
