@@ -44,5 +44,7 @@ class System:
         else:
             _system(cmd)
 
-    def setup_default(self):
-        return "Method not Implemented"
+    def setup_default(self) -> None:
+        raise NotImplementedError(
+            f"{self.__class__.__name__} must implement setup_default()"
+        )
