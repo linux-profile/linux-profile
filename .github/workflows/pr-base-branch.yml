@@ -1,0 +1,40 @@
+name: Enforce PR base branch
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  redirect-to-develop:
+    runs-on: ubuntu-latest
+    if: github.event.pull_request.base.ref != 'develop'
+    steps:
+      - name: Update base branch to develop
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const pr = context.payload.pull_request;
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+
+            await github.rest.pulls.update({
+              owner,
+              repo,
+              pull_number: pr.number,
+              base: 'develop',
+            });
+
+            await github.rest.issues.createComment({
+              owner,
+              repo,
+              issue_number: pr.number,
+              body: [
+                '⚠️ **Base branch changed to `develop`**',
+                '',
+                `This PR was targeting \`${pr.base.ref}\`.`,
+                'All PRs must target `develop` — the base branch has been updated automatically.',
+              ].join('\n'),
+            });
+
+            console.log(`PR #${pr.number}: base changed from '${pr.base.ref}' to 'develop'`);

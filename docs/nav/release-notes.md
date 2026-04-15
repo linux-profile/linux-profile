@@ -1,5 +1,10 @@
 # Release Notes
 
+### v1.0.21
+
+- [📦 PyPI - Build 1.0.21](https://github.com/linux-profile/linux-profile/releases/tag/v1.0.21)
+- [📌 ISSUE-179 - Adjust packages available for installation](https://github.com/linux-profile/linux-profile/issues/179)
+
 ### v1.0.20
 
 - [📦 PyPI - Build 1.0.20](https://github.com/linux-profile/linux-profile/releases/tag/v1.0.20)

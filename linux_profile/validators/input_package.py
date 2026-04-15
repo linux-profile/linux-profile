@@ -26,7 +26,7 @@ class InputAddPackage(Validator):
         'poetry',
         'conda',
         'gem',
-        'npm'
+        'npm',
         'yarn',
         'port',
         'fink'
