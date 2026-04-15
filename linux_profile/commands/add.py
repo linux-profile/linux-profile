@@ -1,3 +1,7 @@
+import os
+import tempfile
+from pathlib import Path
+
 from linux_profile.base.file import File
 from linux_profile.base.system import System
 from linux_profile.base.action import Action
@@ -58,11 +62,32 @@ class Add(Settings):
         )
 
     def add_script(self):
+
+        def option_body():
+            fd, tmp = tempfile.mkstemp(
+                prefix="linuxp_script_", dir=self.Base.path_temp)
+            os.close(fd)
+            path = Path(tmp)
+            editor = input(f"Enter text editor [{self.text_editor}]: ") or self.text_editor
+
+            exit_code = System().system(cmd=[editor, str(path)])
+            if exit_code != 0:
+                raise RuntimeError(
+                    f"Editor '{editor}' exited with code {exit_code}. Script not saved.")
+
+            if path.exists():
+                try:
+                    body = File.read(path_file=path).splitlines()
+                finally:
+                    path.unlink(missing_ok=True)
+                return body
+            raise ValueError("No script body provided — editor exited without saving.")
+
         fields = InputAddScript(**{
             "tag": option(text="Script Tag [default]: "),
             "type": option(text="Script Type: ", required=True),
             "name": option(text="Script Name: ", required=True),
-            "body": option(text="Script Body: ", required=True, body=True),
+            "body": option_body(),
             "shebang": option(text="Script Shebang: "),
             "description": option(text="Package Description [limit 85]: ")}
         )

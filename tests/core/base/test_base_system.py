@@ -23,3 +23,21 @@ def test_base_system_standard_variables_check():
     assert item.sudo == False
     assert item.command == 'exec'
     assert item.type == 'default'
+
+
+def test_base_system_method_returns_zero_in_debug_mode():
+    item = SystemTest(debug=True)
+    result = item.system(cmd=["echo", "hello"])
+    assert result == 0
+
+
+def test_base_system_method_returns_zero_on_success():
+    item = SystemTest()
+    result = item.system(cmd=["true"])
+    assert result == 0
+
+
+def test_base_system_method_returns_nonzero_on_failure():
+    item = SystemTest()
+    result = item.system(cmd=["false"])
+    assert result != 0
