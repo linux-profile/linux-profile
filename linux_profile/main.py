@@ -127,8 +127,10 @@ class BuildCommand:
         self.command.cmd_list.set_defaults(exec=CommandList)
         self.setup()
 
-    def setup(self) -> str:
-        return "Method not Implemented"
+    def setup(self) -> None:
+        raise NotImplementedError(
+            f"{self.__class__.__name__} must implement setup()"
+        )
 
 
 def main():

@@ -47,8 +47,10 @@ class Settings:
 
         self.setup()
 
-    def setup(self) -> str:
-        return "Method not Implemented"
+    def setup(self) -> None:
+        raise NotImplementedError(
+            f"{self.__class__.__name__} must implement setup()"
+        )
 
     def _load_attributes(self) -> None:
         for attribute in ['Base', 'Variable']:
