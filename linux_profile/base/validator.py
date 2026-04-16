@@ -12,7 +12,7 @@ class Validator():
         self.id = self.get_uuid()
 
         for arg in kwargs:
-            value = kwargs.get(arg) if kwargs.get(arg) else None
+            value = kwargs.get(arg) if kwargs.get(arg) is not None else None
             setattr(self, arg, value)
 
             if hasattr(self, "validator_" + arg):
