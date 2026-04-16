@@ -65,11 +65,11 @@ class Search:
 
         if module is not None:
             lvl = 3
-        if module and tag is not None:
+        elif module and tag is not None:
             lvl = 2
-        if module and tag and key and value is not None:
+        elif module and tag and key and value is not None:
             lvl = 1
-        if module and key and value is not None:
+        elif module and key and value is not None:
             lvl = 0
 
         # Search by parameter of [module], [tag], [key] and [value].
