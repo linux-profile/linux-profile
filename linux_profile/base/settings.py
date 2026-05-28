@@ -82,7 +82,9 @@ class Settings:
             for attr in self.attr_variable:
                 data_config.update({attr: getattr(self, attr)})
             File.write(path_file=path_config, content=data_config)
-            self._load_config()
+            self.config = data_config
+            for attr in self.attr_variable:
+                setattr(self, attr, data_config[attr])
 
     def _load_profile(self):
         path_profile = str(self.path_profile.joinpath(self.file_profile))
@@ -90,7 +92,7 @@ class Settings:
             self.profile = loads(File.read(path_file=path_profile))
         except Exception:
             File.write(path_file=path_profile, content={})
-            self._load_profile()
+            self.profile = {}
 
     @classmethod
     def join(cls, value: list, separator: str = "/") -> str:
